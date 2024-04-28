@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .navUl {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 50;
+    background-color: #fff;
+    color: gray;
+    padding: 8px 0;
+    width: calc(100% + 100px);
+    border-radius: 8px;
+    flex-direction: column;
+    box-shadow: 0 2px 1px 1px rgb(196, 196, 196);
+  }
+  .prLi:hover .navUl {
+    display: flex;
+  }
+  .prLi1:hover .navUl {
+    display: flex;
+  }
+  .prLi2:hover .navUl {
+    display: flex;
+  }
+  .prLi3:hover .navUl {
+    display: flex;
+  }
+  /* people detail  */
+  #mydis {
+    opacity: 0;
+    visibility: hidden;
+  }
+  #myDiscussion:hover #mydis {
+    opacity: 1;
+    visibility: visible;
+  }
+  .active {
+    border-bottom: 2px solid black;
+    transition: all linear 0.5s;
+  }
+  /* progress abr  */
+  .radial-progress {
+    height: 60px !important;
+    width: 60px !important;
+    background-color: #ffffff !important;
+    --thickness: calc(var(--size) / 10) !important;
+  }
+  .radial-progress:after {
+    transform: rotate(calc(var(--value) * 3.6deg - 90deg))
+      translate(calc(var(--size) / 2.7 - 50%)) !important;
+    background-color: currentColor;
+  }
+  .myProgress:after {
+    transform: rotate(calc(var(--value) * 3.6deg - 90deg))
+      translate(calc(var(--size) / 4.7 - 50%)) !important;
+  }
+  .myProgress {
+    height: 34px !important;
+    width: 34px !important;
+    background-color: #ffffff !important;
+    --thickness: calc(var(--size) / 20) !important;
+  }
+  .detailItem {
+    text-shadow: 0px 0px 10px #000;
+  }
+  .noshadow {
+    text-shadow: none;
+  }
+  .dImage .xpnd {
+    transition: all linear 0.2s;
+    cursor: pointer;
+  }
+  .dImage:hover .xpnd {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  .swiper .swiper-button-prev,
+  .swiper-button-next {
+    top: calc(100% - 26px) !important;
+  }
+  .swiper .swiper-button-prev {
+    left: 63% !important;
+  }
+  .swiper .swiper-button-prev::after {
+    font-size: 26px !important;
+  }
+  .swiper .swiper-button-next::after {
+    font-size: 26px !important;
+  }
+
+  /* switch  */
+  .leftSwitch {
+    transform: translateX(0px);
+    transition: all linear 0.2s !important;
+
+    animation: rswitch 0.8s linear;
+  }
+  .rightSwitch {
+    transform: translateX(86px);
+    transition: all linear 0.2s !important;
+    animation: rswitch1 0.8s linear;
+  }
+  @keyframes rswitch {
+    0% {
+      box-shadow: 0 0 0 0 gray;
+    }
+    20% {
+      box-shadow: 0 0 10px 1px rgba(128, 128, 128, 0.472);
+    }
+    100% {
+      box-shadow: 0 0 0 0 gray;
+    }
+  }
+  @keyframes rswitch1 {
+    0% {
+      box-shadow: 0 0 0 0 gray;
+    }
+    20% {
+      box-shadow: 0 0 10px 1px rgba(128, 128, 128, 0.5);
+    }
+    100% {
+      box-shadow: 0 0 0 0 gray;
+    }
+  }
+}
