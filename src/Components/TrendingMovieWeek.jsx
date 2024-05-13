@@ -3,18 +3,18 @@ import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 
 function TrendingMovieWeek() {
-  const trendUrl = `https://api.themoviedb.org/3/trending/movie/week?language=en-US', options`;
-  const apiKey = `&api_key=629353605eab6723aee2f62b54183d48`;
+  const apiKey = `api_key=629353605eab6723aee2f62b54183d48`;
+  const trendUrl = `https://api.themoviedb.org/3/trending/movie/week?${apiKey}&language=en-US', options`;
 
   const [trends, setTrends] = useState([]);
   const trendMovie = async () => {
-    const res = await fetch(trendUrl + apiKey);
+    const res = await fetch(trendUrl);
     const data = await res.json();
     setTrends(data.results);
   };
   useEffect(() => {
     trendMovie();
-  }, [trends]);
+  }, []);
   return (
     <>
       <section>
