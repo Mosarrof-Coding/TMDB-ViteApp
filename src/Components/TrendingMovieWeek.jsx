@@ -5,6 +5,7 @@ import MovieCard from "./MovieCard";
 function TrendingMovieWeek() {
   const apiKey = `api_key=629353605eab6723aee2f62b54183d48`;
   const trendUrl = `https://api.themoviedb.org/3/trending/movie/week?${apiKey}&language=en-US', options`;
+  const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   const [trends, setTrends] = useState([]);
   const trendMovie = async () => {
@@ -22,7 +23,7 @@ function TrendingMovieWeek() {
           <div className="trenWrap flex gap-4 overflow-x-auto">
             {trends.map((movie) => (
               <div key={movie.id} className="min-w-[160px] mb-4">
-                <MovieCard key={movie.id} movie={movie} />
+                <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
               </div>
             ))}
           </div>

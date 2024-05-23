@@ -3,10 +3,9 @@
 import { Link } from "react-router-dom";
 // import { useParams } from "react-router-dom";
 
-function Pop0Picture({ movie, win }) {
+function Pop0Picture({ movie, win, imgUrl }) {
   // const id = useParams();
   const { id, poster_path, original_title, vote_average } = movie;
-  const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   // user score
   let percent = vote_average

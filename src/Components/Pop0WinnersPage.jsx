@@ -48,6 +48,7 @@ function Pop0WinnersPage() {
   const [isMouseOver, setIsMouseOver] = useState(false);
   const [isMouseOver3, setIsMouseOver3] = useState(false);
 
+  const imgUrl = `https://image.tmdb.org/t/p/original/`;
   const fetchWinners = async () => {
     try {
       const res = await fetch(
@@ -329,7 +330,12 @@ function Pop0WinnersPage() {
                   key={movie.id}
                   className="border max-w-full col-span-6 sm:col-span-4 md:col-span-3 lg:col-span-2 rounded-lg overflow-hidden"
                 >
-                  <Pop0Picture key={movie.id} movie={movie} win={win} />
+                  <Pop0Picture
+                    key={movie.id}
+                    movie={movie}
+                    win={win}
+                    imgUrl={imgUrl}
+                  />
                 </ul>
               ))}
             </div>
@@ -350,6 +356,7 @@ function Pop0WinnersPage() {
                         key={directors.id}
                         directors={directors}
                         dWin={dWin}
+                        imgUrl={imgUrl}
                       />
                     </ul>
                   )
@@ -374,6 +381,7 @@ function Pop0WinnersPage() {
                         key={editor.id}
                         editor={editor}
                         popEdit={popEdit}
+                        imgUrl={imgUrl}
                       />
                     </div>
                   )
@@ -398,6 +406,7 @@ function Pop0WinnersPage() {
                         key={produce.id}
                         produce={produce}
                         popProduce={popProduce}
+                        imgUrl={imgUrl}
                       />
                     </div>
                   )
@@ -420,6 +429,7 @@ function Pop0WinnersPage() {
                         key={write.id}
                         write={write}
                         popWrite={popWrite}
+                        imgUrl={imgUrl}
                       />
                     </div>
                   )
@@ -444,6 +454,7 @@ function Pop0WinnersPage() {
                         key={anomation.id}
                         anomation={anomation}
                         popAnimation={popAnimation}
+                        imgUrl={imgUrl}
                       />
                     </div>
                   )
@@ -469,6 +480,7 @@ function Pop0WinnersPage() {
                         key={actor.id}
                         actor={actor}
                         popActor={popActor}
+                        imgUrl={imgUrl}
                       />
                     </div>
                   )
@@ -491,6 +503,7 @@ function Pop0WinnersPage() {
                         key={actress.id}
                         actress={actress}
                         popActresses={popActresses}
+                        imgUrl={imgUrl}
                       />
                     </div>
                   )

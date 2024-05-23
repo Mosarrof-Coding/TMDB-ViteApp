@@ -6,6 +6,7 @@ import { Button } from "@material-tailwind/react";
 function DiscoverMovie() {
   const [page, setPage] = useState(1);
   const [discmovies, setDiscmovies] = useState([]);
+  const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   const discMoviesShow = async () => {
     const res = await fetch(
@@ -36,7 +37,7 @@ function DiscoverMovie() {
                 key={movie.id}
                 className="max-w-[156px] text-sm border rounded-md overflow-hidden hover:shadow-md"
               >
-                <MovieCard key={movie.id} movie={movie} />
+                <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
               </div>
             ))}
           </div>

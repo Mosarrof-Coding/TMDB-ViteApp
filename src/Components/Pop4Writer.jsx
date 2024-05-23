@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-function Pop4Writer({ write, popWrite }) {
+function Pop4Writer({ write, popWrite, imgUrl }) {
   const { id, profile_path, name, popularity } = write;
-  const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   // user score
   let percent = popularity ? popularity : "20";

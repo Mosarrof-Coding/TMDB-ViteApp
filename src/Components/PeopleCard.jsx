@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-function PeopleCard({ people }) {
+function PeopleCard({ people, imgUrl }) {
   const { id, name, profile_path } = people;
   // console.log(id);
-  const imgUrl = `https://image.tmdb.org/t/p/original/`;
+  // const imgUrl = `https://image.tmdb.org/t/p/original/`;
   return (
     <>
       <div className="max-w-[200px] border hover:shadow-md rounded-t-md overflow-hidden">

@@ -22,7 +22,6 @@ const MovieCard = ({ movie, imgUrl }) => {
     release_date,
     vote_average,
   } = movie;
-  // const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => {

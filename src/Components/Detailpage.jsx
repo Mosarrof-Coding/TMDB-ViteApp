@@ -854,7 +854,11 @@ function Detailpage() {
                           display: index > 8 && !showAll ? "none" : "block",
                         }}
                       >
-                        <CasterLink key={caster.id} caster={caster} />
+                        <CasterLink
+                          key={caster.id}
+                          caster={caster}
+                          imgUrl={imgUrl}
+                        />
                         <div className="txt py-2 pl-2">
                           <h2 className="text-black text-sm font-medium">
                             {caster.name}
@@ -1077,7 +1081,11 @@ function Detailpage() {
                   {activeTab === "backdrops" && (
                     <div className="my-5 flex overflow-x-auto relative">
                       {backdrops.map((backdrop, index) => (
-                        <Backdrops key={index} backdrop={backdrop} />
+                        <Backdrops
+                          key={index}
+                          backdrop={backdrop}
+                          imgUrl={imgUrl}
+                        />
                       ))}
                     </div>
                   )}

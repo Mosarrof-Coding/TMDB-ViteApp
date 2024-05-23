@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-const CasterLink = ({ caster: { id, profile_path } }) => {
-  const imgUrl = "https://image.tmdb.org/t/p/original";
-
+const CasterLink = ({ caster: { id, profile_path }, imgUrl }) => {
   return (
     <Link to={`/PopularPeopleDetails/${id}`}>
       {profile_path ? (

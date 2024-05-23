@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
-function Backdrops({ backdrop }) {
+function Backdrops({ backdrop, imgUrl }) {
   const { index, file_path } = backdrop;
-  const imgUrl = `https://image.tmdb.org/t/p/original/`;
   return (
     <>
       <div className="max-w-[420px] min-w-[420px] relative" key={index}>

@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-function Pop1Director({ directors, dWin }) {
+function Pop1Director({ directors, dWin, imgUrl }) {
   const { id, profile_path, name, popularity } = directors;
-  const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   // user score
   let percent = popularity ? popularity : "20";

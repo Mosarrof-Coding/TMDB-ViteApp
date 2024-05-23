@@ -6,6 +6,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 function PopularPeople() {
   const apiKey = `&api_key=629353605eab6723aee2f62b54183d48`;
   const baseUrl = "https://api.themoviedb.org/3/person/popular";
+  const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   const [people, setPeople] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
@@ -73,7 +74,7 @@ function PopularPeople() {
           <h2 className="text-black font-bold text-2xl pb-2">Popular People</h2>
           <div className="peopleWrap flex flex-wrap justify-center gap-4">
             {people.map((people) => (
-              <PeopleCard key={people.id} people={people} />
+              <PeopleCard key={people.id} people={people} imgUrl={imgUrl} />
             ))}
           </div>
           <div className="pagination flex justify-center items-center gap-3 py-6 text-black">

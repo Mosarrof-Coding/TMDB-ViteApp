@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-function Pop5Actors({ actor, popActor }) {
+function Pop5Actors({ actor, popActor, imgUrl }) {
   const { id, profile_path, name, popularity } = actor;
-  const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   // user score
   let percent = popularity ? popularity : "20";
