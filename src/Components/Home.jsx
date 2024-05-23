@@ -129,7 +129,7 @@ const Home = () => {
                 <div className="flex gap-5 mb-5">
                   {movies.map((movie) => (
                     <div key={movie.id} className="min-w-[160px] max-w-[260px]">
-                      <MovieCard key={movie.id} movie={movie} />
+                      <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
                     </div>
                   ))}
                 </div>

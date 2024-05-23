@@ -12,6 +12,8 @@ import {
 } from "react-icons/fa";
 import { Button } from "@material-tailwind/react";
 import { IoTriangleSharp } from "react-icons/io5";
+// assets
+import preLoader from "../assets/bigloading.gif";
 
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -56,7 +58,6 @@ function PopularPeopleDetails() {
   const genderMap = {
     1: "Female",
     2: "Male",
-    // Add more mappings as needed
   };
 
   // hover effect
@@ -266,11 +267,7 @@ function PopularPeopleDetails() {
                         className="rounded-lg"
                       />
                     ) : (
-                      <img
-                        src="../../public/bigloading.gif"
-                        alt=""
-                        onLoad={handleLoad}
-                      />
+                      <img src={preLoader} alt="" onLoad={handleLoad} />
                     )}
                   </span>
                 ) : (

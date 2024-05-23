@@ -8,8 +8,10 @@ import {
   BsStarFill,
 } from "react-icons/bs";
 import { useState } from "react";
+// assets
+import loaderGif from "../assets/bigloading.gif";
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, imgUrl }) => {
   const {
     id,
     title,
@@ -20,7 +22,7 @@ const MovieCard = ({ movie }) => {
     release_date,
     vote_average,
   } = movie;
-  const imgUrl = `https://image.tmdb.org/t/p/original/`;
+  // const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => {
@@ -71,12 +73,7 @@ const MovieCard = ({ movie }) => {
               )}
             </Link>
           ) : (
-            <img
-              className=""
-              src="../../public/bigloading.gif"
-              alt=""
-              onLoad={handleLoad}
-            />
+            <img className="" src={loaderGif} alt="" onLoad={handleLoad} />
           )}
 
           {/* daisy progress  */}

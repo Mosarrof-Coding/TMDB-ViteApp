@@ -19,8 +19,8 @@ function AcademyWinnerCard({ imgUrl, awards, id, year, acyear }) {
       </Link>
       <div className="flex flex-col md:flex-row md:gap-2 md:items-center justify-center md:justify-between sm:w-full">
         <div className="">
-          <h4 className="name font-bold text-blue-800">
-            <span className="text-black">Best -</span>{" "}
+          <h4 className="name font-bold ">
+            <span className="text-black">Best </span>{" "}
             {awards?.known_for_department}
           </h4>
           <Link

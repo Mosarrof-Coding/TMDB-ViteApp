@@ -4,6 +4,9 @@ import { IoTriangleSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import AcademyWinnerCard from "./AcademyWinnerCard";
+// assets
+import awardSvg from "../assets/awards.svg";
+import oscarunic from "../assets/oscarunic.png";
 
 function AwardsCard() {
   const { id } = useParams();
@@ -240,7 +243,7 @@ function AwardsCard() {
         <div className="contizer">
           <div className="awarImg py-4 md:py-8 border-b">
             <div className="img max-w-[460px] relative">
-              <img src="../../public/awards.svg" alt="" />
+              <img src={awardSvg} alt="" />
               <p className="text-[#1f0606] pt-2 md:absolute right-8 bottom-0">
                 1 Nomination
               </p>
@@ -249,12 +252,12 @@ function AwardsCard() {
           <div className="py-6 mb-12 md:py-8">
             <h3 className="text-lg text-black font-semibold mb-4 hidden md:block">
               Academy Awards
-            </h3>{" "}
+            </h3>
             <div className="awarImg  flex flex-col md:flex-row md:items-center gap-8">
               <div className="relative">
                 <div className="flex items-center gap-5">
                   <img
-                    src="../../public/oscarunic.png"
+                    src={oscarunic}
                     alt=""
                     className="rounded max-w-[80px] md:max-w-[160px]"
                   />

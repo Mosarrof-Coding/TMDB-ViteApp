@@ -3,6 +3,8 @@ import { IoTriangleSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import AcademyWinnerCard from "./AcademyWinnerCard";
+// assets
+import movieOscars from "../assets/oscarunic.png";
 
 function AwardsCardMovie() {
   const { id } = useParams();
@@ -243,7 +245,7 @@ function AwardsCardMovie() {
               <div className="relative">
                 <div className="flex items-center gap-5">
                   <img
-                    src="../../public/oscarunic.png"
+                    src={movieOscars}
                     alt=""
                     className="rounded max-w-[80px] md:max-w-[160px]"
                   />

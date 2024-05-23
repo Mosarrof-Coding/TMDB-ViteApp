@@ -12,6 +12,9 @@ import Pop5Actors from "./Pop5Actors";
 import Pop5Actress from "./Pop5Actress";
 import MovieHost from "./MovieHost";
 import Pop6Animation from "./Pop6Animation";
+// assets
+import oscars from "../assets/oscars.svg";
+import cup from "../assets/cup.png";
 
 function Pop0WinnersPage() {
   const year = new Date().getFullYear();
@@ -289,7 +292,7 @@ function Pop0WinnersPage() {
         <div className="winBox flex gap-8 max-w-[1630px] mx-auto px-8 py-10">
           <div className="relative w-[140px]">
             <div className="absolute left-0 top-[-10px] max-w-[140px] rounded-md overflow-hidden">
-              <img src="../../public/cup.png" alt="" />
+              <img src={cup} alt="" />
             </div>
           </div>
           <div>
@@ -299,7 +302,7 @@ function Pop0WinnersPage() {
               <li>Aired may 27, {years}</li>
             </ul>
             <div className="oscar max-w-[320px] mt-4">
-              <img src="../../public/oscars.svg" alt="" />
+              <img src={oscars} alt="" />
             </div>
           </div>
         </div>

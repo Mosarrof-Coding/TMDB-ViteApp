@@ -8,13 +8,15 @@ import {
   RxPlusCircled,
 } from "react-icons/rx";
 import { GiCheckMark } from "react-icons/gi";
+// assets
+import loaderGif from "../assets/bigloading.gif";
 
 function PosterPage() {
   const params = useParams();
-  const detailMovieUrl = `https://api.themoviedb.org/3/movie/${params.id}?language=en-US`;
+  const apiKey = `api_key=629353605eab6723aee2f62b54183d48`;
+  const detailMovieUrl = `https://api.themoviedb.org/3/movie/${params.id}?${apiKey}&language=en-US`;
   const fullNameUrl = `https://api.themoviedb.org/3/configuration/languages?api_key=629353605eab6723aee2f62b54183d48`;
   const imgUrl = `https://image.tmdb.org/t/p/original/`;
-  const apiKey = `&api_key=629353605eab6723aee2f62b54183d48`;
 
   const [detail, setDetail] = useState({});
   const [posters, setPosters] = useState([]);
@@ -133,9 +135,7 @@ function PosterPage() {
                       <div className="px-2 py-1 my-1 bg-gray-200 w-full">
                         {poster.iso_639_1 ? (
                           <div className="flex justify-between gap-2">
-                            {/* same name push an item  */}
                             <span>{getFullName(poster.iso_639_1)}</span>
-                            {/* same name.length  */}
                             <span className="w-6 h-6 bg-white rounded-full grid place-items-center">
                               1
                             </span>
@@ -156,20 +156,18 @@ function PosterPage() {
             </div>
             <div className="basis-3/4">
               <div className="backWrap flex flex-wrap justify-evenly gap-4">
-                {posters.map((poster, index) => (
-                  <div key={index} className="">
+                {posters.map((poster) => (
+                  <div key={poster.id} className="">
                     <div className="max-w-[320px] border rounded-lg overflow-hidden shadow">
-                      <div
-                        key={index}
-                        className="max-w-[220px] min-w-[220px] bg-black relative"
-                      >
+                      <div className="max-w-[220px] min-w-[220px] bg-black relative">
                         <Link>
                           {poster.file_path ? (
                             img ? (
                               <img src={imgUrl + poster.file_path} />
                             ) : (
                               <img
-                                src="../../public/bigloading.gif"
+                                src={loaderGif}
+                                alt="loaderGif"
                                 className="w-3/5 m-auto my-16"
                                 onLoad={imgLoad}
                               />
