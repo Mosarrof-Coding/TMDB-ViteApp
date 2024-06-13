@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import AcademyWinnerCard from "./AcademyWinnerCard";
 // assets
+import awardSvg from "../assets/awards.svg";
 import movieOscars from "../assets/oscarunic.png";
 
 function AwardsCardMovie() {
@@ -16,7 +17,7 @@ function AwardsCardMovie() {
   const [isMouseOver1, setIsMouseOver1] = useState(false);
   const [isMouseOver2, setIsMouseOver2] = useState(false);
   const [isMouseOver3, setIsMouseOver3] = useState(false);
-  //   movie state
+  // movie state
   const [awards, setAwards] = useState([]);
 
   const fetcthDetails = async () => {
@@ -231,7 +232,7 @@ function AwardsCardMovie() {
         <div className="contizer">
           <div className="awarImg py-4 md:py-8 border-b">
             <div className="img max-w-[460px] relative">
-              <img src="../../public/awards.svg" alt="" />
+              <img src={awardSvg} alt="svg" />
               <p className="text-[#1f0606] pt-2 md:absolute right-8 bottom-0">
                 1 Nomination
               </p>

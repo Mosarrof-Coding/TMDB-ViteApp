@@ -282,7 +282,7 @@ function Toprated() {
                   key={movie.id}
                   className="movieCard max-w-full sm:max-w-[140px] md:max-w-[160px] xl:max-w-[180px]"
                 >
-                  <MovieCard movie={movie} />
+                  <MovieCard key={movie.id} movie={movie} />
                 </div>
               ))}
             </div>

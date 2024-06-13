@@ -110,7 +110,7 @@ function Logos() {
           </div>
         </div>
         {/* logos main  */}
-        <div className="contizer">
+        <div className="contizer min-h-[48.3vh]">
           <div className="bacdropMain flex flex-col sm:flex-row justify-between gap-2 lg:gap-6 py-8">
             <div className="basis-1/4 min-w-fit">
               <div className="rounded-lg overflow-hidden shadow-md hover:shadow-lg pb-2 border border-gray-300">

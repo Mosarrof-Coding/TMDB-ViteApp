@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
-function Poster({ poster }) {
-  const imgUrl = `https://image.tmdb.org/t/p/original/`;
+function Poster({ poster, imgUrl }) {
   const { file_path } = poster;
   return (
     <>

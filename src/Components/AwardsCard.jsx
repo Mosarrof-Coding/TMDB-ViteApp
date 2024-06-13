@@ -243,7 +243,7 @@ function AwardsCard() {
         <div className="contizer">
           <div className="awarImg py-4 md:py-8 border-b">
             <div className="img max-w-[460px] relative">
-              <img src={awardSvg} alt="" />
+              <img src={awardSvg} alt="svg" />
               <p className="text-[#1f0606] pt-2 md:absolute right-8 bottom-0">
                 1 Nomination
               </p>
