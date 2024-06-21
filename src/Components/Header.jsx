@@ -1,4 +1,4 @@
-import logo from "../assets/logo.svg";
+import logo from "../assets/mov1.png";
 import { Link } from "react-router-dom";
 import fetchImages from "./Home";
 function Header() {
@@ -8,7 +8,7 @@ function Header() {
         <div className="contizer">
           <nav className="flex flex-wrap gap-2 lg:gap-8 py-3 sm:px-4 justify-between">
             <div className="nav1 flex gap-2 lg:gap-6 flex-col lg:flex-row lg:items-center">
-              <div className="logo w-[154px] cursor-pointer">
+              <div className="logo w-[50px] cursor-pointer">
                 <Link to={"/"} onClick={() => fetchImages()}>
                   <img src={logo} alt="logo" />
                 </Link>

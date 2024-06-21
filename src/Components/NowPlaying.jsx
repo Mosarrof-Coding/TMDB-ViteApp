@@ -6,6 +6,7 @@ import { MdChevronRight } from "react-icons/md";
 function NowPlaying() {
   const topUrl = `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=2', options`;
   const apiKey = `&api_key=629353605eab6723aee2f62b54183d48`;
+  const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   const [movies, setMovies] = useState([]);
   const topMovies = async () => {
@@ -282,7 +283,7 @@ function NowPlaying() {
                   key={movie.id}
                   className="movieCard max-w-full sm:max-w-[140px] md:max-w-[160px] xl:max-w-[180px]"
                 >
-                  <MovieCard movie={movie} />
+                  <MovieCard movie={movie} imgUrl={imgUrl} />
                 </div>
               ))}
             </div>

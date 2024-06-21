@@ -1,4 +1,4 @@
-import footLogo from "../assets/footer.svg";
+import footLogo from "../assets/mov1.png";
 import { Link } from "react-router-dom";
 function Footer() {
   return (
