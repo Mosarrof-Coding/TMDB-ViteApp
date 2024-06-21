@@ -10,6 +10,7 @@ import {
 import { GiCheckMark } from "react-icons/gi";
 // assets
 import loaderGif from "../assets/bigloading.gif";
+import Poster from "./Poster";
 
 function PosterPage() {
   const params = useParams();
@@ -161,22 +162,14 @@ function PosterPage() {
                     <div className="max-w-[320px] border rounded-lg overflow-hidden shadow">
                       <div className="max-w-[220px] min-w-[220px] bg-black relative">
                         <Link>
-                          {poster.file_path ? (
-                            img ? (
-                              <img src={imgUrl + poster.file_path} />
-                            ) : (
-                              <img
-                                src={loaderGif}
-                                alt="loaderGif"
-                                className="w-3/5 m-auto my-16"
-                                onLoad={imgLoad}
-                              />
-                            )
-                          ) : (
-                            <img src="https://placehold.co/320x480" />
-                          )}
+                          <Poster
+                            poster={poster}
+                            imgUrl={imgUrl}
+                            img={img}
+                            imgLoad={imgLoad}
+                            loaderGif={loaderGif}
+                          />
                         </Link>
-
                         <div className="absolute left-0 top-0 right-0 bottom-0 touch-none pointer-events-none bg-gradient-to-r from-[#0000007e] via-[#341c8b00] 20% to-[#ffffff3b]"></div>
                       </div>
                       <div>

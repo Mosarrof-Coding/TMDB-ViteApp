@@ -1,19 +1,22 @@
 /* eslint-disable react/prop-types */
-function Poster({ poster, imgUrl }) {
+function Poster({ poster, imgUrl, img, imgLoad, loaderGif }) {
   const { file_path } = poster;
   return (
     <>
-      <div className="max-w-[360px] min-w-[360px]">
-        {file_path ? (
-          <div>
-            <img src={imgUrl + file_path} alt="" />
-          </div>
+      {poster.file_path ? (
+        img ? (
+          <img src={imgUrl + file_path} />
         ) : (
-          <div>
-            <img src={"https://placehold.co/600x400"} alt="" />
-          </div>
-        )}
-      </div>
+          <img
+            src={loaderGif}
+            alt="loaderGif"
+            className="w-3/5 m-auto my-16"
+            onLoad={imgLoad}
+          />
+        )
+      ) : (
+        <img src="https://placehold.co/320x480" />
+      )}
     </>
   );
 }

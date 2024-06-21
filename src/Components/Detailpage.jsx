@@ -53,9 +53,6 @@ function Detailpage() {
       console.error(error);
     }
   };
-  useEffect(() => {
-    fetchReleaseDates();
-  }, [params.id]);
 
   const [detail, setDetail] = useState([]);
   const movieDetail = async () => {
@@ -72,6 +69,7 @@ function Detailpage() {
   };
 
   useEffect(() => {
+    fetchReleaseDates();
     movieDetail();
   }, [params.id]);
 
@@ -214,9 +212,9 @@ function Detailpage() {
   if (countryData) {
     const lastRelease =
       countryData.release_dates[countryData.release_dates.length - 1];
-    lastCertification = lastRelease ? lastRelease.certification : "❌";
+    lastCertification = lastRelease ? lastRelease.certification : "-";
   } else {
-    lastCertification = "❌";
+    lastCertification = "-";
   }
 
   // video portion
@@ -300,7 +298,7 @@ function Detailpage() {
   // popup toggle
   const [fixed, setFixed] = useState(false);
   const handleFixed = () => {
-    setFixed(!fixed); // Toggle the value of 'fixed'
+    setFixed(!fixed);
   };
 
   // img load
