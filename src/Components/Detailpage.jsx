@@ -17,6 +17,7 @@ import { IoTriangleSharp } from "react-icons/io5";
 import { FaPlusCircle } from "react-icons/fa";
 import { RxLockClosed, RxCross2 } from "react-icons/rx";
 import { GiCheckMark, GiGamepadCross } from "react-icons/gi";
+import gifLoding from "../assets/bigloading.gif";
 
 import Review from "./Review";
 import CasterLink from "./CasterLink";
@@ -747,7 +748,7 @@ function Detailpage() {
                               ) : (
                                 <img
                                   className=""
-                                  src="../../public/bigloading.gif"
+                                  src={gifLoding}
                                   alt=""
                                   onLoad={imgLoad}
                                 />
@@ -900,47 +901,55 @@ function Detailpage() {
                   <h3 className="topcast text-2xl font-semibold text-gray-700 pr-8">
                     Social
                   </h3>
-                  <Link
-                    className="text-gray-700 rBtn active"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const reviewMain = document.querySelector(".reviewMain");
-                      const discussion = document.querySelector(".discussion");
-                      const rBtn = document.querySelector(".rBtn");
-                      const dBtn = document.querySelector(".dBtn");
-                      {
-                        reviewMain.style.display = "block";
-                        discussion.style.display = "none";
-                        dBtn.classList.remove("active");
-                        rBtn.classList.add("active");
-                      }
-                    }}
-                  >
-                    Reviews{" "}
-                    {reviewArr ? (
-                      <span>{reviewArr.length}</span>
-                    ) : (
-                      <span>(✖)</span>
-                    )}
-                  </Link>
-                  <Link
-                    className="text-gray-700 dBtn"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const reviewMain = document.querySelector(".reviewMain");
-                      const discussion = document.querySelector(".discussion");
-                      const dBtn = document.querySelector(".dBtn");
-                      const rBtn = document.querySelector(".rBtn");
-                      {
-                        reviewMain.style.display = "none";
-                        discussion.style.display = "block";
-                        dBtn.classList.add("active");
-                        rBtn.classList.remove("active");
-                      }
-                    }}
-                  >
-                    Discussion 0
-                  </Link>
+                  <span>
+                    <Link
+                      className="text-gray-700 rBtn active"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const reviewMain =
+                          document.querySelector(".reviewMain");
+                        const discussion =
+                          document.querySelector(".discussion");
+                        const rBtn = document.querySelector(".rBtn");
+                        const dBtn = document.querySelector(".dBtn");
+                        {
+                          reviewMain.style.display = "block";
+                          discussion.style.display = "none";
+                          dBtn.classList.remove("active");
+                          rBtn.classList.add("active");
+                        }
+                      }}
+                    >
+                      Reviews{" "}
+                      {reviewArr ? (
+                        <span>{reviewArr.length}</span>
+                      ) : (
+                        <span>(-)</span>
+                      )}
+                    </Link>
+                  </span>
+                  <span>
+                    <Link
+                      className="text-gray-700 dBtn"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const reviewMain =
+                          document.querySelector(".reviewMain");
+                        const discussion =
+                          document.querySelector(".discussion");
+                        const dBtn = document.querySelector(".dBtn");
+                        const rBtn = document.querySelector(".rBtn");
+                        {
+                          reviewMain.style.display = "none";
+                          discussion.style.display = "block";
+                          dBtn.classList.add("active");
+                          rBtn.classList.remove("active");
+                        }
+                      }}
+                    >
+                      Discussion 0
+                    </Link>
+                  </span>
                 </div>
                 {/* Review  */}
                 <div className="reviewMain block ">
@@ -1090,9 +1099,9 @@ function Detailpage() {
                   {/* posters  */}
                   {activeTab === "posters" && (
                     <div className="flex overflow-x-auto ">
-                      {posters.map((posterUrl, index) => (
+                      {posters.map((posterUrl) => (
                         <div
-                          key={index}
+                          key={posterUrl.file_path}
                           className="max-w-[220px] min-w-[220px] bg-black grid place-items-center relative"
                         >
                           {img ? (

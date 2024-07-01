@@ -5,7 +5,7 @@ function Poster({ poster, imgUrl, img, imgLoad, loaderGif }) {
     <>
       {file_path ? (
         img ? (
-          <img src={imgUrl + file_path} />
+          <img src={imgUrl + file_path} className="max-h-[300px]" />
         ) : (
           <img
             src={loaderGif}

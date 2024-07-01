@@ -131,8 +131,8 @@ function PosterPage() {
                   </span>
                 </div>
                 <p className="text-black">
-                  {posters.map((poster, index) => (
-                    <div key={index}>
+                  {posters.map((poster) => (
+                    <div key={poster.file_path}>
                       <div className="px-2 py-1 my-1 bg-gray-200 w-full">
                         {poster.iso_639_1 ? (
                           <div className="flex justify-between gap-2">
@@ -155,60 +155,53 @@ function PosterPage() {
                 </p>
               </div>
             </div>
+            {/* from poster */}
             <div className="basis-3/4">
-              <div className="backWrap flex flex-wrap justify-evenly gap-4">
+              <div className="backWrap myGrid">
                 {posters.map((poster) => (
-                  <div key={poster.id} className="">
-                    <div className="max-w-[320px] border rounded-lg overflow-hidden shadow">
-                      <div className="max-w-[220px] min-w-[220px] bg-black relative">
-                        <Link>
-                          <Poster
-                            poster={poster}
-                            imgUrl={imgUrl}
-                            img={img}
-                            imgLoad={imgLoad}
-                            loaderGif={loaderGif}
-                          />
-                        </Link>
-                        <div className="absolute left-0 top-0 right-0 bottom-0 touch-none pointer-events-none bg-gradient-to-r from-[#0000007e] via-[#341c8b00] 20% to-[#ffffff3b]"></div>
-                      </div>
-                      <div>
-                        <div className="text-gray-600 p-2 flex justify-between gap-2 items-center">
-                          <span>Info</span>
+                  <div
+                    key={poster.file_path}
+                    className="border rounded-lg overflow-hidden hover:shadow-lg"
+                  >
+                    <Poster
+                      poster={poster}
+                      imgUrl={imgUrl}
+                      img={img}
+                      imgLoad={imgLoad}
+                      loaderGif={loaderGif}
+                    />
+                    <div className="text-gray-600 p-2 flex justify-between gap-2 items-center">
+                      <span>Info</span>
+                      <span>
+                        <RxLockClosed />
+                      </span>
+                    </div>
+                    <div className="p-2 border-t">
+                      <h3 className="text-black pb-2">Added By: moss</h3>
+                      <h6 className="text-gray-800 text-sm font-light">Size</h6>
+                      <h4 className="text-black">
+                        <div className="flex items-center gap-1 mb-2">
+                          <span> {poster.width}</span>
                           <span>
-                            <RxLockClosed />
+                            <RxCross2 />
+                          </span>
+                          <span>{poster.height}</span>
+                          <span className="font-bold">
+                            <GiCheckMark size={12} />
                           </span>
                         </div>
-                        <div className="p-2 border-t">
-                          <h3 className="text-black pb-2">Added By: moss</h3>
-                          <h6 className="text-gray-800 text-sm font-light">
-                            Size
-                          </h6>
-                          <h4 className="text-black">
-                            <div className="flex items-center gap-1 mb-2">
-                              <span> {poster.width}</span>
-                              <span>
-                                <RxCross2 />
-                              </span>
-                              <span>{poster.height}</span>
-                              <span className="font-bold">
-                                <GiCheckMark size={12} />
-                              </span>
-                            </div>
-                          </h4>
-                          <h4 className="text-gray-800 text-sm font-light py-2">
-                            Language
-                          </h4>
-                          <div className="p-2 bg-gray-200 rounded">
-                            <select
-                              name=""
-                              id=""
-                              className="text-black w-full bg-transparent rounded"
-                            >
-                              <option value="moss">Moss</option>
-                            </select>
-                          </div>
-                        </div>
+                      </h4>
+                      <h4 className="text-gray-800 text-sm font-light py-2">
+                        Language
+                      </h4>
+                      <div className="p-2 bg-gray-200 rounded">
+                        <select
+                          name=""
+                          id=""
+                          className="text-black w-full bg-transparent rounded"
+                        >
+                          <option value="moss">Moss</option>
+                        </select>
                       </div>
                     </div>
                   </div>
