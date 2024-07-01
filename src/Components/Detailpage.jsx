@@ -1115,10 +1115,7 @@ function Detailpage() {
                               className=""
                             />
                           ) : (
-                            <img
-                              src="../../public/bigloading.gif"
-                              onLoad={imgLoad}
-                            />
+                            <img src={gifLoding} onLoad={imgLoad} />
                           )}
                           <div className="absolute left-0 top-0 right-0 bottom-0 touch-none pointer-events-none bg-gradient-to-r from-[#0000007e] via-[#341c8b00] 20% to-[#ffffff3b]"></div>
                         </div>
@@ -1294,25 +1291,6 @@ function Detailpage() {
                       </small>
                     </div>
                   </div>
-                  {/* {casts.map((contributor) => (
-                    <div
-                      key={contributor.id}
-                      className="contItem flex flex-wrap gap-4 items-center"
-                    >
-                      <div className="thumb bg-red-600 w-14 h-14 rounded-full overflow-hidden grid place-items-center">
-                        <img src={imgUrl + contributor.profile_path} alt="" />
-                      </div>
-                      <div className="count">
-                        
-                        <small className="text-black font-normal">
-                          {contributor.score}
-                        </small>
-                        <h5 className="text-black font-medium">
-                          {contributor.name}
-                        </h5>
-                      </div>
-                    </div>
-                  ))} */}
                 </div>
               </div>
               {/* Popularity Trend */}
