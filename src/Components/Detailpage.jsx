@@ -1089,12 +1089,14 @@ function Detailpage() {
                   {/* backdrops  */}
                   {activeTab === "backdrops" && (
                     <div className="my-5 flex overflow-x-auto relative">
-                      {backdrops.map((backdrop, index) => (
-                        <Backdrops
-                          key={index}
-                          backdrop={backdrop}
-                          imgUrl={imgUrl}
-                        />
+                      {backdrops.map((backdrop) => (
+                        <div key={backdrop.file_path}>
+                          <Backdrops
+                            key={backdrop}
+                            backdrop={backdrop}
+                            imgUrl={imgUrl}
+                          />
+                        </div>
                       ))}
                     </div>
                   )}
@@ -1104,7 +1106,7 @@ function Detailpage() {
                       {posters.map((posterUrl) => (
                         <div
                           key={posterUrl.file_path}
-                          className="max-w-[220px] min-w-[220px] bg-black grid place-items-center relative"
+                          className="myGrid bg-black grid place-items-center relative"
                         >
                           {img ? (
                             <img

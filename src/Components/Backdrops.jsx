@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 function Backdrops({ backdrop, imgUrl }) {
-  const { index, file_path } = backdrop;
+  const { file_path } = backdrop;
   return (
     <>
-      <div className="max-w-[420px] min-w-[420px] relative" key={index}>
+      <div className="max-w-[420px] min-w-[420px] relative">
         {backdrop.file_path ? (
           <div>
             <img src={imgUrl + file_path} alt="" />
