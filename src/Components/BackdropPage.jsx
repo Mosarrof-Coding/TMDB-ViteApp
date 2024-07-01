@@ -8,7 +8,7 @@ import {
   RxPlusCircled,
 } from "react-icons/rx";
 import { GiCheckMark } from "react-icons/gi";
-import Backdrops from "./Backdrops";
+import loadingGif from "../assets/bigloading.gif";
 
 function BackdropPage() {
   const params = useParams();
@@ -71,6 +71,11 @@ function BackdropPage() {
     getLang();
   }, []);
 
+  // img load
+  const [img, setImg] = useState(false);
+  const imgLoad = () => {
+    setImg(true);
+  };
   return (
     <>
       <section className="">
@@ -158,9 +163,25 @@ function BackdropPage() {
             <div className="basis-3/4">
               <div className="backWrap flex flex-wrap justify-evenly gap-4">
                 {backdrops.map((backdrop) => (
-                  <div key={backdrop.file_path} className="">
+                  <div key={backdrop?.file_path} className="">
                     <div className="max-w-[264px] border rounded-lg overflow-hidden shadow">
-                      <Backdrops backdrop={backdrop} imgUrl={imgUrl} />
+                      {backdrop.file_path ? (
+                        <Link>
+                          {img ? (
+                            <img src={imgUrl + backdrop.file_path} alt="" />
+                          ) : (
+                            <img
+                              src={loadingGif}
+                              className="w-1/2 mx-auto my-2"
+                              onLoad={imgLoad}
+                            />
+                          )}
+                        </Link>
+                      ) : (
+                        <div>
+                          <img src={"https://placehold.co/600x400"} alt="" />
+                        </div>
+                      )}
                       <div>
                         <div className="text-gray-600 p-2 flex justify-between gap-2 items-center">
                           <span>Info</span>
