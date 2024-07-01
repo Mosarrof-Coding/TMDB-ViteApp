@@ -94,7 +94,7 @@ function Detailpage() {
         id: contributor.id,
         name: contributor.name,
         character: contributor.character,
-        score: 90 - i * 5, // Make sure 'score' property exists in the API response
+        score: 90 - i * 5,
         profile_path: contributor.profile_path,
       }));
 
@@ -734,8 +734,8 @@ function Detailpage() {
                       slidesPerView={1}
                       navigation
                     >
-                      {posters.map((pos, index) => (
-                        <SwiperSlide key={index} className="w-full">
+                      {posters.map((pos) => (
+                        <SwiperSlide key={pos.file_path} className="w-full">
                           <div className="w-full flex gap-4 ">
                             <div className="popupImg w-[60%] grid place-items-center">
                               {img ? (
