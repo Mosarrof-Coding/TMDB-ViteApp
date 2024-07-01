@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import loadingGif from "../assets/bigloading.gif";
 
 function ReleaseDate() {
   const params = useParams();
@@ -95,7 +96,7 @@ function ReleaseDate() {
                   </div>
                 ) : (
                   <div>
-                    <img src={"https://placehold.co/400x500"} alt="" />
+                    <img src={loadingGif} alt="" />
                   </div>
                 )}
               </div>
@@ -162,15 +163,15 @@ function ReleaseDate() {
                       {isLoading && (
                         <img
                           className="w-8 h-8 inline-block"
-                          src="../../public/load-8510_128.gif"
+                          src={loadingGif}
                           alt=""
                         />
                       )}
                       <img
                         src={getCountryInfo(release.iso_3166_1).flag}
                         alt=""
-                        className={`w-8 ${isLoading ? "hidden" : ""}`} // Hide the image when isLoading is true
-                        onLoad={handleLoad} // Call handleLoad when the image loads
+                        className={`w-8 ${isLoading ? "hidden" : ""}`}
+                        onLoad={handleLoad}
                       />
                       <span>{getCountryInfo(release.iso_3166_1).name}</span>
                     </div>
