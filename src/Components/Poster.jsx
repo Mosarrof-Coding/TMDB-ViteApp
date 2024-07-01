@@ -3,7 +3,7 @@ function Poster({ poster, imgUrl, img, imgLoad, loaderGif }) {
   const { file_path } = poster;
   return (
     <>
-      {poster.file_path ? (
+      {file_path ? (
         img ? (
           <img src={imgUrl + file_path} />
         ) : (
