@@ -594,9 +594,9 @@ function Detailpage() {
                     )}
                   </li>
                   <li>
-                    ▪{" "}
+                    ▪
                     <span>
-                      <span>{hours ? hours : "0"}h</span>{" "}
+                      <span>{hours ? hours : "0"}h</span>
                       <span>{minutes ? minutes : "0"}m</span>
                     </span>
                   </li>
@@ -630,13 +630,11 @@ function Detailpage() {
                   {/* sIcon */}
                   <ul className="sIcin flex flex-wrap gap-2 items-center">
                     <div className="md:tooltip" data-tip="Add to list">
-                      {" "}
                       <li className="btn w-12 h-12 bg-black border-none rounded-full grid place-items-center">
                         <FaListUl size={16} color="#43a" />
                       </li>
                     </div>
                     <div className="md:tooltip" data-tip="Mark as favorite">
-                      {" "}
                       <li className="btn w-12 h-12 bg-black border-none rounded-full grid place-items-center">
                         <FaHeart size={18} color="#43a" />
                       </li>
@@ -650,7 +648,6 @@ function Detailpage() {
                       </li>
                     </div>
                     <div className="md:tooltip" data-tip="Rate It!">
-                      {" "}
                       <li className="btn w-12 h-12 bg-black border-none rounded-full grid place-items-center">
                         <FaStar size={18} color="#43a" />
                       </li>
@@ -920,7 +917,7 @@ function Detailpage() {
                         }
                       }}
                     >
-                      Reviews{" "}
+                      Reviews
                       {reviewArr ? (
                         <span>{reviewArr.length}</span>
                       ) : (
@@ -1024,7 +1021,7 @@ function Detailpage() {
                         activeTab === "videos" ? "4px solid #333" : "none",
                     }}
                   >
-                    Videos{" "}
+                    Videos
                     <span>
                       {videos.length ? (
                         <span>{videos.length}</span>
@@ -1075,15 +1072,20 @@ function Detailpage() {
                         atque eius, reprehenderit
                       </p>
                     </div>
-                  )}{" "}
+                  )}
                   {/* video  */}
                   {activeTab === "videos" && (
                     <div className="my-5 flex overflow-x-auto w-full">
-                      {videos.map((video) => (
-                        <Video key={video.id} video={video} />
+                      {videos.map((video, index) => (
+                        <div
+                          key={index}
+                          className="block min-w-full xl:min-w-[50%] aspect-[16/9] xl:w-auto"
+                        >
+                          <Video video={video} img={img} imgLoad={imgLoad} />
+                        </div>
                       ))}
                     </div>
-                  )}{" "}
+                  )}
                   {/* backdrops  */}
                   {activeTab === "backdrops" && (
                     <div className="my-5 flex overflow-x-auto relative">
@@ -1146,7 +1148,7 @@ function Detailpage() {
                       <RiFacebookCircleLine size={28} color="black" />
                     </a>
                   </div>
-                )}{" "}
+                )}
                 {externalIds.twitter_id && (
                   <div className="sm:tooltip" data-tip="Visit Twitter">
                     <a
@@ -1188,7 +1190,6 @@ function Detailpage() {
               </div>
               <div className="extra flex flex-col gap-6 mt-8">
                 <li className="item list-none text-gray-900 font-bold">
-                  {" "}
                   Status
                   <br />
                   <span className="inline-block font-normal text-gray-600">
@@ -1196,7 +1197,6 @@ function Detailpage() {
                   </span>
                 </li>
                 <li className="item list-none text-gray-900 font-bold">
-                  {" "}
                   Original Language
                   <br />
                   <span className="inline-block font-normal text-gray-600">
@@ -1208,7 +1208,6 @@ function Detailpage() {
                   </span>
                 </li>
                 <li className="item list-none text-gray-900 font-bold">
-                  {" "}
                   Budget
                   <br />
                   <span className="inline-block font-normal text-gray-600">
@@ -1220,7 +1219,6 @@ function Detailpage() {
                   </span>
                 </li>
                 <li className="item list-none text-gray-900 font-bold">
-                  {" "}
                   Revenue
                   <br />
                   <span className="inline-block font-normal text-gray-600">
@@ -1303,7 +1301,7 @@ function Detailpage() {
                         <img src={imgUrl + contributor.profile_path} alt="" />
                       </div>
                       <div className="count">
-                        {" "}
+                        
                         <small className="text-black font-normal">
                           {contributor.score}
                         </small>
