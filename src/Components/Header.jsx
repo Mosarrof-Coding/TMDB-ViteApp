@@ -6,11 +6,18 @@ function Header() {
     <>
       <header className="header">
         <div className="contizer">
-          <nav className="flex flex-wrap gap-2 lg:gap-8 py-3 sm:px-4 justify-between">
+          <nav className="flex flex-wrap gap-2 lg:gap-8 py-3 justify-between">
             <div className="nav1 flex gap-2 lg:gap-6 flex-col lg:flex-row lg:items-center">
-              <div className="logo w-[50px] cursor-pointer">
-                <Link to={"/"} onClick={() => fetchImages()}>
-                  <img src={logo} alt="logo" />
+              <div className="logo w-fit cursor-pointer">
+                <Link
+                  to={"/"}
+                  onClick={() => fetchImages()}
+                  className="flex items-center"
+                >
+                  <span>
+                    <img src={logo} alt="logo" className="w-[50px]" />
+                  </span>
+                  <span className="inline-block w-12 h-5 rounded-[16px] bg-gradient-to-tr from-blue-600 to-green-500"></span>
                 </Link>
               </div>
               <ul className="flex justify-between flex-wrap sm:gap-6">
