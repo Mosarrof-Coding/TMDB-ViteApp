@@ -399,7 +399,7 @@ function Detailpage() {
                       className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6"
                     >
                       <span>Logos</span>
-                      <span>static</span>
+                      <span>length</span>
                     </Link>
                     <Link
                       to={`/movie/${params.id}/moviePosters`}

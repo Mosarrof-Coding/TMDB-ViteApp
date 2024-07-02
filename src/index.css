@@ -104,13 +104,12 @@
   /* switch  */
   .leftSwitch {
     transform: translateX(0px);
-    transition: all linear 0.2s !important;
-
+    transition: cubic-bezier(0.37, 0.83, 0.67, 1.07) 0.5s !important;
     animation: rswitch 0.8s linear;
   }
   .rightSwitch {
     transform: translateX(86px);
-    transition: all linear 0.2s !important;
+    transition: cubic-bezier(0.37, 0.83, 0.67, 1.07) 0.5s !important;
     animation: rswitch1 0.8s linear;
   }
   @keyframes rswitch {
@@ -118,7 +117,7 @@
       box-shadow: 0 0 0 0 gray;
     }
     20% {
-      box-shadow: 0 0 10px 1px rgba(128, 128, 128, 0.472);
+      box-shadow: 0 0 5px 1px rgba(128, 128, 128, 0.472);
     }
     100% {
       box-shadow: 0 0 0 0 gray;
@@ -129,7 +128,7 @@
       box-shadow: 0 0 0 0 gray;
     }
     20% {
-      box-shadow: 0 0 10px 1px rgba(128, 128, 128, 0.5);
+      box-shadow: 0 0 5px 1px rgba(128, 128, 128, 0.5);
     }
     100% {
       box-shadow: 0 0 0 0 gray;

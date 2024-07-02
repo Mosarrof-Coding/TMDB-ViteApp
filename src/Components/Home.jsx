@@ -71,7 +71,7 @@ const Home = () => {
                           alt=""
                         />
                       ) : (
-                        "not found"
+                        "Not found"
                       )}
                     </div>
                   }
@@ -134,7 +134,7 @@ const Home = () => {
                   ))}
                 </div>
               ) : (
-                <h2>Wait...</h2>
+                <h2>Please Wait...</h2>
               )}
             </div>
           </div>
