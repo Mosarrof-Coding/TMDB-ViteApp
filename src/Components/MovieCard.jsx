@@ -47,7 +47,7 @@ const MovieCard = ({ movie, imgUrl }) => {
       onClick={toggleVisibility}
     >
       <div className="relative">
-        <div className="relative">
+        <div className="">
           {loaded ? (
             <Link to={`/Detailpage/${id}`}>
               {poster_path || backdrop_path ? (
@@ -72,7 +72,7 @@ const MovieCard = ({ movie, imgUrl }) => {
               )}
             </Link>
           ) : (
-            <img className="" src={loaderGif} alt="" onLoad={handleLoad} />
+            <img src={loaderGif} alt="" onLoad={handleLoad} />
           )}
 
           {/* daisy progress  */}
@@ -105,28 +105,28 @@ const MovieCard = ({ movie, imgUrl }) => {
             </button>
             {isVisible && (
               <ul className="absolute -right-4 top-full min-w-32 bg-white z-10 rounded py-2 text-sm font-medium flex flex-col gap-1 shadow-lg">
-                <li className="flex gap-2 items-center px-2 py-1 hover:bg-blue-900 hover:text-white transition-all cursor-pointer">
+                <li className="flex gap-2 items-center px-2 py-1 hover:bg-blue-900 hover:text-white transition-all duration-300 cursor-pointer">
                   <span className="inline-block">
                     <BsListUl size={14} />
                   </span>
                   <span>Add to list</span>
                 </li>
                 <hr />
-                <li className="flex gap-2 items-center px-2 py-1 hover:bg-blue-900 hover:text-white transition-all cursor-pointer">
+                <li className="flex gap-2 items-center px-2 py-1 hover:bg-blue-900 hover:text-white transition-all duration-300 cursor-pointer">
                   <span className="inline-block">
                     <BsHeartFill size={14} />
                   </span>
                   <span>Favorite</span>
                 </li>
                 <hr />
-                <li className="flex gap-2 items-center px-2 py-1 hover:bg-blue-900 hover:text-white transition-all cursor-pointer">
+                <li className="flex gap-2 items-center px-2 py-1 hover:bg-blue-900 hover:text-white transition-all duration-300 cursor-pointer">
                   <span className="inline-block">
                     <BsBookmarkFill size={14} />
                   </span>
                   <span>Watchlist</span>
                 </li>{" "}
                 <hr />
-                <li className="flex gap-2 items-center px-2 py-1 hover:bg-blue-900 hover:text-white transition-all cursor-pointer">
+                <li className="flex gap-2 items-center px-2 py-1 hover:bg-blue-900 hover:text-white transition-all duration-300 cursor-pointer">
                   <span className="inline-block">
                     <BsStarFill size={14} />
                   </span>
@@ -148,7 +148,7 @@ const MovieCard = ({ movie, imgUrl }) => {
               {first_air_date}
             </span>
           ) : (
-            <span></span>
+            <span>Coming Soon</span>
           )}
         </p>
       </div>

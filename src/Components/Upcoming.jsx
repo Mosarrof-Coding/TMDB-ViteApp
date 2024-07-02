@@ -36,7 +36,7 @@ function Upcoming() {
   useEffect(() => {
     genreName();
     collectionMovies("Action");
-  }, []); // Dependency array is empty, so it runs only once after component mounts
+  }, []);
 
   return (
     <>
@@ -45,10 +45,10 @@ function Upcoming() {
           <h2 className="text-2xl font-semibold text-black pb-6">
             Upcoming Movies
           </h2>
-          <div className="movieBox flex flex-col xs:flex-row justify-between gap-6">
-            {/* movieDetails  */}
+          <div className="movieBox flex flex-col xs:flex-row gap-6">
+            {/* filterBox  */}
             <div className="movieDetails max-w-full xs:max-w-[320px]">
-              <form action="">
+              <form action="/page_action.php">
                 {/* sort  */}
                 <div className="sort w-full mb-6">
                   {/* accrodion windUi  */}
@@ -136,6 +136,7 @@ function Upcoming() {
                               id="html"
                               name="fav_language"
                               value=""
+                              defaultChecked
                             />
                             <label htmlFor="html">Everything</label>
                           </div>
@@ -277,26 +278,22 @@ function Upcoming() {
                       </div>
                     </div>
                   </details>
-                  <input
-                    onClick={(e) => {
-                      e.preventDefault();
-                    }}
+                  <button
                     type="submit"
-                    placeholder="Search"
                     className="btn btn-primary w-full my-4 rounded-full text-white text-lg"
-                  />
+                  >
+                    Search
+                  </button>
                 </div>
               </form>
             </div>
             {/* movieDetails dynamic  */}
-            <div className="moviesWrapper">
-              <div className="myGrid">
-                {collMovies.map((movie) => (
-                  <div key={movie.id} className="">
-                    <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
-                  </div>
-                ))}
-              </div>
+            <div className="myGrid w-full">
+              {collMovies.map((movie) => (
+                <div key={movie.id}>
+                  <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -38,8 +38,8 @@ function TopTvs() {
           <h2 className="text-2xl font-semibold text-black pb-6">
             Top Rated TV Shows
           </h2>
-          <div className="movieBox flex flex-col xs:flex-row justify-between gap-6">
-            {/* movieDetails  */}
+          <div className="movieBox flex flex-col xs:flex-row gap-6">
+            {/* filterBox */}
             <div className="movieDetails max-w-full xs:max-w-[320px] ">
               {/* sort  */}
               <div className="sort w-full mb-6">
@@ -59,7 +59,13 @@ function TopTvs() {
                       Sort Results By
                     </h3>
                     {/* tailwind select  */}
-                    <select className="select bg-gray-300 text-black focus:outline-none rounded select-sm min-w-full">
+                    <select
+                      className="select bg-gray-300 text-black focus:outline-none rounded select-sm min-w-full"
+                      defaultValue="Title A-Z"
+                    >
+                      <option value="Title A-Z" className="bg-white">
+                        Title (A-Z)
+                      </option>
                       <option
                         value="Popularity Descending"
                         className="bg-white"
@@ -76,7 +82,6 @@ function TopTvs() {
                         value="Rating Descending"
                         className="bg-white"
                         disabled
-                        selected
                       >
                         Rating Descending
                       </option>
@@ -91,9 +96,6 @@ function TopTvs() {
                         className="bg-white"
                       >
                         Release Date Ascending
-                      </option>
-                      <option value="Title (A-Z)" className="bg-white">
-                        Title (A-Z)
                       </option>
                     </select>
                   </div>
@@ -170,10 +172,7 @@ function TopTvs() {
                           />
                           <label htmlFor="releases">Search all releases?</label>
                         </div>
-                        <form
-                          action="/action_page.php"
-                          className="flex flex-col gap-2"
-                        >
+                        <div className="flex flex-col gap-2">
                           <div className="flex items-center gap-2 justify-between">
                             <label htmlFor="datemin">from</label>
                             <input
@@ -195,7 +194,7 @@ function TopTvs() {
                               className="border border-blue-400 rounded p-1"
                             />
                           </div>
-                        </form>
+                        </div>
                       </form>
                     </div>
                     {/* genres  */}
@@ -276,15 +275,10 @@ function TopTvs() {
                 </button>
               </div>
             </div>
-            {/* movieDetails dynamic  */}
-            <div className="moviesWrapper flex flex-wrap justify-evenly gap-3">
+            {/* movieDetails dynamic */}
+            <div className="moviesWrapper w-full myGrid">
               {movies.map((movie) => (
-                <div
-                  key={movie.id}
-                  className="movieCard max-w-full sm:max-w-[140px] md:max-w-[160px] xl:max-w-[180px]"
-                >
-                  <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
-                </div>
+                <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
               ))}
             </div>
           </div>

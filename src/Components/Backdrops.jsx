@@ -3,7 +3,7 @@ function Backdrops({ backdrop, imgUrl }) {
   const { file_path } = backdrop;
   return (
     <>
-      <div className="myGrid2 relative" key={backdrop.file_path}>
+      <div className="myGrid relative" key={backdrop.file_path}>
         {backdrop.file_path ? (
           <img src={imgUrl + file_path} alt="" />
         ) : (

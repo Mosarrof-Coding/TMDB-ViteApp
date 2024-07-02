@@ -121,7 +121,7 @@ function BackdropPage() {
         </div>
         {/* backdrops  */}
         <div className="contizer">
-          <div className="bacdropMain flex flex-col sm:flex-row justify-between gap-2 lg:gap-6 py-8">
+          <div className="bacdropMain min-h-[48.3vh] flex flex-col sm:flex-row justify-between gap-2 lg:gap-6 py-8">
             {/* languages  */}
             <div className="basis-1/4 min-w-fit">
               <div className="rounded-lg overflow-hidden shadow-md hover:shadow-lg pb-2 border border-gray-300">
@@ -161,7 +161,7 @@ function BackdropPage() {
             </div>
             {/* backdrops */}
             <div className="basis-3/4">
-              <div className="backWrap flex flex-wrap justify-evenly gap-4">
+              <div className="backWrap w-full myGrid">
                 {backdrops.map((backdrop) => (
                   <div key={backdrop?.file_path} className="">
                     <div className="max-w-[264px] border rounded-lg overflow-hidden shadow">

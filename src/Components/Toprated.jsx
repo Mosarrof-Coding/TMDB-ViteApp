@@ -38,9 +38,12 @@ function Toprated() {
           <h2 className="text-2xl font-semibold text-black pb-6">
             Top Rated Movies
           </h2>
-          <div className="movieBox flex flex-col xs:flex-row justify-between gap-6">
-            {/* movieDetails  */}
-            <div className="movieDetails max-w-full xs:max-w-[320px] ">
+          <div className="movieBox flex flex-col xs:flex-row gap-6">
+            {/* filterBox  */}
+            <form
+              action="/action_page.php"
+              className="movieDetails max-w-full xs:max-w-[320px] "
+            >
               {/* sort  */}
               <div className="sort w-full mb-6">
                 {/* accrodion windUi  */}
@@ -120,16 +123,14 @@ function Toprated() {
                       <h3 className="font-light text-black mb-2">Show Me</h3>
 
                       {/* form */}
-                      <form
-                        action="/action_page.php"
-                        className="flex flex-col gap-1 text-black "
-                      >
+                      <div className="flex flex-col gap-1 text-black ">
                         <div className="inputgroop flex gap-3">
                           <input
                             type="radio"
                             id="html"
                             name="fav_language"
                             value=""
+                            defaultChecked
                           />
                           <label htmlFor="html">Everything</label>
                         </div>
@@ -151,7 +152,7 @@ function Toprated() {
                           />
                           <label htmlFor="javascript">Movies I Have Seen</label>
                         </div>
-                      </form>
+                      </div>
                     </div>
                     {/* Release Dates  */}
                     <div className="p-4 border-b">
@@ -169,10 +170,7 @@ function Toprated() {
                           />
                           <label htmlFor="releases">Search all releases?</label>
                         </div>
-                        <form
-                          action="/action_page.php"
-                          className="flex flex-col gap-2"
-                        >
+                        <div className="flex flex-col gap-2">
                           <div className="flex items-center gap-2 justify-between">
                             <label htmlFor="datemin">from</label>
                             <input
@@ -194,7 +192,7 @@ function Toprated() {
                               className="border border-blue-400 rounded p-1"
                             />
                           </div>
-                        </form>
+                        </div>
                       </div>
                     </div>
                     {/* genres  */}
@@ -270,17 +268,18 @@ function Toprated() {
                     </div>
                   </div>
                 </details>
-                <button className="btn btn-primary w-full my-4 rounded-full text-white text-lg">
+                <button
+                  type="submit"
+                  className="btn btn-primary w-full my-4 rounded-full text-white text-lg"
+                >
                   Search
                 </button>
               </div>
-            </div>
+            </form>
             {/* movieDetails dynamic  */}
-            <div className="moviesWrapper myGrid">
+            <div className="moviesWrapper w-full myGrid">
               {movies.map((movie) => (
-                <div key={movie.id} className="">
-                  <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
-                </div>
+                <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
               ))}
             </div>
           </div>

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import { MdChevronRight } from "react-icons/md";
-import { Button } from "@material-tailwind/react";
 
 function Popular() {
   const topUrl = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options`;
@@ -39,9 +38,12 @@ function Popular() {
           <h2 className="text-2xl font-semibold text-black pb-6">
             Popular Movies
           </h2>
-          <div className="movieBox flex flex-col xs:flex-row justify-between gap-6">
-            {/* movieDetails  */}
-            <div className="movieDetails max-w-full xs:max-w-[320px] ">
+          <div className="movieBox flex flex-col xs:flex-row gap-6">
+            {/* filterBox  */}
+            <form
+              action="/action_page.php"
+              className="movieDetails max-w-full xs:max-w-[320px] "
+            >
               {/* sort  */}
               <div className="sort w-full mb-6">
                 {/* accrodion windUi  */}
@@ -121,10 +123,7 @@ function Popular() {
                       <h3 className="font-light text-black mb-2">Show Me</h3>
 
                       {/* form */}
-                      <form
-                        action="/action_page.php"
-                        className="flex flex-col gap-1 text-black "
-                      >
+                      <div className="flex flex-col gap-1 text-black ">
                         <div className="inputgroop flex gap-3">
                           <input
                             type="radio"
@@ -152,7 +151,7 @@ function Popular() {
                           />
                           <label htmlFor="javascript">Movies I Have Seen</label>
                         </div>
-                      </form>
+                      </div>
                     </div>
                     {/* Release Dates  */}
                     <div className="p-4 border-b">
@@ -170,10 +169,7 @@ function Popular() {
                           />
                           <label htmlFor="releases">Search all releases?</label>
                         </div>
-                        <form
-                          action="/action_page.php"
-                          className="flex flex-col gap-2"
-                        >
+                        <div className="flex flex-col gap-2">
                           <div className="flex items-center gap-2 justify-between">
                             <label htmlFor="datemin">from</label>
                             <input
@@ -195,7 +191,7 @@ function Popular() {
                               className="border border-blue-400 rounded p-1"
                             />
                           </div>
-                        </form>
+                        </div>
                       </div>
                     </div>
                     {/* genres  */}
@@ -271,11 +267,14 @@ function Popular() {
                     </div>
                   </div>
                 </details>
-                <Button className="btn btn-primary w-full my-4 rounded-full text-white text-lg">
+                <button
+                  type="submit"
+                  className="btn btn-primary w-full my-4 rounded-full text-white text-lg"
+                >
                   Search
-                </Button>
+                </button>
               </div>
-            </div>
+            </form>
             {/* movieDetails dynamic  */}
             <div className="w-full myGrid">
               {movies.map((movie) => (

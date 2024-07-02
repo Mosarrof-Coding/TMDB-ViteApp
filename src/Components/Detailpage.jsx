@@ -571,7 +571,7 @@ function Detailpage() {
                         ({detail.production_companies[0].origin_country})
                       </span>
                     ) : (
-                      <span>(❌)</span>
+                      <span>(-)</span>
                     )}
                   </li>
                   {/* issued  */}
@@ -594,9 +594,9 @@ function Detailpage() {
                     )}
                   </li>
                   <li>
-                    ▪
+                    ▪{" "}
                     <span>
-                      <span>{hours ? hours : "0"}h</span>
+                      <span>{hours ? hours : "0"}h-</span>
                       <span>{minutes ? minutes : "0"}m</span>
                     </span>
                   </li>
@@ -1090,7 +1090,10 @@ function Detailpage() {
                   {activeTab === "backdrops" && (
                     <div className="my-5 flex overflow-x-auto relative">
                       {backdrops.map((backdrop) => (
-                        <div key={backdrop.file_path}>
+                        <div
+                          key={backdrop.file_path}
+                          className="min-w-[300px] max-w-[320px]"
+                        >
                           <Backdrops
                             key={backdrop}
                             backdrop={backdrop}
@@ -1106,7 +1109,7 @@ function Detailpage() {
                       {posters.map((posterUrl) => (
                         <div
                           key={posterUrl.file_path}
-                          className="myGrid bg-black grid place-items-center relative"
+                          className="min-w-[160px] max-w-[200px] bg-black grid place-items-center relative"
                         >
                           {img ? (
                             <img
