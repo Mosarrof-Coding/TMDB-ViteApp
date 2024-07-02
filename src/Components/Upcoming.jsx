@@ -67,7 +67,13 @@ function Upcoming() {
                         Sort Results By
                       </h3>
                       {/* tailwind select  */}
-                      <select className="select bg-gray-300 text-black focus:outline-none rounded select-sm min-w-full">
+                      <select
+                        className="select bg-gray-300 text-black focus:outline-none rounded select-sm min-w-full"
+                        defaultValue="Title A-Z"
+                      >
+                        <option value="Title A-Z" className="bg-white">
+                          Title (A-Z)
+                        </option>
                         <option
                           value="Popularity Descending"
                           className="bg-white"
@@ -87,7 +93,6 @@ function Upcoming() {
                           value="Rating Descending"
                           className="bg-white"
                           disabled
-                          selected
                         >
                           Rating Descending
                         </option>
@@ -102,9 +107,6 @@ function Upcoming() {
                           className="bg-white"
                         >
                           Release Date Ascending
-                        </option>
-                        <option value="Title (A-Z)" className="bg-white">
-                          Title (A-Z)
                         </option>
                       </select>
                     </div>
@@ -288,12 +290,9 @@ function Upcoming() {
             </div>
             {/* movieDetails dynamic  */}
             <div className="moviesWrapper">
-              <div className="flex flex-wrap justify-center gap-3">
+              <div className="myGrid">
                 {collMovies.map((movie) => (
-                  <div
-                    key={movie.id}
-                    className="movieCard max-w-full sm:max-w-[140px] md:max-w-[160px] xl:max-w-[200px]"
-                  >
+                  <div key={movie.id} className="">
                     <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
                   </div>
                 ))}

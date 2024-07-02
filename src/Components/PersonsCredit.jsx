@@ -53,7 +53,7 @@ function PersonsCredit() {
                         />
                       </div>
                     ) : (
-                      <div className="">
+                      <div className="h-[210px]">
                         <img
                           src="https://placehold.co/140x210"
                           alt="Placeholder"

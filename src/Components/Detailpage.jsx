@@ -1021,7 +1021,7 @@ function Detailpage() {
                         activeTab === "videos" ? "4px solid #333" : "none",
                     }}
                   >
-                    Videos
+                    Videos{" "}
                     <span>
                       {videos.length ? (
                         <span>{videos.length}</span>

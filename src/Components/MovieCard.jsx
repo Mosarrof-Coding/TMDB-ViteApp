@@ -43,7 +43,7 @@ const MovieCard = ({ movie, imgUrl }) => {
   return (
     <div
       key={id}
-      className="movieCard sm:max-w-[160px] border rounded-lg hover:shadow-lg transition-all relative"
+      className="movieCard border rounded-lg hover:shadow-lg transition-all duration-300 relative"
       onClick={toggleVisibility}
     >
       <div className="relative">
@@ -56,7 +56,7 @@ const MovieCard = ({ movie, imgUrl }) => {
                     <img
                       src={imgUrl + poster_path}
                       alt={title}
-                      className="h-[230px] rounded-t-lg"
+                      className="rounded-t-lg"
                     />
                   </div>
                   <div className="sm:hidden">

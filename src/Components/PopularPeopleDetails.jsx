@@ -77,18 +77,12 @@ function PopularPeopleDetails() {
     setAppends(false);
   };
 
-  // Function to insert <br> tags after the second full stop
   function insertLineBreaks(text) {
-    // Find the index of the second full stop
     const secondFullStopIndex = text.indexOf(".", text.indexOf(".") + 1);
-
-    // Insert <br> tags after the second full stop
     const newText =
       text.slice(0, secondFullStopIndex + 1) +
       "<br><br>" +
       text.slice(secondFullStopIndex + 1);
-
-    // Render the HTML using dangerouslySetInnerHTML
     return <span dangerouslySetInnerHTML={{ __html: newText }} />;
   }
   return (

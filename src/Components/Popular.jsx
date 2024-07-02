@@ -31,6 +31,7 @@ function Popular() {
   useEffect(() => {
     genreMovie();
   }, []);
+
   return (
     <>
       <section className="py-12">
@@ -59,7 +60,13 @@ function Popular() {
                       Sort Results By
                     </h3>
                     {/* tailwind select  */}
-                    <select className="select bg-gray-300 text-black focus:outline-none rounded select-sm min-w-full">
+                    <select
+                      className="select bg-gray-300 text-black focus:outline-none rounded select-sm min-w-full"
+                      defaultValue="Title A-Z"
+                    >
+                      <option value="Title A-Z" className="bg-white">
+                        Title (A-Z)
+                      </option>
                       <option
                         value="Popularity Descending"
                         className="bg-white"
@@ -76,7 +83,6 @@ function Popular() {
                         value="Rating Descending"
                         className="bg-white"
                         disabled
-                        selected
                       >
                         Rating Descending
                       </option>
@@ -91,9 +97,6 @@ function Popular() {
                         className="bg-white"
                       >
                         Release Date Ascending
-                      </option>
-                      <option value="Title (A-Z)" className="bg-white">
-                        Title (A-Z)
                       </option>
                     </select>
                   </div>
@@ -157,10 +160,7 @@ function Popular() {
                         Release Dates
                       </h3>
                       {/* form */}
-                      <form
-                        action="/action_page.php"
-                        className="flex flex-col gap-2 text-black mb-2"
-                      >
+                      <div className="flex flex-col gap-2 text-black mb-2">
                         <div className="inputgroop flex gap-3">
                           <input
                             type="checkbox"
@@ -196,7 +196,7 @@ function Popular() {
                             />
                           </div>
                         </form>
-                      </form>
+                      </div>
                     </div>
                     {/* genres  */}
                     <div className="p-4 border-b">
@@ -277,14 +277,9 @@ function Popular() {
               </div>
             </div>
             {/* movieDetails dynamic  */}
-            <div className="moviesWrapper flex flex-wrap justify-evenly gap-3">
+            <div className="w-full myGrid">
               {movies.map((movie) => (
-                <div
-                  key={movie.id}
-                  className="movieCard max-w-full sm:max-w-[140px] md:max-w-[160px] xl:max-w-[180px]"
-                >
-                  <MovieCard movie={movie} imgUrl={imgUrl} />
-                </div>
+                <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
               ))}
             </div>
           </div>

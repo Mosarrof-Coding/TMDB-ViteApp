@@ -3,13 +3,17 @@ import { Link } from "react-router-dom";
 
 function PeopleCard({ people, imgUrl }) {
   const { id, name, profile_path } = people;
-  // console.log(id);
-  // const imgUrl = `https://image.tmdb.org/t/p/original/`;
   return (
     <>
-      <div className="max-w-[200px] border hover:shadow-md rounded-t-md overflow-hidden">
-        <Link to={`/PopularPeopleDetails/${id}`} className="">
-          <img className="" src={imgUrl + profile_path} alt={name} />
+      <div className="border hover:shadow-md rounded-t-md overflow-hidden">
+        <Link to={`/PopularPeopleDetails/${id}`}>
+          {profile_path ? (
+            <span>
+              <img src={imgUrl + profile_path} alt={name} />
+            </span>
+          ) : (
+            "moss"
+          )}
         </Link>
         <div className="pl-2 pb-3 pt-1">
           <li className="list-none text-black">{name}</li>

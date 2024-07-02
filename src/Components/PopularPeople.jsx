@@ -72,7 +72,7 @@ function PopularPeople() {
       <div className="contizer">
         <div className="people py-8">
           <h2 className="text-black font-bold text-2xl pb-2">Popular People</h2>
-          <div className="peopleWrap flex flex-wrap justify-center gap-4">
+          <div className="peopleWrap myGrid">
             {people.map((people) => (
               <PeopleCard key={people.id} people={people} imgUrl={imgUrl} />
             ))}
