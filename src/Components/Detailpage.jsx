@@ -37,7 +37,7 @@ function Detailpage() {
   const detailMovieUrl = `https://api.themoviedb.org/3/movie/${params.id}?language=en-US', options`;
   const castUrl = `https://api.themoviedb.org/3/movie/${params.id}/credits?language=en-US%27,%20options`;
   const reviewUrl = `https://api.themoviedb.org/3/movie/${params.id}/reviews?`;
-  const apiKey = `&api_key=${import.meta.env.VITE_TMDB_API_KEY}`;
+  const apiKey = `&api_key=629353605eab6723aee2f62b54183d48`;
   const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   // single use - certification
@@ -242,9 +242,7 @@ function Detailpage() {
     const fetchMovieDetails = async () => {
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/movie/${params.id}?api_key=${
-            import.meta.env.VITE_TMDB_API_KEY
-          }&append_to_response=images`
+          `https://api.themoviedb.org/3/movie/${params.id}?${apiKey}&append_to_response=images`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch movie details");
@@ -829,7 +827,7 @@ function Detailpage() {
             )}
           </div>
         </div>
-        {/* Top Billed Cast/credit Api */}
+        {/* Top Billed Cast/credit Api  */}
         <div className="contizer">
           <div className="castBox xl:px-6 pb-4 flex flex-col md:grid grid-cols-12 gap-8 py-12">
             {/* part-A  */}

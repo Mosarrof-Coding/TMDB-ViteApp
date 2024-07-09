@@ -8,7 +8,7 @@ function ReleaseDate() {
   const params = useParams();
   const detailMovieUrl = `https://api.themoviedb.org/3/movie/${params.id}?language=en-US`;
   const rlsUrl = `https://api.themoviedb.org/3/movie/${params.id}/release_dates?`;
-  const apiKey = `&api_key=${import.meta.env.VITE_TMDB_API_KEY}`;
+  const apiKey = `&api_key=629353605eab6723aee2f62b54183d48`;
   const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   const [detail, setDetail] = useState({});

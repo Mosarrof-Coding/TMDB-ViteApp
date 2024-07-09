@@ -6,7 +6,7 @@ import { Link, useParams } from "react-router-dom";
 function Recommendation() {
   const rParams = useParams();
   const recUrl = `https://api.themoviedb.org/3/movie/${rParams.id}/recommendations?language=en-US&page=1%27,%20options`;
-  const apiKey = `&api_key=${import.meta.env.VITE_TMDB_API_KEY}`;
+  const apiKey = `&api_key=629353605eab6723aee2f62b54183d48`;
   const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   const [recos, setRecos] = useState([]);

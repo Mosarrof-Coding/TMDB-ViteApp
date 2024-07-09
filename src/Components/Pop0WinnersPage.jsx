@@ -52,9 +52,7 @@ function Pop0WinnersPage() {
   const fetchWinners = async () => {
     try {
       const res = await fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${
-          import.meta.env.VITE_TMDB_API_KEY
-        }&with_awards=true&vote_count.gte=4000&primary_release_year=${
+        `https://api.themoviedb.org/3/discover/movie?api_key=629353605eab6723aee2f62b54183d48&with_awards=true&vote_count.gte=4000&primary_release_year=${
           years - 1
         }&append_to_response=images&sort_by=vote_count.desc`
       );

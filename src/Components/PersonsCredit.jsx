@@ -4,11 +4,7 @@ import { Link, useParams } from "react-router-dom";
 
 function PersonsCredit() {
   const params = useParams();
-  const cdtUrl = `https://api.themoviedb.org/3/person/${
-    params.id
-  }/combined_credits?language=en-US&api_key=${
-    import.meta.env.VITE_TMDB_API_KEY
-  }`;
+  const cdtUrl = `https://api.themoviedb.org/3/person/${params.id}/combined_credits?language=en-US&api_key=629353605eab6723aee2f62b54183d48`;
   const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   const [credits, setCredits] = useState([]);

@@ -5,9 +5,7 @@ function MovieHost() {
   const [hosts, setHosts] = useState([]);
   const hostingFetch = async () => {
     const res = await fetch(
-      `https://api.themoviedb.org/3/tv/196?api_key=${
-        import.meta.env.VITE_TMDB_API_KEY
-      }`
+      `https://api.themoviedb.org/3/tv/196?api_key=629353605eab6723aee2f62b54183d48`
     );
     const data = await res.json();
     // console.log("data:", data);

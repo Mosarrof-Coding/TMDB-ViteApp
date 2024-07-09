@@ -11,7 +11,7 @@ import oscarunic from "../assets/oscarunic.png";
 function AwardsCard() {
   const { id } = useParams();
   const peopleUrl = `https://api.themoviedb.org/3/person/${id}?language=en-US`;
-  const apiKey = `&api_key=${import.meta.env.VITE_TMDB_API_KEY}`;
+  const apiKey = `&api_key=629353605eab6723aee2f62b54183d48`;
   const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   const [awards, setAwards] = useState([]);

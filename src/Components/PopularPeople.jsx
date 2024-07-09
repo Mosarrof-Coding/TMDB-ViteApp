@@ -4,7 +4,7 @@ import PeopleCard from "./PeopleCard";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 function PopularPeople() {
-  const apiKey = `&api_key=${import.meta.env.VITE_TMDB_API_KEY}`;
+  const apiKey = `&api_key=629353605eab6723aee2f62b54183d48`;
   const baseUrl = "https://api.themoviedb.org/3/person/popular";
   const imgUrl = `https://image.tmdb.org/t/p/original/`;
 

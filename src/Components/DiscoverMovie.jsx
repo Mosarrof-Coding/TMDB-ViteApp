@@ -7,11 +7,10 @@ function DiscoverMovie() {
   const [page, setPage] = useState(1);
   const [discmovies, setDiscmovies] = useState([]);
   const imgUrl = `https://image.tmdb.org/t/p/original/`;
+
   const discMoviesShow = async () => {
     const res = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?page=${page}&sort_by=popularity.desc&api_key=${
-        import.meta.env.VITE_TMDB_API_KEY
-      }`
+      `https://api.themoviedb.org/3/discover/movie?page=${page}&sort_by=popularity.desc&api_key=629353605eab6723aee2f62b54183d48`
     );
     const data = await res.json();
     setDiscmovies([...discmovies, ...data.results.slice(0, 9)]); // Append new movies to the existing movie list

@@ -23,7 +23,7 @@ import PersonActing from "./PersonActing";
 function PopularPeopleDetails() {
   const params = useParams();
   const peopleUrl = `https://api.themoviedb.org/3/person/${params.id}?language=en-US&page=1%27,%20options`;
-  const apiKey = `&api_key=${import.meta.env.VITE_TMDB_API_KEY}`;
+  const apiKey = `&api_key=629353605eab6723aee2f62b54183d48`;
   const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   const [peoples, setPeoples] = useState([]);
@@ -492,7 +492,7 @@ function PopularPeopleDetails() {
                                 <span className="group-hover:animate-bounce">
                                   <FaChevronRight
                                     size={14}
-                                    className="transition-transform duration-300 group-hover:rotate-90 group-hover:translate-y-1"
+                                    className="transition-transform group-hover:rotate-90 group-hover:translate-y-1"
                                   />
                                 </span>{" "}
                                 <div className="w-52 h-[22px] absolute right-[calc(100%-0px)] bottom-0 bg-gradient-to-l from-[#fff] via-white20 z-10"></div>
