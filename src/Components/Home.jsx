@@ -10,7 +10,7 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("spiderman");
   const topUrl = `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1`;
-  const serachUrl = `https://api.themoviedb.org/3/search/movie?query=`;
+  const searchUrl = `https://api.themoviedb.org/3/search/movie?query=`;
   const apiKey = `&api_key=${import.meta.env.VITE_TMDB_API_KEY}`;
   const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
@@ -21,12 +21,22 @@ const Home = () => {
     setImages(data.results);
   };
   // randome images database selection
-  const ranIndexImages = Math.floor(Math.random() * images.length);
+  const ranIndexImages = images ? Math.floor(Math.random() * images.length) : 0;
 
   const fetchMovies = async (title = "batman") => {
-    const response = await fetch(`${serachUrl}${title}${apiKey}`);
-    const data = await response.json();
-    setMovies(data.results);
+    try {
+      const response = await fetch(
+        `${searchUrl}${title}${import.meta.env.VITE_TMDB_API_KEY}`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch movies");
+      }
+      const data = await response.json();
+      setMovies(data.results);
+    } catch (error) {
+      console.error("Error fetching movies:", error);
+      // Handle error (e.g., show error message to user)
+    }
   };
 
   useEffect(() => {
