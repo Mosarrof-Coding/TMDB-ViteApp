@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 
 function TrendingMovieDay() {
-  const apiKey = `api_key=629353605eab6723aee2f62b54183d48`;
+  const apiKey = `api_key=${import.meta.env.VITE_TMDB_API_KEY}`;
   const trendUrl = `https://api.themoviedb.org/3/trending/movie/day?${apiKey}&language=en-US', options`;
   const imgUrl = `https://image.tmdb.org/t/p/original/`;
 

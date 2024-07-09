@@ -10,7 +10,7 @@ import movieOscars from "../assets/oscarunic.png";
 function AwardsCardMovie() {
   const { id } = useParams();
   const peopleUrl = `https://api.themoviedb.org/3/movie/${id}?language=en-US`;
-  const apiKey = `&api_key=629353605eab6723aee2f62b54183d48`;
+  const apiKey = `&api_key=${import.meta.env.VITE_TMDB_API_KEY}`;
   const imgUrl = `https://image.tmdb.org/t/p/original/`;
   // hover effect
   const [isMouseOver, setIsMouseOver] = useState(false);

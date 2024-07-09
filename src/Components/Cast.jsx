@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 
 function Cast() {
-  const castUrl = `https://api.themoviedb.org/3/person/popular?language=en-US&page=1%27,%20options&api_key=629353605eab6723aee2f62b54183d48`;
+  const castUrl = `https://api.themoviedb.org/3/person/popular?language=en-US&page=1%27,%20options&api_key=${
+    import.meta.env.VITE_TMDB_API_KEY
+  }`;
   const imgUrl = `https://image.tmdb.org/t/p/original/`;
   const [casts, setCasts] = useState([]);
   const castShow = async () => {

@@ -23,7 +23,7 @@ import PersonActing from "./PersonActing";
 function PopularPeopleDetails() {
   const params = useParams();
   const peopleUrl = `https://api.themoviedb.org/3/person/${params.id}?language=en-US&page=1%27,%20options`;
-  const apiKey = `&api_key=629353605eab6723aee2f62b54183d48`;
+  const apiKey = `&api_key=${import.meta.env.VITE_TMDB_API_KEY}`;
   const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   const [peoples, setPeoples] = useState([]);

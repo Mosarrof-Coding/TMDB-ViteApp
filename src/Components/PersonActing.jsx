@@ -7,7 +7,7 @@ import { GoTriangleDown } from "react-icons/go";
 
 function PersonActing() {
   const params = useParams();
-  const apiKey = `&api_key=629353605eab6723aee2f62b54183d48`;
+  const apiKey = `&api_key=${import.meta.env.VITE_TMDB_API_KEY}`;
   const cdtUrl = `https://api.themoviedb.org/3/person/${params.id}/combined_credits?language=en-US${apiKey}`;
 
   const imgUrl = `https://image.tmdb.org/t/p/original/`;

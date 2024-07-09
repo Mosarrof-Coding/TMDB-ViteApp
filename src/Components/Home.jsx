@@ -11,7 +11,7 @@ const Home = () => {
   const [search, setSearch] = useState("spiderman");
   const topUrl = `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1`;
   const serachUrl = `https://api.themoviedb.org/3/search/movie?query=`;
-  const apiKey = `&api_key=629353605eab6723aee2f62b54183d48`;
+  const apiKey = `&api_key=${import.meta.env.VITE_TMDB_API_KEY}`;
   const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   const [images, setImages] = useState([]);

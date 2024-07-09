@@ -5,7 +5,7 @@ import { MdChevronRight } from "react-icons/md";
 
 function NowPlaying() {
   const topUrl = `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=2', options`;
-  const apiKey = `&api_key=629353605eab6723aee2f62b54183d48`;
+  const apiKey = `&api_key=${import.meta.env.VITE_TMDB_API_KEY}`;
   const imgUrl = `https://image.tmdb.org/t/p/original/`;
 
   const [movies, setMovies] = useState([]);
