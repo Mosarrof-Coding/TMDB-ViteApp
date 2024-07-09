@@ -242,7 +242,9 @@ function Detailpage() {
     const fetchMovieDetails = async () => {
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/movie/${params.id}?${apiKey}&append_to_response=images`
+          `https://api.themoviedb.org/3/movie/${params.id}?api_key=${
+            import.meta.env.VITE_TMDB_API_KEY
+          }&append_to_response=images`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch movie details");
