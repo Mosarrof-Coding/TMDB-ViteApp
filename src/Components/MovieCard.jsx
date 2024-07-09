@@ -43,7 +43,7 @@ const MovieCard = ({ movie, imgUrl }) => {
   return (
     <div
       key={id}
-      className="movieCard border rounded-lg hover:shadow-lg transition-all duration-300 relative"
+      className="movieCard border rounded-lg hover:shadow-lg hover:bg-white transition-all duration-300 relative"
       onClick={toggleVisibility}
     >
       <div className="relative">

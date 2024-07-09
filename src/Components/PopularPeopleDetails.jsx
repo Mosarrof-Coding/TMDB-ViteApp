@@ -492,7 +492,7 @@ function PopularPeopleDetails() {
                                 <span className="group-hover:animate-bounce">
                                   <FaChevronRight
                                     size={14}
-                                    className="transition-transform group-hover:rotate-90 group-hover:translate-y-1"
+                                    className="transition-transform duration-300 group-hover:rotate-90 group-hover:translate-y-1"
                                   />
                                 </span>{" "}
                                 <div className="w-52 h-[22px] absolute right-[calc(100%-0px)] bottom-0 bg-gradient-to-l from-[#fff] via-white20 z-10"></div>

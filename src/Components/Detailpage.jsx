@@ -603,9 +603,8 @@ function Detailpage() {
                 </ul>
                 {/* user activities  */}
                 <div className="py-4 flex items-center flex-wrap gap-4">
-                  {/* progress  */}
+                  {/* daisy progress  */}
                   <div className="flex items-center gap-2 mix-blend-normal">
-                    {/* daisy progress  */}
                     <div
                       className={`noshadow radial-progress text-black border-white border-4 font-medium text-xl ${
                         percent > 70
@@ -917,7 +916,7 @@ function Detailpage() {
                         }
                       }}
                     >
-                      Reviews
+                      Reviews{" "}
                       {reviewArr ? (
                         <span>{reviewArr.length}</span>
                       ) : (
