@@ -827,7 +827,7 @@ function Detailpage() {
             )}
           </div>
         </div>
-        {/* Top Billed Cast/credit Api  */}
+        {/* Top Billed Cast/credit Api */}
         <div className="contizer">
           <div className="castBox xl:px-6 pb-4 flex flex-col md:grid grid-cols-12 gap-8 py-12">
             {/* part-A  */}
