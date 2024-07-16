@@ -90,7 +90,7 @@ function CrewAndCast() {
       </div>
       {/* Casts-Crews  */}
       <div className="contizer">
-        <div className="px-6 xl:px-0 flex flex-col md:flex-row gap-6 py-6">
+        <div className="px-6 xl:px-0 flex flex-col md:flex-row gap-6 py-6 min-h-[48.3vh]">
           <div className="casts text-black basis-1/2">
             <div className="castnum pb-2">
               <h2 className="text-xl font-semibold underline">

@@ -372,7 +372,7 @@ function Pop0WinnersPage() {
             <div className="flex flex-col justify-center xs:grid grid-cols-12 gap-4 lg:gap-2 xl:ga-3 py-3">
               {editors.map(
                 (editor) =>
-                  editor.popularity > 2 && (
+                  editor.popularity > 0 && (
                     <div
                       className="border max-w-full col-span-6 sm:col-span-4 md:col-span-3 lg:col-span-2 rounded-lg overflow-hidden"
                       key={editor.id}
@@ -445,7 +445,7 @@ function Pop0WinnersPage() {
             <div className="flex flex-col justify-center xs:grid grid-cols-12 gap-4 lg:gap-2 xl:ga-3 py-3">
               {anomations.map(
                 (anomation) =>
-                  anomation.popularity > 4 && (
+                  anomation.popularity > 1 && (
                     <div
                       className="border max-w-full col-span-6 sm:col-span-4 md:col-span-3 lg:col-span-2 rounded-lg overflow-hidden"
                       key={anomation.id}

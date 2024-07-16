@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-function Pop2Editor({ editor, popEdit }) {
-  const { id, profile_path, name, popularity, imgUrl } = editor;
+function Pop2Editor({ editor, popEdit, imgUrl }) {
+  const { id, profile_path, name, popularity } = editor;
 
   // user score
   let percent = popularity ? popularity : "20";
@@ -35,7 +35,10 @@ function Pop2Editor({ editor, popEdit }) {
 
   return (
     <>
-      <Link to={`/AwardsCard/${id}`} className="inline-block">
+      <Link
+        to={`/AwardsCard/${id}`}
+        className="rounded-t-lg overflow-hidden inline-block"
+      >
         <img
           src={
             profile_path
