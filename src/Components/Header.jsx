@@ -7,7 +7,7 @@ function Header() {
       <header className="header">
         <div className="contizer">
           <nav className="flex flex-wrap gap-2 lg:gap-8 py-1 justify-between items-center">
-            <div className="flex  items-center gap-12">
+            <div className="flex flex-row-reverse md:flex-row items-center gap-12">
               {/* logo  */}
               <div className="logo w-fit cursor-pointer">
                 <Link
@@ -16,13 +16,13 @@ function Header() {
                   className="flex items-center"
                 >
                   <span>
-                    <img src={logo} alt="logo" className="w-[90px]" />
+                    <img src={logo} alt="logo" className="w-16 md:w-[90px]" />
                   </span>
                   {/* <span className="inline-block w-12 h-5 rounded-[16px] bg-gradient-to-tr from-blue-600 to-green-500"></span> */}
                 </Link>
               </div>
               {/* pages  */}
-              <ul className="flex justify-between flex-wrap sm:gap-4">
+              <ul className="hidden md:flex justify-between flex-wrap sm:gap-4">
                 {/* movies link  */}
                 <li className="py-4 mx-2 cursor-pointer text-white hover:text-blue-200 font-semibold relative mli prLi">
                   Movies
@@ -94,6 +94,9 @@ function Header() {
                   </ul>
                 </li>
               </ul>
+              <span className="inline-block rotate-90 font-bold tracking-widest cursor-pointer md:hidden">
+                |||
+              </span>
             </div>
             {/* accounts */}
             <ul className="lg:flex gap-4 text-[16px] hidden">
