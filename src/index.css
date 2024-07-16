@@ -18,13 +18,11 @@
     left: 0;
     top: 100%;
     z-index: 50;
-    background-color: #fff;
     color: gray;
     padding: 8px 0;
+    background-color: #032541;
     width: calc(100% + 100px);
-    border-radius: 8px;
     flex-direction: column;
-    box-shadow: 0 2px 1px 1px rgb(196, 196, 196);
   }
   .prLi:hover .navUl {
     display: flex;
@@ -90,26 +88,40 @@
   .swiper .swiper-button-prev,
   .swiper-button-next {
     top: calc(100% - 26px) !important;
+    padding: 6px 10px !important;
+    border-radius: 4px;
+    line-height: 0 !important;
+    display: inline-block;
+    width: fit-content;
+    height: min-content !important;
   }
   .swiper .swiper-button-prev {
-    left: 63% !important;
+    left: 61.4% !important;
   }
   .swiper .swiper-button-prev::after {
-    font-size: 26px !important;
+    font-size: 20px !important;
   }
   .swiper .swiper-button-next::after {
-    font-size: 26px !important;
+    font-size: 20px !important;
   }
 
   /* switch  */
   .leftSwitch {
-    transform: translateX(0px);
-    transition: cubic-bezier(0.37, 0.83, 0.67, 1.07) 0.5s !important;
+    display: inline-block;
+    text-wrap: nowrap;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: position cubic-bezier(0.37, 0.83, 0.67, 1.07) 0.5s !important;
     animation: rswitch 0.8s linear;
   }
   .rightSwitch {
-    transform: translateX(86px);
-    transition: cubic-bezier(0.37, 0.83, 0.67, 1.07) 0.5s !important;
+    display: inline-block;
+    text-wrap: nowrap;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: position cubic-bezier(0.37, 0.83, 0.67, 1.07) 0.5s !important;
     animation: rswitch1 0.8s linear;
   }
   @keyframes rswitch {

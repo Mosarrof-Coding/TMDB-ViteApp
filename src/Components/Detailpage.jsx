@@ -723,7 +723,7 @@ function Detailpage() {
               <div className="popupBox text-black fixed left-0 top-0 right-0 bottom-0 bg-[#000000a1] z-[2] grid place-items-center">
                 <div className="relative">
                   {/* popupContent */}
-                  <div className="popupContent max-w-[830px] px-[15px]">
+                  <div className="popupContent max-w-[580px] lg:max-w-[780px]">
                     <Swiper
                       className="w-full overflow-hidden bg-white rounded-lg p-2 relative"
                       modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -733,7 +733,7 @@ function Detailpage() {
                     >
                       {posters.map((pos) => (
                         <SwiperSlide key={pos.file_path} className="w-full">
-                          <div className="w-full flex gap-4 ">
+                          <div className="w-full flex gap-2 lg:gap-4 ">
                             <div className="popupImg w-[60%] grid place-items-center">
                               {img ? (
                                 <img
@@ -751,7 +751,7 @@ function Detailpage() {
                               )}
                             </div>
                             <div className="popupInfo w-[40%] mt-auto pt-16">
-                              <div className="py-4 px-3 flex justify-between gap-2 items-center w-full">
+                              <div className="pb-2 lg:py-4 px-3 flex justify-between gap-2 items-center w-full">
                                 <span className="cursor-pointer">
                                   <BiSolidDislike />
                                 </span>
@@ -759,13 +759,13 @@ function Detailpage() {
                                   <BiSolidLike />
                                 </span>
                               </div>
-                              <div className="text-gray-600 p-2 flex justify-between gap-2 items-center w-full">
+                              <div className="text-gray-600 p-1 lg:p-2 flex justify-between gap-2 items-center w-full">
                                 <span>Info</span>
                                 <span>
                                   <RxLockClosed />
                                 </span>
                               </div>
-                              <div className="p-2 border-t border-b w-full flex flex-col gap-4">
+                              <div className="p-1 lg:p-2 border-t border-b w-full flex flex-col gap-4">
                                 <h4 className="flex gap-2 items-center">
                                   <span className="inline-block">Primary</span>
                                   <span className="inline-block">
@@ -791,7 +791,7 @@ function Detailpage() {
                                     </span>
                                   </div>
                                 </div>
-                                <div className="mb-6">
+                                <div className="mb-2 lg:mb-6">
                                   <h4 className="text-gray-800 text-sm font-light py-2">
                                     Language
                                   </h4>
@@ -806,7 +806,7 @@ function Detailpage() {
                                   </div>
                                 </div>
                               </div>
-                              <div className="p-2 mb-20 first-line:Tagged flex justify-between items-center gap-4">
+                              <div className="p-1 lg:p-2 mb-14 lg:mb-20 first-line:Tagged flex justify-between items-center gap-4">
                                 <h5>Tagged People</h5>
                                 <FaPlusCircle />
                               </div>
