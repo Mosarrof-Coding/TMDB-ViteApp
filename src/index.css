@@ -8,9 +8,28 @@
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 10px;
   }
+  .myGridDis {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  }
+  .myGridDis2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+  }
   .myGrid2 {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  .myGridMob {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+  }
+  .myGridMob2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
   .navUl {
     display: none;
@@ -107,43 +126,12 @@
 
   /* switch  */
   .leftSwitch {
-    display: inline-block;
-    text-wrap: nowrap;
-    position: absolute;
-    left: 0;
-    top: 0;
-    transition: position cubic-bezier(0.37, 0.83, 0.67, 1.07) 0.5s !important;
-    animation: rswitch 0.8s linear;
+    transform-origin: 0%;
+    transform: translateX(0);
+    transition: cubic-bezier(0.37, 0.83, 0.67, 1.07) 0.5s !important;
   }
   .rightSwitch {
-    display: inline-block;
-    text-wrap: nowrap;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: position cubic-bezier(0.37, 0.83, 0.67, 1.07) 0.5s !important;
-    animation: rswitch1 0.8s linear;
-  }
-  @keyframes rswitch {
-    0% {
-      box-shadow: 0 0 0 0 gray;
-    }
-    20% {
-      box-shadow: 0 0 5px 1px rgba(128, 128, 128, 0.472);
-    }
-    100% {
-      box-shadow: 0 0 0 0 gray;
-    }
-  }
-  @keyframes rswitch1 {
-    0% {
-      box-shadow: 0 0 0 0 gray;
-    }
-    20% {
-      box-shadow: 0 0 5px 1px rgba(128, 128, 128, 0.5);
-    }
-    100% {
-      box-shadow: 0 0 0 0 gray;
-    }
+    transform: translateX(calc(8px + 69%));
+    transition: cubic-bezier(0.37, 0.83, 0.67, 1.07) 0.5s !important;
   }
 }

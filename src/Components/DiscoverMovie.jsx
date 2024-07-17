@@ -27,23 +27,19 @@ function DiscoverMovie() {
   return (
     <>
       <section className="bg-gray-50 py-8 ">
-        <h3 className="text-2xl font-semibold text-yellow-400 pb-2 text-center">
-          All Movies
-        </h3>
         <div className="contizer">
-          <div className="discWrappper flex justify-center flex-wrap gap-2">
+          <h3 className="text-2xl font-semibold text-yellow-400 pb-2 text-center">
+            All Movies
+          </h3>
+
+          <div className="discWrappper myGridDis2 lg:myGridDis">
             {discmovies.map((movie) => (
-              <div
-                key={movie.id}
-                className="max-w-[156px] text-sm border rounded-md overflow-hidden hover:shadow-md"
-              >
-                <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
-              </div>
+              <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
             ))}
           </div>
           <div className="flex justify-center mt-4">
             <Button
-              className="py-2 mt-2 mb-8 px-8 rounded-full bg-gradient-to-r from-[#1DD4AB] to-[#02B5E2] text-lg font-semibold"
+              className="mt-2 mb-8 py-1 md:py-2 px-4 md:px-8 rounded-full bg-gradient-to-r from-[#1DD4AB] to-[#02B5E2] text-base md:text-lg font-semibold"
               onClick={handleLoadMore}
             >
               Load More

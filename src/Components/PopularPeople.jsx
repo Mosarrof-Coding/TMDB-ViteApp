@@ -107,21 +107,21 @@ function PopularPeople() {
         </div>
 
         {/* switch btn  */}
-        <div className="w-fit mx-auto my-12 border border-[#02b5e241] rounded-2xl flex gap-2 items-center relative">
+        <div className="w-[180px] lg:w-[200px] mx-auto my-12 border border-[#02b5e241] rounded-2xl flex gap-1 lg:gap-2 items-center relative text-nowrap">
           <button
-            className="component-1 cursor-pointer text-black px-4 py-0 grid place-items-center z-10"
+            className="component-1 text-sm md:text-base font-medium cursor-pointer text-black px-4 py-0 grid place-items-center z-10"
             onClick={switchToggle}
           >
             Today
           </button>
           <button
-            className="component-2 cursor-pointer text-black px-4 py-0 grid place-items-center z-6"
+            className="component-2 text-sm md:text-base font-medium cursor-pointer text-black px-4 py-0 grid place-items-center z-6"
             onClick={switchToggle}
           >
             This Week
           </button>
           <div className="blueVox absolute w-full top-0 left-0 right-0 bottom-0 z-[-1] pointer-events-none touch-none">
-            <div className="runner rounded-2xl inline-block bg-gradient-to-r from-[#1dd4ac86] to-[#075d72] px-4 font-medium">
+            <div className="runner rounded-2xl text-sm md:text-base font-medium inline-block bg-gradient-to-r from-[#1dd4ac86] to-[#075d72] px-4">
               Today
             </div>
           </div>

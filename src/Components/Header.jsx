@@ -15,10 +15,9 @@ function Header() {
                   onClick={() => fetchImages()}
                   className="flex items-center"
                 >
-                  <span>
-                    <img src={logo} alt="logo" className="w-16 md:w-[90px]" />
+                  <span className="inline-block pr-8 rounded-[16px] bg-gradient-to-tr from-blue-600 to-green-500 z-50">
+                    <img src={logo} alt="logo" className="w-10 md:w-[50px]" />
                   </span>
-                  {/* <span className="inline-block w-12 h-5 rounded-[16px] bg-gradient-to-tr from-blue-600 to-green-500"></span> */}
                 </Link>
               </div>
               {/* pages  */}

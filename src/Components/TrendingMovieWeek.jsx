@@ -18,17 +18,16 @@ function TrendingMovieWeek() {
   }, []);
   return (
     <>
-      <section>
-        <div className="contizer">
-          <div className="trenWrap flex gap-4 overflow-x-auto">
-            {trends.map((movie) => (
-              <div key={movie.id} className="min-w-[160px] mb-4">
-                <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
-              </div>
-            ))}
+      <div className="trenWrap flex gap-3 lg:gap-5 overflow-x-auto">
+        {trends.map((movie) => (
+          <div
+            key={movie.id}
+            className="min-w-[130px] max-w-[180px] lg:min-w-[160px] lg:max-w-[260px] mb-4"
+          >
+            <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
     </>
   );
 }

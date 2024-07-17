@@ -124,11 +124,14 @@ const Home = () => {
             Search Movies
           </h3>
           <div className="contizer">
-            <div className="homeWrapper py-2 px-2 lg:px-0 overflow-x-auto bg-[url(./assets/bgArt.svg)] bg-repeat-x bg-[center_bottom_0rem]">
+            <div className="homeWrapper py-2 overflow-x-auto bg-[url(./assets/bgArt.svg)] bg-repeat-x bg-[center_bottom_0rem]">
               {movies.length > 0 ? (
-                <div className="flex gap-5 mb-5">
+                <div className="flex gap-3 lg:gap-5">
                   {movies.map((movie) => (
-                    <div key={movie.id} className="min-w-[160px] max-w-[260px]">
+                    <div
+                      key={movie.id}
+                      className="min-w-[130px] max-w-[180px]  lg:min-w-[160px] lg:max-w-[260px]"
+                    >
                       <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
                     </div>
                   ))}
@@ -146,21 +149,21 @@ const Home = () => {
               Trending Movies
             </h3>
             {/* switch btn  */}
-            <div className="w-fit mx-auto my-4 border border-[#02b5e241] rounded-2xl flex gap-2 items-center relative flex-shrink-0 transition-all duration-1000">
+            <div className="w-fit mx-auto my-4 border border-[#02b5e241] rounded-2xl flex gap-2 items-center relative">
               <button
-                className={`component-1 text-xs sm:text-sm lg:text-base font-medium cursor-pointer text-black px-4 z-10`}
+                className={`component-1 text-xs sm:text-sm lg:text-base font-medium cursor-pointer text-black px-2 md:px-3 lg:px-4 z-10`}
                 onClick={switchToggle}
               >
                 Today
               </button>
               <button
-                className="component-2 text-xs sm:text-sm lg:text-base font-medium cursor-pointer text-black px-4 z-10"
+                className="component-2 text-xs sm:text-sm lg:text-base font-medium cursor-pointer text-black px-2 md:px-3 lg:px-4 z-10"
                 onClick={switchToggle}
               >
                 This Week
               </button>
               <div className="blueVox absolute w-full h-full top-0 left-0 z-[-1] pointer-events-none touch-none flex gap-2">
-                <div className="runner text-xs sm:text-sm lg:text-base rounded-2xl inline-block bg-gradient-to-r from-[#1dd4ac86] to-[#075d72] px-4 font-medium text-white">
+                <div className="runner text-xs sm:text-sm lg:text-base rounded-2xl inline-block bg-gradient-to-r from-[#1dd4ac86] to-[#075d72] px-2 md:px-3 lg:px-4 font-medium text-white">
                   Today
                 </div>
               </div>

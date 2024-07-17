@@ -18,7 +18,6 @@ const MovieCard = ({ movie, imgUrl }) => {
     name,
     first_air_date,
     poster_path,
-    backdrop_path,
     release_date,
     vote_average,
   } = movie;
@@ -50,17 +49,14 @@ const MovieCard = ({ movie, imgUrl }) => {
         <div className="">
           {loaded ? (
             <Link to={`/Detailpage/${id}`}>
-              {poster_path || backdrop_path ? (
+              {poster_path ? (
                 <>
-                  <div className="hidden sm:block">
+                  <div className="">
                     <img
                       src={imgUrl + poster_path}
                       alt={title}
                       className="rounded-t-lg"
                     />
-                  </div>
-                  <div className="sm:hidden">
-                    <img src={imgUrl + backdrop_path} alt={title} />
                   </div>
                 </>
               ) : (
@@ -104,7 +100,7 @@ const MovieCard = ({ movie, imgUrl }) => {
               <BsThreeDots size={18} color="#ffffff" />
             </button>
             {isVisible && (
-              <ul className="absolute -right-4 top-full min-w-32 bg-white z-10 rounded py-2 text-sm font-medium flex flex-col gap-1 shadow-lg">
+              <ul className="absolute -right-4 top-full min-w-32 bg-white z-10 rounded py-2 text-xs md:text-sm font-medium flex flex-col gap-1 shadow-lg">
                 <li className="flex gap-2 items-center px-2 py-1 hover:bg-blue-900 hover:text-white transition-all duration-300 cursor-pointer">
                   <span className="inline-block">
                     <BsListUl size={14} />
