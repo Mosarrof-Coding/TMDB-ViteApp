@@ -80,7 +80,7 @@ function ReleaseDate() {
 
   return (
     <>
-      <section className="min-h-[64vh]">
+      <section className="min-h-[64.53vh]">
         {/* Rendering movie details */}
         <div className="bg-gray-600">
           <div className="contizer">
