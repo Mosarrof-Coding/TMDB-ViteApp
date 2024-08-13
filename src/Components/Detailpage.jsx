@@ -213,9 +213,7 @@ function Detailpage() {
   if (countryData) {
     const lastRelease =
       countryData.release_dates[countryData.release_dates.length - 1];
-    lastCertification = lastRelease ? lastRelease.certification : "-";
-  } else {
-    lastCertification = "-";
+    lastCertification = lastRelease ? lastRelease.certification : "";
   }
 
   // video portion
@@ -309,11 +307,11 @@ function Detailpage() {
   };
   return (
     <>
-      <section className="">
+      <section className="text-left">
         {/* navigate  */}
         <div className="navigate">
           <div className="contizer">
-            <div className="navMain py-1 flex justify-center items-center flex-wrap gap-3 sm:gap-6">
+            <div className="navMain py-1 flex justify-center items-center flex-wrap gap-4 lg:gap-6">
               {/* overview  */}
               <div className="dropdown dropdown-hover">
                 <div
@@ -330,7 +328,7 @@ function Detailpage() {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded min-w-max md:w-52"
+                  className="dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)]"
                   onMouseEnter={() => setIsMouseOver(true)}
                   onMouseLeave={() => setIsMouseOver(false)}
                 >
@@ -382,7 +380,7 @@ function Detailpage() {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded min-w-fit md:w-52"
+                  className="dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)] min-w-fit"
                   onMouseEnter={() => setIsMouseOver1(true)}
                   onMouseLeave={() => setIsMouseOver1(false)}
                 >
@@ -413,7 +411,7 @@ function Detailpage() {
                       className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6"
                     >
                       <span>Videos</span>
-                      <span className="flex items-center gap-2">
+                      <span className="flex items-center gap-1">
                         <span>{videos.length}</span>
                         <span className="hidden sm:inline-block rotate-90">
                           <IoTriangleSharp size={8} />
@@ -439,7 +437,7 @@ function Detailpage() {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded min-w-fit md:w-52"
+                  className="dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)]"
                   onMouseEnter={() => setIsMouseOver2(true)}
                   onMouseLeave={() => setIsMouseOver2(false)}
                 >
@@ -474,18 +472,18 @@ function Detailpage() {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded min-w-fit md:w-52"
+                  className="right-0 sm:right-auto dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)]"
                   onMouseEnter={() => setIsMouseOver3(true)}
                   onMouseLeave={() => setIsMouseOver3(false)}
                 >
                   <div className="text-gray-600 flex flex-col gap-1">
-                    <Link className="py-1 hover:bg-gray-200 px-1 sm:px-4 flex items-center justify-between gap-6">
+                    <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
                       <span>Share link</span>
                     </Link>
-                    <Link className="py-1 hover:bg-gray-200 px-1 sm:px-4 flex items-center justify-between gap-6">
+                    <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
                       <span>Facebook</span>
                     </Link>
-                    <Link className="py-1 hover:bg-gray-200 px-1 sm:px-4 flex items-center justify-between gap-6">
+                    <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
                       <span>Tweet</span>
                     </Link>
                   </div>
@@ -544,7 +542,7 @@ function Detailpage() {
               </div>
               {/* detailText */}
               <div className="detailItem col-span-6 lg:col-span-9 pt-6 sm:pt-0 pl-2 sm:pl-4 lg:pl-8 xs:absolute left-0 top-0 right-0 bottom-0 sm:static bg-[#000000c2] sm:bg-inherit pr-2 xxl:pr-0">
-                <h3 className="text-3xl font-bold text-white">
+                <h3 className="text-xl lg:text-3xl font-bold text-white">
                   {detail.title}
                 </h3>
                 <h4 className="productionCountry my-1 text-[#e7f739] text-lg">
@@ -559,19 +557,17 @@ function Detailpage() {
                 <h4>id: {detail.id ? detail.id : "0"}</h4>
                 <ul className="flex flex-wrap gap-3 py-1 items-center">
                   {/* so critical  */}
-                  <li className="border px-1 rounded">
-                    {lastCertification ? lastCertification : ""}
-                  </li>
+                  {lastCertification && (
+                    <li className="border px-1 rounded">{lastCertification}</li>
+                  )}
                   <li className="flex items-center">
                     <span className="release_date">
                       {detail.release_date ? detail.release_date : ""}
                     </span>
                     {detail.production_companies > [] || "" || null ? (
-                      <span className="">
-                        ({detail.production_companies[0].origin_country})
-                      </span>
+                      <>{detail.production_companies[0].origin_country}</>
                     ) : (
-                      <span>(-)</span>
+                      ""
                     )}
                   </li>
                   {/* issued  */}
@@ -701,7 +697,7 @@ function Detailpage() {
                 {/* crew */}
                 <ul className="author py-8 ">
                   <li className="min-w-280px">
-                    <div className="flex flex-wrap lg:grid grid-cols-12 gap-6">
+                    <div className="flex flex-wrap lg:grid grid-cols-12 gap-3 lg:gap-6">
                       {crews?.map((crew) => (
                         <div key={crew.id} className="col-span-4 py-1">
                           <Link
@@ -893,8 +889,8 @@ function Detailpage() {
               <hr />
               {/* Social + reviews */}
               <div className="mediaEtc py-5">
-                <div className="socialPath flex items-end flex-wrap gap-8">
-                  <h3 className="topcast text-2xl font-semibold text-gray-700 pr-8">
+                <div className="socialPath flex items-end flex-wrap gap-2 md:gap-4 lg:gap-8">
+                  <h3 className="topcast text-lg md:text-xl lg:text-2xl font-semibold text-gray-700 pr-4 lg:pr-8">
                     Social
                   </h3>
                   <span>
@@ -994,8 +990,8 @@ function Detailpage() {
               <hr />
               {/* Media part */}
               <div className="Media py-5">
-                <div className="socialPath flex items-end flex-wrap gap-3 lg:gap-8">
-                  <h3 className="topcast text-2xl font-semibold text-gray-700 pr-8">
+                <div className="socialPath flex items-end flex-wrap gap-2 md:gap-4 lg:gap-8">
+                  <h3 className="topcast text-lg md:text-xl lg:text-2xl font-semibold text-gray-700 pr-4 lg:pr-8">
                     Media
                   </h3>
                   <Link
@@ -1005,7 +1001,7 @@ function Detailpage() {
                     onClick={() => handleTabClick("mostPopular")}
                     style={{
                       borderBottom:
-                        activeTab === "mostPopular" ? "4px solid #333" : "none",
+                        activeTab === "mostPopular" ? "2px solid #333" : "none",
                     }}
                   >
                     Most Popular
@@ -1017,7 +1013,7 @@ function Detailpage() {
                     onClick={() => handleTabClick("videos")}
                     style={{
                       borderBottom:
-                        activeTab === "videos" ? "4px solid #333" : "none",
+                        activeTab === "videos" ? "2px solid #333" : "none",
                     }}
                   >
                     Videos{" "}
@@ -1036,7 +1032,7 @@ function Detailpage() {
                     onClick={() => handleTabClick("backdrops")}
                     style={{
                       borderBottom:
-                        activeTab === "backdrops" ? "4px solid #333" : "none",
+                        activeTab === "backdrops" ? "2px solid #333" : "none",
                     }}
                   >
                     Backdrops <span>{backdrops.length}</span>
@@ -1048,7 +1044,7 @@ function Detailpage() {
                     onClick={() => handleTabClick("posters")}
                     style={{
                       borderBottom:
-                        activeTab === "posters" ? "4px solid #333" : "none",
+                        activeTab === "posters" ? "2px solid #333" : "none",
                     }}
                   >
                     Posters <span>{posters.length}</span>

@@ -108,7 +108,7 @@ function PopularPeopleDetails() {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu py-2 px-0 shadow-md border bg-base-100 rounded min-w-max md:w-52"
+                  className="dropdown-content z-[1] menu py-2 px-0 shadow-md border bg-base-100 rounded w-[calc(100%+80px)] min-w-fit"
                   onMouseEnter={() => setIsMouseOver(true)}
                   onMouseLeave={() => setIsMouseOver(false)}
                 >
@@ -187,7 +187,7 @@ function PopularPeopleDetails() {
                         </span>
                         <ul
                           id="mydis"
-                          className="absolute left-[20%] top-[96%] md:left-[100%] md:top-0 py-2 px-0 shadow-xl bg-base-100 rounded border w-52"
+                          className="absolute right-[50%] sm:left-[50%] top-[96%]  md:left-[100%] md:top-0 py-2 px-0 shadow-xl bg-base-100 rounded border w-[calc(100%+80px)] min-w-fit"
                         >
                           <div className="text-gray-600 flex flex-col gap-1 w-auto">
                             <Link className="py-1 hover:bg-gray-100 px-4">
@@ -200,7 +200,7 @@ function PopularPeopleDetails() {
                               <span>
                                 <Link className="py-1 ">Content Issue</Link>
                               </span>
-                              <span className="hidden sm:inline-block">12</span>
+                              <span className="inline-block">12</span>
                             </Link>
                           </div>
                         </ul>
@@ -225,18 +225,18 @@ function PopularPeopleDetails() {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu py-2 px-0 shadow-md border bg-base-100 rounded min-w-fit md:w-52"
+                  className="right-0 sm:right-auto dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)]"
                   onMouseEnter={() => setIsMouseOver3(true)}
                   onMouseLeave={() => setIsMouseOver3(false)}
                 >
                   <div className="text-gray-600 flex flex-col gap-1">
-                    <Link className="py-1 hover:bg-gray-200 px-1 sm:px-4 flex items-center justify-between gap-6">
+                    <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
                       <span>Share link</span>
                     </Link>
-                    <Link className="py-1 hover:bg-gray-200 px-1 sm:px-4 flex items-center justify-between gap-6">
+                    <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
                       <span>Facebook</span>
                     </Link>
-                    <Link className="py-1 hover:bg-gray-200 px-1 sm:px-4 flex items-center justify-between gap-6">
+                    <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
                       <span>Tweet</span>
                     </Link>
                   </div>
@@ -445,7 +445,7 @@ function PopularPeopleDetails() {
                   </div>
                 </div>
                 <div>
-                  <Button className="py-2 px-12 rounded-full bg-blue-400 hover:bg-black text-lg font-semibold">
+                  <Button className="py-1 sm:py-2 px-6 md:px-10 lg:px-12 rounded-full bg-blue-400 hover:bg-black text-sm sm:text-lg font-semibold">
                     EDIT PAGE
                   </Button>
                 </div>
@@ -519,7 +519,7 @@ function PopularPeopleDetails() {
                 </div>
                 {/* acting  */}
                 <div className="databox py-2 ">
-                  <div className="flex justify-between items-center gap-4">
+                  <div className="flex justify-between items-center gap-2 sm:gap-4">
                     <div>
                       <h3 className="text-black font-medium">Acting</h3>
                     </div>
@@ -528,17 +528,17 @@ function PopularPeopleDetails() {
                       {/* dropdown/ All  */}
                       <div className="">
                         <details className="dropdown">
-                          <summary className="m-1 cursor-pointer text-black text-lg px-6">
+                          <summary className="m-1 cursor-pointer text-black text-lg px-3 sm:px-6">
                             All
                           </summary>
-                          <ul className="py-3 px-0 flex flex-col gap-1 shadow z-[1] bg-base-100 rounded-lg w-44 text-gray-600 menu dropdown-content right-1">
-                            <Link className="flex justify-between items-center hover:bg-gray-300 px-3 py-1">
+                          <ul className="py-3 px-0 flex flex-col gap-1 shadow z-[1] bg-base-100 rounded-lg w-fit sm:w-44 text-gray-600 menu dropdown-content right-1">
+                            <Link className="flex justify-between gap-1 items-center hover:bg-gray-300 px-3 py-1">
                               <span>Movies</span>
                               <small className="w-6 h-6 grid place-items-center rounded-full bg-gray-200">
                                 54
                               </small>
                             </Link>
-                            <Link className="flex justify-between items-center hover:bg-gray-300 px-3 py-1">
+                            <Link className="flex justify-between gap-1 items-center hover:bg-gray-300 px-3 py-1 text-nowrap">
                               <span>Tv Shows</span>
                               <small className="w-6 h-6 grid place-items-center rounded-full bg-gray-200">
                                 22
@@ -549,17 +549,17 @@ function PopularPeopleDetails() {
                       </div>
                       <div className="">
                         <details className="dropdown">
-                          <summary className="m-1 cursor-pointer text-black text-lg  px-6 ">
+                          <summary className="m-1 cursor-pointer text-black text-lg px-3 lg:px-6 ">
                             Depertment
                           </summary>
-                          <ul className="py-3 px-0 flex flex-col gap-1 shadow z-[1] bg-base-100 rounded-lg w-44 text-gray-600 menu dropdown-content right-1">
+                          <ul className="py-3 px-0 flex flex-col gap-1 shadow z-[1] bg-base-100 rounded-lg w-fit sm:w-44 text-gray-600 menu dropdown-content right-1">
                             <Link className="flex justify-between items-center hover:bg-gray-300 px-3 py-1">
                               <span>Acting</span>
                               <small className="w-6 h-6 grid place-items-center rounded-full bg-gray-200">
                                 54
                               </small>
                             </Link>
-                            <Link className="flex justify-between hover:bg-gray-300 px-3 py-1">
+                            <Link className="flex justify-between gap-2 hover:bg-gray-300 px-3 py-1">
                               <span>Productions</span>
                               <small className="w-6 h-6 grid place-items-center rounded-full bg-gray-200">
                                 22

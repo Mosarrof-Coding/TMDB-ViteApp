@@ -41,7 +41,7 @@ function PersonActing() {
         {credits.length > 0 ? (
           credits.map((credit, index) => (
             <div key={index} className="">
-              <div className="flex items-start gap-6">
+              <div className="flex items-start gap-3 sm:gap-6">
                 <span className="text-black w-8">
                   {credit.release_date ? (
                     credit.release_date.slice(0, 4)
@@ -62,7 +62,7 @@ function PersonActing() {
 
                   {/* card  */}
                   <div
-                    className={`ContBox flex gap-4 w-[420px] bg-blue-950 absolute -left-[74px] bottom-[calc(100%+10px)] p-2 rounded-lg shadow-lg ${
+                    className={`ContBox flex gap-4 w-[320px] xs:w-[420px] bg-blue-950 absolute -left-[74px] bottom-[calc(100%+10px)] p-2 rounded-lg shadow-lg ${
                       selectedCardIndex === index ? "" : "hidden"
                     }`}
                   >

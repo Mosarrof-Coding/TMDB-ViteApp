@@ -1,19 +1,15 @@
-import footLogo from "../assets/mov1.png";
+import logo from "../assets/movielogo.png";
 import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <>
-      <footer className="bg-[#1b1c37] py-8 px-2 lg:px-0">
+      <footer className="bg-[#1b1c37] py-8 px-2 lg:px-0 text-left">
         <div className="contizer">
           <div className="footMain max-w-[940px] mx-auto">
             <div className="footItem max-w-[940px] flex flex-col sm:flex-row justify-center gap-8">
               <div className="fLogo min-w-[220px] text-center pt-2">
-                <img
-                  src={footLogo}
-                  alt="logo"
-                  className="max-w-[120px] mx-auto"
-                />
+                <img src={logo} alt="logo" className="max-w-[120px] mx-auto" />
                 <span className="inline-block bg-white text-blue-700 text-[18px] font-semibold mt-6 px-3 py-1 rounded-md cursor-pointer">
                   Hi Mosarrof!
                 </span>

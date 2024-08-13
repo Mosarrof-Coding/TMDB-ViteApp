@@ -1,23 +1,11 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
   color: rgba(255, 255, 255, 0.87);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   transition: cubic-bezier(0.165, 0.84, 0.44, 1);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
-  text-align: center;
-}
-@media (min-width: 400px) {
-  :root {
-    text-align: initial;
-  }
 }
 .contizer {
   max-width: 1530px;

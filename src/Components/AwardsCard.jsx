@@ -44,7 +44,7 @@ function AwardsCard() {
       {/* navigator */}
       <div className="navigate border-b">
         <div className="contizer">
-          <div className="navMain py-1 flex justify-center items-center flex-wrap gap-3 sm:gap-6">
+          <div className="navMain py-1 flex justify-center items-center flex-wrap gap-4 lg:gap-6">
             {/* overview  */}
             <div className="dropdown dropdown-hover">
               <div
@@ -61,7 +61,7 @@ function AwardsCard() {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content z-[1] menu py-2 px-0 shadow-md border bg-base-100 rounded min-w-max md:w-52"
+                className="dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)] min-w-fit"
                 onMouseEnter={() => setIsMouseOver(true)}
                 onMouseLeave={() => setIsMouseOver(false)}
               >
@@ -94,7 +94,7 @@ function AwardsCard() {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content z-[1] menu py-2 px-0 shadow-md border bg-base-100 rounded min-w-fit md:w-52"
+                className="dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)] min-w-fit"
                 onMouseEnter={() => setIsMouseOver1(true)}
                 onMouseLeave={() => setIsMouseOver1(false)}
               >
@@ -122,7 +122,7 @@ function AwardsCard() {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content z-[1] menu py-2 px-0 shadow-md border bg-base-100 rounded min-w-fit md:w-52"
+                className="dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)] min-w-fit"
                 onMouseEnter={() => setIsMouseOver2(true)}
                 onMouseLeave={() => setIsMouseOver2(false)}
               >
@@ -140,7 +140,7 @@ function AwardsCard() {
                       </span>
                       <ul
                         id="mydis"
-                        className="absolute left-[20%] top-[96%] md:left-[100%] md:top-0 py-2 px-0 shadow-xl bg-base-100 rounded border w-52"
+                        className="absolute right-[50%] sm:left-[50%] top-[96%]  md:left-[100%] md:top-0 py-2 px-0 shadow-xl bg-base-100 rounded border w-[calc(100%+80px)] min-w-fit"
                       >
                         <div className="text-gray-600 flex flex-col gap-1 w-auto">
                           <Link className="py-1 hover:bg-gray-100 px-4">
@@ -153,7 +153,7 @@ function AwardsCard() {
                             <span>
                               <Link className="py-1 ">Content Issue</Link>
                             </span>
-                            <span className="hidden sm:inline-block">12</span>
+                            <span className="inline-block">12</span>
                           </Link>
                         </div>
                       </ul>
@@ -178,18 +178,18 @@ function AwardsCard() {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content z-[1] menu py-2 px-0 shadow-md border bg-base-100 rounded min-w-fit md:w-52"
+                className="dropdown-content z-[1] right-0 sm:right-auto menu py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)] min-w-fit"
                 onMouseEnter={() => setIsMouseOver3(true)}
                 onMouseLeave={() => setIsMouseOver3(false)}
               >
                 <div className="text-gray-600 flex flex-col gap-1">
-                  <Link className="py-1 hover:bg-gray-200 px-1 sm:px-4 flex items-center justify-between gap-6">
+                  <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
                     <span>Share link</span>
                   </Link>
-                  <Link className="py-1 hover:bg-gray-200 px-1 sm:px-4 flex items-center justify-between gap-6">
+                  <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
                     <span>Facebook</span>
                   </Link>
-                  <Link className="py-1 hover:bg-gray-200 px-1 sm:px-4 flex items-center justify-between gap-6">
+                  <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
                     <span>Tweet</span>
                   </Link>
                 </div>

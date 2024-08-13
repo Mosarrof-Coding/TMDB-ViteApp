@@ -9,7 +9,7 @@ function Review({ review }) {
   );
   return (
     <>
-      <div className="reviewer flex flex-wrap gap-4 text-black rounded-md border p-6">
+      <div className="reviewer flex flex-wrap gap-4 text-black rounded-md border p-2 md:p-4">
         <div className="w-14 h-14 rounded-full overflow-hidden bg-green-100 border grid place-items-center">
           {review.author_details.avatar_path ? (
             <span>
