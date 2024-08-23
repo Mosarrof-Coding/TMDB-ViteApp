@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import errorpg from "../assets/404.jpg";
 function PageNotFound() {
   return (
-    <div className="h-[63.7vh] text-3xl text-red-600 grid place-items-center">
+    <div className="min-h-[64.5vh] text-3xl text-red-600 grid place-items-center">
       <span>
         <img src={errorpg} alt="" className="max-w-[200px] " />
         <Link
