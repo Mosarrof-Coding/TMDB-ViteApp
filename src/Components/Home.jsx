@@ -111,7 +111,7 @@ const Home = () => {
             <img src="../../public/oscars.svg" alt="" className="max-w-64" />
             <Link
               to="/Pop0WinnersPage"
-              className="inline-flex gap-2 items-center mt-6 border-2 rounded-full px-3 py-1"
+              className="inline-flex gap-2 items-center text-sm md:text-base mt-6 border-2 rounded-full px-2 md:px-3 py-1"
             >
               View the winners
               <span>

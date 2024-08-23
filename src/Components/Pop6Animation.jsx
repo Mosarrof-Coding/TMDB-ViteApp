@@ -1,37 +1,45 @@
 /* eslint-disable react/prop-types */
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Pop6Animation({ anomation, popAnimation, imgUrl }) {
   const { id, profile_path, name, popularity } = anomation;
 
-  // user score
+  // User score
   let percent = popularity ? popularity : "20";
-  // customise winner card
+
+  // Function to customize the winner's card with shadow
   const customiseWinner = () => {
-    const thisBtn = document.querySelector(".winCards6");
+    const thisBtn = document.querySelector(`.winCards-${id}`);
     if (thisBtn) {
-      return (thisBtn.parentElement.parentElement.parentElement.style.boxShadow =
-        "0 4px 10px 1px #01d2787d");
+      thisBtn.parentElement.parentElement.parentElement.style.boxShadow =
+        "0 4px 10px 1px #01d2787d";
     }
   };
-  // oscar wins
-  const makeWinner = (percent, popAnimation) => {
-    if (percent === popAnimation) {
+
+  // Determine if the animation is a winner or nominee
+  const makeWinner = (percent, win) => {
+    if (percent === win) {
       return (
         <span
-          className={`winCards6 ${customiseWinner()} text-md font-semibold px-4 py-1 my-2 rounded-full bg-[#01D277] inline-block text-white`}
+          className={`winCards-${id} text-base lg:text-lg font-semibold px-4 py-[2px] my-3 rounded-full bg-[#01D277] inline-block text-white`}
         >
-          Winner!
+          Winner
         </span>
       );
     } else {
       return (
-        <span className="text-md font-medium px-4 py-1 my-2 rounded-full bg-gray-400 inline-block text-white">
+        <span className="text-base lg:text-lg px-4 py-[2px] my-3 rounded-full bg-gray-400 inline-block text-white">
           Nominee
         </span>
       );
     }
   };
+
+  // UseEffect to customize winner shadow effect
+  useEffect(() => {
+    customiseWinner();
+  }, [percent]);
 
   return (
     <>
@@ -45,7 +53,7 @@ function Pop6Animation({ anomation, popAnimation, imgUrl }) {
               ? imgUrl + profile_path
               : "https://placehold.co/400x600"
           }
-          alt=""
+          alt={name}
         />
       </Link>
       <div className="text p-2">

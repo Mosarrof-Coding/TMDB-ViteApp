@@ -80,12 +80,12 @@ function ReleaseDate() {
 
   return (
     <>
-      <section className="min-h-[64.53vh]">
+      <section className="">
         {/* Rendering movie details */}
         <div className="bg-gray-600">
           <div className="contizer">
-            <div className="bb py-4 flex items-center gap-8">
-              <div className="w-20">
+            <div className="bb py-3 lg:py-4 flex items-center gap-5 lg:gap-8">
+              <div className="w-16 lg:w-20">
                 {detail.poster_path ? (
                   <div className="object-cover overflow-hidden">
                     <img
@@ -101,7 +101,7 @@ function ReleaseDate() {
                 )}
               </div>
               <div className="title">
-                <h3 className="text-3xl font-bold text-white">
+                <h3 className="text-xl md:2xl lg:text-3xl font-bold text-white">
                   {detail.title}{" "}
                   <span className="release_date text-gray-400 font-medium">
                     {detail.release_date ? (
@@ -124,7 +124,8 @@ function ReleaseDate() {
         {/* Rendering release dates */}
         <div className="contizer">
           <div className="Altbox flex flex-col sm:flex-row justify-between gap-4 lg:gap-6 py-8">
-            <div className="basis-1/4 min-w-fit">
+            {/* countries */}
+            <div className="myScrollbar basis-1/4 min-w-fit max-h-[30vh] md:max-h-max overflow-y-auto">
               <div className="rounded-lg overflow-hidden shadow-md hover:shadow-lg pb-2 border border-gray-300">
                 <div className="flex justify-between bg-black text-white py-4 mb-2 px-3 text-xl font-semibold">
                   <span className="">Release Dates</span>
@@ -149,8 +150,8 @@ function ReleaseDate() {
                 ))}
               </div>
             </div>
-
-            <div className="basis-3/4">
+            {/* country flag */}
+            <div className="myScrollbar basis-3/4 max-h-[50vh] md:max-h-max overflow-y-auto">
               <div className="flex flex-col gap-6">
                 {releaseDates?.map((release, i) => (
                   <div
@@ -179,16 +180,22 @@ function ReleaseDate() {
                       <li className="list-none capitalize text-sm basis-1/2">
                         Date
                       </li>
-                      <li className="list-none capitalize text-sm basis-1/2">
+                      <li className="list-none capitalize text-sm basis-1/2 hidden lg:block">
                         Certification
+                      </li>
+                      <li className="list-none capitalize text-sm basis-1/2 lg:hidden block">
+                        Ctf
                       </li>
                       <li className="list-none capitalize text-sm basis-1/2">
                         Type
                       </li>
-                      <li className="list-none capitalize text-sm basis-1/2">
+                      <li className="list-none capitalize text-sm basis-1/2 hidden lg:block">
                         Language
                       </li>
-                      <li className="list-none capitalize text-sm basis-1/2">
+                      <li className="list-none capitalize text-sm basis-1/2 lg:hidden block">
+                        Lan
+                      </li>
+                      <li className="list-none capitalize text-sm basis-1/2 hidden lg:block">
                         Note
                       </li>
                     </div>
@@ -218,7 +225,7 @@ function ReleaseDate() {
                             {releaseDate.iso_639_1}
                           </span>
                         </li>
-                        <li className="text-gray-600 list-none capitalize text-sm basis-1/2">
+                        <li className="text-gray-600 list-none capitalize text-sm basis-1/2 hidden lg:block">
                           <span className="text-sm font-light">
                             {releaseDate.note}
                           </span>

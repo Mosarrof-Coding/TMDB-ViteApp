@@ -60,7 +60,7 @@ function AwardsCardMovie() {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content z-[1] menu py-2 px-0 shadow-md border bg-base-100 rounded min-w-max md:w-52"
+                className="dropdown-content z-[10] menu py-2 px-0 shadow-md border bg-base-100 rounded w-36 md:w-52"
                 onMouseEnter={() => setIsMouseOver(true)}
                 onMouseLeave={() => setIsMouseOver(false)}
               >
@@ -139,7 +139,7 @@ function AwardsCardMovie() {
                       </span>
                       <ul
                         id="mydis"
-                        className="absolute left-[20%] top-[96%] md:left-[100%] md:top-0 py-2 px-0 shadow-xl bg-base-100 rounded border w-52"
+                        className="absolute right-[20%] top-[96%] md:left-[100%] md:top-0 py-2 px-0 shadow-xl bg-base-100 rounded border w-36 lg:w-52"
                       >
                         <div className="text-gray-600 flex flex-col gap-1 w-auto">
                           <Link className="py-1 hover:bg-gray-100 px-4">
@@ -177,18 +177,18 @@ function AwardsCardMovie() {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content z-[1] menu py-2 px-0 shadow-md border bg-base-100 rounded min-w-fit md:w-52"
+                className="dropdown-content z-[1] menu py-2 px-0 shadow-md border bg-base-100 rounded w-36 lg:md:w-52 right-0 lg:right-auto"
                 onMouseEnter={() => setIsMouseOver3(true)}
                 onMouseLeave={() => setIsMouseOver3(false)}
               >
                 <div className="text-gray-600 flex flex-col gap-1">
-                  <Link className="py-1 hover:bg-gray-200 px-1 sm:px-4 flex items-center justify-between gap-6">
+                  <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
                     <span>Share link</span>
                   </Link>
-                  <Link className="py-1 hover:bg-gray-200 px-1 sm:px-4 flex items-center justify-between gap-6">
+                  <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
                     <span>Facebook</span>
                   </Link>
-                  <Link className="py-1 hover:bg-gray-200 px-1 sm:px-4 flex items-center justify-between gap-6">
+                  <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
                     <span>Tweet</span>
                   </Link>
                 </div>
@@ -200,8 +200,8 @@ function AwardsCardMovie() {
       {/* awards banner */}
       <div className="m-auto bg-gradient-to-br from-[#271515] from-5% to-[#fff] border-t border-[#d5d5d5]">
         <div className="contizer">
-          <div className="py-4 flex items-center gap-8">
-            <Link to={`/Detailpage/${id}`} className="max-w-[70px]">
+          <div className="py-2 lg:py-4 flex items-center gap-4 lg:gap-8">
+            <Link to={`/Detailpage/${id}`} className="w-14 lg:w-20">
               <img
                 src={imgUrl + awards.poster_path}
                 alt=""
@@ -212,7 +212,7 @@ function AwardsCardMovie() {
               <div className="flex flex-col gap-2">
                 <Link
                   to={`/Detailpage/${id}`}
-                  className="text-3xl text-black font-bold"
+                  className="text-lg md:text-2xl lg:text-3xl text-black font-bold"
                 >
                   {awards.title}
                 </Link>
@@ -228,37 +228,35 @@ function AwardsCardMovie() {
         </div>
       </div>
       {/* awards content */}
-      <div className="content">
-        <div className="contizer">
-          <div className="awarImg py-4 md:py-8 border-b">
-            <div className="img max-w-[460px] relative">
-              <img src={awardSvg} alt="svg" />
-              <p className="text-[#1f0606] pt-2 md:absolute right-8 bottom-0">
-                1 Nomination
-              </p>
-            </div>
+      <div className="contizer">
+        <div className="awarImg py-4 md:py-8 border-b">
+          <div className="img max-w-[260px] lg:max-w-[460px] relative">
+            <img src={awardSvg} alt="svg" />
+            <p className="text-[#1f0606] pt-2 md:absolute right-8 bottom-0">
+              1 Nomination
+            </p>
           </div>
-          <div className="py-6 mb-12 md:py-8">
-            <h3 className="text-lg text-black font-semibold mb-4 hidden md:block">
-              Academy Awards
-            </h3>{" "}
-            <div className="awarImg  flex flex-col md:flex-row md:items-center gap-8">
-              <div className="relative">
-                <div className="flex items-center gap-5">
-                  <img
-                    src={movieOscars}
-                    alt=""
-                    className="rounded max-w-[80px] md:max-w-[160px]"
-                  />
-                  <h3 className="text-lg text-black font-semibold mb-4 md:hidden ">
-                    Academy Awards
-                  </h3>
-                </div>
+        </div>
+        <div className="py-6 mb-12 md:py-8">
+          <h3 className="text-lg text-black font-semibold mb-4 hidden md:block">
+            Academy Awards
+          </h3>{" "}
+          <div className="awarImg flex flex-col md:flex-row md:items-center gap-5 lg:gap-8">
+            <div className="relative">
+              <div className="flex items-center gap-3 lg:gap-5">
+                <img
+                  src={movieOscars}
+                  alt=""
+                  className="rounded max-w-[80px] md:max-w-[160px]"
+                />
+                <h3 className="text-lg text-black font-semibold mb-4 md:hidden ">
+                  Academy Awards
+                </h3>
               </div>
-              {/* dynamic avatar */}
-              <div className="actresAchivent flex gap-6 md:justify-between text-black w-full">
-                <AcademyWinnerCard />
-              </div>
+            </div>
+            {/* dynamic avatar */}
+            <div className="actresAchivent flex gap-6 md:justify-between text-black w-full">
+              <AcademyWinnerCard />
             </div>
           </div>
         </div>

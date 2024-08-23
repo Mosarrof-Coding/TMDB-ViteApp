@@ -66,12 +66,12 @@ function AlternativeTitle() {
 
   return (
     <>
-      <section className="min-h-[64vh]">
+      <section className="">
         {/* Rendering movie details */}
         <div className="bg-gray-600">
           <div className="contizer">
             <div className="bb py-4 flex items-center gap-8">
-              <div className="w-20">
+              <div className="w-16 lg:w-20">
                 {detail.poster_path ? (
                   <div className="object-cover overflow-hidden">
                     <img
@@ -87,7 +87,7 @@ function AlternativeTitle() {
                 )}
               </div>
               <div className="title">
-                <h3 className="text-3xl font-bold text-white">
+                <h3 className="text-xl lg:text-3xl font-bold text-white">
                   {detail.title}{" "}
                   <span className="release_date text-gray-400 font-medium">
                     {detail.release_date ? (
@@ -112,9 +112,9 @@ function AlternativeTitle() {
           <div className="Altbox flex flex-col sm:flex-row justify-between gap-6 py-8">
             <div className="basis-1/4 min-w-[220px]">
               <div className="rounded-lg overflow-hidden shadow-md hover:shadow-lg pb-2 border border-gray-300">
-                <div className="flex justify-between bg-black text-white py-4 mb-2 px-3 text-xl font-semibold">
+                <div className="flex justify-between gap-2 bg-black text-white py-4 mb-2 px-3 text-lg md:text-xl xl:text-2xl font-semibold">
                   <span className="">Alternative Titles</span>
-                  <span className="text-gray-300">{cNamse}</span>
+                  <span className="text-blue-300">{cNamse}</span>
                 </div>
                 {titles.map((title, i) => (
                   <div key={i}>

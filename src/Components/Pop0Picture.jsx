@@ -1,10 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-// import { useParams } from "react-router-dom";
 
 function Pop0Picture({ movie, win, imgUrl }) {
-  // const id = useParams();
   const { id, poster_path, original_title, vote_average } = movie;
 
   // user score
@@ -26,14 +24,14 @@ function Pop0Picture({ movie, win, imgUrl }) {
     if (percent === win) {
       return (
         <span
-          className={`winCards ${customiseWinner()} text-md font-semibold px-4 py-1 my-4 rounded-full bg-[#01D277] inline-block text-white`}
+          className={`winCards ${customiseWinner()} text-base lg:text-lg font-semibold px-4 py-[2px] my-3 rounded-full bg-[#01D277] inline-block text-white`}
         >
           Winner
         </span>
       );
     } else {
       return (
-        <span className="text-md font-medium px-4 py-1 my-4 rounded-full bg-gray-400 inline-block text-white">
+        <span className="text-base lg:text-lg px-4 py-[2px] my-3 rounded-full bg-gray-400 inline-block text-white">
           Nominee
         </span>
       );
@@ -71,12 +69,15 @@ function Pop0Picture({ movie, win, imgUrl }) {
       </li>
       <div className="text p-2">
         <div>{makeWinner(percent, win)}</div>
-        <Link to={`/AwardsCardMovie/${id}`} className="font-semibold">
+        <Link
+          to={`/AwardsCardMovie/${id}`}
+          className="font-semibold text-sm lg:text-base"
+        >
           {original_title}
         </Link>
-        <div>
-          <Link className="hover:underline">Director's Name</Link>
-        </div>
+        <Link className="hover:underline block">
+          <small>Director's Name</small>
+        </Link>
       </div>
     </>
   );

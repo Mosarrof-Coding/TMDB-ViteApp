@@ -545,10 +545,13 @@ function Detailpage() {
                 <h3 className="text-xl lg:text-3xl font-bold text-white">
                   {detail.title}
                 </h3>
-                <h4 className="productionCountry my-1 text-[#e7f739] text-lg">
+                <h4 className="productionCountry my-1 text-[#b8c437] text-lg">
                   {detail.production_countries > "" ? (
                     <div>
-                      Production Country: {detail.production_countries[0].name}
+                      Production Country:{" "}
+                      <span className="font-semibold text-[#b8cd00]">
+                        {detail.production_countries[0].name}
+                      </span>
                     </div>
                   ) : (
                     <div>no Production Countries found</div>
@@ -565,7 +568,7 @@ function Detailpage() {
                       {detail.release_date ? detail.release_date : ""}
                     </span>
                     {detail.production_companies > [] || "" || null ? (
-                      <>{detail.production_companies[0].origin_country}</>
+                      <>({detail.production_companies[0].origin_country})</>
                     ) : (
                       ""
                     )}
@@ -828,7 +831,7 @@ function Detailpage() {
           <div className="castBox xl:px-6 pb-4 flex flex-col md:grid grid-cols-12 gap-8 py-12">
             {/* part-A  */}
             <div className="avater col-span-8 xl:col-span-9">
-              <h3 className="topcast text-2xl font-semibold text-gray-700 pb-2">
+              <h3 className="topcast text-xl lg:text-2xl font-semibold text-gray-700 pb-2">
                 Top Billed Cast
               </h3>
               {/* Cast  */}
@@ -1125,7 +1128,7 @@ function Detailpage() {
               </div>
               {/* Recommendations */}
               <div className="Recommendations">
-                <h3 className="topcast text-2xl font-semibold mb-2 text-black">
+                <h3 className="topcast text-xl lg:text-2xl font-semibold mb-2 text-black">
                   Recommendations
                 </h3>
                 <Recommendation />

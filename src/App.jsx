@@ -127,7 +127,7 @@ function App() {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </main>
-      <Footer />
+      <Footer className="place-self-end" />
     </div>
   );
 }

@@ -79,7 +79,7 @@ function Recommendation() {
             </div>
           ))
         ) : (
-          <p className="text-center text-gray-500">
+          <p className="text-gray-500">
             We don't have enough data to suggest any movies. You can help by
             rating movies you've seen.
           </p>

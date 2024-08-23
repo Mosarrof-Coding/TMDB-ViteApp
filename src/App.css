@@ -60,3 +60,22 @@ body::-webkit-scrollbar-thumb {
 ::-webkit-scrollbar-thumb:hover {
   background: #32338a4a;
 }
+
+/* scrollbar 2 */
+.myScrollbar::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+}
+
+.myScrollbar::-webkit-scrollbar-track {
+  background: #f1f1f140; /* Background of the scrollbar track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+.myScrollbar::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+.myScrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the thumb on hover */
+}

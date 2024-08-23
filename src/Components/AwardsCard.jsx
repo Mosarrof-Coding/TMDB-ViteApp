@@ -201,7 +201,7 @@ function AwardsCard() {
       {/* awards banner */}
       <div className="m-auto bg-gradient-to-br from-[#d5d5d5] from-5% to-[#fff] border-t border-[#d5d5d5]">
         <div className="contizer">
-          <div className="py-4 flex items-center gap-8">
+          <div className="py-2 md:py-4 flex items-center gap-5 lg:gap-8">
             <Link className="max-w-[70px]" to={`/PopularPeopleDetails/${id}`}>
               {awards.profile_path ? (
                 <img
@@ -223,7 +223,7 @@ function AwardsCard() {
               <div className="flex flex-col gap-2">
                 <Link
                   to={`/PopularPeopleDetails/${id}`}
-                  className="text-3xl text-black font-bold"
+                  className="text-xl lg:text-3xl text-black font-bold"
                 >
                   {awards.name}
                 </Link>
@@ -242,7 +242,7 @@ function AwardsCard() {
       <div className="content min-h-[45vh] aspect-auto">
         <div className="contizer">
           <div className="awarImg py-4 md:py-8 border-b">
-            <div className="img max-w-[460px] relative">
+            <div className="img max-w-[260px] lg:max-w-[460px] relative">
               <img src={awardSvg} alt="svg" />
               <p className="text-[#1f0606] pt-2 md:absolute right-8 bottom-0">
                 1 Nomination
@@ -253,7 +253,7 @@ function AwardsCard() {
             <h3 className="text-lg text-black font-semibold mb-4 hidden md:block">
               Academy Awards
             </h3>
-            <div className="awarImg  flex flex-col md:flex-row md:items-center gap-8">
+            <div className="awarImg flex flex-col md:flex-row md:items-center gap-8">
               <div className="relative">
                 <div className="flex items-center gap-5">
                   <img

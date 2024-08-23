@@ -47,12 +47,12 @@ function ReviewPage() {
 
   return (
     <>
-      <section className="min-h-[63.7vh]">
+      <section className="">
         <div className="bg-gray-600">
           <div className="contizer">
             {/* banner  */}
-            <div className="bb py-4 flex items-center gap-8">
-              <div className="w-20">
+            <div className="bb py-2 lg:py-4 flex items-center gap-4 lg:gap-8">
+              <div className="w-16 lg:w-20">
                 {detail.poster_path ? (
                   <div className=" object-cover overflow-hidden">
                     <img
@@ -68,7 +68,7 @@ function ReviewPage() {
                 )}
               </div>
               <div className="title">
-                <h3 className=" text-3xl font-bold text-white">
+                <h3 className="text-xl lg:text-3xl font-bold text-white">
                   {detail.title}{" "}
                   <span>
                     <span className="release_date text-gray-400 font-medium">
@@ -94,7 +94,7 @@ function ReviewPage() {
           {/* Review  */}
           <div className="fullrevBox flex flex-col sm:grid grid-cols-12 py-8">
             <div className="writComment col-span-3 min-w-[240px]">
-              <button className="rBtn px-4 py-2 mb-8 bg-[#3a0e0e] rounded-full">
+              <button className="rBtn text-sm lg:text-base px-3 lg:px-4 py-[2px] lg:py-2 mb-8 bg-[#3a0e0e] rounded-full">
                 🖊 Write Review
               </button>
             </div>

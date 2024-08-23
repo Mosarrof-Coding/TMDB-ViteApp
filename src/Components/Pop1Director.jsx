@@ -1,38 +1,36 @@
 /* eslint-disable react/prop-types */
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 function Pop1Director({ directors, dWin, imgUrl }) {
   const { id, profile_path, name, popularity } = directors;
-
-  // user score
   let percent = popularity ? popularity : "20";
-
-  // winner card customise
   const customiseWinner = () => {
     const thisBtn = document.querySelector(".winCards1");
     if (thisBtn) {
-      return (thisBtn.parentElement.parentElement.parentElement.style.boxShadow =
-        "0 4px 10px 1px #01d2787d");
+      thisBtn.parentElement.parentElement.parentElement.style.boxShadow =
+        "0 4px 10px 1px #01d2787d";
     }
   };
-
-  // oscar wins
-  const makeWinner = (percent, dWin) => {
-    if (percent === dWin) {
+  const makeWinner = (percent, win) => {
+    if (percent === win) {
       return (
         <span
-          className={`winCards1 text-md font-semibold px-4 py-1 my-2 rounded-full bg-[#01D277] inline-block text-white ${customiseWinner()}`}
+          className={`winCards1 text-base lg:text-lg font-semibold px-4 py-[2px] my-3 rounded-full bg-[#01D277] inline-block text-white`}
         >
-          Winner!
+          Winner
         </span>
       );
     } else {
       return (
-        <span className="text-md font-medium px-4 py-1 my-2 rounded-full bg-gray-400 inline-block text-white">
+        <span className="text-base lg:text-lg px-4 py-[2px] my-3 rounded-full bg-gray-400 inline-block text-white">
           Nominee
         </span>
       );
     }
   };
+  useEffect(() => {
+    customiseWinner();
+  }, [percent]);
 
   return (
     <>
@@ -46,7 +44,7 @@ function Pop1Director({ directors, dWin, imgUrl }) {
               ? imgUrl + profile_path
               : "https://placehold.co/400x600"
           }
-          alt=""
+          alt={name}
         />
       </Link>
       <div className="text p-2 ">

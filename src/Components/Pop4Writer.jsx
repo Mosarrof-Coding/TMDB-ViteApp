@@ -1,37 +1,45 @@
 /* eslint-disable react/prop-types */
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+
 function Pop4Writer({ write, popWrite, imgUrl }) {
   const { id, profile_path, name, popularity } = write;
 
-  // user score
+  // User score
   let percent = popularity ? popularity : "20";
 
-  // winner card customise
+  // Function to customize the winner's card with shadow
   const customiseWinner = () => {
-    const thisBtn = document.querySelector(".winCards4");
+    const thisBtn = document.querySelector(`.winCards4-${id}`);
     if (thisBtn) {
-      return (thisBtn.parentElement.parentElement.parentElement.style.boxShadow =
-        "0 4px 10px 1px #01d2787d");
+      thisBtn.parentElement.parentElement.parentElement.style.boxShadow =
+        "0 4px 10px 1px #01d2787d";
     }
   };
-  // oscar wins
-  const makeWinner = (percent, popWrite) => {
-    if (percent === popWrite) {
+
+  // Determine if the writer is a winner or nominee
+  const makeWinner = (percent, win) => {
+    if (percent === win) {
       return (
         <span
-          className={`winCards4 ${customiseWinner()} text-md font-semibold px-4 py-1 my-2 rounded-full bg-[#01D277] inline-block text-white`}
+          className={`winCards4-${id} text-base lg:text-lg font-semibold px-4 py-[2px] my-3 rounded-full bg-[#01D277] inline-block text-white`}
         >
-          Winner!
+          Winner
         </span>
       );
     } else {
       return (
-        <span className="text-md font-medium px-4 py-1 my-2 rounded-full bg-gray-400 inline-block text-white">
+        <span className="text-base lg:text-lg px-4 py-[2px] my-3 rounded-full bg-gray-400 inline-block text-white">
           Nominee
         </span>
       );
     }
   };
+
+  // UseEffect to customize winner shadow effect
+  useEffect(() => {
+    customiseWinner();
+  }, [percent]);
 
   return (
     <>
@@ -45,7 +53,7 @@ function Pop4Writer({ write, popWrite, imgUrl }) {
               ? imgUrl + profile_path
               : "https://placehold.co/400x600"
           }
-          alt=""
+          alt={name}
         />
       </Link>
       <div className="text p-2">
