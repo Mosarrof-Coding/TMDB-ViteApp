@@ -9,7 +9,7 @@ export default function Login() {
           className="w-[300px] lg:w-[520px] mx-auto p-4 lg:p-6 rounded-lg shadow-lg text-gray-800 flex flex-col gap-6 border-t-8 border-blue-700"
         >
           {" "}
-          <h3 className="text-2xl font-semibold text-blue-500">Login</h3>
+          <h3 className="text-2xl font-semibold text-blue-500">Join TMBD</h3>
           <div className="email w-full flex flex-col gap-1">
             <label htmlFor="email">Email</label>
             <input
