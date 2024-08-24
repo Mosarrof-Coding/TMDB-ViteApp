@@ -88,6 +88,8 @@ import Logos from "./Components/Logos";
 import Pop0WinnersPage from "./Components/Pop0WinnersPage";
 import AwardsCard from "./Components/AwardsCard";
 import AwardsCardMovie from "./Components/AwardsCardMovie";
+import SignUp from "./Pages/SignUp";
+import Login from "./Pages/Login";
 
 function App() {
   return (
@@ -124,6 +126,8 @@ function App() {
           <Route path="/Pop0WinnersPage" element={<Pop0WinnersPage />} />
           <Route path="/AwardsCard/:id" element={<AwardsCard />} />
           <Route path="/AwardsCardMovie/:id" element={<AwardsCardMovie />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </main>
