@@ -26,12 +26,11 @@ function DiscoverMovie() {
 
   return (
     <>
-      <section className="bg-gray-50 py-8 ">
+      <div className="bg-gray-50 py-8 ">
         <div className="contizer">
           <h3 className="text-2xl font-semibold text-yellow-400 pb-2 text-center">
             All Movies
           </h3>
-
           <div className="discWrappper myGridDis2 lg:myGridDis">
             {discmovies.map((movie) => (
               <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
@@ -46,7 +45,7 @@ function DiscoverMovie() {
             </Button>
           </div>
         </div>
-      </section>
+      </div>
     </>
   );
 }

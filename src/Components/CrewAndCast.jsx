@@ -49,8 +49,8 @@ function CrewAndCast() {
     <>
       <div className="bg-gray-600">
         <div className="contizer">
-          <div className="bb py-4 flex items-center gap-8">
-            <div className="w-20">
+          <div className="bb py-2 lg:py-4 flex items-center gap-4 md:gap-6 lg:gap-8">
+            <div className="w-16 lg:lg:w-20">
               {detail.poster_path ? (
                 <div className=" object-cover overflow-hidden">
                   <img
@@ -66,7 +66,7 @@ function CrewAndCast() {
               )}
             </div>
             <div className="title">
-              <h3 className=" text-3xl font-bold text-white">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white">
                 {detail.title}{" "}
                 <span>
                   <span className="release_date text-gray-400 font-medium">
@@ -90,10 +90,10 @@ function CrewAndCast() {
       </div>
       {/* Casts-Crews  */}
       <div className="contizer">
-        <div className="px-6 xl:px-0 flex flex-col md:flex-row gap-6 py-6 min-h-[48.3vh]">
-          <div className="casts text-black basis-1/2">
+        <div className="flex flex-col md:flex-row gap-6 py-6">
+          <div className="casts basis-1/2">
             <div className="castnum pb-2">
-              <h2 className="text-xl font-semibold underline">
+              <h2 className="text-xl text-black font-semibold underline">
                 Cast: <span className="text-gray-500">{casts.length}</span>
               </h2>
             </div>

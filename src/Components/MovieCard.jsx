@@ -42,7 +42,7 @@ const MovieCard = ({ movie, imgUrl }) => {
   return (
     <div
       key={id}
-      className="movieCard border rounded-lg hover:shadow-lg hover:bg-white transition-all duration-500 relative"
+      className="movieCard h-full border rounded-lg hover:shadow-lg hover:bg-white transition-all duration-500 relative"
       onClick={toggleVisibility}
     >
       <div className="relative">
@@ -133,7 +133,7 @@ const MovieCard = ({ movie, imgUrl }) => {
           </div>
         </div>
       </div>
-      <div className="movieTxt z-50 bg-[#ffffffde] w-full  sm:bg-transparent shadow-md sm:shadow-none pl-1 mt-4 sm:mt-0 sm:py-2">
+      <div className="movieTxt z-50 bg-[#ffffffde] w-full pl-1 mt-4 sm:mt-0 sm:py-2">
         <h2 className="font-semibold text-black">
           {title?.slice(0, 16) || name?.slice(0, 12)}
         </h2>

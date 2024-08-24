@@ -101,6 +101,23 @@
     background-color: #ffffff !important;
     --thickness: calc(var(--size) / 20) !important;
   }
+  .myProgressMob {
+    height: 44px !important;
+    width: 44px !important;
+    background-color: #ffffff !important;
+    --thickness: calc(var(--size) / 16) !important;
+  }
+  .myProgressMob:after {
+    transform: rotate(calc(var(--value) * 3.6deg - 90deg))
+      translate(calc(var(--size) / 3.66 - 50%)) !important;
+    background-color: currentColor;
+  }
+  .userBtn {
+    height: 2.4rem !important;
+    min-height: 2.4rem !important;
+    width: 2.4rem !important;
+    flex-shrink: 0;
+  }
   .detailItem {
     text-shadow: 0px 0px 10px #000;
   }

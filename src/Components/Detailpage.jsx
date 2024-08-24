@@ -567,11 +567,12 @@ function Detailpage() {
                     <span className="release_date">
                       {detail.release_date ? detail.release_date : ""}
                     </span>
-                    {detail.production_companies > [] || "" || null ? (
-                      <>({detail.production_companies[0].origin_country})</>
-                    ) : (
-                      ""
-                    )}
+                    {detail.production_companies &&
+                      detail.production_companies.length > 0 && (
+                        <span className="text-blue-400 ml-1">
+                          ({detail.production_companies[0].origin_country})
+                        </span>
+                      )}
                   </li>
                   {/* issued  */}
                   <li className="flex gap-2">
@@ -601,11 +602,11 @@ function Detailpage() {
                   </li>
                 </ul>
                 {/* user activities  */}
-                <div className="py-4 flex items-center flex-wrap gap-4">
+                <div className="py-2 lg:py-4 flex items-center flex-wrap gap-4">
                   {/* daisy progress  */}
                   <div className="flex items-center gap-2 mix-blend-normal">
                     <div
-                      className={`noshadow radial-progress text-black border-white border-4 font-medium text-xl ${
+                      className={`hidden lg:grid noshadow radial-progress text-black border-white border-4 font-medium text-xl ${
                         percent > 70
                           ? "text-green-600"
                           : percent >= 50
@@ -615,12 +616,29 @@ function Detailpage() {
                       style={{ "--value": progressBaar }}
                       role="progressbar"
                     >
-                      <div>
+                      <div className="">
                         {percent}
                         <sup className="text-[11px]">%</sup>
                       </div>
                     </div>
-                    <span className="">
+                    {/* mobile progress */}
+                    <div
+                      className={`noshadow lg:hidden myProgressMob radial-progress text-black border-white border-4 font-medium text-xl ${
+                        percent > 70
+                          ? "text-green-600"
+                          : percent >= 50
+                          ? "text-yellow-500"
+                          : "text-red-600"
+                      }`}
+                      style={{ "--value": progressBaar }}
+                      role="progressbar"
+                    >
+                      <div className="text-[16px]">
+                        {percent}
+                        <sup className="text-[10px]">%</sup>
+                      </div>
+                    </div>
+                    <span className="text-sm lg:text-base">
                       User <br />
                       Score
                     </span>
@@ -628,12 +646,12 @@ function Detailpage() {
                   {/* sIcon */}
                   <ul className="sIcin flex flex-wrap gap-2 items-center">
                     <div className="md:tooltip" data-tip="Add to list">
-                      <li className="btn w-12 h-12 bg-black border-none rounded-full grid place-items-center">
+                      <li className="btn bg-black border-none rounded-full">
                         <FaListUl size={16} color="#43a" />
                       </li>
                     </div>
                     <div className="md:tooltip" data-tip="Mark as favorite">
-                      <li className="btn w-12 h-12 bg-black border-none rounded-full grid place-items-center">
+                      <li className="btn bg-black border-none rounded-full">
                         <FaHeart size={18} color="#43a" />
                       </li>
                     </div>
@@ -641,12 +659,12 @@ function Detailpage() {
                       className="md:tooltip"
                       data-tip="Add to your watchlist"
                     >
-                      <li className="btn w-12 h-12 bg-black border-none rounded-full grid place-items-center">
+                      <li className="btn bg-black border-none rounded-full">
                         <FaBookmark size={16} color="#43a" />
                       </li>
                     </div>
                     <div className="md:tooltip" data-tip="Rate It!">
-                      <li className="btn w-12 h-12 bg-black border-none rounded-full grid place-items-center">
+                      <li className="btn bg-black border-none rounded-full">
                         <FaStar size={18} color="#43a" />
                       </li>
                     </div>
@@ -656,15 +674,15 @@ function Detailpage() {
                       data-tip="Play Trailer"
                       onClick={() => setShowVideo(true)}
                     >
-                      <li className="btn w-12 h-12 bg-black border-none rounded-full grid place-items-center">
-                        <FaYoutube size={24} color="#43a" />
+                      <li className="btn bg-black border-none rounded-full">
+                        <FaYoutube size={18} color="#43a" />
                       </li>
                     </div>
                     <div>
                       {showVideo && (
-                        <div className="absolute w-full letf-0 top-0 right-0 bottom-0 z-[99]">
+                        <div className="fixed w-full letf-0 top-0 right-0 bottom-0 z-[99]">
                           <div
-                            className="closeVid w-full text-center py-2 bg-black text-white cursor-pointer"
+                            className="closeVid w-full text-center py-2 bg-[black] hover:bg-red-600 text-white cursor-pointer"
                             onClick={() => setShowVideo(false)}
                           >
                             Close
@@ -694,11 +712,11 @@ function Detailpage() {
                   {detail.overview != "" ? (
                     <span>{detail.overview}</span>
                   ) : (
-                    <span>no overvoew found!</span>
+                    <span>No Overvoew found!</span>
                   )}
                 </p>
                 {/* crew */}
-                <ul className="author py-8 ">
+                <ul className="author py-4 lg:py-8 ">
                   <li className="min-w-280px">
                     <div className="flex flex-wrap lg:grid grid-cols-12 gap-3 lg:gap-6">
                       {crews?.map((crew) => (
@@ -891,7 +909,7 @@ function Detailpage() {
               </div>
               <hr />
               {/* Social + reviews */}
-              <div className="mediaEtc py-5">
+              <div className="mediaEtc py-3 lg:py-5">
                 <div className="socialPath flex items-end flex-wrap gap-2 md:gap-4 lg:gap-8">
                   <h3 className="topcast text-lg md:text-xl lg:text-2xl font-semibold text-gray-700 pr-4 lg:pr-8">
                     Social
