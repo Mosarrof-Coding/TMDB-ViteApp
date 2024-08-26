@@ -119,7 +119,7 @@ const Home = () => {
           </Link>
         </div>
         {/*Search movie  */}
-        <h3 className="text-center text-2xl font-semibold text-yellow-400 pt-8">
+        <h3 className="text-center text-2xl font-semibold text-yellow-400 pt-4 lg:pt-8">
           Search Movies
         </h3>
         <div className="contizer">
@@ -129,7 +129,7 @@ const Home = () => {
                 {movies.map((movie) => (
                   <div
                     key={movie.id}
-                    className="min-w-[130px] max-w-[180px] lg:min-w-[160px] lg:max-w-[260px]"
+                    className="min-w-[130px] max-w-[130px] lg:min-w-[160px] lg:max-w-[160px]"
                   >
                     <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
                   </div>

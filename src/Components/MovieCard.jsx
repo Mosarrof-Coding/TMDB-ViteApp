@@ -28,9 +28,7 @@ const MovieCard = ({ movie, imgUrl }) => {
   };
 
   // user score
-  let percent = vote_average
-    ? (vote_average * 10).toFixed(0).slice(0, 2)
-    : "20";
+  let percent = vote_average ? (vote_average * 10).toFixed(0).slice(0, 2) : "0";
   let progressBaar = parseInt(percent);
 
   // loading state

@@ -163,3 +163,8 @@
     transition: cubic-bezier(0.37, 0.83, 0.67, 1.07) 0.5s !important;
   }
 }
+@layer components {
+  .sIcin div .btn {
+    @apply scale-75 md:scale-100;
+  }
+}

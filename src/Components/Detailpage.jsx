@@ -191,7 +191,7 @@ function Detailpage() {
   // user score
   let percent = detail.vote_average
     ? (detail.vote_average * 10).toFixed(0).slice(0, 2)
-    : "20";
+    : "0";
   let progressBaar = parseInt(percent);
 
   // trailer
@@ -512,7 +512,7 @@ function Detailpage() {
           </div>
           {/* cntent  */}
           <div className="max-w-[1530px] mx-auto">
-            <div className="dpWrapper grid-flow-col sm:grid grid-cols-12 py-5">
+            <div className="dpWrapper grid-flow-col sm:grid grid-cols-12 py-3 md:py-5">
               {/* detailImg  */}
               <div className="col-span-6 lg:col-span-3 px-2 xxl:px-0">
                 <div
@@ -541,7 +541,7 @@ function Detailpage() {
                 </div>
               </div>
               {/* detailText */}
-              <div className="detailItem col-span-6 lg:col-span-9 pt-6 sm:pt-0 pl-2 sm:pl-4 lg:pl-8 xs:absolute left-0 top-0 right-0 bottom-0 sm:static bg-[#000000c2] sm:bg-inherit pr-2 xxl:pr-0">
+              <div className="detailItem col-span-6 lg:col-span-9 pt-6 sm:pt-0 pl-2 lg:pl-8 xs:absolute left-0 top-0 right-0 bottom-0 sm:static bg-[#000000c2] sm:bg-inherit pr-2 xxl:pr-0">
                 <h3 className="text-xl lg:text-3xl font-bold text-white">
                   {detail.title}
                 </h3>
@@ -644,7 +644,7 @@ function Detailpage() {
                     </span>
                   </div>
                   {/* sIcon */}
-                  <ul className="sIcin flex flex-wrap gap-2 items-center">
+                  <ul className="sIcin flex flex-wrap gap-0 md:gap-2 items-center">
                     <div className="md:tooltip" data-tip="Add to list">
                       <li className="btn bg-black border-none rounded-full">
                         <FaListUl size={16} color="#43a" />
@@ -740,9 +740,9 @@ function Detailpage() {
               <div className="popupBox text-black fixed left-0 top-0 right-0 bottom-0 bg-[#000000a1] z-[2] grid place-items-center">
                 <div className="relative">
                   {/* popupContent */}
-                  <div className="popupContent max-w-[580px] lg:max-w-[780px]">
+                  <div className="popupContent max-w-[96vw] md:max-w-[700px] lg:max-w-[800px]">
                     <Swiper
-                      className="w-full overflow-hidden bg-white rounded-lg p-2 relative"
+                      className="w-full overflow-hidden bg-white rounded-lg p-1 md:p-2 relative"
                       modules={[Navigation, Pagination, Scrollbar, A11y]}
                       spaceBetween={8}
                       slidesPerView={1}
@@ -750,7 +750,7 @@ function Detailpage() {
                     >
                       {posters.map((pos) => (
                         <SwiperSlide key={pos.file_path} className="w-full">
-                          <div className="w-full flex gap-2 lg:gap-4 ">
+                          <div className="w-full flex gap-1 sm:gap-2 lg:gap-3 xl:gap-4">
                             <div className="popupImg w-[60%] grid place-items-center">
                               {img ? (
                                 <img
@@ -767,8 +767,8 @@ function Detailpage() {
                                 />
                               )}
                             </div>
-                            <div className="popupInfo w-[40%] mt-auto pt-16">
-                              <div className="pb-2 lg:py-4 px-3 flex justify-between gap-2 items-center w-full">
+                            <div className="popupInfo w-[40%] mt-auto pt-14 lg:pt-16">
+                              <div className="pb-1 sm:py-4 px-2 flex justify-between gap-2 items-center w-full">
                                 <span className="cursor-pointer">
                                   <BiSolidDislike />
                                 </span>
@@ -782,14 +782,14 @@ function Detailpage() {
                                   <RxLockClosed />
                                 </span>
                               </div>
-                              <div className="p-1 lg:p-2 border-t border-b w-full flex flex-col gap-4">
+                              <div className="p-1 lg:p-2 border-t border-b w-full flex flex-col gap-1 sm:gap-3 lg:gap-4">
                                 <h4 className="flex gap-2 items-center">
                                   <span className="inline-block">Primary</span>
                                   <span className="inline-block">
                                     <GiGamepadCross size={12} />
                                   </span>
                                 </h4>
-                                <h3 className="text-black pb-2 font-light">
+                                <h3 className="text-black pb-2 font-light hidden sm:block">
                                   Added By:
                                   <br /> <span className="font-bold">Moss</span>
                                 </h3>
@@ -808,17 +808,21 @@ function Detailpage() {
                                     </span>
                                   </div>
                                 </div>
-                                <div className="mb-2 lg:mb-6">
-                                  <h4 className="text-gray-800 text-sm font-light py-2">
+                                <div className="mb-2 md:mb-4 lg:mb-6">
+                                  <h4 className="text-gray-800 text-sm font-light py-1 md:py-2">
                                     Language
                                   </h4>
-                                  <div className="bg-gray-200 rounded p-2">
+                                  <div className="bg-gray-200 rounded p-1 md:p-2">
                                     <select
                                       name=""
                                       id=""
-                                      className="text-black w-full bg-transparent rounded"
+                                      className="text-black w-full bg-transparent rounded p-0 sm:p-1"
                                     >
-                                      <option value="moss">Moss</option>
+                                      <option value="Bengali">Bengali</option>
+                                      <option value="Arabic">Arabic</option>
+                                      <option value="English" selected>
+                                        English
+                                      </option>
                                     </select>
                                   </div>
                                 </div>
@@ -834,7 +838,7 @@ function Detailpage() {
                     </Swiper>
                   </div>
                   <span
-                    className="absolute right-8 top-4 z-[7] cursor-pointer hover:text-red-600"
+                    className="absolute right-3 top-4 z-[7] cursor-pointer hover:text-red-600"
                     onClick={handleFixed}
                   >
                     <RxCross2 size={20} />

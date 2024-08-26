@@ -40,7 +40,7 @@ function Header() {
                 {/* movies link  */}
                 <li className="py-4 mx-2 cursor-pointer text-white hover:text-blue-200 font-semibold relative mli prLi">
                   Movies
-                  <ul className="navUl font-medium pt-4">
+                  <ul className="navUl font-medium border-t-4 border-blue-800">
                     <Link
                       to={"/popular"}
                       className="hover:bg-gray-200 px-3 py-1"
@@ -69,7 +69,7 @@ function Header() {
                 </li>
                 <li className="py-4 mx-2 cursor-pointer text-white hover:text-blue-200 font-semibold  relative mli prLi1">
                   TV Shows
-                  <ul className="navUl font-medium pt-4">
+                  <ul className="navUl font-medium border-t-4 border-blue-800">
                     <Link className="hover:bg-gray-200 px-3 py-1">Popular</Link>
                     <Link className="hover:bg-gray-200 px-3 py-1">
                       Airing Today
@@ -82,7 +82,7 @@ function Header() {
                 </li>
                 <li className="py-4 mx-2 cursor-pointer text-white hover:text-blue-200 font-semibold  relative mli prLi2">
                   People
-                  <ul className="navUl font-medium pt-4">
+                  <ul className="navUl font-medium border-t-4 border-blue-800">
                     <Link
                       to={"/popularPeople"}
                       className="hover:bg-gray-200 px-3 py-1"
@@ -94,7 +94,7 @@ function Header() {
                 {/* more  */}
                 <li className="py-4 mx-2 cursor-pointer text-white hover:text-blue-200 font-semibold relative mli prLi3">
                   More
-                  <ul className="navUl font-medium pt-4">
+                  <ul className="navUl font-medium border-t-4 border-blue-800">
                     <Link className="hover:bg-gray-200 px-3 py-1">
                       Discussion
                     </Link>
