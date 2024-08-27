@@ -678,9 +678,10 @@ function Detailpage() {
                         <FaYoutube size={18} color="#43a" />
                       </li>
                     </div>
+                    {/* trailer video  */}
                     <div>
                       {showVideo && (
-                        <div className="fixed w-full letf-0 top-0 right-0 bottom-0 z-[99]">
+                        <div className="fixed w-full letf-0 top-0 right-0 bottom-0 z-[99] bg-white">
                           <div
                             className="closeVid w-full text-center py-2 bg-[black] hover:bg-red-600 text-white cursor-pointer"
                             onClick={() => setShowVideo(false)}
