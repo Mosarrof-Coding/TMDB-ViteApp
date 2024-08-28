@@ -719,11 +719,11 @@ function Detailpage() {
                 {/* crew */}
                 <ul className="author py-4 lg:py-8 ">
                   <li className="min-w-280px">
-                    <div className="flex flex-wrap lg:grid grid-cols-12 gap-3 lg:gap-6">
+                    <div className="flex flex-wrap lg:grid grid-cols-12 gap-2 lg:gap-6">
                       {crews?.map((crew) => (
-                        <div key={crew.id} className="col-span-4 py-1">
+                        <div key={crew.id} className="col-span-4">
                           <Link
-                            className="inline-block text-md font-semibold hover:text-gray-400 transition-all"
+                            className="inline-block text-sm sm:text-base font-semibold hover:text-gray-400 transition-all border-t"
                             to={`/PopularPeopleDetails/${crew.id}`}
                           >
                             {crew.name}

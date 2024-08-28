@@ -7,7 +7,7 @@ function Footer() {
     <>
       <footer className="bg-[#202243]">
         <div className="contizer">
-          <div className="footItem w-full mx-auto py-2 lg:py-6 flex flex-col lg:flex-row justify-between gap-4">
+          <div className="footItem w-full py-2 lg:py-6 flex flex-col lg:flex-row justify-between gap-4">
             <div className="max-w-fit">
               <img
                 src={logo}
@@ -22,7 +22,7 @@ function Footer() {
               </p>
               <Link
                 to=""
-                className="inline-block bg-white text-blue-700 text-sm sm:text-base font-semibold mt-2 lg:mt-3 px-3 md:py-[1px] rounded-full cursor-pointer whitespace-nowrap"
+                className="inline-block bg-white text-blue-700 text-sm sm:text-base font-semibold mt-2 lg:mt-4 px-3 md:py-[1px] rounded-full cursor-pointer whitespace-nowrap"
               >
                 Hi Mosarrof!
               </Link>
