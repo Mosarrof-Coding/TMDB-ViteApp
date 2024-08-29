@@ -568,34 +568,32 @@ function Detailpage() {
                       {detail.release_date ? detail.release_date : ""}
                     </span>
                     {detail.production_companies &&
-                      detail.production_companies.length > 0 && (
-                        <span className="text-blue-400 ml-1">
-                          ({detail.production_companies[0].origin_country})
-                        </span>
-                      )}
+                    detail.production_companies.length > 0 &&
+                    detail.production_companies[0].origin_country ? (
+                      <span className="text-blue-400 ml-1">
+                        ({detail.production_companies[0].origin_country})
+                      </span>
+                    ) : null}
                   </li>
-                  {/* issued  */}
-                  <li className="flex gap-2">
-                    <span>▪</span>
-                    {detail.genres ? (
-                      <div className="flex flex-wrap gap-1">
+                  {/* issued */}
+                  <li className="">
+                    {detail.genres && detail.genres.length > 0 ? (
+                      <div className="flex flex-wrap gap-2 items-center">
+                        <span>▪</span>
                         {detail.genres.map((gnr, index) => (
                           <div key={gnr.id} className="w-fit">
                             <span className="hover:text-gray-400 cursor-pointer">
-                              {index === detail.genres.length - 1
-                                ? gnr.name
-                                : gnr.name + ", "}
+                              {gnr.name}
+                              {index < detail.genres.length - 1 && ","}
                             </span>
                           </div>
                         ))}
                       </div>
-                    ) : (
-                      <div>not found</div>
-                    )}
+                    ) : null}
                   </li>
                   <li>
                     ▪{" "}
-                    <span>
+                    <span className="ml-1">
                       <span>{hours ? hours : "0"}h-</span>
                       <span>{minutes ? minutes : "0"}m</span>
                     </span>
