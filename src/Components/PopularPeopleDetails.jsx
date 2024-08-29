@@ -248,7 +248,7 @@ function PopularPeopleDetails() {
 
         {/* Person Details */}
         <div className="contizer">
-          <div className="peopleWrap py-10 flex flex-col sm:grid grid-cols-12 gap-8">
+          <div className="peopleWrap py-10 flex flex-col sm:grid grid-cols-12 gap-4 lg:gap-8">
             {/* Personal Info  */}
             <div className="pb-6 w-full sm:col-span-5 md:col-span-4 xl:col-span-3">
               <div className="max-w-full grid place-items-center">
