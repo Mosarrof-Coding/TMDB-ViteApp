@@ -28,7 +28,7 @@ function DiscoverMovie() {
     <>
       <div className="bg-gray-50 py-8 ">
         <div className="contizer">
-          <h3 className="text-2xl font-semibold text-yellow-400 pb-2 text-center">
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-[#252195] pb-2 text-center">
             All Movies
           </h3>
           <div className="discWrappper myGridDis2 lg:myGridDis">

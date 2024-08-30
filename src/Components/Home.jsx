@@ -119,7 +119,7 @@ const Home = () => {
           </Link>
         </div>
         {/*Search movie  */}
-        <h3 className="text-center text-2xl font-semibold text-yellow-400 pt-4 lg:pt-8">
+        <h3 className="text-center text-lg sm:text-xl lg:text-2xl font-semibold text-[#252195] pt-4 lg:pt-8">
           Search Movies
         </h3>
         <div className="contizer">
@@ -142,13 +142,13 @@ const Home = () => {
         </div>
       </div>
       {/* trend movies  */}
-      <div className="pt-8 text-black">
+      <div className="pt-6 lg:pt-8 text-black">
         <div className="contizer">
-          <h3 className="w-fit mx-auto text-2xl font-semibold text-yellow-400">
+          <h3 className="w-fit mx-auto  text-lg sm:text-xl lg:text-2xl font-semibold text-[#252195]">
             Trending Movies
           </h3>
           {/* switch btn  */}
-          <div className="w-fit mx-auto my-4 border border-[#02b5e241] rounded-2xl flex gap-2 items-center relative">
+          <div className="w-fit mx-auto my-2 lg:my-4 border border-[#02b5e241] rounded-2xl flex gap-2 items-center relative">
             <button
               className={`component-1 text-xs sm:text-sm lg:text-base font-medium cursor-pointer text-black px-2 md:px-3 lg:px-4 z-10`}
               onClick={switchToggle}
