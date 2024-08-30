@@ -120,7 +120,7 @@ export default function Login() {
                 onClick={() => setShowPassword(!showPassword)} // Toggle password visibility
                 className="absolute right-4 top-[50%] translate-y-[-50%] cursor-pointer"
               >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}{" "}
+                {showPassword ? <FaEye /> : <FaEyeSlash />}{" "}
                 {/* Show eye icon based on state */}
               </span>
             </div>

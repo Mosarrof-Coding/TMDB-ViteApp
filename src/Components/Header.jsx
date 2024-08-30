@@ -22,7 +22,7 @@ function Header() {
       <header className="header">
         <div className="contizer">
           <nav className="flex flex-wrap gap-2 lg:gap-8 py-1 justify-between items-center">
-            <div className="flex flex-row-reverse md:flex-row items-center gap-12">
+            <div className="flex flex-row-reverse md:flex-row items-center gap-6 lg:gap-12">
               {/* logo  */}
               <div className="logo w-fit cursor-pointer">
                 <Link
@@ -31,7 +31,11 @@ function Header() {
                   className="flex items-center"
                 >
                   <span className="inline-block pr-8 rounded-[16px] bg-gradient-to-tr from-blue-600 to-green-500 z-50">
-                    <img src={logo} alt="logo" className="w-10 md:w-[50px]" />
+                    <img
+                      src={logo}
+                      alt="logo"
+                      className="w-8 sm:w-10 md:w-12"
+                    />
                   </span>
                 </Link>
               </div>
@@ -118,8 +122,8 @@ function Header() {
                 </span>
                 {/* Mobile menu */}
                 {isMenuOpen && (
-                  <div className="mobileMenu contizer fixed md:hidden left-0 top-0 w-screen h-screen z-50 bg-gradient-to-br from-slate-400 to-red-400 py-4 sm:py-8">
-                    <ul className="flex flex-col gap-4">
+                  <div className="mobileMenu contizer fixed md:hidden left-0 top-0 w-screen z-50 bg-gradient-to-br from-slate-400 to-red-400 py-4 sm:py-7">
+                    <ul className="flex flex-col gap-2 xs:gap-3 sm:gap-4">
                       {/* logo  */}
                       <div className="logo w-fit cursor-pointer">
                         <Link to={"/"} className="flex items-center">
@@ -279,34 +283,26 @@ function Header() {
                       </li>
                     </ul>
                     {/* profile */}
-                    <ul className="flex flex-col gap-4 text-[16px] pt-8">
-                      <Link className="cursor-pointer max-w-fit" to="/login">
+                    <ul className="flex flex-col gap-2 xs:gap-3 sm:gap-4 text-[16px] pt-4 sm:pt-6 md:pt-8">
+                      <Link
+                        className="cursor-pointer max-w-fit"
+                        to="/login"
+                        onClick={closeMenu}
+                      >
                         Login
                       </Link>
-                      <Link className="cursor-pointer max-w-fit" to="/signup">
+                      <Link
+                        className="cursor-pointer max-w-fit"
+                        to="/signup"
+                        onClick={closeMenu}
+                      >
                         Join TMBD
-                      </Link>
-                      <Link className="cursor-pointer max-w-fit">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={1.5}
-                          stroke="currentColor"
-                          className="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-                          />
-                        </svg>
                       </Link>
                     </ul>
                     {/* Close button */}
                     <span
                       onClick={closeMenu}
-                      className="fixed right-5 top-6 cursor-pointer text-white hover:text-red-600 text-xl"
+                      className="fixed right-5 top-4 sm:top-7 cursor-pointer text-white hover:text-red-600 text-xl"
                     >
                       Close
                     </span>
@@ -315,7 +311,7 @@ function Header() {
               </div>
             </div>
             {/* accounts */}
-            <ul className="lg:flex gap-4 text-[16px] hidden">
+            <ul className="md:flex gap-4 text-[16px] hidden">
               <li>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -333,7 +329,7 @@ function Header() {
                 </svg>
               </li>
               <li>
-                <span className="text-[12px] font-medium border py-1 px-2 rounded">
+                <span className="inline-block text-[12px] font-medium border py-1 px-2 rounded">
                   EN
                 </span>
               </li>
@@ -356,10 +352,7 @@ function Header() {
                 </svg>
               </li>
             </ul>
-            <span
-              className="inline-block rotate-90 font-bold tracking-widest cursor-pointer md:hidden"
-              onClick={toggleMenu}
-            >
+            <span className="inline-block rotate-90 font-bold tracking-widest cursor-pointer md:hidden">
               |||
             </span>
           </nav>
