@@ -196,9 +196,9 @@ function PopularPeopleDetails() {
                             <Link className="py-1 hover:bg-gray-100 px-4">
                               General
                             </Link>
-                            <Link className="flex justify-between items-center gap-4 px-4 hover:bg-gray-100">
+                            <Link className="flex justify-between items-center py-1 gap-4 px-4 hover:bg-gray-100">
                               <span>
-                                <Link className="py-1 ">Content Issue</Link>
+                                <Link className="">Content Issue</Link>
                               </span>
                               <span className="inline-block">12</span>
                             </Link>
@@ -251,13 +251,13 @@ function PopularPeopleDetails() {
           <div className="peopleWrap py-10 flex flex-col sm:grid grid-cols-12 gap-4 lg:gap-8">
             {/* Personal Info  */}
             <div className="pb-6 w-full sm:col-span-5 md:col-span-4 xl:col-span-3">
-              <div className="max-w-full grid place-items-center">
+              <div className="grid place-items-center">
                 {peoples.profile_path ? (
                   <span>
                     {loaded ? (
                       <img
                         src={imgUrl + peoples.profile_path}
-                        alt=""
+                        alt="img"
                         className="rounded-lg"
                       />
                     ) : (
@@ -445,8 +445,8 @@ function PopularPeopleDetails() {
                   </div>
                 </div>
                 <div>
-                  <Button className="py-1 sm:py-2 px-6 md:px-10 lg:px-12 rounded-full bg-blue-400 hover:bg-black text-sm sm:text-lg font-semibold">
-                    EDIT PAGE
+                  <Button className="py-1 lg:py-2 px-6 md:px-10 lg:px-12 rounded-full bg-blue-400 hover:bg-black text-sm sm:text-base lg:text-xl font-semibold">
+                    Edite Page
                   </Button>
                 </div>
                 <div>

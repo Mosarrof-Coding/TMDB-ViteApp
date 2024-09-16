@@ -38,20 +38,20 @@ function Popular() {
           <h2 className="text-2xl font-semibold text-black pb-6">
             Popular Movies
           </h2>
-          <div className="movieBox flex flex-col xs:flex-row gap-6">
+          <div className="movieBox flex flex-col sm:flex-row gap-6">
             {/* filterBox  */}
             <form
               action="/action_page.php"
-              className="movieDetails max-w-full xs:max-w-[320px] "
+              className="movieDetails w-full sm:max-w-[320px] "
             >
               {/* sort  */}
-              <div className="sort w-full mb-6">
+              <div className="sort w-full mb-4 lg:mb-6">
                 {/* accrodion windUi  */}
                 <details
                   className="border border-gray-300 rounded-lg shadow-lg group"
                   open
                 >
-                  <summary className="relative cursor-pointer list-none p-4 font-medium text-slate-700 transition-colors duration-300 focus-visible:outline-none group-hover:text-slate-900 border-b">
+                  <summary className="relative cursor-pointer list-none p-2 lg:p-4 font-medium text-slate-700 transition-colors duration-300 focus-visible:outline-none group-hover:text-slate-900 border-b">
                     Sort
                     <span className="absolute right-4 transition duration-300 top-[50%] -translate-y-[50%] shrink-0 stroke-slate-700 group-open:rotate-90 bg-white">
                       <MdChevronRight size={24} />
@@ -111,7 +111,7 @@ function Popular() {
                   className="border border-gray-300 rounded-lg shadow-lg group"
                   open
                 >
-                  <summary className="relative cursor-pointer list-none p-4 font-medium text-slate-700 transition-colors duration-300 focus-visible:outline-none group-hover:text-slate-900 border-b">
+                  <summary className="relative cursor-pointer list-none p-2 lg:p-4  font-medium text-slate-700 transition-colors duration-300 focus-visible:outline-none group-hover:text-slate-900 border-b">
                     Filters
                     <span className="absolute right-4 transition duration-300 top-[50%] -translate-y-[50%] shrink-0 stroke-slate-700 group-open:rotate-90 bg-white">
                       <MdChevronRight size={24} />

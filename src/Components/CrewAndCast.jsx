@@ -90,14 +90,14 @@ function CrewAndCast() {
       </div>
       {/* Casts-Crews  */}
       <div className="contizer">
-        <div className="flex flex-col md:flex-row gap-6 py-6">
+        <div className="flex flex-col md:flex-row gap-16 py-6">
           <div className="casts basis-1/2">
-            <div className="castnum pb-2">
-              <h2 className="text-xl text-black font-semibold underline">
+            <div className="castnum pb-2 lg:pb-4 xl:pb-8">
+              <h2 className="text-xl lg:text-2xl text-rose-600 font-bold underline">
                 Cast: <span className="text-gray-500">{casts.length}</span>
               </h2>
             </div>
-            <div className="crewInner flex flex-col gap-6">
+            <div className="crewInner myGrid">
               {casts.map((caster) => (
                 <div
                   key={caster.id}
@@ -138,18 +138,18 @@ function CrewAndCast() {
             </div>
           </div>
           <div className="crews basis-1/2">
-            <div className="castnum pb-2">
-              <h2 className="text-xl text-black font-semibold underline">
+            <div className="castnum pb-2 lg:pb-4 xl:pb-8">
+              <h2 className="text-xl lg:text-2xl text-rose-600 font-bold underline">
                 Crew: <span className="text-gray-500">{crews.length}</span>
               </h2>
             </div>
             <div className="crewInner flex flex-col gap-6">
               {Object.entries(groupedCrew).map(([department, members]) => (
                 <div key={department}>
-                  <h2 className="text-black text-xl font-medium pb-1">
+                  <h2 className="text-blue-600 text-xl font-medium pb-1">
                     {department}
                   </h2>
-                  <div className="flex flex-col gap-6">
+                  <div className="myGrid">
                     {members.map((member) => (
                       <div
                         key={member.id}

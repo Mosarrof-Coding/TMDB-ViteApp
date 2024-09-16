@@ -18,7 +18,7 @@ function DiscoverMovie() {
 
   useEffect(() => {
     discMoviesShow();
-  }, [page]); // Fetch movies whenever page changes
+  }, [page]);
 
   const handleLoadMore = () => {
     setPage(page + 1 + 1);

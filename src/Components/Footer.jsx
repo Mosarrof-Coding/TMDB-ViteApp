@@ -6,8 +6,8 @@ function Footer() {
   return (
     <>
       <footer className="bg-[#202243]">
-        <div className="contizer">
-          <div className="footItem w-full py-2 lg:py-6 flex flex-col lg:flex-row justify-between gap-4">
+        <div className="contizer max-w-[1280px] mx-auto">
+          <div className="footItem w-full py-2 lg:py-6 flex flex-col lg:flex-row justify-between gap-4 sm:gap-8 lg:gap-12 xl:gap-16">
             <div className="max-w-fit">
               <img
                 src={logo}
@@ -28,12 +28,12 @@ function Footer() {
               </Link>
             </div>
             <div className="min-w-fit lg:pt-8">
-              <div className="footTxt flex flex-wrap gap-6">
-                <div>
-                  <h3 className="text-base sm:text-base lg:text-xl font-semiBold pb-1 lg:pb-2 text-blue-400">
-                    THE BASICS
+              <div className="footTxt flex flex-wrap gap-6 lg:gap-12">
+                <ul>
+                  <h3 className="text-base sm:text-lg lg:text-xl font-semiBold pb-1 lg:pb-2 text-white">
+                    The Basics
                   </h3>
-                  <div className="flex flex-col font-medium min-w-fit">
+                  <div className="flex flex-col min-w-fit lg:my-1 lg:gap-1">
                     <Link className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base">
                       About TMDB
                     </Link>
@@ -50,12 +50,12 @@ function Footer() {
                       System Status
                     </Link>
                   </div>
-                </div>{" "}
-                <div className="">
-                  <h3 className="text-base sm:text-base lg:text-xl font-semiBold pb-1 lg:pb-2 text-blue-400">
-                    LEGAL
+                </ul>
+                <ul>
+                  <h3 className="text-base sm:text-lg lg:text-xl font-semiBold pb-1 lg:pb-2 text-white">
+                    Legal
                   </h3>
-                  <div className="flex flex-col font-medium min-w-fit">
+                  <div className="flex flex-col min-w-fit lg:my-1 lg:gap-1">
                     <Link className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base">
                       Terms of Use
                     </Link>
@@ -69,12 +69,12 @@ function Footer() {
                       DMCA Policy
                     </Link>
                   </div>
-                </div>
-                <div className="">
-                  <h3 className="text-base sm:text-base lg:text-xl font-semiBold pb-1 lg:pb-2 text-blue-400">
-                    GET INVOLVED
+                </ul>
+                <ul>
+                  <h3 className="text-base sm:text-lg lg:text-xl font-semiBold pb-1 lg:pb-2 text-white">
+                    Get Involved
                   </h3>
-                  <div className="flex flex-col font-medium min-w-fit">
+                  <div className="flex flex-col min-w-fit lg:my-1 lg:gap-1">
                     <Link className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base">
                       Contribution Bible
                     </Link>
@@ -85,12 +85,12 @@ function Footer() {
                       Add New TV Show
                     </Link>
                   </div>
-                </div>
-                <div className="">
-                  <h3 className="text-base sm:text-base lg:text-xl font-semiBold pb-1 lg:pb-2 text-blue-400">
-                    COMMUNITY
+                </ul>
+                <ul>
+                  <h3 className="text-base sm:text-lg lg:text-xl font-semiBold pb-1 lg:pb-2 text-white">
+                    Community
                   </h3>
-                  <div className="flex flex-col font-medium min-w-fit">
+                  <div className="flex flex-col min-w-fit lg:my-1 lg:gap-1">
                     <Link className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base">
                       Guidelines
                     </Link>
@@ -101,7 +101,7 @@ function Footer() {
                       Leaderboard
                     </Link>
                   </div>
-                </div>
+                </ul>
               </div>
             </div>
           </div>
