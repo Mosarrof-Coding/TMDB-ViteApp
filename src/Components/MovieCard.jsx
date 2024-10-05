@@ -8,11 +8,13 @@ import {
   BsListUl,
   BsStarFill,
 } from "react-icons/bs";
+import { IoTriangleSharp } from "react-icons/io5";
 import { FaCheckCircle } from "react-icons/fa";
+import { CiSearch } from "react-icons/ci";
+import { VscTriangleDown } from "react-icons/vsc";
 import { useEffect, useRef, useState } from "react";
 // assets
 import loaderGif from "../assets/bigloading.gif";
-
 const MovieCard = ({ movie, imgUrl }) => {
   const {
     id,
@@ -23,10 +25,9 @@ const MovieCard = ({ movie, imgUrl }) => {
     release_date,
     vote_average,
   } = movie;
-
-  // togglre-1
+  // ul togglre-1
   const [isVisible, setIsVisible] = useState(false);
-  const visibilityRef = useRef(null); // Create a ref for the visibility toggle
+  const visibilityRef = useRef(null);
   const toggleVisibility = () => {
     setIsVisible((prev) => !prev);
   };
@@ -45,13 +46,11 @@ const MovieCard = ({ movie, imgUrl }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
   // togglre-2 rating
   const [visible, setVisible] = useState(false);
-  const ratingBoxRef = useRef(null); // Ref to manage clicks outside the box
-  const ratingBoxToggle = () => {
-    setVisible((prevVisible) => !prevVisible);
-  };
+  const ratingBoxRef = useRef(null);
+  const ratingBoxToggle = () => setVisible((prevVisible) => !prevVisible);
+  // Manage visibility based on clicks outside the component
   useEffect(() => {
     const handleRatingClickOutside = (event) => {
       if (
@@ -66,22 +65,9 @@ const MovieCard = ({ movie, imgUrl }) => {
       document.removeEventListener("mousedown", handleRatingClickOutside);
     };
   }, []);
-
-  // user score
-  let percent = vote_average ? (vote_average * 10).toFixed(0).slice(0, 2) : "0";
-  let progressBaar = parseInt(percent);
-
-  // loading state
-  const [loaded, setLoaded] = useState(false);
-  const handleLoad = () => {
-    setLoaded(true);
-  };
-
-  // live rating
   const [hoveredIndex, setHoveredIndex] = useState(-1);
   const [fillPercentage, setFillPercentage] = useState(0);
   const [starValue, setStarValue] = useState("0");
-
   const handleMouseMove = (index, event) => {
     const { width, left } = event.target.getBoundingClientRect();
     const mouseX = event.clientX - left;
@@ -100,12 +86,10 @@ const MovieCard = ({ movie, imgUrl }) => {
       return setStarValue("10");
     }
   };
-
   const handleMouseLeave = () => {
     setHoveredIndex(-1);
     setFillPercentage(0);
   };
-
   const rated = (e) => {
     e.preventDefault();
     return toast(() => (
@@ -124,10 +108,57 @@ const MovieCard = ({ movie, imgUrl }) => {
     ));
   };
 
+  // Add-toggler-3
+  const [add, setAdd] = useState(false);
+  const addRef = useRef(null);
+  const addList = () => {
+    setAdd(true);
+  };
+  // Manage visibility based on clicks outside the component
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (addRef.current && !addRef.current.contains(event.target)) {
+        setAdd(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // list-toggler-4
+  const [list, setList] = useState(false);
+  const listRef = useRef(null);
+  const setListing = () => {
+    setList(true);
+  };
+  // Manage visibility based on clicks outside the component
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (listRef.current && !listRef.current.contains(event.target)) {
+        setList(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // user scor
+  let percent = vote_average ? (vote_average * 10).toFixed(0).slice(0, 2) : "0";
+  let progressBaar = parseInt(percent);
+  // loading state
+  const [loaded, setLoaded] = useState(false);
+  const handleLoad = () => {
+    setLoaded(true);
+  };
+
   return (
     <div
       key={id}
-      className="movieCard h-full min-h-[305px] border rounded-lg hover:shadow-lg hover:bg-white transition-all duration-500 relative"
+      className="movieCard h-full border rounded-lg hover:shadow-lg hover:bg-white transition-all duration-500 relative"
     >
       <Toaster
         position="top-right"
@@ -177,7 +208,7 @@ const MovieCard = ({ movie, imgUrl }) => {
             <img src={loaderGif} alt="" onLoad={handleLoad} />
           )}
 
-          {/* daisy progress  */}
+          {/* daisy progress */}
           <div
             className={`myProgress radial-progress border-4 border-gray-200 text-[10px] font-medium absolute left-2 -bottom-4 ${
               percent >= 70
@@ -197,11 +228,8 @@ const MovieCard = ({ movie, imgUrl }) => {
             </p>
           </div>
         </div>
-        <div
-          className="text-black absolute right-2 top-2"
-          ref={visibilityRef} // the arena for refing hidden
-        >
-          <div className="relative">
+        <div className="text-black absolute left-2 top-2" ref={visibilityRef}>
+          <div className="relative" ref={addRef}>
             <button
               className="w-6 h-6 bg-gray-400 rounded-full grid place-items-center hover:bg-sky-400 transition-all duration-300"
               onClick={toggleVisibility}
@@ -209,20 +237,75 @@ const MovieCard = ({ movie, imgUrl }) => {
               <BsThreeDots size={18} color="#ffffff" />
             </button>
             {isVisible && (
-              <ul className="absolute -right-4 top-full min-w-32 bg-gray-100 z-10 rounded text-xs md:text-sm font-medium flex flex-col">
+              <ul
+                className="absolute left-2 top-full min-w-32 bg-gray-100 z-10 rounded text-xs md:text-sm font-medium flex flex-col"
+                ref={listRef}
+              >
                 <li
                   className="flex gap-2 items-center px-2 py-1 lg:py-2 hover:bg-gradient-to-r from-blue-900
-                  to-transparent hover:text-white transition-all duration-300 cursor-pointer rounded-tl"
+        to-transparent transition-all duration-300 cursor-pointer rounded-tl relative"
+                  onClick={addList}
+                  aria-label="addList your experience"
                 >
                   <span className="inline-block">
                     <BsListUl size={14} />
                   </span>
                   <span>Add to list</span>
+                  {add && (
+                    <div className="ratBox absolute left-0 top-[calc(100%+8px)] p-2 z-10 bg-[#57dce3] rounded shadow-xl">
+                      <Link className="flex items-center gap-1">
+                        <div className="w-64">
+                          <div className="flex items-center gap-2 font-bold text-blue-950 mb-2">
+                            <span className="text-base leading-none">+</span>
+                            <span className="">Create New List</span>
+                          </div>
+
+                          <div className="bg-[#0e1a3d] rounded">
+                            <div
+                              className="flex items-center p-2 relative"
+                              onClick={setListing}
+                              aria-label="setListing your experience"
+                            >
+                              <li type="button" className="w-full text-white">
+                                Add to one of your lists...
+                              </li>
+                              <VscTriangleDown color="white" />
+                              {list && (
+                                <div className="absolute w-[calc(100%+50px)] left-0 top-full p-2 bg-white rounded shadow-lg">
+                                  <div className="flex items-center my-2 border rounded overflow-hidden p-1 lg:p-1.5">
+                                    <input
+                                      type="text"
+                                      name="moss"
+                                      id="moss"
+                                      placeholder="Add to one of your lists..."
+                                      className="w-full focus:outline-none"
+                                    />
+
+                                    <CiSearch size={20} />
+                                  </div>
+                                  <h5 className="p-2 bg-gray-100 font-light">
+                                    Add to one of your items:
+                                  </h5>
+                                  <h4 className="p-2">Moss (4)</h4>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+
+                      <IoTriangleSharp
+                        size={16}
+                        color="#57dce3"
+                        className="absolute left-4 -top-3"
+                      />
+                    </div>
+                  )}
                 </li>
                 <hr />
                 <li
                   className="flex gap-2 items-center px-2 py-1 lg:py-2 hover:bg-gradient-to-r from-blue-900
-                  to-transparent hover:text-white transition-all duration-300 cursor-pointer"
+                  to-transparent  transition-all duration-300 cursor-pointer"
                 >
                   <span className="inline-block">
                     <BsHeartFill size={14} />
@@ -232,18 +315,18 @@ const MovieCard = ({ movie, imgUrl }) => {
                 <hr />
                 <li
                   className="flex gap-2 items-center px-2 py-1 lg:py-2 hover:bg-gradient-to-r from-blue-900
-                  to-transparent hover:text-white transition-all duration-300 cursor-pointer"
+                  to-transparent  transition-all duration-300 cursor-pointer"
                 >
                   <span className="inline-block">
                     <BsBookmarkFill size={14} />
                   </span>
                   <span>Watchlist</span>
-                </li>{" "}
+                </li>
                 <hr />
                 <li
                   className="flex gap-2 items-center px-2 py-1 lg:py-2 hover:bg-gradient-to-r from-blue-900
-                  to-transparent hover:text-white transition-all duration-300 cursor-pointer relative rounded-bl"
-                  onClick={ratingBoxToggle} // Toggle visibility on click
+                  to-transparent  transition-all duration-300 cursor-pointer relative rounded-bl"
+                  onClick={ratingBoxToggle}
                   aria-label="Rate your experience"
                 >
                   <span className="inline-block">
@@ -256,14 +339,10 @@ const MovieCard = ({ movie, imgUrl }) => {
                   <span>Your rating</span>
                   {visible && (
                     <div
-                      ref={ratingBoxRef} // Attach ref to the rating box
-                      className="ratBox absolute -left-10 lg:left-0 top-full px-4 py-2 z-10 bg-blue-950 rounded"
+                      ref={ratingBoxRef}
+                      className="ratBox absolute left-0 top-[calc(100%+8px)] p-2 z-20 bg-[#0e1a3d] rounded shadow-xl"
                     >
-                      <Link
-                        className="flex items-center gap-1"
-                        onClick={rated}
-                        to={`/Detailpage/${id}`}
-                      >
+                      <Link className="flex items-center gap-1" onClick={rated}>
                         {Array.from({ length: 5 }).map((_, index) => (
                           <li
                             key={index}
@@ -272,8 +351,8 @@ const MovieCard = ({ movie, imgUrl }) => {
                             className="transition-all duration-500"
                             style={{
                               position: "relative",
-                              width: "24px",
-                              height: "24px",
+                              width: "22px",
+                              height: "22px",
                               cursor: "pointer",
                             }}
                           >
@@ -281,8 +360,8 @@ const MovieCard = ({ movie, imgUrl }) => {
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"
-                              width="24"
-                              height="24"
+                              width="22"
+                              height="22"
                               fill="none"
                               stroke="#FBBF24"
                               strokeWidth="1"
@@ -312,8 +391,8 @@ const MovieCard = ({ movie, imgUrl }) => {
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
-                                width="24"
-                                height="24"
+                                width="22"
+                                height="22"
                                 fill="#F59E0B"
                                 stroke="#FBBF24"
                                 strokeWidth="1"
@@ -326,6 +405,11 @@ const MovieCard = ({ movie, imgUrl }) => {
                           </li>
                         ))}
                       </Link>
+                      <IoTriangleSharp
+                        size={16}
+                        color="#0e1a3d"
+                        className="absolute left-4 -top-3"
+                      />
                     </div>
                   )}
                 </li>
@@ -334,8 +418,8 @@ const MovieCard = ({ movie, imgUrl }) => {
           </div>
         </div>
       </div>
-      <div className="movieTxt z-50 bg-[#ffffffde] w-full pl-1 mt-4 sm:mt-0 sm:py-2">
-        <h2 className="font-semibold text-black">
+      <div className="movieTxt z-50 w-full pl-1 mt-4 sm:mt-1 sm:py-2">
+        <h2 className="text-sm md:text-base font-semibold text-black">
           {title?.slice(0, 16) || name?.slice(0, 12)}
         </h2>
         <p className="text-[14px] text-gray-600 hidden md:block pt-1">
@@ -350,7 +434,7 @@ const MovieCard = ({ movie, imgUrl }) => {
         </p>
       </div>
       {isVisible && (
-        <div className="ovwerLap absolute left-0 top-0 right-0 bottom-0 bg-black/30 rounded-lg cursor-pointer backdrop-blur-[20px]"></div>
+        <div className="ovwerLap absolute left-0 top-0 right-0 bottom-0 bg-white/20 rounded-lg cursor-pointer backdrop-blur-md"></div>
       )}
     </div>
   );

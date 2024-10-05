@@ -159,7 +159,7 @@
     transition: cubic-bezier(0.37, 0.83, 0.67, 1.07) 0.5s !important;
   }
   .rightSwitch {
-    transform: translateX(calc(8px + 69%));
+    transform: translateX(69%);
     transition: cubic-bezier(0.37, 0.83, 0.67, 1.07) 0.5s !important;
   }
 }

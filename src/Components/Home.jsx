@@ -148,21 +148,21 @@ const Home = () => {
             Trending Movies
           </h3>
           {/* switch btn  */}
-          <div className="w-fit mx-auto my-2 lg:my-4 border border-[#02b5e241] rounded-2xl flex gap-2 items-center relative">
+          <div className="w-fit mx-auto my-2 lg:my-4 rounded-2xl bg-gray-300 flex items-center relative">
             <button
-              className={`component-1 text-xs sm:text-sm lg:text-base font-medium cursor-pointer text-black px-2 md:px-3 lg:px-4 z-10`}
+              className={`component-1 py-0.5 text-xs sm:text-sm lg:text-base font-medium cursor-pointer text-black/60 px-3 lg:px-4 z-10`}
               onClick={switchToggle}
             >
               Today
             </button>
             <button
-              className="component-2 text-xs sm:text-sm lg:text-base font-medium cursor-pointer text-black px-2 md:px-3 lg:px-4 z-10"
+              className="component-2 py-0.5 text-xs sm:text-sm lg:text-base font-medium cursor-pointer text-black/60 px-3 lg:px-4 z-10"
               onClick={switchToggle}
             >
               This Week
             </button>
-            <div className="blueVox absolute w-full h-full top-0 left-0 z-[-1] pointer-events-none touch-none flex gap-2">
-              <div className="runner text-xs sm:text-sm lg:text-base rounded-2xl inline-block bg-gradient-to-r from-[#1dd4ac86] to-[#075d72] px-2 md:px-3 lg:px-4 font-medium text-white">
+            <div className="blueVox absolute w-full h-full top-0 left-0 pointer-events-none touch-none flex gap-2 z-10">
+              <div className="runner py-0.5 text-xs sm:text-sm lg:text-base rounded-2xl inline-block bg-gradient-to-r from-[#02B5E2] to-[#1DD4AB] px-3 lg:px-4 font-medium text-white outline">
                 Today
               </div>
             </div>

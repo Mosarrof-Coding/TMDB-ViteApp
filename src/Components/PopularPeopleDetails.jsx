@@ -245,12 +245,14 @@ function PopularPeopleDetails() {
             </div>
           </div>
         </div>
-
         {/* Person Details */}
         <div className="contizer">
-          <div className="peopleWrap py-10 flex flex-col sm:grid grid-cols-12 gap-4 lg:gap-8">
-            {/* Personal Info  */}
+          <div className="peopleWrap flex flex-col sm:grid grid-cols-12 py-6 lg:py-10 gap-4 lg:gap-8">
+            {/* Personal Info */}
             <div className="pb-6 w-full sm:col-span-5 md:col-span-4 xl:col-span-3">
+              <h2 className="text-xl lg:text-2xl text-black font-bold mb-1 sm:hidden">
+                {peoples.name}
+              </h2>
               <div className="grid place-items-center">
                 {peoples.profile_path ? (
                   <span>
@@ -275,7 +277,7 @@ function PopularPeopleDetails() {
                 )}
               </div>
               {/* social link  */}
-              <div className="flex gap-4 items-center flex-wrap text-black py-3 list-none">
+              <div className="flex gap-2 lg:gap-4 items-center flex-wrap text-black py-3 list-none">
                 {externalIds?.facebook_id && (
                   <a
                     href={`https://www.facebook.com/${externalIds?.facebook_id}`}
@@ -337,7 +339,6 @@ function PopularPeopleDetails() {
                   </span>
                 )}
               </div>
-
               {/* biography mobile device */}
               <div className="sm:hidden">
                 <h3 className="text-xl text-black font-semibold">Biography</h3>
@@ -346,21 +347,21 @@ function PopularPeopleDetails() {
                     <span className="overflow-hidden block">
                       {appends ? (
                         <div>
-                          {insertLineBreaks(peoples.biography.slice(0, 520))}{" "}
+                          {insertLineBreaks(peoples.biography.slice(0, 520))}
                           {peoples.biography.split("").length > 520 && (
-                            <div className="" onClick={hnClick}>
-                              <span className="inline-flex flex-nowrap">
-                                . . . . .{" "}
-                              </span>
-                              <span className="text-blue-300 font-medium inline-flex items-center gap-1 cursor-pointer hover:text-blue-600 transition-all group relative">
+                            <div className="inline-block" onClick={hnClick}>
+                              <span className="inline-flex text-xl">....</span>
+                              <span className="text-blue-300 inline-flex items-center gap-1 cursor-pointer hover:text-blue-600 transition-all duration-500 group relative">
                                 Read More{" "}
                                 <span className="group-hover:animate-bounce">
                                   <FaChevronRight
-                                    size={14}
+                                    size={12}
                                     className="transition-transform group-hover:rotate-90 group-hover:translate-y-1"
                                   />
                                 </span>{" "}
-                                <div className="w-52 h-[22px] absolute right-[calc(100%-0px)] bottom-0 bg-gradient-to-l from-[#fff] via-white20 z-10"></div>
+                                <div className="w-32 absolute right-[calc(100%-0px)] bottom-0 bg-gradient-to-l from-[#fff] via-white/40 z-10 touch-none pointer-events-none text-transparent">
+                                  moss
+                                </div>
                               </span>
                             </div>
                           )}
@@ -469,10 +470,10 @@ function PopularPeopleDetails() {
                 </div>
               </div>
             </div>
-            {/* biography  */}
-            <div className=" w-full sm:col-span-7 md:col-span-8 xl:col-span-9">
+            {/* biography */}
+            <div className="w-full sm:col-span-7 md:col-span-8 xl:col-span-9">
               <div className="hidden sm:block">
-                <h2 className="text-2xl text-black font-bold mb-8">
+                <h2 className="text-2xl text-black font-bold mb-4 lg:mb-8">
                   {peoples.name}
                 </h2>
                 <h3 className="text-xl text-black font-semibold">Biography</h3>
@@ -485,17 +486,19 @@ function PopularPeopleDetails() {
                           {peoples.biography.split("").length > 540 && (
                             <span className="" onClick={hnClick}>
                               <span className="inline-flex flex-wrap">
-                                . . . . .{" "}
+                                . . . .{" "}
                               </span>
-                              <span className="text-blue-300 font-medium inline-flex items-center gap-1 cursor-pointer hover:text-blue-600 transition-all group relative">
+                              <span className="text-blue-300 inline-flex items-center gap-1 cursor-pointer hover:text-blue-600 transition-all duration-500 group relative">
                                 Read More{" "}
                                 <span className="group-hover:animate-bounce">
                                   <FaChevronRight
-                                    size={14}
-                                    className="transition-transform group-hover:rotate-90 group-hover:translate-y-1"
+                                    size={12}
+                                    className="transition-transform duration-500 group-hover:rotate-90 group-hover:translate-y-1"
                                   />
                                 </span>{" "}
-                                <div className="w-52 h-[22px] absolute right-[calc(100%-0px)] bottom-0 bg-gradient-to-l from-[#fff] via-white20 z-10"></div>
+                                <div className="w-36 absolute right-[calc(100%-0px)] bottom-0 bg-gradient-to-l from-[#fff] via-white/60 z-10 touch-none pointer-events-none text-transparent">
+                                  moss
+                                </div>
                               </span>
                             </span>
                           )}

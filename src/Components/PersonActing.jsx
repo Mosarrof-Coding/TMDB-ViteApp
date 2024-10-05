@@ -37,21 +37,21 @@ function PersonActing() {
 
   return (
     <>
-      <div className="wrp flex flex-col gap-2 sm:gap-4 lg:gap-6 border p-4">
+      <div className="wrp flex flex-col gap-2 sm:gap-4 lg:gap-6 border p-2 lg:p-4">
         {credits.length > 0 ? (
           credits.map((credit) => (
             <div key={credit.id} className="">
-              <div className="flex items-start gap-3 sm:gap-6">
-                <span className="text-black w-8">
+              <div className="flex items-start gap-2 lg:gap-6">
+                <div className="text-black w-9 inline-block">
                   {credit.release_date ? (
                     credit.release_date.slice(0, 4)
                   ) : (
-                    <span className="inline-block w-8 text-center">
+                    <span className="inline-block">
                       <AiOutlineMinus />
                     </span>
                   )}
-                </span>
-                {/* thumbnile visibility  */}
+                </div>
+                {/* thumbnile visibility */}
                 <div
                   className="circleDot min-w-[14px] h-[14px] rounded-full border border-black grid place-items-center my-[5px] cursor-pointer group relative"
                   onClick={() => handleToggle(credit.id)}
@@ -126,17 +126,19 @@ function PersonActing() {
                 </div>
                 {/* title */}
                 <div className="flex flex-col">
-                  <span className="text-black w-fit font-bold">
+                  <h4 className="text-black w-fit font-semibold">
                     {credit.title ? (
                       credit.title
                     ) : (
                       <span className="inline-block mx-auto">Coming Soon</span>
                     )}
-                  </span>
+                  </h4>
                   <span className="text-black w-fit font-light pl-4">
                     <span className="text-gray-600 text-sm">
                       {credit.episode_count ? (
-                        <span>({credit.episode_count} episode)</span>
+                        <span className="text-blue-500">
+                          ({credit.episode_count} episode)
+                        </span>
                       ) : (
                         ""
                       )}
@@ -157,9 +159,9 @@ function PersonActing() {
             </div>
           ))
         ) : (
-          <span className="text-red-600">
+          <div className="text-red-600">
             There is no Occurance available now!
-          </span>
+          </div>
         )}
       </div>
     </>
