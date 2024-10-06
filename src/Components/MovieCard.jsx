@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
+import loaderGif from "../assets/bigloading.gif";
 import {
   BsThreeDots,
   BsBookmarkFill,
@@ -13,11 +15,8 @@ import { FaCheckCircle } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { VscTriangleDown } from "react-icons/vsc";
 import { useEffect, useRef, useState } from "react";
-import axios from "axios";
 
-// assets
-import loaderGif from "../assets/bigloading.gif";
-const MovieCard = ({ movie, imgUrl }) => {
+export default function MovieCard({ movie, imgUrl }) {
   const {
     id,
     title,
@@ -27,13 +26,13 @@ const MovieCard = ({ movie, imgUrl }) => {
     release_date,
     vote_average,
   } = movie;
-  // ul togglre-1
+
+  // togglre-parentUl
   const [isVisible, setIsVisible] = useState(false);
   const visibilityRef = useRef(null);
   const toggleVisibility = () => {
     setIsVisible((prev) => !prev);
   };
-  // Manage visibility based on clicks outside the component
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -49,11 +48,19 @@ const MovieCard = ({ movie, imgUrl }) => {
     };
   }, []);
 
-  // togglre-2 rating
+  // togglre-Rating
   const [visible, setVisible] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(-1);
+  const [fillPercentage, setFillPercentage] = useState(0);
+  const [starValue, setStarValue] = useState("0");
   const ratingBoxRef = useRef(null);
   const ratingBoxToggle = () => setVisible((prevVisible) => !prevVisible);
-  // Manage visibility based on clicks outside the component
+  useEffect(() => {
+    const savedRating = localStorage.getItem(`userRating-${id}`);
+    if (savedRating) {
+      setStarValue(savedRating);
+    }
+  }, [id]);
   useEffect(() => {
     const handleRatingClickOutside = (event) => {
       if (
@@ -68,9 +75,6 @@ const MovieCard = ({ movie, imgUrl }) => {
       document.removeEventListener("mousedown", handleRatingClickOutside);
     };
   }, []);
-  const [hoveredIndex, setHoveredIndex] = useState(-1);
-  const [fillPercentage, setFillPercentage] = useState(0);
-  const [starValue, setStarValue] = useState("0");
   const handleMouseMove = (index, event) => {
     const { width, left } = event.target.getBoundingClientRect();
     const mouseX = event.clientX - left;
@@ -78,15 +82,15 @@ const MovieCard = ({ movie, imgUrl }) => {
     setFillPercentage(percentage);
     setHoveredIndex(index);
     if (index >= 0 && index < 1) {
-      return setStarValue("2");
+      setStarValue("2");
     } else if (index >= 1 && index < 2) {
-      return setStarValue("4");
+      setStarValue("4");
     } else if (index >= 2 && index < 3) {
-      return setStarValue("6");
+      setStarValue("6");
     } else if (index >= 3 && index < 4) {
-      return setStarValue("8");
+      setStarValue("8");
     } else if (index >= 4 && index <= 5) {
-      return setStarValue("10");
+      setStarValue("10");
     }
   };
   const handleMouseLeave = () => {
@@ -95,6 +99,8 @@ const MovieCard = ({ movie, imgUrl }) => {
   };
   const rated = (e) => {
     e.preventDefault();
+    localStorage.setItem(`userRating-${id}`, starValue);
+
     return toast(() => (
       <div>
         <li className="flex items-center gap-2 text-xl font-bold text-green-500 my-1">
@@ -110,13 +116,13 @@ const MovieCard = ({ movie, imgUrl }) => {
       </div>
     ));
   };
+
   // Add-toggler-3
   const [add, setAdd] = useState(false);
   const addRef = useRef(null);
   const addList = () => {
     setAdd(true);
   };
-  // Manage visibility based on clicks outside the component
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (addRef.current && !addRef.current.contains(event.target)) {
@@ -128,13 +134,13 @@ const MovieCard = ({ movie, imgUrl }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
   // list-toggler-4
   const [list, setList] = useState(false);
   const listRef = useRef(null);
   const setListing = () => {
     setList(true);
   };
-  // Manage visibility based on clicks outside the component
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (listRef.current && !listRef.current.contains(event.target)) {
@@ -146,33 +152,18 @@ const MovieCard = ({ movie, imgUrl }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
   // user scor
   let percent = vote_average ? (vote_average * 10).toFixed(0).slice(0, 2) : "0";
   let progressBaar = parseInt(percent);
+
   // loading state
   const [loaded, setLoaded] = useState(false);
   const handleLoad = () => {
     setLoaded(true);
   };
 
-  // Add favorite movie
-  const [favorite, setFavorite] = useState(false);
-  // Check local storage when the component mounts
-  useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    if (favorites.includes(id)) {
-      setFavorite(true); // Set state if the movie is already favorited
-    }
-  }, [id]);
-  // Function to toggle favorite status
-  const favoritize = () => {
-    setFavorite(true);
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    if (!favorites.includes(id)) {
-      favorites.push(id); // Add movie ID to favorites
-      localStorage.setItem("favorites", JSON.stringify(favorites));
-    }
-  };
+  // Add favorite---post
   const addFavorite = async () => {
     try {
       const response = await axios.post(
@@ -199,6 +190,60 @@ const MovieCard = ({ movie, imgUrl }) => {
     }
     favoritize();
   };
+  const [favorite, setFavorite] = useState(false);
+  useEffect(() => {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    if (favorites.includes(id)) {
+      setFavorite(true);
+    }
+  }, [id]);
+  const favoritize = () => {
+    setFavorite(true);
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    if (!favorites.includes(id)) {
+      favorites.push(id);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    }
+  };
+
+  // Add WatchList----post
+  const addWatchList = async () => {
+    try {
+      const response = await axios.post(
+        `https://api.themoviedb.org/3/account/20792533/watchlist`,
+        {
+          media_type: "movie",
+          media_id: id,
+          watchlist: true,
+        },
+        {
+          headers: {
+            accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MjkzNTM2MDVlYWI2NzIzYWVlMmY2MmI1NDE4M2Q0OCIsIm5iZiI6MTcyODIwMDYyOC4wMDM5NDcsInN1YiI6IjY1NmY1N2Q4ODgwNTUxMDEzYTRhMDQyMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.6Ihm8ia8otjxEKvJJ8qn6vxWhzM4OyfnDIF2YXzt2Po",
+          },
+        }
+      );
+      console.log(response.data);
+      toast.success("Movie added to watchlist!");
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to add to watchlist.");
+    }
+    watchListed();
+  };
+  const [watch, setWatch] = useState(() => {
+    const savedWatch = localStorage.getItem(`watchStatus-${id}`);
+    return savedWatch === "true";
+  });
+  const watchListed = () => {
+    setWatch(true);
+    localStorage.setItem(`watchStatus-${id}`, true);
+  };
+  useEffect(() => {
+    localStorage.setItem(`watchStatus-${id}`, watch);
+  }, [id, watch]);
 
   return (
     <div
@@ -283,12 +328,12 @@ const MovieCard = ({ movie, imgUrl }) => {
             </button>
             {isVisible && (
               <ul
-                className="absolute left-2 top-full min-w-32 bg-gray-100 z-10 rounded text-xs md:text-sm font-medium flex flex-col"
+                className="absolute left-0 top-full min-w-32 bg-gray-100 z-10 rounded text-xs md:text-sm font-medium flex flex-col"
                 ref={listRef}
               >
                 <li
-                  className="flex gap-2 items-center px-2 py-1 lg:py-2 hover:bg-gradient-to-r from-blue-900
-        to-transparent transition-all duration-300 cursor-pointer rounded-tl relative"
+                  className="flex gap-2 items-center px-2 py-1 lg:py-2 hover:bg-gradient-to-r from-blue-400
+  to-transparent transition-all duration-300 cursor-pointer rounded-tl relative"
                   onClick={addList}
                   aria-label="addList your experience"
                 >
@@ -297,12 +342,12 @@ const MovieCard = ({ movie, imgUrl }) => {
                   </span>
                   <span>Add to list</span>
                   {add && (
-                    <div className="ratBox absolute left-0 top-[calc(100%+8px)] p-2 z-10 bg-[#57dce3] rounded shadow-xl">
+                    <div className="ratBox absolute -left-2 top-[calc(100%+8px)] p-2 z-10 bg-[#57dce3] rounded shadow-xl">
                       <Link
                         // to={`Detailpage/${id}`}
                         className="flex items-center gap-1"
                       >
-                        <div className="w-64">
+                        <div className="w-48 md:w-56">
                           <div className="flex items-center gap-2 font-bold text-blue-950 mb-2">
                             <span className="text-base leading-none">+</span>
                             <span className="">Create New List</span>
@@ -319,7 +364,7 @@ const MovieCard = ({ movie, imgUrl }) => {
                               </div>
                               <VscTriangleDown color="white" />
                               {list && (
-                                <div className="absolute w-[calc(100%+50px)] left-0 top-full p-2 bg-white rounded shadow-lg">
+                                <div className="absolute w-[calc(100%+40px)] -left-4 md:left-0 top-full p-2 bg-white rounded shadow-lg">
                                   <div className="flex items-center my-2 border rounded overflow-hidden p-1 lg:p-1.5">
                                     <input
                                       type="text"
@@ -352,7 +397,7 @@ const MovieCard = ({ movie, imgUrl }) => {
                 </li>
                 <hr />
                 <li
-                  className="flex gap-2 items-center px-2 py-1 lg:py-2 hover:bg-gradient-to-r from-blue-900
+                  className="flex gap-2 items-center px-2 py-1 lg:py-2 hover:bg-gradient-to-r from-blue-400
                   to-transparent  transition-all duration-300 cursor-pointer"
                   onClick={addFavorite}
                 >
@@ -367,26 +412,37 @@ const MovieCard = ({ movie, imgUrl }) => {
                 </li>
                 <hr />
                 <li
-                  className="flex gap-2 items-center px-2 py-1 lg:py-2 hover:bg-gradient-to-r from-blue-900
+                  className="flex gap-2 items-center px-2 py-1 lg:py-2 hover:bg-gradient-to-r from-blue-400
                   to-transparent  transition-all duration-300 cursor-pointer"
+                  onClick={addWatchList}
                 >
-                  <span className="inline-block">
-                    <BsBookmarkFill size={14} />
-                  </span>
+                  {watch ? (
+                    <span className="inline-block">
+                      <BsBookmarkFill size={14} color="#6e75ff" />
+                    </span>
+                  ) : (
+                    <span className="inline-block">
+                      <BsBookmarkFill size={14} />
+                    </span>
+                  )}
                   <span>Watchlist</span>
                 </li>
                 <hr />
                 <li
-                  className="flex gap-2 items-center px-2 py-1 lg:py-2 hover:bg-gradient-to-r from-blue-900
+                  className="flex gap-2 items-center px-2 py-1 lg:py-2 hover:bg-gradient-to-r from-blue-400
                   to-transparent  transition-all duration-300 cursor-pointer relative rounded-bl"
                   onClick={ratingBoxToggle}
                   aria-label="Rate your experience"
                 >
                   <span className="inline-block">
                     {starValue > 0 ? (
-                      <BsStarFill size={14} color="#FBBF24" />
+                      <BsStarFill
+                        size={14}
+                        color="#FBBF24"
+                        className="drop-shadow-lg"
+                      />
                     ) : (
-                      <BsStarFill size={14} />
+                      <BsStarFill size={14} className="animate-pulse" />
                     )}
                   </span>
                   <span>Your rating</span>
@@ -495,6 +551,4 @@ const MovieCard = ({ movie, imgUrl }) => {
       )}
     </div>
   );
-};
-
-export default MovieCard;
+}
