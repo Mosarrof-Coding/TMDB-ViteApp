@@ -122,8 +122,8 @@ function Header() {
                 </span>
                 {/* Mobile menu */}
                 {isMenuOpen && (
-                  <div className="mobileMenu contizer fixed md:hidden left-0 top-0 w-screen z-50 bg-gradient-to-br from-slate-400 to-red-400 py-4 sm:py-7">
-                    <ul className="flex flex-col gap-2 xs:gap-3 sm:gap-4">
+                  <div className="mobileMenu contizer fixed md:hidden left-0 top-0 w-screen h-screen z-50 bg-gradient-to-br from-slate-400 to-red-400 py-4 sm:py-7">
+                    <ul className="flex flex-col gap-2 lg:gap-4">
                       {/* logo  */}
                       <div className="logo w-fit cursor-pointer">
                         <Link to={"/"} className="flex items-center">
@@ -137,10 +137,10 @@ function Header() {
                         </Link>
                       </div>
                       {/* Movies link */}
-                      <li className="font-semibold relative">
+                      <li className="font-semibold pl-2 lg:pl-0 relative">
                         <div
                           onClick={() => toggleItem(0)}
-                          className="text-blue-200 cursor-pointer"
+                          className="text-sm md:text-base text-blue-200 cursor-pointer"
                         >
                           Movies
                         </div>
@@ -180,10 +180,10 @@ function Header() {
                         </ul>
                       </li>
                       {/* TV Shows link */}
-                      <li className="font-semibold relative">
+                      <li className="font-semibold pl-2 lg:pl-0 relative">
                         <div
                           onClick={() => toggleItem(1)}
-                          className=" text-blue-200 cursor-pointer"
+                          className=" text-sm md:text-base text-blue-200 cursor-pointer"
                         >
                           TV Shows
                         </div>
@@ -220,10 +220,10 @@ function Header() {
                         </ul>
                       </li>
                       {/* People link */}
-                      <li className="font-semibold relative">
+                      <li className="font-semibold pl-2 lg:pl-0 relative">
                         <div
                           onClick={() => toggleItem(2)}
-                          className="text-blue-200 cursor-pointer"
+                          className="text-sm md:text-base text-blue-200 cursor-pointer"
                         >
                           People
                         </div>
@@ -242,10 +242,10 @@ function Header() {
                         </ul>
                       </li>
                       {/* More link */}
-                      <li className="font-semibold relative">
+                      <li className="font-semibold pl-2 lg:pl-0 relative">
                         <div
                           onClick={() => toggleItem(3)}
-                          className="text-blue-200 cursor-pointer"
+                          className="text-sm md:text-base text-blue-200 cursor-pointer"
                         >
                           More
                         </div>
@@ -283,7 +283,7 @@ function Header() {
                       </li>
                     </ul>
                     {/* profile */}
-                    <ul className="flex flex-col gap-2 xs:gap-3 sm:gap-4 text-[16px] pt-4 sm:pt-6 md:pt-8">
+                    <ul className="flex flex-col gap-2 lg:gap-4 text-sm md:text-base pt-4 sm:pt-6 md:pt-8 pl-2 lg:pl-0">
                       <Link
                         className="cursor-pointer max-w-fit"
                         to="/login"
@@ -302,7 +302,7 @@ function Header() {
                     {/* Close button */}
                     <span
                       onClick={closeMenu}
-                      className="fixed right-5 top-4 sm:top-7 cursor-pointer text-white hover:text-red-600 text-xl"
+                      className="fixed right-5 top-4 sm:top-7 cursor-pointer text-white hover:text-red-600 text-base sm:text-lg md:text-xl"
                     >
                       Close
                     </span>

@@ -250,7 +250,7 @@ function PopularPeopleDetails() {
           <div className="peopleWrap flex flex-col sm:grid grid-cols-12 py-6 lg:py-10 gap-4 lg:gap-8">
             {/* Personal Info */}
             <div className="pb-6 w-full sm:col-span-5 md:col-span-4 xl:col-span-3">
-              <h2 className="text-xl lg:text-2xl text-black font-bold mb-1 sm:hidden">
+              <h2 className="text-xl lg:text-2xl text-purple-600 font-bold mb-1 sm:hidden">
                 {peoples.name}
               </h2>
               <div className="grid place-items-center">
@@ -473,7 +473,7 @@ function PopularPeopleDetails() {
             {/* biography */}
             <div className="w-full sm:col-span-7 md:col-span-8 xl:col-span-9">
               <div className="hidden sm:block">
-                <h2 className="text-2xl text-black font-bold mb-4 lg:mb-8">
+                <h2 className="text-2xl text-purple-600 font-bold mb-4 lg:mb-8">
                   {peoples.name}
                 </h2>
                 <h3 className="text-xl text-black font-semibold">Biography</h3>
@@ -517,14 +517,14 @@ function PopularPeopleDetails() {
               <div className="flex flex-col gap-6 mt-4">
                 {/* Known For  */}
                 <div className="py-2">
-                  <h3 className="text-black font-medium mb-2">Known For</h3>
+                  <h3 className="text-rose-600 font-medium mb-2">Known For</h3>
                   <PersonsCredit />
                 </div>
-                {/* acting  */}
+                {/* acting */}
                 <div className="databox py-2 ">
                   <div className="flex justify-between items-center gap-2 sm:gap-4">
                     <div>
-                      <h3 className="text-black font-medium">Acting</h3>
+                      <h3 className="text-purple-800 font-medium">Acting</h3>
                     </div>
                     <div className="flex items-center">
                       <span className="text-blue-300">Clear</span>

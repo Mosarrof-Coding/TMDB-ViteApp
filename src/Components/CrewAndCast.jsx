@@ -88,20 +88,20 @@ function CrewAndCast() {
           </div>
         </div>
       </div>
-      {/* Casts-Crews  */}
+      {/* Casts-Crews */}
       <div className="contizer">
-        <div className="flex flex-col md:flex-row gap-16 py-6">
+        <div className="flex flex-col md:flex-row gap-8 xl:gap-12 py-6">
           <div className="casts basis-1/2">
             <div className="castnum pb-2 lg:pb-4 xl:pb-8">
               <h2 className="text-xl lg:text-2xl text-rose-600 font-bold underline">
                 Cast: <span className="text-gray-500">{casts.length}</span>
               </h2>
             </div>
-            <div className="crewInner myGrid">
+            <div className="crewInner grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4">
               {casts.map((caster) => (
                 <div
                   key={caster.id}
-                  className=" text-black flex items-center gap-4"
+                  className="text-black flex items-center gap-2 md:gap-4 lg:gap-2 xl:gap-4"
                 >
                   <div className="img w-20 h-20 rounded-md overflow-hidden">
                     <Link to={`/PopularPeopleDetails/${caster.id}`}>
@@ -149,11 +149,11 @@ function CrewAndCast() {
                   <h2 className="text-blue-600 text-xl font-medium pb-1">
                     {department}
                   </h2>
-                  <div className="myGrid">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4">
                     {members.map((member) => (
                       <div
                         key={member.id}
-                        className="text-black flex items-center gap-6"
+                        className="text-black flex items-center gap-2 md:gap-4 lg:gap-2 xl:gap-4"
                       >
                         <Link to={`/PopularPeopleDetails/${member.id}`}>
                           {member.profile_path ? (

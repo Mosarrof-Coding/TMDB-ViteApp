@@ -13,6 +13,8 @@ import { FaCheckCircle } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { VscTriangleDown } from "react-icons/vsc";
 import { useEffect, useRef, useState } from "react";
+import axios from "axios";
+
 // assets
 import loaderGif from "../assets/bigloading.gif";
 const MovieCard = ({ movie, imgUrl }) => {
@@ -46,6 +48,7 @@ const MovieCard = ({ movie, imgUrl }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
   // togglre-2 rating
   const [visible, setVisible] = useState(false);
   const ratingBoxRef = useRef(null);
@@ -107,7 +110,6 @@ const MovieCard = ({ movie, imgUrl }) => {
       </div>
     ));
   };
-
   // Add-toggler-3
   const [add, setAdd] = useState(false);
   const addRef = useRef(null);
@@ -126,7 +128,6 @@ const MovieCard = ({ movie, imgUrl }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
   // list-toggler-4
   const [list, setList] = useState(false);
   const listRef = useRef(null);
@@ -145,7 +146,6 @@ const MovieCard = ({ movie, imgUrl }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
   // user scor
   let percent = vote_average ? (vote_average * 10).toFixed(0).slice(0, 2) : "0";
   let progressBaar = parseInt(percent);
@@ -153,6 +153,51 @@ const MovieCard = ({ movie, imgUrl }) => {
   const [loaded, setLoaded] = useState(false);
   const handleLoad = () => {
     setLoaded(true);
+  };
+
+  // Add favorite movie
+  const [favorite, setFavorite] = useState(false);
+  // Check local storage when the component mounts
+  useEffect(() => {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    if (favorites.includes(id)) {
+      setFavorite(true); // Set state if the movie is already favorited
+    }
+  }, [id]);
+  // Function to toggle favorite status
+  const favoritize = () => {
+    setFavorite(true);
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    if (!favorites.includes(id)) {
+      favorites.push(id); // Add movie ID to favorites
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    }
+  };
+  const addFavorite = async () => {
+    try {
+      const response = await axios.post(
+        `https://api.themoviedb.org/3/account/20792533/favorite`,
+        {
+          media_type: "movie",
+          media_id: id,
+          favorite: true,
+        },
+        {
+          headers: {
+            accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MjkzNTM2MDVlYWI2NzIzYWVlMmY2MmI1NDE4M2Q0OCIsIm5iZiI6MTcyODIwMDYyOC4wMDM5NDcsInN1YiI6IjY1NmY1N2Q4ODgwNTUxMDEzYTRhMDQyMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.6Ihm8ia8otjxEKvJJ8qn6vxWhzM4OyfnDIF2YXzt2Po",
+          },
+        }
+      );
+      console.log(response.data);
+      toast.success("Movie added to favorites!");
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to add to favorites.");
+    }
+    favoritize();
   };
 
   return (
@@ -253,7 +298,10 @@ const MovieCard = ({ movie, imgUrl }) => {
                   <span>Add to list</span>
                   {add && (
                     <div className="ratBox absolute left-0 top-[calc(100%+8px)] p-2 z-10 bg-[#57dce3] rounded shadow-xl">
-                      <Link className="flex items-center gap-1">
+                      <Link
+                        // to={`Detailpage/${id}`}
+                        className="flex items-center gap-1"
+                      >
                         <div className="w-64">
                           <div className="flex items-center gap-2 font-bold text-blue-950 mb-2">
                             <span className="text-base leading-none">+</span>
@@ -266,9 +314,9 @@ const MovieCard = ({ movie, imgUrl }) => {
                               onClick={setListing}
                               aria-label="setListing your experience"
                             >
-                              <li type="button" className="w-full text-white">
+                              <div type="button" className="w-full text-white">
                                 Add to one of your lists...
-                              </li>
+                              </div>
                               <VscTriangleDown color="white" />
                               {list && (
                                 <div className="absolute w-[calc(100%+50px)] left-0 top-full p-2 bg-white rounded shadow-lg">
@@ -306,9 +354,14 @@ const MovieCard = ({ movie, imgUrl }) => {
                 <li
                   className="flex gap-2 items-center px-2 py-1 lg:py-2 hover:bg-gradient-to-r from-blue-900
                   to-transparent  transition-all duration-300 cursor-pointer"
+                  onClick={addFavorite}
                 >
                   <span className="inline-block">
-                    <BsHeartFill size={14} />
+                    {favorite > 0 ? (
+                      <BsHeartFill size={14} color="#e4a" />
+                    ) : (
+                      <BsHeartFill size={14} />
+                    )}
                   </span>
                   <span>Favorite</span>
                 </li>
@@ -342,9 +395,13 @@ const MovieCard = ({ movie, imgUrl }) => {
                       ref={ratingBoxRef}
                       className="ratBox absolute left-0 top-[calc(100%+8px)] p-2 z-20 bg-[#0e1a3d] rounded shadow-xl"
                     >
-                      <Link className="flex items-center gap-1" onClick={rated}>
+                      <Link
+                        to={`Detailpage/${id}`}
+                        className="flex items-center gap-1"
+                        onClick={rated}
+                      >
                         {Array.from({ length: 5 }).map((_, index) => (
-                          <li
+                          <div
                             key={index}
                             onMouseMove={(e) => handleMouseMove(index, e)}
                             onMouseLeave={handleMouseLeave}
@@ -402,7 +459,7 @@ const MovieCard = ({ movie, imgUrl }) => {
                                 <path d="M12 .587l3.668 7.431L23.56 9.75l-5.676 5.538 1.341 7.813L12 18.84l-7.225 3.761 1.34-7.813L.44 9.75l7.892-1.732L12 .587z" />
                               </svg>
                             </div>
-                          </li>
+                          </div>
                         ))}
                       </Link>
                       <IoTriangleSharp
