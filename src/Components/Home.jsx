@@ -55,7 +55,7 @@ const Home = () => {
   };
 
   return (
-    <section className="">
+    <section>
       <div className="max-w-[1530px] mx-auto px-0 xl:px-[15px]">
         {/* banner/searchbar  */}
         <div className="heromain relative">
@@ -123,7 +123,7 @@ const Home = () => {
           Search Movies
         </h3>
         <div className="contizer">
-          <div className="homeWrapper py-2 overflow-x-auto bg-[url(./assets/bgArt.svg)] bg-repeat-x bg-[center_bottom_0rem]">
+          <div className="homeWrapper pt-2 pb-10 md:pb-6 overflow-x-auto bg-[url(./assets/bgArt.svg)] bg-repeat-x bg-[center_bottom_0rem]">
             {movies.length > 0 ? (
               <div className="flex gap-3 lg:gap-5">
                 {movies.map((movie) => (

@@ -135,7 +135,7 @@ export default function MovieCard({ movie, imgUrl }) {
     };
   }, []);
 
-  // list-toggler-4
+  // create list-toggler-4
   const [list, setList] = useState(false);
   const listRef = useRef(null);
   const setListing = () => {
@@ -245,6 +245,64 @@ export default function MovieCard({ movie, imgUrl }) {
     localStorage.setItem(`watchStatus-${id}`, watch);
   }, [id, watch]);
 
+  // finding my account id
+  // useEffect(() => {
+  //   const getAccountId = async () => {
+  //     const apiKey = "629353605eab6723aee2f62b54183d48"; // Your API key
+  //     const sessionId = "6cb9342a31c4dc0a918437b34f7c252074185c12"; // Your session_id
+
+  //     try {
+  //       // Get account details using the session ID
+  //       const accountResponse = await axios.get(
+  //         `https://api.themoviedb.org/3/account?api_key=${apiKey}&session_id=${sessionId}`
+  //       );
+
+  //       const accountId = accountResponse.data.id; // Your account_id
+  //       console.log("Your Account ID:", accountId); // Log account_id to the console
+  //     } catch (error) {
+  //       console.error("Error fetching account ID:", error);
+  //     }
+  //   };
+
+  //   getAccountId(); // Call the function to get the account ID
+  // }, []);
+
+  // Function to fetch the created playlists from TMDB
+  const [fetchedLists, setFetchedLists] = useState([]);
+  const fetchPlayLists = async () => {
+    const account_id = 20792533;
+    try {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/account/${account_id}/lists`,
+        {
+          headers: {
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MjkzNTM2MDVlYWI2NzIzYWVlMmY2MmI1NDE4M2Q0OCIsIm5iZiI6MTcyODMwMTc0MC4xMTA0NTgsInN1YiI6IjY1NmY1N2Q4ODgwNTUxMDEzYTRhMDQyMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Nmlzqvsh3ZCVZLMU9orbON6pZByAt0BW0t6AXPHoLL8`,
+            accept: "application/json",
+          },
+          params: {
+            session_id: "6cb9342a31c4dc0a918437b34f7c252074185c12",
+          },
+        }
+      );
+
+      if (response.data) {
+        const items = response.data.results.map((item) => (
+          <li key={item.id} className="hover:bg-pink-50 pl-2 py-1 rounded">
+            {item.name}
+          </li>
+        ));
+        // console.log("playlist", items);
+        setFetchedLists(items);
+      }
+    } catch (error) {
+      console.error("Error fetching playlists:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchPlayLists();
+  }, [id]);
+
   return (
     <div
       key={id}
@@ -272,6 +330,7 @@ export default function MovieCard({ movie, imgUrl }) {
           },
         }}
       />
+      {/* user Activity */}
       <div className="relative">
         <div className="">
           {loaded ? (
@@ -328,7 +387,7 @@ export default function MovieCard({ movie, imgUrl }) {
             </button>
             {isVisible && (
               <ul
-                className="absolute left-0 top-full min-w-32 bg-gray-100 z-10 rounded text-xs md:text-sm font-medium flex flex-col"
+                className="absolute left-0 top-0 min-w-32 bg-gray-100 z-10 rounded text-xs md:text-sm font-medium flex flex-col"
                 ref={listRef}
               >
                 <li
@@ -338,20 +397,27 @@ export default function MovieCard({ movie, imgUrl }) {
                   aria-label="addList your experience"
                 >
                   <span className="inline-block">
-                    <BsListUl size={14} />
+                    {fetchedLists.length > 0 ? (
+                      <BsListUl size={14} color="#ff0000" />
+                    ) : (
+                      <BsListUl size={14} />
+                    )}
                   </span>
                   <span>Add to list</span>
                   {add && (
                     <div className="ratBox absolute -left-2 top-[calc(100%+8px)] p-2 z-10 bg-[#57dce3] rounded shadow-xl">
-                      <Link
+                      <div
                         // to={`Detailpage/${id}`}
                         className="flex items-center gap-1"
                       >
                         <div className="w-48 md:w-56">
-                          <div className="flex items-center gap-2 font-bold text-blue-950 mb-2">
+                          <Link
+                            to={`create-new-list`}
+                            className="flex items-center gap-2 font-bold text-blue-950 mb-2"
+                          >
                             <span className="text-base leading-none">+</span>
                             <span className="">Create New List</span>
-                          </div>
+                          </Link>
 
                           <div className="bg-[#0e1a3d] rounded">
                             <div
@@ -365,7 +431,7 @@ export default function MovieCard({ movie, imgUrl }) {
                               <VscTriangleDown color="white" />
                               {list && (
                                 <div className="absolute w-[calc(100%+40px)] -left-4 md:left-0 top-full p-2 bg-white rounded shadow-lg">
-                                  <div className="flex items-center my-2 border rounded overflow-hidden p-1 lg:p-1.5">
+                                  <div className="flex items-center my-1 border rounded overflow-hidden p-1 lg:p-1.5">
                                     <input
                                       type="text"
                                       name="moss"
@@ -375,18 +441,19 @@ export default function MovieCard({ movie, imgUrl }) {
                                     />
 
                                     <CiSearch size={20} />
-                                  </div>
-                                  <h5 className="p-2 bg-gray-100 font-light">
-                                    Add to one of your items:
-                                  </h5>
-                                  <h4 className="p-2">Moss (4)</h4>
+                                  </div>{" "}
+                                  <ol className="max-h-[130px] overflow-y-scroll list-none">
+                                    <h5 className="p-2 bg-gray-100 font-light">
+                                      Add to one of your items:
+                                    </h5>
+                                    {fetchedLists}
+                                  </ol>
                                 </div>
                               )}
                             </div>
                           </div>
                         </div>
-                      </Link>
-
+                      </div>
                       <IoTriangleSharp
                         size={16}
                         color="#57dce3"

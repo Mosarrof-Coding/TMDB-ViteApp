@@ -26,6 +26,7 @@ import AwardsCard from "./Components/AwardsCard";
 import AwardsCardMovie from "./Components/AwardsCardMovie";
 import SignUp from "./Pages/SignUp";
 import Login from "./Pages/Login";
+import CreateList from "./Pages/CreateList";
 
 function App() {
   return (
@@ -35,12 +36,15 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/DiscoverMovie" element={<DiscoverMovie />} />
+
           <Route path="/top_rated" element={<Toprated />} />
           <Route path="/popular" element={<Popular />} />
           <Route path="/now_playing" element={<NowPlaying />} />
           <Route path="/upcoming" element={<Upcoming />} />
+
           <Route path="/popularPeople" element={<PopularPeople />} />
           <Route path="/toptv" element={<TopTvs />} />
+
           <Route path="/Detailpage/:id" element={<Detailpage />} />
           <Route
             path="/movie/:id/full-cast-and-crew"
@@ -59,11 +63,16 @@ function App() {
           <Route path="/movie/:id/movieBackdrops" element={<BackdropPage />} />
           <Route path="/movie/:id/moviePosters" element={<PosterPage />} />
           <Route path="/movie/:id/logos" element={<Logos />} />
+
           <Route path="/Pop0WinnersPage" element={<Pop0WinnersPage />} />
           <Route path="/AwardsCard/:id" element={<AwardsCard />} />
           <Route path="/AwardsCardMovie/:id" element={<AwardsCardMovie />} />
+
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+
+          <Route path="/create-new-list" element={<CreateList />} />
+
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </main>
