@@ -13,7 +13,7 @@ function DiscoverMovie() {
       `https://api.themoviedb.org/3/discover/movie?page=${page}&sort_by=popularity.desc&api_key=629353605eab6723aee2f62b54183d48`
     );
     const data = await res.json();
-    setDiscmovies([...discmovies, ...data.results.slice(0, 9)]); // Append new movies to the existing movie list
+    setDiscmovies([...discmovies, ...data.results.slice(0, 9)]);
   };
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function DiscoverMovie() {
 
   return (
     <>
-      <div className="bg-gray-50 py-8 ">
+      <div className="bg-gray-50 py-4 lg:py-6">
         <div className="contizer">
           <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-[#252195] pb-2 text-center">
             All Movies
@@ -38,7 +38,7 @@ function DiscoverMovie() {
           </div>
           <div className="flex justify-center mt-4">
             <Button
-              className="mt-2 mb-8 py-1 md:py-2 px-4 md:px-8 rounded-full bg-gradient-to-r from-[#1DD4AB] to-[#02B5E2] text-base md:text-lg font-semibold"
+              className="mt-2 py-1 md:py-2 px-4 md:px-8 rounded-full bg-gradient-to-r from-[#1DD4AB] to-[#02B5E2] text-base md:text-lg font-semibold"
               onClick={handleLoadMore}
             >
               Load More

@@ -24,11 +24,22 @@ function AwardsCard() {
   const fetcthDetails = async () => {
     const res = await fetch(peopleUrl + apiKey);
     const data = await res.json();
-    console.log("now-", data);
+    // console.log("now-", data);
     setAwards(data);
+  };
+  const [jobCount, setJobCount] = useState(0);
+  const fetchNomination = async () => {
+    const creditsResponse = await fetch(
+      `https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=629353605eab6723aee2f62b54183d48&language=en-US`
+    );
+    const creditsData = await creditsResponse.json();
+    const nominations = creditsData.crew.map((jobs) => jobs.job);
+    // console.log(nominations.length);
+    setJobCount(nominations.length);
   };
   useEffect(() => {
     fetcthDetails();
+    fetchNomination();
   }, []);
 
   // Award year
@@ -59,7 +70,7 @@ function AwardsCard() {
                   <IoTriangleSharp size={8} />
                 </span>
               </div>
-              <ul
+              <div
                 tabIndex={0}
                 className="dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)] min-w-fit"
                 onMouseEnter={() => setIsMouseOver(true)}
@@ -76,7 +87,7 @@ function AwardsCard() {
                   <Link className="py-1 hover:bg-gray-200 px-4">Report</Link>
                   <Link className="py-1 hover:bg-gray-200 px-4">Edit</Link>
                 </div>
-              </ul>
+              </div>
             </div>
             {/* Media  */}
             <div className="dropdown dropdown-hover">
@@ -150,8 +161,8 @@ function AwardsCard() {
                             General
                           </Link>
                           <Link className="flex justify-between items-center gap-4 px-4 hover:bg-gray-100">
-                            <span>
-                              <Link className="py-1 ">Content Issue</Link>
+                            <span className="inline-block py-1">
+                              Content Issue
                             </span>
                             <span className="inline-block">12</span>
                           </Link>
@@ -202,23 +213,25 @@ function AwardsCard() {
       <div className="m-auto bg-gradient-to-br from-[#d5d5d5] from-5% to-[#fff] border-t border-[#d5d5d5]">
         <div className="contizer">
           <div className="py-2 md:py-4 flex items-center gap-5 lg:gap-8">
-            <Link className="max-w-[70px]" to={`/PopularPeopleDetails/${id}`}>
-              {awards.profile_path ? (
-                <img
-                  src={imgUrl + awards.profile_path}
-                  alt=""
-                  className="rounded"
-                />
-              ) : (
-                <div className="min-h-[106px]">
+            <div className="max-w-[70px]">
+              <Link to={`/PopularPeopleDetails/${id}`}>
+                {awards.profile_path ? (
                   <img
-                    src="https://placehold.co/70x105"
+                    src={imgUrl + awards.profile_path}
                     alt=""
-                    className="rounded-lg shadow-lg"
+                    className="rounded"
                   />
-                </div>
-              )}
-            </Link>
+                ) : (
+                  <div className="min-h-[106px]">
+                    <img
+                      src="https://placehold.co/70x105"
+                      alt=""
+                      className="rounded-lg shadow-lg"
+                    />
+                  </div>
+                )}
+              </Link>
+            </div>
             <div className="title">
               <div className="flex flex-col gap-2">
                 <Link
@@ -244,8 +257,8 @@ function AwardsCard() {
           <div className="awarImg py-4 md:py-8 border-b">
             <div className="img max-w-[260px] lg:max-w-[460px] relative">
               <img src={awardSvg} alt="svg" />
-              <p className="text-[#1f0606] pt-2 md:absolute right-8 bottom-0">
-                1 Nomination
+              <p className="text-[#1f0606] pt-2 md:absolute right-6 bottom-0">
+                <span className="text-rose-600">{jobCount}</span> Nomination
               </p>
             </div>
           </div>

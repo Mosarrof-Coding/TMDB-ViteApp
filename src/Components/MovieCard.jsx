@@ -269,8 +269,11 @@ export default function MovieCard({ movie, imgUrl }) {
 
   // Function to fetch the created playlists from TMDB
   const [fetchedLists, setFetchedLists] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   const fetchPlayLists = async () => {
     const account_id = 20792533;
+    setIsLoading(true);
     try {
       const response = await axios.get(
         `https://api.themoviedb.org/3/account/${account_id}/lists`,
@@ -287,21 +290,25 @@ export default function MovieCard({ movie, imgUrl }) {
 
       if (response.data) {
         const items = response.data.results.map((item) => (
-          <li key={item.id} className="hover:bg-pink-50 pl-2 py-1 rounded">
+          <li
+            key={item.id}
+            className="hover:bg-pink-50 text-blue-500 pl-2 py-0.5 rounded"
+          >
             {item.name}
           </li>
         ));
-        // console.log("playlist", items);
         setFetchedLists(items);
       }
     } catch (error) {
       console.error("Error fetching playlists:", error);
+    } finally {
+      setIsLoading(false); // End loading
     }
   };
 
-  useEffect(() => {
+  const handleWatchlistClick = () => {
     fetchPlayLists();
-  }, [id]);
+  };
 
   return (
     <div
@@ -393,12 +400,19 @@ export default function MovieCard({ movie, imgUrl }) {
                 <li
                   className="flex gap-2 items-center px-2 py-1 lg:py-2 hover:bg-gradient-to-r from-blue-400
   to-transparent transition-all duration-300 cursor-pointer rounded-tl relative"
-                  onClick={addList}
+                  onClick={() => {
+                    addList();
+                    handleWatchlistClick();
+                  }}
                   aria-label="addList your experience"
                 >
                   <span className="inline-block">
                     {fetchedLists.length > 0 ? (
-                      <BsListUl size={14} color="#ff0000" />
+                      <BsListUl
+                        size={14}
+                        color="#ff0000"
+                        className="drop-shadow-lg"
+                      />
                     ) : (
                       <BsListUl size={14} />
                     )}
@@ -415,38 +429,53 @@ export default function MovieCard({ movie, imgUrl }) {
                             to={`create-new-list`}
                             className="flex items-center gap-2 font-bold text-blue-950 mb-2"
                           >
-                            <span className="text-base leading-none">+</span>
+                            <span className="text-base leading-none mt-[2px]">
+                              +
+                            </span>
                             <span className="">Create New List</span>
                           </Link>
 
                           <div className="bg-[#0e1a3d] rounded">
                             <div
                               className="flex items-center p-2 relative"
-                              onClick={setListing}
                               aria-label="setListing your experience"
                             >
-                              <div type="button" className="w-full text-white">
+                              <button
+                                className="w-full text-white text-left"
+                                onClick={setListing}
+                              >
                                 Add to one of your lists...
-                              </div>
+                              </button>
                               <VscTriangleDown color="white" />
                               {list && (
                                 <div className="absolute w-[calc(100%+40px)] -left-4 md:left-0 top-full p-2 bg-white rounded shadow-lg">
                                   <div className="flex items-center my-1 border rounded overflow-hidden p-1 lg:p-1.5">
                                     <input
-                                      type="text"
+                                      type="search"
                                       name="moss"
                                       id="moss"
                                       placeholder="Add to one of your lists..."
                                       className="w-full focus:outline-none"
+                                      onKeyUp={fetchedLists}
                                     />
 
                                     <CiSearch size={20} />
                                   </div>{" "}
-                                  <ol className="max-h-[130px] overflow-y-scroll list-none">
+                                  <ol className="movie_playlist max-h-[130px] overflow-y-auto list-none">
                                     <h5 className="p-2 bg-gray-100 font-light">
                                       Add to one of your items:
                                     </h5>
-                                    {fetchedLists}
+                                    {isLoading ? (
+                                      <p className="text-yellow-500 mt-4">
+                                        Loading playlists...
+                                      </p>
+                                    ) : fetchedLists.length > 0 ? (
+                                      fetchedLists
+                                    ) : (
+                                      <p className="text-red-500 mt-4">
+                                        No playlists available.
+                                      </p>
+                                    )}
                                   </ol>
                                 </div>
                               )}
@@ -470,7 +499,11 @@ export default function MovieCard({ movie, imgUrl }) {
                 >
                   <span className="inline-block">
                     {favorite > 0 ? (
-                      <BsHeartFill size={14} color="#e4a" />
+                      <BsHeartFill
+                        size={14}
+                        color="#e4a"
+                        className="drop-shadow-lg"
+                      />
                     ) : (
                       <BsHeartFill size={14} />
                     )}
@@ -485,7 +518,11 @@ export default function MovieCard({ movie, imgUrl }) {
                 >
                   {watch ? (
                     <span className="inline-block">
-                      <BsBookmarkFill size={14} color="#6e75ff" />
+                      <BsBookmarkFill
+                        size={14}
+                        color="#6e75ff"
+                        className="drop-shadow-lg"
+                      />
                     </span>
                   ) : (
                     <span className="inline-block">

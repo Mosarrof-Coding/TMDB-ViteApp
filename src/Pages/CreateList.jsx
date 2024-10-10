@@ -2,6 +2,7 @@ import { Button } from "@material-tailwind/react";
 import axios from "axios";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 export default function CreateList() {
   const [inputValue, setInputValue] = useState("");
@@ -157,12 +158,20 @@ export default function CreateList() {
                 </select>
               </div>
 
-              <Button
-                type="submit"
-                className="w-fit py-0.5 lg:py-1 px-4 lg:px-6 text-base lg:text-xl  font-semibold rounded bg-black hover:bg-blue-600 text-white cursor-pointer transition-all duration-300"
-              >
-                Create List
-              </Button>
+              <div className="flex justify-between items-center gap-2 lg:gap-4">
+                <Button
+                  type="submit"
+                  className="w-fit py-0.5 lg:py-1 px-4 lg:px-6 text-base lg:text-xl font-semibold rounded bg-black hover:bg-blue-600 text-white cursor-pointer transition-all duration-300"
+                >
+                  Create List
+                </Button>
+                <Button
+                  type="button"
+                  className="w-fit py-0.5 lg:py-1 px-4 lg:px-6 text-base lg:text-xl font-semibold rounded hover:bg-rose-400 bg-blue-600 text-white cursor-pointer transition-all duration-300"
+                >
+                  <Link to={"/"}>Go ~ Movie</Link>
+                </Button>
+              </div>
             </form>
 
             {/* Display list of submitted values */}

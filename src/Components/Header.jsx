@@ -102,12 +102,20 @@ function Header() {
                     <Link className="hover:bg-gray-200 px-3 py-1">
                       Discussion
                     </Link>
-                    <Link className="hover:bg-gray-200 px-3 py-1">
+                    <Link
+                      to={"/popularity_movies_30days"}
+                      className="hover:bg-gray-200 px-3 py-1"
+                    >
                       Leaderboard
                     </Link>
                     <Link className="hover:bg-gray-200 px-3 py-1">Support</Link>
-                    <a href="#" className="hover:bg-gray-200 px-3 py-1">
-                      API
+                    <a
+                      className="hover:bg-gray-200 px-3 py-1"
+                      href="https://developer.themoviedb.org/reference/intro/getting-started"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Api
                     </a>
                   </ul>
                 </li>

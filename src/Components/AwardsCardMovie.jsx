@@ -30,14 +30,6 @@ function AwardsCardMovie() {
     fetcthDetails();
   }, []);
 
-  // Award year
-  //   const year = new Date().getFullYear();
-  //   const makeAcademyYear = () => {
-  //     if (year) {
-  //       return year - 1928;
-  //     }
-  //   };
-
   return (
     <>
       {/* navigator */}
@@ -149,9 +141,7 @@ function AwardsCardMovie() {
                             General
                           </Link>
                           <Link className="flex justify-between items-center gap-4 px-4 hover:bg-gray-100">
-                            <span>
-                              <Link className="py-1 ">Content Issue</Link>
-                            </span>
+                            <span className="py-1">Content Issue</span>
                             <span className="hidden sm:inline-block">12</span>
                           </Link>
                         </div>

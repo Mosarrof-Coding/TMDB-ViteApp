@@ -77,7 +77,7 @@ function Pop0WinnersPage() {
       const winMovieId = await fetchWinners();
       if (winMovieId) {
         const res = await fetch(
-          `https://api.themoviedb.org/3/movie/${winMovieId}?api_key=629353605eab6723aee2f62b54183d48&with_awards=true&language=en-US&append_to_response=videos,external_ids,release_dates,reviews,credits,person,images`
+          `https://api.themoviedb.org/3/movie/${winMovieId}?api_key=629353605eab6723aee2f62b54183d48&with_awards=true&language=en-US&append_to_response=videos,external_ids,release_dates,reviews,credits,person,images,nomination`
         );
         const data = await res.json();
         // Fetching max popularity for each department {crew}
@@ -89,7 +89,7 @@ function Pop0WinnersPage() {
           }
           crewByDepartment[roll.job].push(roll);
         });
-        console.log("crewByDepartment:", crewByDepartment);
+        // console.log("crewByDepartment:", crewByDepartment);
         const allDirectors = crewByDepartment.Director;
         setDirectorss(allDirectors);
         const maxpopDirectings = Math.max(
@@ -155,7 +155,7 @@ function Pop0WinnersPage() {
             (actor) => actor.popularity
           )
         );
-        console.log("castByDepartment:", castByDepartment);
+        // console.log("castByDepartment:", castByDepartment);
 
         const Actors = castByDepartment.Acting.filter(
           (actor) => actor.gender === 2
@@ -173,24 +173,6 @@ function Pop0WinnersPage() {
         );
         setPopActresses(maxPopActres);
         setActresses(Actresses);
-
-        // const maxPopCameras = Math.ceil(
-        //   Math.max(
-        //     ...castByDepertment.Camera.map((popCamera) => popCamera.popularity)
-        //   )
-        // );
-        // const maxPopCrews = Math.ceil(
-        //   Math.max(
-        //     ...castByDepertment.Crew.map((popCrew) => popCrew.popularity)
-        //   )
-        // );
-        // const maxPopMakeUps = Math.ceil(
-        //   Math.max(
-        //     ...castByDepertment["Costume & Make-Up"].map(
-        //       (popMakeUp) => popMakeUp.popularity
-        //     )
-        //   )
-        // );
       }
     } catch (error) {
       console.error(error);

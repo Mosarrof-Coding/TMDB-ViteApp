@@ -40,10 +40,7 @@ function Popular() {
           </h2>
           <div className="movieBox flex flex-col sm:flex-row gap-6">
             {/* filterBox  */}
-            <form
-              action="/action_page.php"
-              className="movieDetails w-full sm:max-w-[320px] "
-            >
+            <form action="" className="movieDetails w-full sm:max-w-[320px] ">
               {/* sort  */}
               <div className="sort w-full mb-4 lg:mb-6">
                 {/* accrodion windUi  */}
@@ -125,21 +122,11 @@ function Popular() {
                       {/* form */}
                       <div className="flex flex-col gap-1 text-black ">
                         <div className="inputgroop flex gap-3">
-                          <input
-                            type="radio"
-                            id="html"
-                            name="fav_language"
-                            value=""
-                          />
+                          <input type="radio" id="html" name="fav_language" />
                           <label htmlFor="html">Everything</label>
                         </div>
                         <div className="inputgroop flex gap-3">
-                          <input
-                            type="radio"
-                            id="css"
-                            name="fav_language"
-                            value=""
-                          />
+                          <input type="radio" id="css" name="fav_language" />
                           <label htmlFor="css">Movies I Have not Seen</label>
                         </div>
                         <div className="inputgroop flex gap-3">
@@ -147,7 +134,6 @@ function Popular() {
                             type="radio"
                             id="javascript"
                             name="fav_language"
-                            value="JavaScript"
                           />
                           <label htmlFor="javascript">Movies I Have Seen</label>
                         </div>
@@ -165,7 +151,6 @@ function Popular() {
                             type="checkbox"
                             id="releases"
                             name="releases"
-                            value=""
                           />
                           <label htmlFor="releases">Search all releases?</label>
                         </div>

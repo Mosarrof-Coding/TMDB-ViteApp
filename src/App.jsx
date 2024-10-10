@@ -27,6 +27,7 @@ import AwardsCardMovie from "./Components/AwardsCardMovie";
 import SignUp from "./Pages/SignUp";
 import Login from "./Pages/Login";
 import CreateList from "./Pages/CreateList";
+import PageLeaderBoard from "./Pages/PageLeaderBoard";
 
 function App() {
   return (
@@ -67,6 +68,11 @@ function App() {
           <Route path="/Pop0WinnersPage" element={<Pop0WinnersPage />} />
           <Route path="/AwardsCard/:id" element={<AwardsCard />} />
           <Route path="/AwardsCardMovie/:id" element={<AwardsCardMovie />} />
+
+          <Route
+            path="/popularity_movies_30days"
+            element={<PageLeaderBoard />}
+          />
 
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />

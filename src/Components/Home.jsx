@@ -6,6 +6,7 @@ import TrendingMovieDay from "./TrendingMovieDay";
 import TrendingMovieWeek from "./TrendingMovieWeek";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import Leaderboard from "../Pages/Leaderboard";
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("spiderman");
@@ -148,21 +149,21 @@ const Home = () => {
             Trending Movies
           </h3>
           {/* switch btn  */}
-          <div className="w-fit mx-auto my-2 lg:my-4 rounded-2xl bg-gray-300 flex items-center relative">
+          <div className="text-xs sm:text-sm font-medium w-fit mx-auto my-2 lg:my-4 rounded-2xl bg-gray-300 flex items-center relative">
             <button
-              className={`component-1 py-0.5 text-xs sm:text-sm lg:text-base font-medium cursor-pointer text-black/60 px-3 lg:px-4 z-10`}
+              className={`component-1 py-0.5 cursor-pointer text-blue-600/80 animate-pulse px-3 lg:px-4 z-10`}
               onClick={switchToggle}
             >
               Today
             </button>
             <button
-              className="component-2 py-0.5 text-xs sm:text-sm lg:text-base font-medium cursor-pointer text-black/60 px-3 lg:px-4 z-10"
+              className="component-2 py-0.5 cursor-pointer text-yellow-600/80 animate-pulse px-3 lg:px-4 z-10"
               onClick={switchToggle}
             >
               This Week
             </button>
             <div className="blueVox absolute w-full h-full top-0 left-0 pointer-events-none touch-none flex gap-2 z-10">
-              <div className="runner py-0.5 text-xs sm:text-sm lg:text-base rounded-2xl inline-block bg-gradient-to-r from-[#02B5E2] to-[#1DD4AB] px-3 lg:px-4 font-medium text-white outline">
+              <div className="runner py-0.5 rounded-2xl inline-block bg-gradient-to-r from-[#02B5E2] to-[#1DD4AB] px-3 lg:px-4 text-white outline">
                 Today
               </div>
             </div>
@@ -177,6 +178,7 @@ const Home = () => {
         </div>
       </div>
       <DiscoverMovie />
+      <Leaderboard />
     </section>
   );
 };

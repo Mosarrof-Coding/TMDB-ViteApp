@@ -27,9 +27,12 @@ img {
 }
 /* width */
 body::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
 }
-
+/* movie_playlist */
+.movie_playlist::-webkit-scrollbar {
+  width: 4px;
+}
 /* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px #80808041;
@@ -40,7 +43,6 @@ body::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px #80808038;
   border-radius: 0px;
 }
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #32338a23;
@@ -55,27 +57,22 @@ body::-webkit-scrollbar-thumb {
   background: #32338a25;
   border-radius: 0px;
 }
-
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #32338a4a;
 }
-
 /* scrollbar 2 */
 .myScrollbar::-webkit-scrollbar {
-  width: 5px; /* Width of the scrollbar */
+  width: 5px;
 }
-
 .myScrollbar::-webkit-scrollbar-track {
-  background: #f1f1f140; /* Background of the scrollbar track */
-  border-radius: 10px; /* Rounded corners for the track */
+  background: #f1f1f140;
+  border-radius: 10px;
 }
-
 .myScrollbar::-webkit-scrollbar-thumb {
-  background: #888; /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Rounded corners for the thumb */
+  background: #888;
+  border-radius: 10px;
 }
-
 .myScrollbar::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color of the thumb on hover */
+  background: #555;
 }

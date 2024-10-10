@@ -197,9 +197,7 @@ function PopularPeopleDetails() {
                               General
                             </Link>
                             <Link className="flex justify-between items-center py-1 gap-4 px-4 hover:bg-gray-100">
-                              <span>
-                                <Link className="">Content Issue</Link>
-                              </span>
+                              <span>Content Issue</span>
                               <span className="inline-block">12</span>
                             </Link>
                           </div>

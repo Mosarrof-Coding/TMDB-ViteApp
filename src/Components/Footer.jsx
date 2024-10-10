@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import logo from "../assets/movielogo.png";
 import { Link } from "react-router-dom";
+import MagneticButton from "../utility/MagneticButton";
 
 function Footer() {
   return (
@@ -20,11 +21,8 @@ function Footer() {
                 unforgettable action, stunning visuals, and gripping narratives
                 that will keep you on the edge of your seat!
               </p>
-              <Link
-                to=""
-                className="inline-block bg-white text-blue-700 text-sm sm:text-base font-semibold mt-2 lg:mt-4 px-3 md:py-[1px] rounded-full cursor-pointer whitespace-nowrap"
-              >
-                Hi Mosarrof!
+              <Link className="">
+                <MagneticButton />
               </Link>
             </div>
             <div className="min-w-fit lg:pt-8">

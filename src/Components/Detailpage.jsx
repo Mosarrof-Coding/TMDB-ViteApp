@@ -30,6 +30,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import MarginalValueGraph from "../utility/MarginalValueGraph";
 
 // eslint-disable-next-line react/prop-types
 function Detailpage() {
@@ -217,22 +218,32 @@ function Detailpage() {
   }
 
   // video portion
-  const vidUrls = `https://api.themoviedb.org/3/movie/${params.id}/videos?language=en-US%27,%20options`;
-
+  const vidUrls = `https://api.themoviedb.org/3/movie/${params.id}/videos?language=en-US${apiKey}`;
   const [videos, setVideos] = useState([]);
+  const [trailer, setTrailer] = useState();
+  const [hiposter, setHiposter] = useState();
+  const [hibackdrop, setHibackdrop] = useState();
   const videoFetch = async () => {
     try {
-      const res = await fetch(vidUrls + apiKey);
+      const res = await fetch(vidUrls);
       if (!res.ok) {
         throw new Error("Failed to fetch videos");
       }
       const data = await res.json();
-      // console.log(data.results.length);
+      // console.log(data.results);
       setVideos(data.results);
+      // most popular video
+      const trailerOne = data.results.map((popular) => popular.key);
+      // console.log(trailerOne[1]);
+      setTrailer(trailerOne[1]);
     } catch (error) {
       console.error("Error fetching videos:", error);
     }
   };
+
+  useEffect(() => {
+    videoFetch();
+  }, [params.id]);
 
   // poster
   const [posters, setPosters] = useState([]);
@@ -248,6 +259,14 @@ function Detailpage() {
         const data = await response.json();
         const posters = data.images.posters;
         setPosters(posters);
+        // Find the poster with the highest vote_average
+        const mostPoster = posters.map((topPoster) => topPoster.vote_average);
+        const posterHighValue = Math.max(...mostPoster);
+        const highestRatedPoster = posters.find(
+          (poster) => poster.vote_average === posterHighValue
+        );
+        // console.log("Highest rated poster:", highestRatedPoster);
+        setHiposter(highestRatedPoster);
       } catch (error) {
         console.error("Error fetching movie details:", error);
       }
@@ -277,7 +296,18 @@ function Detailpage() {
         throw new Error("Failed to fetch backdrops");
       }
       const responseData = await response.json();
-      setBackdrops(responseData.backdrops);
+      const Backdrops = responseData.backdrops;
+      setBackdrops(Backdrops);
+      // Find the backdrops with the highest vote_average
+      const mostbackdrop = responseData.backdrops.map(
+        (topBackdrop) => topBackdrop.vote_average
+      );
+      const hiVoteBackdrop = Math.max(...mostbackdrop);
+      const highRatedBackdrop = Backdrops.find(
+        (Backdrop) => Backdrop.vote_average === hiVoteBackdrop
+      );
+      console.log("highRatedBackdrop", highRatedBackdrop);
+      setHibackdrop(highRatedBackdrop);
     } catch (error) {
       console.error("Error fetching backdrops:", error);
     }
@@ -305,6 +335,28 @@ function Detailpage() {
   const imgLoad = () => {
     setImg(true);
   };
+
+  // Array containing contributor data
+  const contributors = [
+    {
+      id: 1,
+      name: "Hossain",
+      contributionCount: 343,
+      thumb: "https://randomuser.me/api/portraits/men/1.jpg",
+    },
+    {
+      id: 2,
+      name: "TeslaCoil",
+      contributionCount: 270,
+      thumb: "https://randomuser.me/api/portraits/women/2.jpg",
+    },
+    {
+      id: 3,
+      name: "OhmKing",
+      contributionCount: 233,
+      thumb: "https://randomuser.me/api/portraits/men/3.jpg",
+    },
+  ];
   return (
     <>
       <section className="text-left">
@@ -849,7 +901,7 @@ function Detailpage() {
         </div>
         {/* Top Billed Cast/credit Api  */}
         <div className="contizer">
-          <div className="castBox xl:px-6 pb-4 flex flex-col md:grid grid-cols-12 gap-8 py-12">
+          <div className="castBox py-4 lg:py-6 2xl:py-12 flex flex-col md:grid grid-cols-12 gap-8">
             {/* part-A  */}
             <div className="avater col-span-8 xl:col-span-9">
               <h3 className="topcast text-xl lg:text-2xl font-semibold text-gray-700 pb-2">
@@ -913,59 +965,51 @@ function Detailpage() {
               <hr />
               {/* Social + reviews */}
               <div className="mediaEtc py-3 lg:py-5">
-                <div className="socialPath flex items-end flex-wrap gap-2 md:gap-4 lg:gap-8">
+                <div className="socialPath flex items-end flex-wrap gap-2 md:gap-4 lg:gap-8 text-sm lg:text-base">
                   <h3 className="topcast text-lg md:text-xl lg:text-2xl font-semibold text-gray-700 pr-4 lg:pr-8">
                     Social
                   </h3>
-                  <span>
-                    <Link
-                      className="text-gray-700 rBtn active"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        const reviewMain =
-                          document.querySelector(".reviewMain");
-                        const discussion =
-                          document.querySelector(".discussion");
-                        const rBtn = document.querySelector(".rBtn");
-                        const dBtn = document.querySelector(".dBtn");
-                        {
-                          reviewMain.style.display = "block";
-                          discussion.style.display = "none";
-                          dBtn.classList.remove("active");
-                          rBtn.classList.add("active");
-                        }
-                      }}
-                    >
-                      Reviews{" "}
-                      {reviewArr ? (
-                        <span>{reviewArr.length}</span>
-                      ) : (
-                        <span>(-)</span>
-                      )}
-                    </Link>
-                  </span>
-                  <span>
-                    <Link
-                      className="text-gray-700 dBtn"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        const reviewMain =
-                          document.querySelector(".reviewMain");
-                        const discussion =
-                          document.querySelector(".discussion");
-                        const dBtn = document.querySelector(".dBtn");
-                        const rBtn = document.querySelector(".rBtn");
-                        {
-                          reviewMain.style.display = "none";
-                          discussion.style.display = "block";
-                          dBtn.classList.add("active");
-                          rBtn.classList.remove("active");
-                        }
-                      }}
-                    >
-                      Discussion 0
-                    </Link>
-                  </span>
+                  <button
+                    className="text-gray-700 rBtn active"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const reviewMain = document.querySelector(".reviewMain");
+                      const discussion = document.querySelector(".discussion");
+                      const rBtn = document.querySelector(".rBtn");
+                      const dBtn = document.querySelector(".dBtn");
+                      {
+                        reviewMain.style.display = "block";
+                        discussion.style.display = "none";
+                        dBtn.classList.remove("active");
+                        rBtn.classList.add("active");
+                      }
+                    }}
+                  >
+                    Reviews{" "}
+                    {reviewArr ? (
+                      <span className="text-rose-400">{reviewArr.length}</span>
+                    ) : (
+                      <span>(-)</span>
+                    )}
+                  </button>
+                  <button
+                    className="text-gray-700 dBtn"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const reviewMain = document.querySelector(".reviewMain");
+                      const discussion = document.querySelector(".discussion");
+                      const dBtn = document.querySelector(".dBtn");
+                      const rBtn = document.querySelector(".rBtn");
+                      {
+                        reviewMain.style.display = "none";
+                        discussion.style.display = "block";
+                        dBtn.classList.add("active");
+                        rBtn.classList.remove("active");
+                      }
+                    }}
+                  >
+                    Discussion 0
+                  </button>
                 </div>
                 {/* Review  */}
                 <div className="reviewMain block ">
@@ -1013,12 +1057,12 @@ function Detailpage() {
               </div>
               <hr />
               {/* Media part */}
-              <div className="Media py-5">
-                <div className="socialPath flex items-end flex-wrap gap-2 md:gap-4 lg:gap-8">
+              <div className="Media py-3 lg:py-5">
+                <div className="socialPath flex items-end flex-wrap gap-2 md:gap-4 lg:gap-8 text-sm lg:text-base">
                   <h3 className="topcast text-lg md:text-xl lg:text-2xl font-semibold text-gray-700 pr-4 lg:pr-8">
                     Media
                   </h3>
-                  <Link
+                  <button
                     className={`text-gray-700 ${
                       activeTab === "mostPopular" ? "active" : ""
                     }`}
@@ -1029,8 +1073,8 @@ function Detailpage() {
                     }}
                   >
                     Most Popular
-                  </Link>
-                  <Link
+                  </button>
+                  <button
                     className={`text-gray-700 ${
                       activeTab === "videos" ? "active" : ""
                     }`}
@@ -1043,13 +1087,13 @@ function Detailpage() {
                     Videos{" "}
                     <span>
                       {videos.length ? (
-                        <span>{videos.length}</span>
+                        <span className="text-rose-400">{videos.length}</span>
                       ) : (
                         <span className="">0</span>
                       )}
                     </span>
-                  </Link>
-                  <Link
+                  </button>
+                  <button
                     className={`text-gray-700 ${
                       activeTab === "backdrops" ? "active" : ""
                     }`}
@@ -1059,9 +1103,10 @@ function Detailpage() {
                         activeTab === "backdrops" ? "2px solid #333" : "none",
                     }}
                   >
-                    Backdrops <span>{backdrops.length}</span>
-                  </Link>
-                  <Link
+                    Backdrops{" "}
+                    <span className="text-rose-400">{backdrops.length}</span>
+                  </button>
+                  <button
                     className={`text-gray-700 ${
                       activeTab === "posters" ? "active" : ""
                     }`}
@@ -1071,36 +1116,48 @@ function Detailpage() {
                         activeTab === "posters" ? "2px solid #333" : "none",
                     }}
                   >
-                    Posters <span>{posters.length}</span>
-                  </Link>
+                    Posters{" "}
+                    <span className="text-rose-400">{posters.length}</span>
+                  </button>
                 </div>
-                <div className="py-4 mb-4">
+                <div className="py-2 lg:py-4 mb-2 lg:mb-4">
                   {/* Most Popular */}
                   {activeTab === "mostPopular" && (
-                    <div className="my-5 flex overflow-x-auto border p-2">
-                      <p className="text-red-400">
-                        <strong>Most Popular Video: </strong>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Earum et quibusdam excepturi laborum sed cumque ullam
-                        est, laboriosam magnam aspernatur at mollitia deleniti
-                        omnis minus totam voluptates libero cupiditate
-                        reprehenderit consectetur exercitationem quia debitis!
-                        Natus laboriosam facilis ab voluptatibus in dolores
-                        sapiente quaerat, deleniti recusandae adipisci non
-                        ratione nesciunt modi porro eveniet reiciendis ut nulla
-                        atque eius, reprehenderit
-                      </p>
+                    <div className="my-5 flex overflow-x-auto box-content max-h-fit">
+                      <div className="min-w-full lg:min-w-[50%] aspect-[16/9]">
+                        <iframe
+                          className="w-full h-full"
+                          src={`https://www.youtube-nocookie.com/embed/${trailer}`}
+                          title="youtube player"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      <div className="min-w-full lg:min-w-[50%] aspect-[16/9]">
+                        <img
+                          src={imgUrl + hibackdrop?.file_path}
+                          alt=""
+                          className="h-full w-full"
+                        />
+                      </div>
+                      <div className="min-w-[46%] xs:min-w-[37.5%] lg:min-w-[19%] bg-pink-700">
+                        <img
+                          src={`${imgUrl}${hiposter?.file_path}`}
+                          alt=""
+                          className="inline-block h-fit"
+                        />
+                      </div>
                     </div>
                   )}
                   {/* video  */}
                   {activeTab === "videos" && (
                     <div className="my-5 flex overflow-x-auto w-full">
-                      {videos.map((video, index) => (
+                      {videos.map((video) => (
                         <div
-                          key={index}
-                          className="block min-w-full xl:min-w-[50%] aspect-[16/9] xl:w-auto"
+                          key={video.id}
+                          className="min-w-full xl:min-w-[50%] aspect-[16/9]"
                         >
-                          <Video video={video} img={img} imgLoad={imgLoad} />
+                          <Video video={video.key} />
                         </div>
                       ))}
                     </div>
@@ -1267,64 +1324,70 @@ function Detailpage() {
                 </div>
               </div>
               <hr />
+              {/* content score */}
               <div className="keyBox mt-12">
                 <h3 className="text-black pb-3 font-bold">Content Score </h3>
-                <div className="contributor rounded-lg overflow-hidden">
-                  <div className="bg-black text-white pl-3 py-2">100</div>
-                  <div className="bg-gray-200 pl-3 py-[3px] text-sm text-black">
-                    Yes! Looking good!
+                <div
+                  className={`contributor rounded-lg overflow-hidden w-full border text-white font-light`}
+                >
+                  <div
+                    className={`pl-3 py-2 font-bold text-sm lg:text-base ${
+                      percent >= 70
+                        ? "bg-blue-800"
+                        : percent >= 50 && percent < 70
+                        ? "bg-yellow-800"
+                        : "bg-red-800"
+                    }`}
+                    style={{ width: `${percent}%` }}
+                  >
+                    {percent}
                   </div>
+                  {percent >= 70 ? (
+                    <div className="bg-blue-700 pl-3 py-[3px] text-sm">
+                      Wow! Looking good!
+                    </div>
+                  ) : percent >= 50 && percent < 70 ? (
+                    <div className="bg-yellow-700 pl-3 py-[3px] text-sm">
+                      Yes! Growing your score!
+                    </div>
+                  ) : (
+                    <div className="bg-red-700 pl-3 py-[3px] text-sm">
+                      Oops! Grow your score to improve.
+                    </div>
+                  )}
                 </div>
               </div>
-              {/* top contributor  */}
               <div className="contributormain py-8">
                 <h3 className="text-black pb-3 font-bold">Top Contributors</h3>
-                <div className="contBox flex flex-col gap-6">
-                  <div className="contItem flex flex-wrap gap-4 items-center">
-                    <div className="thumb bg-red-600 w-14 h-14 rounded-full grid place-items-center">
-                      thum
+                <div className="contBox flex flex-col gap-4">
+                  {contributors.map((contributor) => (
+                    <div
+                      className="contItem flex gap-4 items-center"
+                      key={contributor.id}
+                    >
+                      <div className="thumb bg-red-600 w-14 h-14 rounded-full overflow-hidden">
+                        <img
+                          src={contributor.thumb}
+                          alt={contributor.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="count">
+                        <h5 className="text-black font-medium">
+                          {contributor.contributionCount}
+                        </h5>
+                        <small className="text-black font-normal">
+                          {contributor.name}
+                        </small>
+                      </div>
                     </div>
-                    <div className="count">
-                      <h5 className="text-black font-medium">343</h5>
-                      <small className="text-black font-normal">
-                        WardenclyffeTower
-                      </small>
-                    </div>
-                  </div>
-                  <div className="contItem flex flex-wrap gap-4 items-center">
-                    <div className="thumb bg-red-600 w-14 h-14 rounded-full grid place-items-center">
-                      thum
-                    </div>
-                    <div className="count">
-                      <h5 className="text-black font-medium">343</h5>
-                      <small className="text-black font-normal">
-                        WardenclyffeTower
-                      </small>
-                    </div>
-                  </div>
-                  <div className="contItem flex flex-wrap gap-4 items-center">
-                    <div className="thumb bg-red-600 w-14 h-14 rounded-full grid place-items-center">
-                      thum
-                    </div>
-                    <div className="count">
-                      <h5 className="text-black font-medium">343</h5>
-                      <small className="text-black font-normal">
-                        WardenclyffeTower
-                      </small>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
               {/* Popularity Trend */}
-              <div className="contributormain py-8">
+              <div className="contributormain py-8 w-full">
                 <h3 className="text-black pb-3 font-bold">Popularity Trend</h3>
-                <div className="contBox flex flex-col gap-6">
-                  <span className="text-red-400">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Saepe consequuntur consequatur modi. Ea perferendis
-                    dignissimos dolor soluta quae, earum cumque?
-                  </span>
-                </div>
+                <MarginalValueGraph />
               </div>
             </div>
           </div>

@@ -93,7 +93,7 @@ function CrewAndCast() {
         <div className="flex flex-col md:flex-row gap-8 xl:gap-12 py-6">
           <div className="casts basis-1/2">
             <div className="castnum pb-2 lg:pb-4 xl:pb-8">
-              <h2 className="text-xl lg:text-2xl text-rose-600 font-bold underline">
+              <h2 className="text-xl lg:text-2xl text-rose-600 font-bold border-b-2">
                 Cast: <span className="text-gray-500">{casts.length}</span>
               </h2>
             </div>
@@ -139,7 +139,7 @@ function CrewAndCast() {
           </div>
           <div className="crews basis-1/2">
             <div className="castnum pb-2 lg:pb-4 xl:pb-8">
-              <h2 className="text-xl lg:text-2xl text-rose-600 font-bold underline">
+              <h2 className="text-xl lg:text-2xl text-rose-600 font-bold border-b-2">
                 Crew: <span className="text-gray-500">{crews.length}</span>
               </h2>
             </div>
