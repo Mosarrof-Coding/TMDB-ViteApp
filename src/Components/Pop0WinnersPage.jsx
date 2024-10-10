@@ -58,6 +58,7 @@ function Pop0WinnersPage() {
       );
       const data = await res.json();
       const winners = data.results;
+      // console.log("discover", winners);
       const voteAverage = winners.map((data) => data.vote_average);
       const winn = Math.max(...voteAverage);
       const winningMovie = winners.find((movie) => movie.vote_average === winn);
@@ -91,7 +92,11 @@ function Pop0WinnersPage() {
         });
         // console.log("crewByDepartment:", crewByDepartment);
         const allDirectors = crewByDepartment.Director;
-        setDirectorss(allDirectors);
+        const btrDirectors = allDirectors.sort((a, b) => {
+          b.popularity - a.popularity;
+        });
+        // console.log("btrDirectors", btrDirectors.length);
+        setDirectorss(btrDirectors.slice(0, 16));
         const maxpopDirectings = Math.max(
           ...allDirectors.map((popDirecting) => popDirecting.popularity)
         );
@@ -199,37 +204,45 @@ function Pop0WinnersPage() {
       <div className="navigatorWinner">
         <div className="navigate border-b">
           <div className="contizer">
-            <div className="navMain py-1 flex justify-center items-center flex-wrap gap-3 sm:gap-6">
+            <div className="navMain lg:py-1 flex text-sm lg:text-base justify-center items-center flex-wrap gap-3 sm:gap-6">
               {/* overview  */}
               <div className="dropdown dropdown-hover">
                 <div
                   tabIndex={0}
                   role="button"
-                  className={`bg-white text-black py-2 hover:text-blue-400 drpp  ${
+                  className={`bg-white text-black py-1 lg:py-2 hover:text-blue-400 drpp  ${
                     isMouseOver ? "text-blue-400" : ""
                   }`}
                 >
                   <span>Overview</span>
-                  <span className="hidden sm:inline-block rotate-180 ml-4 mb-[2px]">
+                  <span className="hidden sm:inline-block rotate-180 ml-2 lg:mb-[2px]">
                     <IoTriangleSharp size={8} />
                   </span>
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu py-2 px-0 shadow-md border bg-base-100 rounded w-36 lg:w-52"
+                  className="dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow-md border bg-base-100 rounded w-36 lg:w-52"
                   onMouseEnter={() => setIsMouseOver(true)}
                   onMouseLeave={() => setIsMouseOver(false)}
                 >
-                  <div className="text-gray-600 flex flex-col gap-1 w-auto">
-                    <Link className="py-1 hover:bg-gray-200 px-4">Main</Link>
-                    <Link className="py-1 hover:bg-gray-200 px-4">
+                  <div className="text-gray-600 flex flex-col  w-auto">
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200">
+                      Main
+                    </Link>
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200">
                       Translations
                     </Link>
                   </div>
-                  <div className="text-gray-600 flex flex-col gap-1 pt-6">
-                    <Link className="py-1 hover:bg-gray-200 px-4">Changes</Link>
-                    <Link className="py-1 hover:bg-gray-200 px-4">Report</Link>
-                    <Link className="py-1 hover:bg-gray-200 px-4">Edit</Link>
+                  <div className="text-gray-600 flex flex-col  pt-3 lg:pt-6">
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200">
+                      Changes
+                    </Link>
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200">
+                      Report
+                    </Link>
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200">
+                      Edit
+                    </Link>
                   </div>
                 </ul>
               </div>
@@ -238,29 +251,29 @@ function Pop0WinnersPage() {
                 <div
                   tabIndex={0}
                   role="button"
-                  className={`bg-white text-black py-2 hover:text-blue-400 drpp  ${
+                  className={`bg-white text-black py-1 lg:py-2 hover:text-blue-400 drpp  ${
                     isMouseOver3 ? "text-blue-400" : ""
                   }`}
                 >
                   <span>Share </span>
-                  <span className="hidden sm:inline-block rotate-180 ml-4 mb-[2px]">
+                  <span className="hidden sm:inline-block rotate-180 ml-2 lg:mb-[2px]">
                     <IoTriangleSharp size={8} />
                   </span>
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu py-2 px-0 shadow-md border bg-base-100 rounded w-36 lg:w-52 right-0 lg:right-auto"
+                  className="dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow-md border bg-base-100 rounded w-36 lg:w-52 right-0 lg:right-auto"
                   onMouseEnter={() => setIsMouseOver3(true)}
                   onMouseLeave={() => setIsMouseOver3(false)}
                 >
-                  <div className="text-gray-600 flex flex-col gap-1">
-                    <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
+                  <div className="text-gray-600 flex flex-col ">
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6">
                       <span>Share link</span>
                     </Link>
-                    <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6">
                       <span>Facebook</span>
                     </Link>
-                    <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6">
                       <span>Tweet</span>
                     </Link>
                   </div>
@@ -335,7 +348,7 @@ function Pop0WinnersPage() {
             <div className="winnwrGrid py-3">
               {directorss.map(
                 (directors) =>
-                  directors.popularity > 4 && (
+                  directors.popularity > 0 && (
                     <ul
                       className="border max-w-full rounded-lg overflow-hidden"
                       key={directors.id}
@@ -463,7 +476,7 @@ function Pop0WinnersPage() {
             <div className="winnwrGrid py-3">
               {actors.map(
                 (actor) =>
-                  actor.popularity > 27 && (
+                  actor.popularity > 10 && (
                     <div
                       className="border max-w-full rounded-lg overflow-hidden"
                       key={actor.id}
@@ -488,7 +501,7 @@ function Pop0WinnersPage() {
             <div className="winnwrGrid py-3">
               {actresses.map(
                 (actress) =>
-                  actress.popularity > 16 && (
+                  actress.popularity > 5 && (
                     <div
                       className="border max-w-full rounded-lg overflow-hidden"
                       key={actress.id}

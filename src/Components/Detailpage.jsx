@@ -363,56 +363,66 @@ function Detailpage() {
         {/* navigate  */}
         <div className="navigate">
           <div className="contizer">
-            <div className="navMain py-1 flex justify-center items-center flex-wrap gap-4 lg:gap-6">
+            <div className="navMain text-sm lg:text-base lg:py-1 flex justify-center items-center flex-wrap gap-4 lg:gap-6">
               {/* overview  */}
               <div className="dropdown dropdown-hover">
                 <div
                   tabIndex={0}
                   role="button"
-                  className={`bg-white text-black py-2 hover:text-blue-400 drpp  ${
+                  className={`bg-white text-black py-1 lg:py-2 hover:text-blue-400 drpp  ${
                     isMouseOver ? "text-blue-400" : ""
                   }`}
                 >
                   <span>Overview</span>
-                  <span className="hidden sm:inline-block rotate-180 ml-4 mb-[2px]">
+                  <span className="hidden sm:inline-block rotate-180 ml-2 lg:mb-[2px]">
                     <IoTriangleSharp size={8} />
                   </span>
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)]"
+                  className="dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)]"
                   onMouseEnter={() => setIsMouseOver(true)}
                   onMouseLeave={() => setIsMouseOver(false)}
                 >
-                  <div className="text-gray-600 flex flex-col gap-1 w-auto">
-                    <Link className="py-1 hover:bg-gray-200 px-4">Main</Link>
+                  <div className="text-gray-600 flex flex-col w-auto">
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200">
+                      Main
+                    </Link>
                     <Link
                       to={`/movie/${params.id}/alternativeTitle`}
-                      className="py-1 hover:bg-gray-200 px-4"
+                      className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200"
                     >
                       Alternative Titles
                     </Link>
                     <Link
                       to={`/movie/${params.id}/full-cast-and-crew`}
-                      className="py-1 hover:bg-gray-200 px-4"
+                      className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200"
                     >
                       Cast & Crew
                     </Link>
                     <Link
                       to={`/movie/${params.id}/releaseDate`}
-                      className="py-1 hover:bg-gray-200 px-4"
+                      className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200"
                     >
                       Release Date
                     </Link>
-                    <Link className="py-1 hover:bg-gray-200 px-4">Seasons</Link>
-                    <Link className="py-1 hover:bg-gray-200 px-4">
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200">
+                      Seasons
+                    </Link>
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200">
                       Translations
                     </Link>
                   </div>
-                  <div className="text-gray-600 flex flex-col gap-1 pt-6">
-                    <Link className="py-1 hover:bg-gray-200 px-4">Changes</Link>
-                    <Link className="py-1 hover:bg-gray-200 px-4">Report</Link>
-                    <Link className="py-1 hover:bg-gray-200 px-4">Edit</Link>
+                  <div className="text-gray-600 flex flex-col pt-3 lg:pt-6">
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200">
+                      Changes
+                    </Link>
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200">
+                      Report
+                    </Link>
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200">
+                      Edit
+                    </Link>
                   </div>
                 </ul>
               </div>
@@ -421,46 +431,46 @@ function Detailpage() {
                 <div
                   tabIndex={0}
                   role="button"
-                  className={`bg-white text-black py-2 hover:text-blue-400 drpp  ${
+                  className={`bg-white text-black py-1 lg:py-2 hover:text-blue-400 drpp  ${
                     isMouseOver1 ? "text-blue-400" : ""
                   }`}
                 >
                   <span>Media </span>
-                  <span className="hidden sm:inline-block rotate-180 ml-4 mb-[2px]">
+                  <span className="hidden sm:inline-block rotate-180 ml-2 lg:mb-[2px]">
                     <IoTriangleSharp size={8} />
                   </span>
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)] min-w-fit"
+                  className="dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)] min-w-fit"
                   onMouseEnter={() => setIsMouseOver1(true)}
                   onMouseLeave={() => setIsMouseOver1(false)}
                 >
-                  <div className="text-gray-600 flex flex-col gap-1">
+                  <div className="text-gray-600 flex flex-col">
                     <Link
                       to={`/movie/${params.id}/movieBackdrops`}
-                      className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6"
+                      className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6"
                     >
                       <span>Backdrops</span>
                       <span>{backdrops.length}</span>
                     </Link>
                     <Link
                       to={`/movie/${params.id}/logos`}
-                      className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6"
+                      className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6"
                     >
                       <span>Logos</span>
                       <span>length</span>
                     </Link>
                     <Link
                       to={`/movie/${params.id}/moviePosters`}
-                      className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6"
+                      className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6"
                     >
                       <span>Poster</span>
                       <span>{posters.length}</span>
                     </Link>
                     <Link
                       to={`/movie/${params.id}/videos`}
-                      className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6"
+                      className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6"
                     >
                       <span>Videos</span>
                       <span className="flex items-center gap-1">
@@ -478,23 +488,23 @@ function Detailpage() {
                 <div
                   tabIndex={0}
                   role="button"
-                  className={`bg-white text-black py-2 hover:text-blue-400 drpp  ${
+                  className={`bg-white text-black py-1 lg:py-2 hover:text-blue-400 drpp  ${
                     isMouseOver2 ? "text-blue-400" : ""
                   }`}
                 >
                   <span>Fandom </span>
-                  <span className="hidden sm:inline-block rotate-180 ml-4 mb-[2px]">
+                  <span className="hidden sm:inline-block rotate-180 ml-2 lg:mb-[2px]">
                     <IoTriangleSharp size={8} />
                   </span>
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)]"
+                  className="dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)]"
                   onMouseEnter={() => setIsMouseOver2(true)}
                   onMouseLeave={() => setIsMouseOver2(false)}
                 >
-                  <div className="text-gray-600 flex flex-col gap-1">
-                    <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
+                  <div className="text-gray-600 flex flex-col">
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6">
                       <span>Videos</span>
                       <span>
                         <span className="hidden sm:inline-block rotate-90">
@@ -502,7 +512,7 @@ function Detailpage() {
                         </span>
                       </span>
                     </Link>
-                    <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6">
                       <span>Reviews</span>
                     </Link>
                   </div>
@@ -513,29 +523,29 @@ function Detailpage() {
                 <div
                   tabIndex={0}
                   role="button"
-                  className={`bg-white text-black py-2 hover:text-blue-400 drpp  ${
+                  className={`bg-white text-black py-1 lg:py-2 hover:text-blue-400 drpp  ${
                     isMouseOver3 ? "text-blue-400" : ""
                   }`}
                 >
                   <span>Share</span>
-                  <span className="hidden sm:inline-block rotate-180 ml-4 mb-[2px]">
+                  <span className="hidden sm:inline-block rotate-180 ml-2 lg:mb-[2px]">
                     <IoTriangleSharp size={8} />
                   </span>
                 </div>
                 <ul
                   tabIndex={0}
-                  className="right-0 sm:right-auto dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)]"
+                  className="right-0 sm:right-auto dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)]"
                   onMouseEnter={() => setIsMouseOver3(true)}
                   onMouseLeave={() => setIsMouseOver3(false)}
                 >
-                  <div className="text-gray-600 flex flex-col gap-1">
-                    <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
+                  <div className="text-gray-600 flex flex-col">
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6">
                       <span>Share link</span>
                     </Link>
-                    <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6">
                       <span>Facebook</span>
                     </Link>
-                    <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
+                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6">
                       <span>Tweet</span>
                     </Link>
                   </div>

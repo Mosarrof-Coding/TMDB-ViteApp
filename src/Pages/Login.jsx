@@ -83,17 +83,19 @@ export default function Login() {
 
   return (
     <section className="min-h-[50vh] grid place-items-center">
-      <div className="contizer">
+      <div className="contizer w-full">
         <form
           onSubmit={handleSubmit}
-          className="w-[300px] lg:w-[520px] mx-auto p-4 lg:p-6 my-4 rounded-lg shadow-lg text-gray-800 flex flex-col gap-3 md:gap-6 border-t-8 border-blue-700"
+          className="w-full sm:w-[420px] lg:w-[520px] mx-auto p-4 lg:p-6 my-4 rounded-lg shadow-lg text-gray-800 flex flex-col gap-3 md:gap-6 border-t-8 border-blue-700"
         >
           <h3 className="text-xl md:text-2xl font-semibold text-blue-500">
             Join TMBD
           </h3>
           {error && <p className="text-red-500">{error}</p>}
           <div className="email w-full flex flex-col gap-1">
-            <label htmlFor="email">Email</label>
+            <label className=" font-semibold text-sm" htmlFor="email">
+              Email
+            </label>
             <input
               className="w-full py-1 md:py-2 rounded-md px-2 md:px-4 border md:rounded-lg"
               type="email"
@@ -105,7 +107,9 @@ export default function Login() {
             />
           </div>
           <div className="password w-full flex flex-col gap-1">
-            <label htmlFor="password">Password</label>
+            <label className=" font-semibold text-sm" htmlFor="password">
+              Password
+            </label>
             <div className="relative">
               <input
                 className="w-full py-1 md:py-2 rounded-md px-2 md:px-4 border md:rounded-lg"

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import errorpg from "../assets/404.jpg";
+import { FiArrowLeft } from "react-icons/fi";
 function PageNotFound() {
   return (
     <div className="min-h-[60vh] grid place-items-center text-xl md:text-2xl lg:text-3xl text-red-600">
@@ -11,9 +12,11 @@ function PageNotFound() {
         />
         <Link
           to={"/"}
-          className="text-base lg:text-xl font-medium block text-center text-blue-500 hover:text-blue-600 transition-all duration-300 "
+          className="text-base lg:text-xl font-medium block text-center text-blue-400 hover:text-blue-800 transition-all duration-300 "
         >
-          {"<- Back to Home"}
+          <div className="inline-flex items-center">
+            <FiArrowLeft /> <span className="mt-[2px]"> Back to Home</span>
+          </div>
         </Link>
       </div>
     </div>

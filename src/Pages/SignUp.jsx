@@ -60,16 +60,18 @@ export default function SignUp() {
 
   return (
     <section className="min-h-[50vh] grid place-items-center">
-      <div className="container">
+      <div className="container w-full">
         <form
-          className="w-[320px] lg:w-[520px] mx-auto p-2 lg:p-6 my-4 rounded-lg shadow-lg text-gray-800 flex flex-col gap-4 border-t-8 border-blue-700"
+          className="w-full sm:w-[420px] lg:w-[520px] mx-auto p-2 lg:p-6 my-4 rounded-lg shadow-lg text-gray-800 flex flex-col gap-4 border-t-8 border-blue-700"
           onSubmit={handleSubmit}
         >
           <div className="name w-full flex flex-col gap-1">
             <h3 className="text-2xl font-semibold text-blue-500">
               Create an Account
             </h3>
-            <label htmlFor="name">Name</label>
+            <label className="font-semibold text-sm" htmlFor="name">
+              Name
+            </label>
             <input
               className="w-full py-1 md:py-2 px-2 md:px-4 border rounded-md md:rounded-lg"
               type="text"
@@ -82,7 +84,9 @@ export default function SignUp() {
             />
           </div>
           <div className="phone w-full flex flex-col gap-1">
-            <label htmlFor="phone">Phone</label>
+            <label className="font-semibold text-sm" htmlFor="phone">
+              Phone
+            </label>
             <input
               className="w-full py-1 md:py-2 px-2 md:px-4 border rounded-md md:rounded-lg"
               type="tel"
@@ -95,7 +99,9 @@ export default function SignUp() {
             />
           </div>
           <div className="email w-full flex flex-col gap-1">
-            <label htmlFor="email">Email</label>
+            <label className="font-semibold text-sm" htmlFor="email">
+              Email
+            </label>
             <input
               className="w-full py-1 md:py-2 px-2 md:px-4 border rounded-md md:rounded-lg"
               type="email"
@@ -108,7 +114,9 @@ export default function SignUp() {
             />
           </div>
           <div className="password w-full flex flex-col gap-1">
-            <label htmlFor="password">Password</label>
+            <label className="font-semibold text-sm" htmlFor="password">
+              Password
+            </label>
             <div className="relative">
               <input
                 className="w-full py-1 md:py-2 px-2 md:px-4 border rounded-md md:rounded-lg"
@@ -129,7 +137,9 @@ export default function SignUp() {
             </div>
           </div>
           <div className="password w-full flex flex-col gap-1">
-            <label htmlFor="retypePassword">Re-type Password</label>
+            <label className="font-semibold text-sm" htmlFor="retypePassword">
+              Re-type Password
+            </label>
             <div className="relative">
               <input
                 className="w-full py-1 md:py-2 px-2 md:px-4 border rounded-md md:rounded-lg"

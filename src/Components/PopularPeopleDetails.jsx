@@ -91,18 +91,18 @@ function PopularPeopleDetails() {
         {/* navigator  */}
         <div className="navigate border-b">
           <div className="contizer">
-            <div className="navMain py-1 flex justify-center items-center flex-wrap gap-3 sm:gap-6">
+            <div className="navMain lg:py-1 flex justify-center items-center flex-wrap gap-3 sm:gap-6">
               {/* overview  */}
               <div className="dropdown dropdown-hover">
                 <div
                   tabIndex={0}
                   role="button"
-                  className={`bg-white text-black py-2 hover:text-blue-400 drpp  ${
+                  className={`bg-white text-black py-1 lg:py-2 hover:text-blue-400 drpp ${
                     isMouseOver ? "text-blue-400" : ""
                   }`}
                 >
                   <span>Overview</span>
-                  <span className="hidden sm:inline-block rotate-180 ml-4 mb-[2px]">
+                  <span className="hidden sm:inline-block rotate-180 ml-2 lg:mb-[2px]">
                     <IoTriangleSharp size={8} />
                   </span>
                 </div>
@@ -130,12 +130,12 @@ function PopularPeopleDetails() {
                 <div
                   tabIndex={0}
                   role="button"
-                  className={`bg-white text-black py-2 hover:text-blue-400 drpp  ${
+                  className={`bg-white text-black py-1 lg:py-2 hover:text-blue-400 drpp ${
                     isMouseOver1 ? "text-blue-400" : ""
                   }`}
                 >
                   <span>Media </span>
-                  <span className="hidden sm:inline-block rotate-180 ml-4 mb-[2px]">
+                  <span className="hidden sm:inline-block rotate-180 ml-2 lg:mb-[2px]">
                     <IoTriangleSharp size={8} />
                   </span>
                 </div>
@@ -158,12 +158,12 @@ function PopularPeopleDetails() {
                 <div
                   tabIndex={0}
                   role="button"
-                  className={`bg-white text-black py-2 hover:text-blue-400 drpp  ${
+                  className={`bg-white text-black py-1 lg:py-2 hover:text-blue-400 drpp ${
                     isMouseOver2 ? "text-blue-400" : ""
                   }`}
                 >
                   <span>Fandom </span>
-                  <span className="hidden sm:inline-block rotate-180 ml-4 mb-[2px]">
+                  <span className="hidden sm:inline-block rotate-180 ml-2 lg:mb-[2px]">
                     <IoTriangleSharp size={8} />
                   </span>
                 </div>
@@ -212,12 +212,12 @@ function PopularPeopleDetails() {
                 <div
                   tabIndex={0}
                   role="button"
-                  className={`bg-white text-black py-2 hover:text-blue-400 drpp  ${
+                  className={`bg-white text-black py-1 lg:py-2 hover:text-blue-400 drpp ${
                     isMouseOver3 ? "text-blue-400" : ""
                   }`}
                 >
                   <span>Share </span>
-                  <span className="hidden sm:inline-block rotate-180 ml-4 mb-[2px]">
+                  <span className="hidden sm:inline-block rotate-180 ml-2 lg:mb-[2px]">
                     <IoTriangleSharp size={8} />
                   </span>
                 </div>

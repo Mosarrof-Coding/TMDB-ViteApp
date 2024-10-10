@@ -36,7 +36,7 @@ function DiscoverMovie() {
               <MovieCard key={movie.id} movie={movie} imgUrl={imgUrl} />
             ))}
           </div>
-          <div className="flex justify-center mt-4">
+          <div className="flex justify-center mt-2 lg:mt-4">
             <Button
               className="mt-2 py-1 md:py-2 px-4 md:px-8 rounded-full bg-gradient-to-r from-[#1DD4AB] to-[#02B5E2] text-base md:text-lg font-semibold"
               onClick={handleLoadMore}

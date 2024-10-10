@@ -51,41 +51,49 @@ function AwardsCard() {
   };
 
   return (
-    <>
+    <section>
       {/* navigator */}
       <div className="navigate border-b">
         <div className="contizer">
-          <div className="navMain py-1 flex justify-center items-center flex-wrap gap-4 lg:gap-6">
+          <div className="navMain text-sm lg:text-base lg:py-1 flex justify-center items-center flex-wrap gap-4 lg:gap-6">
             {/* overview  */}
             <div className="dropdown dropdown-hover">
               <div
                 tabIndex={0}
                 role="button"
-                className={`bg-white text-black py-2 hover:text-blue-400 drpp  ${
+                className={`bg-white text-black py-1 lg:py-2 hover:text-blue-400 drpp ${
                   isMouseOver ? "text-blue-400" : ""
                 }`}
               >
                 <span>Overview</span>
-                <span className="hidden sm:inline-block rotate-180 ml-4 mb-[2px]">
+                <span className="hidden sm:inline-block rotate-180 ml-2 lg:mb-[2px]">
                   <IoTriangleSharp size={8} />
                 </span>
               </div>
               <div
                 tabIndex={0}
-                className="dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)] min-w-fit"
+                className="dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)] min-w-fit"
                 onMouseEnter={() => setIsMouseOver(true)}
                 onMouseLeave={() => setIsMouseOver(false)}
               >
-                <div className="text-gray-600 flex flex-col gap-1 w-auto">
-                  <Link className="py-1 hover:bg-gray-200 px-4">Main</Link>
-                  <Link className="py-1 hover:bg-gray-200 px-4">
+                <div className="py-1 lg:py-2 px-0 text-gray-600 flex flex-col w-auto">
+                  <Link className="py-0.5 lg:py-1 hover:bg-gray-200 px-2 lg:px-4">
+                    Main
+                  </Link>
+                  <Link className="py-0.5 lg:py-1 hover:bg-gray-200 px-2 lg:px-4">
                     Translations
                   </Link>
                 </div>
-                <div className="text-gray-600 flex flex-col gap-1 pt-6">
-                  <Link className="py-1 hover:bg-gray-200 px-4">Changes</Link>
-                  <Link className="py-1 hover:bg-gray-200 px-4">Report</Link>
-                  <Link className="py-1 hover:bg-gray-200 px-4">Edit</Link>
+                <div className="text-gray-600 flex flex-col pt-3 lg:pt-6">
+                  <Link className="py-0.5 lg:py-1 hover:bg-gray-200 px-2 lg:px-4">
+                    Changes
+                  </Link>
+                  <Link className="py-0.5 lg:py-1 hover:bg-gray-200 px-2 lg:px-4">
+                    Report
+                  </Link>
+                  <Link className="py-0.5 lg:py-1 hover:bg-gray-200 px-2 lg:px-4">
+                    Edit
+                  </Link>
                 </div>
               </div>
             </div>
@@ -94,23 +102,23 @@ function AwardsCard() {
               <div
                 tabIndex={0}
                 role="button"
-                className={`bg-white text-black py-2 hover:text-blue-400 drpp  ${
+                className={`bg-white text-black py-1 lg:py-2 hover:text-blue-400 drpp ${
                   isMouseOver1 ? "text-blue-400" : ""
                 }`}
               >
                 <span>Media </span>
-                <span className="hidden sm:inline-block rotate-180 ml-4 mb-[2px]">
+                <span className="hidden sm:inline-block rotate-180 ml-2 lg:mb-[2px]">
                   <IoTriangleSharp size={8} />
                 </span>
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)] min-w-fit"
+                className="dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)] min-w-fit"
                 onMouseEnter={() => setIsMouseOver1(true)}
                 onMouseLeave={() => setIsMouseOver1(false)}
               >
-                <div className="text-gray-600 flex flex-col gap-1">
-                  <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
+                <div className="text-gray-600 flex flex-col">
+                  <Link className="py-0.5 lg:py-1 hover:bg-gray-200 px-2 lg:px-4 flex items-center justify-between gap-6">
                     <span>Profile</span>
                     <span>14</span>
                   </Link>
@@ -122,22 +130,22 @@ function AwardsCard() {
               <div
                 tabIndex={0}
                 role="button"
-                className={`bg-white text-black py-2 hover:text-blue-400 drpp  ${
+                className={`bg-white text-black py-1 lg:py-2 hover:text-blue-400 drpp ${
                   isMouseOver2 ? "text-blue-400" : ""
                 }`}
               >
                 <span>Fandom </span>
-                <span className="hidden sm:inline-block rotate-180 ml-4 mb-[2px]">
+                <span className="hidden sm:inline-block rotate-180 ml-2 lg:mb-[2px]">
                   <IoTriangleSharp size={8} />
                 </span>
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content z-[1] menu py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)] min-w-fit"
+                className="dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)] min-w-fit"
                 onMouseEnter={() => setIsMouseOver2(true)}
                 onMouseLeave={() => setIsMouseOver2(false)}
               >
-                <div className="text-gray-600 flex flex-col gap-1">
+                <div className="text-gray-600 flex flex-col">
                   <ul
                     id="myDiscussion"
                     className="py-1 hover:bg-blue-400 hover:text-white px-4 relative"
@@ -151,9 +159,9 @@ function AwardsCard() {
                       </span>
                       <ul
                         id="mydis"
-                        className="absolute right-[50%] sm:left-[50%] top-[96%]  md:left-[100%] md:top-0 py-2 px-0 shadow-xl bg-base-100 rounded border w-[calc(100%+80px)] min-w-fit"
+                        className="absolute right-[50%] sm:left-[50%] top-[96%]  md:left-[100%] md:top-0 py-1 lg:py-2 px-0 shadow-xl bg-base-100 rounded border w-[calc(100%+80px)] min-w-fit"
                       >
-                        <div className="text-gray-600 flex flex-col gap-1 w-auto">
+                        <div className="py-1 lg:py-2 px-0 text-gray-600 flex flex-col w-auto">
                           <Link className="py-1 hover:bg-gray-100 px-4">
                             Overview
                           </Link>
@@ -178,29 +186,29 @@ function AwardsCard() {
               <div
                 tabIndex={0}
                 role="button"
-                className={`bg-white text-black py-2 hover:text-blue-400 drpp  ${
+                className={`bg-white text-black py-1 lg:py-2 hover:text-blue-400 drpp ${
                   isMouseOver3 ? "text-blue-400" : ""
                 }`}
               >
                 <span>Share </span>
-                <span className="hidden sm:inline-block rotate-180 ml-4 mb-[2px]">
+                <span className="hidden sm:inline-block rotate-180 ml-2 lg:mb-[2px]">
                   <IoTriangleSharp size={8} />
                 </span>
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content z-[1] right-0 sm:right-auto menu py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)] min-w-fit"
+                className="dropdown-content z-[1] right-0 sm:right-auto menu py-1 lg:py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)] min-w-fit"
                 onMouseEnter={() => setIsMouseOver3(true)}
                 onMouseLeave={() => setIsMouseOver3(false)}
               >
-                <div className="text-gray-600 flex flex-col gap-1">
-                  <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
+                <div className="text-gray-600 flex flex-col">
+                  <Link className="py-0.5 lg:py-1 hover:bg-gray-200 px-2 lg:px-4 flex items-center justify-between gap-6">
                     <span>Share link</span>
                   </Link>
-                  <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
+                  <Link className="py-0.5 lg:py-1 hover:bg-gray-200 px-2 lg:px-4 flex items-center justify-between gap-6">
                     <span>Facebook</span>
                   </Link>
-                  <Link className="py-1 hover:bg-gray-200 px-4 flex items-center justify-between gap-6">
+                  <Link className="py-0.5 lg:py-1 hover:bg-gray-200 px-2 lg:px-4 flex items-center justify-between gap-6">
                     <span>Tweet</span>
                   </Link>
                 </div>
@@ -233,7 +241,7 @@ function AwardsCard() {
               </Link>
             </div>
             <div className="title">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1 lg:gap-2">
                 <Link
                   to={`/PopularPeopleDetails/${id}`}
                   className="text-xl lg:text-3xl text-black font-bold"
@@ -241,7 +249,7 @@ function AwardsCard() {
                   {awards.name}
                 </Link>
                 <Link
-                  className="text-blue-400 hover:text-blue-600 font-semibold"
+                  className="text-blue-400 hover:text-blue-600 text-sm lg:text-base font-semibold"
                   to="/Pop0WinnersPage"
                 >
                   ⬅ Back to main
@@ -255,11 +263,14 @@ function AwardsCard() {
       <div className="content min-h-[45vh] aspect-auto">
         <div className="contizer">
           <div className="awarImg py-4 md:py-8 border-b">
-            <div className="img max-w-[260px] lg:max-w-[460px] relative">
+            <div className="img max-w-[260px] text-sm lg:text-base lg:max-w-[460px] relative">
               <img src={awardSvg} alt="svg" />
-              <p className="text-[#1f0606] pt-2 md:absolute right-6 bottom-0">
-                <span className="text-rose-600">{jobCount}</span> Nomination
-              </p>
+              <div className="text-[#1f0606] pt-2 md:pt-0 md:absolute left-[calc(80%-24px)] bottom-0 w-fit">
+                <p className="text-gray-800 leading-none z-10">
+                  <span className="text-rose-400">{jobCount}_</span>
+                  <span className="text-blue-500">Nomination</span>
+                </p>
+              </div>
             </div>
           </div>
           <div className="py-6 mb-12 md:py-8">
@@ -293,7 +304,7 @@ function AwardsCard() {
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 }
 
