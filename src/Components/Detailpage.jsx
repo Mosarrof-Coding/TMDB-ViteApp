@@ -1143,14 +1143,14 @@ function Detailpage() {
                           allowFullScreen
                         ></iframe>
                       </div>
-                      <div className="min-w-full lg:min-w-[50%] aspect-[16/9]">
+                      <div className="min-w-full lg:min-w-[50%]">
                         <img
                           src={imgUrl + hibackdrop?.file_path}
                           alt=""
                           className="h-full w-full"
                         />
                       </div>
-                      <div className="min-w-[46%] xs:min-w-[37.5%] lg:min-w-[19%] bg-pink-700">
+                      <div className="min-w-[46%] xs:min-w-[37.5%] lg:min-w-[19%] xl:min-w-[18.7%] bg-pink-700">
                         <img
                           src={`${imgUrl}${hiposter?.file_path}`}
                           alt=""

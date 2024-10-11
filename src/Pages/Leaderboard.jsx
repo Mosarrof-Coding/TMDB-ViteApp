@@ -6,12 +6,12 @@ const apiKey = "629353605eab6723aee2f62b54183d48";
 const imgUrl = "https://image.tmdb.org/t/p/original/";
 export default function Leaderboard() {
   const [leaderboardData, setLeaderboardData] = useState([]);
-  const maxPopularity = 4000;
+  const maxPopularity = 3000;
   useEffect(() => {
     const fetchLeaderboardData = async () => {
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
+          `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`
         );
         setLeaderboardData(response.data.results.slice(0, 10));
       } catch (error) {

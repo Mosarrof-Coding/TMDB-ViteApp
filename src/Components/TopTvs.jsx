@@ -61,7 +61,7 @@ function TopTvs() {
                     {/* tailwind select  */}
                     <select
                       className="select bg-gray-300 text-black focus:outline-none rounded select-sm min-w-full"
-                      defaultValue="Title A-Z"
+                      defaultValue={"Title A-Z"}
                     >
                       <option value="Title A-Z" className="bg-white">
                         Title (A-Z)
@@ -78,11 +78,7 @@ function TopTvs() {
                       <option value="Rating Ascending" className="bg-white">
                         Rating Ascending
                       </option>
-                      <option
-                        value="Rating Descending"
-                        className="bg-white"
-                        disabled
-                      >
+                      <option value="Rating Descending" className="bg-white">
                         Rating Descending
                       </option>
                       <option
@@ -125,21 +121,11 @@ function TopTvs() {
                         className="flex flex-col gap-1 text-black "
                       >
                         <div className="inputgroop flex gap-3">
-                          <input
-                            type="radio"
-                            id="html"
-                            name="fav_language"
-                            value=""
-                          />
+                          <input type="radio" id="html" name="fav_language" />
                           <label htmlFor="html">Everything</label>
                         </div>
                         <div className="inputgroop flex gap-3">
-                          <input
-                            type="radio"
-                            id="css"
-                            name="fav_language"
-                            value=""
-                          />
+                          <input type="radio" id="css" name="fav_language" />
                           <label htmlFor="css">Movies I Have not Seen</label>
                         </div>
                         <div className="inputgroop flex gap-3">
@@ -168,7 +154,6 @@ function TopTvs() {
                             type="checkbox"
                             id="releases"
                             name="releases"
-                            value=""
                           />
                           <label htmlFor="releases">Search all releases?</label>
                         </div>

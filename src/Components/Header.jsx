@@ -2,6 +2,7 @@ import logo from "../assets/movielogo.png";
 import { Link } from "react-router-dom";
 import fetchImages from "./Home";
 import { useState } from "react";
+import { GiCrossedBones } from "react-icons/gi";
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openItem, setOpenItem] = useState(null);
@@ -130,11 +131,15 @@ function Header() {
                 </span>
                 {/* Mobile menu */}
                 {isMenuOpen && (
-                  <div className="mobileMenu contizer fixed md:hidden left-0 top-0 w-screen h-screen z-50 bg-gradient-to-br from-slate-400 to-red-400 py-4 sm:py-7">
+                  <div className="mobileMenu contizer fixed md:hidden left-0 top-0 w-screen h-screen z-50 bg-gradient-to-br from-slate-400 to-red-400 py-3 sm:py-5">
                     <ul className="flex flex-col gap-2 lg:gap-4">
                       {/* logo  */}
                       <div className="logo w-fit cursor-pointer">
-                        <Link to={"/"} className="flex items-center">
+                        <Link
+                          to={"/"}
+                          onClick={closeMenu}
+                          className="flex items-center"
+                        >
                           <span className="inline-block pr-8 rounded-[16px] bg-gradient-to-tr from-blue-600 to-green-500 z-50">
                             <img
                               src={logo}
@@ -269,6 +274,7 @@ function Header() {
                             Discussion
                           </Link>
                           <Link
+                            to={"/popularity_movies_30days"}
                             className="text-white hover:text-gray-300 max-w-fit"
                             onClick={closeMenu}
                           >
@@ -281,7 +287,9 @@ function Header() {
                             Support
                           </Link>
                           <a
-                            href="#"
+                            href="https://developer.themoviedb.org/reference/intro/getting-started"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="text-white hover:text-gray-300 max-w-fit"
                             onClick={closeMenu}
                           >
@@ -308,12 +316,12 @@ function Header() {
                       </Link>
                     </ul>
                     {/* Close button */}
-                    <span
+                    <button
                       onClick={closeMenu}
-                      className="fixed right-5 top-4 sm:top-7 cursor-pointer text-white hover:text-red-600 text-base sm:text-lg md:text-xl"
+                      className="fixed right-5 top-4 sm:top-6 cursor-pointer text-white hover:text-red-600 text-base sm:text-lg md:text-xl transition-all duration-200"
                     >
-                      Close
-                    </span>
+                      <GiCrossedBones size={24} />
+                    </button>
                   </div>
                 )}
               </div>
@@ -360,9 +368,12 @@ function Header() {
                 </svg>
               </li>
             </ul>
-            <span className="inline-block rotate-90 font-bold tracking-widest cursor-pointer md:hidden">
+            <button
+              onClick={toggleMenu}
+              className="inline-block rotate-90 font-bold tracking-widest cursor-pointer md:hidden"
+            >
               |||
-            </span>
+            </button>
           </nav>
         </div>
       </header>

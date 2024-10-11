@@ -39,6 +39,7 @@ function Logos() {
       }
       const data = await response.json();
       const logos = data.images.logos;
+      // console.log("data.images.logos", data.images.logos);
       setLogos(logos);
     } catch (error) {
       console.error("Error fetching movie details:", error);
@@ -68,20 +69,23 @@ function Logos() {
 
   return (
     <>
-      <section className="">
-        {/* movie header */}
+      <section className="text-sm md:text-base">
         <div className="bg-gray-600">
           <div className="contizer">
-            <div className="bb py-4 flex items-center gap-8">
-              <div className="w-20">
+            <div className="bb py-2 lg:py-4 flex items-center gap-2 md:gap-4 lg:gap-8">
+              {/* movie banner */}
+              <div className="w-14 lg:w-20">
                 {detail.poster_path ? (
-                  <div className="object-cover overflow-hidden">
+                  <Link
+                    to={`/DetailPage/${params.id}`}
+                    className="object-cover overflow-hidden"
+                  >
                     <img
                       src={imgUrl + detail.poster_path}
                       alt={detail.title}
                       className="rounded-lg"
                     />
-                  </div>
+                  </Link>
                 ) : (
                   <div>
                     <img src={"https://placehold.co/400x500"} alt="" />
@@ -89,7 +93,7 @@ function Logos() {
                 )}
               </div>
               <div className="title">
-                <h3 className="text-3xl font-bold text-white">
+                <h3 className="text-lg md:text-xl lg:text-3xl leading-none pb-1 font-semibold text-white">
                   {detail.title}{" "}
                   <span className="release_date text-gray-400 font-medium">
                     {detail.release_date ? (
@@ -100,7 +104,7 @@ function Logos() {
                   </span>
                 </h3>
                 <Link
-                  className="hover:text-gray-400 font-semibold"
+                  className="hover:text-gray-400 font-medium"
                   to={`/Detailpage/${params.id}`}
                 >
                   ⬅ Back to main
@@ -110,11 +114,11 @@ function Logos() {
           </div>
         </div>
         {/* logos main  */}
-        <div className="contizer min-h-[48.3vh]">
-          <div className="bacdropMain flex flex-col sm:flex-row justify-between gap-2 lg:gap-6 py-8">
-            <div className="basis-1/4 min-w-[260px]">
-              <div className="rounded-lg overflow-hidden shadow-md hover:shadow-lg pb-2 border border-gray-300">
-                <div className="flex justify-between items-center gap-2 bg-black text-white py-4 mb-2 px-3 text-xl font-semibold">
+        <div className="contizer">
+          <div className="bacdropMain flex flex-col sm:flex-row justify-between gap-2 lg:gap-6 py-4 lg:py-8">
+            <div className="basis-1/4 min-w-[200px]">
+              <div className="rounded-lg overflow-hidden hover:shadow-lg border border-gray-100 hover:border-gray-200 transition-shadow duration-300">
+                <div className="flex justify-between items-center gap-2 bg-black text-white py-2 lg:py-4 px-3 text-lg lg:text-xl font-semibold">
                   <span className="">Logos</span>
                   <span className="text-gray-300">
                     <span className="flex gap-2">
@@ -123,50 +127,50 @@ function Logos() {
                     </span>
                   </span>
                 </div>
-                <p className="text-black">
-                  {logos.map((logo, index) => (
-                    <div key={index}>
-                      <div className="px-2 py-1 my-1 bg-gray-200 w-full">
-                        {logo.iso_639_1 ? (
-                          <div className="flex justify-between gap-2">
-                            {/* same name push an item  */}
-                            <span>{getFullName(logo.iso_639_1)}</span>
-                            {/* same name.length  */}
-                            <span className="w-6 h-6 bg-white rounded-full grid place-items-center">
-                              1
-                            </span>
-                          </div>
-                        ) : (
-                          <span className="flex justify-between gap-2">
-                            <span className="text-red-500">Not found</span>
-                            <span className="w-6 h-6 bg-red-800 text-white rounded-full grid place-items-center">
-                              0
-                            </span>
-                          </span>
-                        )}
+                {/* logos name */}
+                {logos.map((logo, index) => (
+                  <div key={index} className="text-black w-full">
+                    {logo.iso_639_1 ? (
+                      <div className="flex justify-between items-center gap-2 hover:bg-gray-200 transition-all duration-200 px-2 py-0.5 lg:py-1 xl:py-1.5">
+                        {/* same name push an item  */}
+                        <span>{getFullName(logo.iso_639_1)}</span>
+                        {/* same name.length  */}
+                        <small className="w-5 lg:w-6 aspect-square shrink-0 font-medium bg-gray-50 text-blue-800 rounded-full inline-grid place-items-center">
+                          1
+                        </small>
                       </div>
-                    </div>
-                  ))}
-                </p>
+                    ) : (
+                      <div className="flex justify-between items-center gap-2 hover:bg-gray-200 transition-all duration-200 px-2 py-0.5 lg:py-1 xl:py-1.5">
+                        <span className="text-red-500">Not Found</span>
+                        <small className="w-5 lg:w-6 aspect-square shrink-0 font-medium bg-gray-50 text-black rounded-full inline-grid place-items-center">
+                          n
+                        </small>
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
-            <div className="basis-3/4">
+            <div className="basis-3/4 mt-4 sm:mt-0">
               <div className="backWrap myGrid">
-                {logos.map((logo) => (
+                {logos.map((logo, i) => (
                   <div
-                    key={logo.file_path}
-                    className="border rounded-lg overflow-hidden hover:shadow-md transition-all duration-300"
+                    key={i}
+                    className="rounded-lg overflow-hidden hover:shadow-lg border border-gray-100 transition-shadow duration-300"
                   >
-                    <div className="min-h-[86px] grid items-center px-2 bg-black relative">
-                      <Link>
-                        {logo.file_path ? (
+                    <div className=" overflow-hidden grid items-center px-2 bg-black">
+                      {logo.file_path ? (
+                        <a
+                          href={imgUrl + logo.file_path}
+                          rel="noopener noreferrer"
+                          target="_blunk"
+                          className=""
+                        >
                           <img src={imgUrl + logo.file_path} alt="" />
-                        ) : (
-                          <img src="https://placehold.co/320x480" />
-                        )}
-                      </Link>
-
-                      <div className="absolute left-0 top-0 right-0 bottom-0 touch-none pointer-events-none bg-gradient-to-r from-[#0000007e] via-[#341c8b00] 20% to-[#ffffff3b]"></div>
+                        </a>
+                      ) : (
+                        <img src="https://placehold.co/320x480" />
+                      )}
                     </div>
 
                     <div className="text-gray-600 p-2 flex justify-between gap-2 items-center">
@@ -193,13 +197,20 @@ function Logos() {
                       <h4 className="text-gray-800 text-sm font-light py-2">
                         Language
                       </h4>
-                      <div className="p-2 bg-gray-200 rounded">
+                      <div className="p-1 bg-gray-200 rounded">
                         <select
                           name=""
                           id=""
-                          className="text-black w-full bg-transparent rounded"
+                          className="text-black w-full bg-transparent rounded p-0.5 lg:p-1"
+                          defaultValue={"English"}
                         >
-                          <option value="moss">Moss</option>
+                          <option value="Bengali">Bengali</option>
+                          <option value="English">English</option>
+                          <option value="Arabic">Arabic</option>
+                          <option value="French">French</option>
+                          <option value="Portuguese">Portuguese</option>
+                          <option value="Turkiye">Turkiye</option>
+                          <option value="日本">日本</option>
                         </select>
                       </div>
                     </div>

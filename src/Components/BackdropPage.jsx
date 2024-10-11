@@ -23,6 +23,7 @@ function BackdropPage() {
       const response = await fetch(detailMovieUrl + apiKey);
       const data = await response.json();
       setDetail(data);
+      // console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -48,6 +49,7 @@ function BackdropPage() {
         throw new Error("Failed to fetch backdrops");
       }
       const responseData = await response.json();
+
       setBackdrops(responseData.backdrops);
     } catch (error) {
       console.error("Error fetching backdrops:", error);
@@ -78,20 +80,23 @@ function BackdropPage() {
   };
   return (
     <>
-      <section className="">
+      <section className="text-sm lg:text-base">
         {/* Rendering movie details */}
         <div className="bg-gray-600">
           <div className="contizer">
-            <div className="bb py-4 flex items-center gap-8">
-              <div className="w-20">
+            <div className="bb py-2 lg:py-4 flex items-center gap-2 md:gap-4 lg:gap-8">
+              <div className="w-14 lg:w-20">
                 {detail.poster_path ? (
-                  <div className="object-cover overflow-hidden">
+                  <a
+                    href={imgUrl + detail.poster_path}
+                    className="object-cover overflow-hidden"
+                  >
                     <img
                       src={imgUrl + detail.poster_path}
                       alt={detail.title}
                       className="rounded-lg"
                     />
-                  </div>
+                  </a>
                 ) : (
                   <div>
                     <img src={"https://placehold.co/400x500"} alt="" />
@@ -99,7 +104,7 @@ function BackdropPage() {
                 )}
               </div>
               <div className="title">
-                <h3 className="text-3xl font-bold text-white">
+                <h3 className="text-lg md:text-xl lg:text-3xl leading-none pb-1 font-semibold text-white">
                   {detail.title}{" "}
                   <span className="release_date text-gray-400 font-medium">
                     {detail.release_date ? (
@@ -121,11 +126,11 @@ function BackdropPage() {
         </div>
         {/* backdrops  */}
         <div className="contizer">
-          <div className="bacdropMain min-h-[48.3vh] flex flex-col sm:flex-row justify-between gap-2 lg:gap-6 py-8">
+          <div className="bacdropMain min-h-[48.3vh] flex flex-col sm:flex-row justify-between gap-2 lg:gap-6 py-4 lg:py-8">
             {/* languages  */}
-            <div className="basis-1/4 min-w-fit">
-              <div className="rounded-lg overflow-hidden shadow-md hover:shadow-lg pb-2 border border-gray-300">
-                <div className="flex justify-between items-center gap-2 bg-black text-white py-4 mb-2 px-3 text-xl font-semibold">
+            <div className="basis-1/4 min-w-[200px]">
+              <div className="rounded-lg overflow-hidden hover:shadow-lg border border-gray-100 hover:border-gray-200">
+                <div className="flex justify-between items-center gap-2 bg-black text-white py-2 lg:py-4 px-2 lg:px-4 text-lg lg:text-xl font-semibold">
                   <span className="">Backdrops</span>
                   <span className="text-gray-300">
                     <span className="flex gap-2">
@@ -136,39 +141,46 @@ function BackdropPage() {
                 </div>
                 <div>
                   {backdrops.map((backdrop, index) => (
-                    <div key={index}>
-                      <div className="px-2 py-2 hover:bg-gray-200 text-black w-full">
-                        {backdrop?.iso_639_1 ? (
-                          <div className="flex justify-between gap-2">
-                            <span>{allLanguages(backdrop.iso_639_1)}</span>
-                            <span className="w-6 h-6 bg-white rounded-full grid place-items-center">
-                              1
-                            </span>
-                          </div>
-                        ) : (
-                          <span className="flex justify-between gap-2">
-                            <span className="text-red-500">Not found</span>
-                            <span className="w-6 h-6 bg-red-800 text-white rounded-full grid place-items-center">
-                              0
-                            </span>
+                    <div key={index} className="text-black w-full">
+                      {backdrop?.iso_639_1 ? (
+                        <div className="flex justify-between items-center gap-2 px-2 lg:px-4 py-0.5 lg:py-1 xl:py-1.5 hover:bg-gray-200 transition-all duration-200">
+                          <span>{allLanguages(backdrop.iso_639_1)}</span>
+                          <span className="w-5 lg:w-6 aspect-square shrink-0 font-medium bg-gray-50 text-blue-800 rounded-full inline-grid place-items-center">
+                            1
                           </span>
-                        )}
-                      </div>
+                        </div>
+                      ) : (
+                        <span className="flex justify-between items-center gap-2 px-2 lg:px-4 py-0.5 lg:py-1 xl:py-1.5 hover:bg-gray-200 transition-all duration-200">
+                          <span className="text-red-500">Not found</span>
+                          <span className="w-5 lg:w-6 aspect-square shrink-0 font-medium bg-gray-50 text-red-800 rounded-full inline-grid place-items-center">
+                            0
+                          </span>
+                        </span>
+                      )}
                     </div>
                   ))}
                 </div>
               </div>
             </div>
             {/* backdrops */}
-            <div className="basis-3/4">
+            <div className="basis-3/4 mt-4 sm:mt-0">
               <div className="backWrap w-full myGrid">
                 {backdrops.map((backdrop) => (
                   <div key={backdrop?.file_path} className="">
-                    <div className="max-w-[264px] border rounded-lg overflow-hidden shadow">
+                    <div className="rounded-lg overflow-hidden hover:shadow-lg border border-gray-100 transition-shadow duration-300">
                       {backdrop.file_path ? (
-                        <Link>
+                        <picture>
                           {img ? (
-                            <img src={imgUrl + backdrop.file_path} alt="" />
+                            <a
+                              href={imgUrl + backdrop.file_path}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <img
+                                src={imgUrl + backdrop.file_path}
+                                alt="backdrop"
+                              />
+                            </a>
                           ) : (
                             <img
                               src={loadingGif}
@@ -176,7 +188,7 @@ function BackdropPage() {
                               onLoad={imgLoad}
                             />
                           )}
-                        </Link>
+                        </picture>
                       ) : (
                         <div>
                           <img src={"https://placehold.co/600x400"} alt="" />
@@ -209,13 +221,20 @@ function BackdropPage() {
                           <h4 className="text-gray-800 text-sm font-light py-2">
                             Language
                           </h4>
-                          <div className="p-2 bg-gray-200 rounded">
+                          <div className="p-1 bg-gray-200 rounded">
                             <select
                               name=""
                               id=""
-                              className="text-black w-full bg-transparent rounded"
+                              className="text-black w-full bg-transparent rounded p-0.5 lg:p-1"
+                              defaultValue={"English"}
                             >
-                              <option value="moss">Moss</option>
+                              <option value="Bengali">Bengali</option>
+                              <option value="English">English</option>
+                              <option value="Arabic">Arabic</option>
+                              <option value="French">French</option>
+                              <option value="Portuguese">Portuguese</option>
+                              <option value="Turkiye">Turkiye</option>
+                              <option value="日本">日本</option>
                             </select>
                           </div>
                         </div>

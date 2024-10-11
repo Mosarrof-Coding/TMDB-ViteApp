@@ -77,19 +77,22 @@ function PosterPage() {
   };
   return (
     <>
-      <section className="">
+      <section className="text-sm lg:text-base">
         <div className="bg-gray-600">
           <div className="contizer">
-            <div className="bb py-4 flex items-center gap-8">
-              <div className="w-20">
+            <div className="bb py-2 lg:py-4 flex items-center gap-2 md:gap-4 lg:gap-8">
+              <div className="w-14 lg:w-20">
                 {detail.poster_path ? (
-                  <div className="object-cover overflow-hidden">
+                  <Link
+                    to={`/DetailPage/${params.id}`}
+                    className="object-cover overflow-hidden"
+                  >
                     <img
                       src={imgUrl + detail.poster_path}
                       alt={detail.title}
                       className="rounded-lg"
                     />
-                  </div>
+                  </Link>
                 ) : (
                   <div>
                     <img src={"https://placehold.co/400x500"} alt="" />
@@ -97,9 +100,9 @@ function PosterPage() {
                 )}
               </div>
               <div className="title">
-                <h3 className="text-3xl font-bold text-white">
+                <h3 className="text-lg md:text-xl lg:text-3xl leading-none pb-1 font-semibold text-white">
                   {detail.title}{" "}
-                  <span className="release_date text-gray-400 font-medium">
+                  <span className="release_date text-gray-400">
                     {detail.release_date ? (
                       <span>({detail.release_date.slice(0, 4)})</span>
                     ) : (
@@ -118,10 +121,10 @@ function PosterPage() {
           </div>
         </div>
         <div className="contizer">
-          <div className="bacdropMain flex flex-col sm:flex-row justify-between gap-2 lg:gap-6 py-8">
-            <div className="basis-1/4 min-w-fit">
-              <div className="rounded-lg overflow-hidden shadow-md hover:shadow-lg pb-2 border border-gray-300">
-                <div className="flex justify-between items-center gap-2 bg-black text-white py-4 mb-2 px-3 text-xl font-semibold">
+          <div className="bacdropMain flex flex-col sm:flex-row justify-between gap-2 lg:gap-6 py-4 lg:py-8">
+            <div className="basis-1/4 min-w-[220px]">
+              <div className="rounded-lg overflow-hidden hover:shadow-lg border border-gray-50 hover:border-gray-200">
+                <div className="flex justify-between items-center gap-2 bg-black text-white py-2 lg:py-4 px-2 lg:px-4 text-lg lg:text-xl font-semibold">
                   <span className="">Release Dates</span>
                   <span className="text-gray-300">
                     <span className="flex gap-2">
@@ -130,38 +133,36 @@ function PosterPage() {
                     </span>
                   </span>
                 </div>
-                <p className="text-black">
-                  {posters.map((poster) => (
-                    <div key={poster.file_path}>
-                      <div className="px-2 py-1 my-1 bg-gray-200 w-full">
-                        {poster.iso_639_1 ? (
-                          <div className="flex justify-between gap-2">
-                            <span>{getFullName(poster.iso_639_1)}</span>
-                            <span className="w-6 h-6 bg-white rounded-full grid place-items-center">
-                              1
-                            </span>
-                          </div>
-                        ) : (
-                          <span className="flex justify-between gap-2">
-                            <span className="text-red-500">Not found</span>
-                            <span className="w-6 h-6 bg-red-800 text-white rounded-full grid place-items-center">
-                              0
-                            </span>
-                          </span>
-                        )}
-                      </div>
+                {posters.map((poster) => (
+                  <div key={poster.file_path}>
+                    <div className="w-full text-black">
+                      {poster.iso_639_1 ? (
+                        <div className="flex justify-between items-center gap-2 px-2 lg:px-4 py-0.5 lg:py-1 xl:py-1.5 hover:bg-gray-200 transition-all duration-200">
+                          <span>{getFullName(poster.iso_639_1)}</span>
+                          <small className="w-5 lg:w-6 aspect-square shrink-0 font-medium bg-gray-50 text-blue-800 rounded-full inline-grid place-items-center">
+                            1
+                          </small>
+                        </div>
+                      ) : (
+                        <div className="flex justify-between items-center gap-2 px-2 lg:px-4 py-0.5 lg:py-1 xl:py-1.5 hover:bg-gray-200 transition-all duration-200">
+                          <span className="text-red-500">Not Found</span>
+                          <small className="w-5 lg:w-6 aspect-square shrink-0 font-medium bg-gray-50 text-red-800 rounded-full inline-grid place-items-center">
+                            n
+                          </small>
+                        </div>
+                      )}
                     </div>
-                  ))}
-                </p>
+                  </div>
+                ))}
               </div>
             </div>
             {/* from poster */}
-            <div className="basis-3/4">
+            <div className="basis-3/4 mt-4 sm:mt-0">
               <div className="backWrap myGrid">
                 {posters.map((poster) => (
                   <div
                     key={poster.file_path}
-                    className="border rounded-lg overflow-hidden hover:shadow-lg"
+                    className="rounded-lg overflow-hidden hover:shadow-lg border border-gray-100 transition-shadow duration-300"
                   >
                     <Poster
                       poster={poster}
@@ -194,13 +195,20 @@ function PosterPage() {
                       <h4 className="text-gray-800 text-sm font-light py-2">
                         Language
                       </h4>
-                      <div className="p-2 bg-gray-200 rounded">
+                      <div className="p-1 bg-gray-200 rounded">
                         <select
                           name=""
                           id=""
-                          className="text-black w-full bg-transparent rounded"
+                          className="text-black w-full bg-transparent rounded p-0.5 lg:p-1"
+                          defaultValue={"English"}
                         >
-                          <option value="moss">Moss</option>
+                          <option value="Bengali">Bengali</option>
+                          <option value="English">English</option>
+                          <option value="Arabic">Arabic</option>
+                          <option value="French">French</option>
+                          <option value="Portuguese">Portuguese</option>
+                          <option value="Turkiye">Turkiye</option>
+                          <option value="日本">日本</option>
                         </select>
                       </div>
                     </div>
