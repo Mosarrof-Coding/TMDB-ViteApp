@@ -56,6 +56,24 @@ function Detailpage() {
     }
   };
 
+  const [days, setDays] = useState([]);
+  const [popularity, setPopularity] = useState([]);
+  const generatePastDays = (numDays) => {
+    const pastDays = [];
+    for (let i = 0; i < numDays; i++) {
+      const date = new Date();
+      date.setDate(date.getDate() - i); // Go back 'i' days
+      pastDays.push(date.toISOString().split("T")[0]); // Format YYYY-MM-DD
+    }
+    return pastDays.reverse(); // Return oldest to newest
+  };
+
+  const generatePopularityValues = () => {
+    return Array(7)
+      .fill(null)
+      .map(() => Math.floor(Math.random() * 160));
+  };
+
   const [detail, setDetail] = useState([]);
   const movieDetail = async () => {
     try {
@@ -65,6 +83,9 @@ function Detailpage() {
       }
       const data = await res.json();
       setDetail(data);
+      // Simulate past 7 days of data
+      setDays(generatePastDays(7));
+      setPopularity(generatePopularityValues());
     } catch (error) {
       console.error("Error fetching movie details:", error);
     }
@@ -1418,9 +1439,9 @@ function Detailpage() {
                 </div>
               </div>
               {/* Popularity Trend */}
-              <div className="contributormain py-8 w-full">
-                <h3 className="text-black pb-3 font-bold">Popularity Trend</h3>
-                <MarginalValueGraph />
+              <div className="contributormain w-full mb-4 lg:mb-8">
+                <h3 className="text-black font-bold">Popularity Trend</h3>
+                <MarginalValueGraph days={days} popularity={popularity} />
               </div>
             </div>
           </div>

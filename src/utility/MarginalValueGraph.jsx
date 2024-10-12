@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -19,36 +20,34 @@ ChartJS.register(
   Legend
 );
 
-const MarginalValueGraph = () => {
-  // Sample data for the graph
-  const days = ["d1", "d2", "d3", "d4", "d5", "d6", "d7"];
-  const marginalValues = [150, 200, 180, 220, 300, 250, 400];
-
-  // Data for the chart
+const MarginalValueGraph = ({ days, popularity }) => {
   const data = {
     labels: days,
     datasets: [
       {
         label: "Popularity",
-        data: marginalValues,
-        borderColor: "rgba(75, 192, 192, 1)",
-        backgroundColor: "rgba(75, 192, 192, 1)",
-        borderWidth: 1,
-        fill: true,
-        pointRadius: 3,
+        data: popularity,
+        borderColor: "rgba(75, 192, 192, 1)", // Line color
+        backgroundColor: "rgba(75, 192, 192, 0.2)", // Point fill color
+        borderWidth: 1, // Line width
+        fill: false, // Disable filling under the line
+        pointRadius: 3, // Point size
+        pointBackgroundColor: "rgba(75, 192, 192, 1)", // Point color
+        pointHoverRadius: 7, // Hovered point size
+        tension: 0.1, // Curved line effect
       },
     ],
   };
 
-  // Options for the chart
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
-        display: true,
-        position: "bottom",
+        display: false, // Hide the legend
       },
       tooltip: {
+        enabled: true, // Keep tooltips
         callbacks: {
           label: function (context) {
             return `Popularity: ${context.raw}`;
@@ -57,16 +56,33 @@ const MarginalValueGraph = () => {
       },
     },
     scales: {
+      x: {
+        display: false, // Hide the X axis
+        grid: {
+          display: true, // Disable gridlines on X axis
+        },
+      },
       y: {
+        display: false, // Hide the Y axis
+        grid: {
+          display: false, // Disable gridlines on Y axis
+        },
         beginAtZero: true,
-        max: Math.max(...marginalValues) + 100,
+        max: popularity.length ? Math.max(...popularity) + 50 : 100, // Dynamic Y-axis max
+      },
+    },
+    elements: {
+      point: {
+        radius: 5, // Adjust point radius
+      },
+      line: {
+        tension: 0.01, // Smooth curve for the line
       },
     },
   };
 
   return (
-    <div>
-      {/* <h2>7 Days popularity Trend</h2> */}
+    <div className="w-60 max-h-[100px]">
       <Line data={data} options={options} />
     </div>
   );
