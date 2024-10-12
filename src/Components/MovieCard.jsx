@@ -313,7 +313,7 @@ export default function MovieCard({ movie, imgUrl }) {
   return (
     <div
       key={id}
-      className="movieCard h-full border rounded-lg hover:shadow-lg hover:bg-white transition-all duration-500 relative"
+      className="movieCard h-full border rounded lg:rounded-lg hover:shadow-lg hover:bg-white transition-all duration-500 relative text-sm lg:text-base"
     >
       <Toaster
         position="top-right"
@@ -339,6 +339,7 @@ export default function MovieCard({ movie, imgUrl }) {
       />
       {/* user Activity */}
       <div className="relative">
+        {/* picture */}
         <div className="">
           {loaded ? (
             <Link to={`/Detailpage/${id}`}>
@@ -348,7 +349,7 @@ export default function MovieCard({ movie, imgUrl }) {
                     <img
                       src={imgUrl + poster_path}
                       alt={title}
-                      className="rounded-t-lg"
+                      className="rounded-t lg:rounded-t-lg"
                     />
                   </div>
                 </>
@@ -356,7 +357,7 @@ export default function MovieCard({ movie, imgUrl }) {
                 <img
                   src="https://placehold.co/160x235"
                   alt=""
-                  className="rounded-t-lg"
+                  className="rounded-t lg:rounded-t-lg"
                 />
               )}
             </Link>
@@ -651,7 +652,7 @@ export default function MovieCard({ movie, imgUrl }) {
         </p>
       </div>
       {isVisible && (
-        <div className="ovwerLap absolute left-0 top-0 right-0 bottom-0 bg-white/20 rounded-lg cursor-pointer backdrop-blur-md"></div>
+        <div className="ovwerLap absolute left-0 top-0 right-0 bottom-0 bg-white/20 rounded lg:rounded-lg cursor-pointer backdrop-blur-md"></div>
       )}
     </div>
   );

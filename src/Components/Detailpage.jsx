@@ -18,7 +18,6 @@ import { FaPlusCircle } from "react-icons/fa";
 import { RxLockClosed, RxCross2 } from "react-icons/rx";
 import { GiCheckMark, GiGamepadCross } from "react-icons/gi";
 import gifLoding from "../assets/bigloading.gif";
-
 import Review from "./Review";
 import CasterLink from "./CasterLink";
 import Recommendation from "./Recommendation";
@@ -31,6 +30,7 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import MarginalValueGraph from "../utility/MarginalValueGraph";
+import ReactPlayer from "react-player";
 
 // eslint-disable-next-line react/prop-types
 function Detailpage() {
@@ -312,10 +312,26 @@ function Detailpage() {
       console.error("Error fetching backdrops:", error);
     }
   };
-
+  // logoLength
+  const [logo, setLogo] = useState([]);
+  const logoLength = async () => {
+    try {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${params.id}?${apiKey}&append_to_response=images`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch movie details");
+      }
+      const data = await response.json();
+      setLogo(data.images.logos.length);
+    } catch (error) {
+      console.error("Error fetching movie details:", error);
+    }
+  };
   useEffect(() => {
     videoFetch();
     backDrops();
+    logoLength();
   }, [params.id]);
 
   // media part control
@@ -459,7 +475,7 @@ function Detailpage() {
                       className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6"
                     >
                       <span>Logos</span>
-                      <span>length</span>
+                      <span>{logo}</span>
                     </Link>
                     <Link
                       to={`/movie/${params.id}/moviePosters`}
@@ -1134,14 +1150,21 @@ function Detailpage() {
                   {/* Most Popular */}
                   {activeTab === "mostPopular" && (
                     <div className="my-5 flex overflow-x-auto box-content max-h-fit">
-                      <div className="min-w-full lg:min-w-[50%] aspect-[16/9]">
-                        <iframe
-                          className="w-full h-full"
-                          src={`https://www.youtube-nocookie.com/embed/${trailer}`}
-                          title="youtube player"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        ></iframe>
+                      <div className="min-w-full lg:min-w-[50%] aspect-video">
+                        <ReactPlayer
+                          url={`https://www.youtube-nocookie.com/embed/${trailer}`} // Replace with your video URL
+                          width="100%"
+                          height="100%"
+                          controls={true} // Show controls
+                          playing={false} // Set to true to autoplay
+                          loop={false} // Set to true to loop the video
+                          volume={0.8} // Volume level between 0 and 1
+                          muted={false} // Set to true to mute the video
+                          onPlay={() => console.log("Video is playing")}
+                          onPause={() => console.log("Video is paused")}
+                          onEnded={() => console.log("Video has ended")}
+                          aspectRatio="" // Aspect ratio for responsive design
+                        />
                       </div>
                       <div className="min-w-full lg:min-w-[50%]">
                         <img

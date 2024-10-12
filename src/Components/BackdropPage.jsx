@@ -94,7 +94,7 @@ function BackdropPage() {
                     <img
                       src={imgUrl + detail.poster_path}
                       alt={detail.title}
-                      className="rounded-lg"
+                      className="rounded lg:rounded-lg"
                     />
                   </a>
                 ) : (
@@ -129,7 +129,7 @@ function BackdropPage() {
           <div className="bacdropMain min-h-[48.3vh] flex flex-col sm:flex-row justify-between gap-2 lg:gap-6 py-4 lg:py-8">
             {/* languages  */}
             <div className="basis-1/4 min-w-[200px]">
-              <div className="rounded-lg overflow-hidden hover:shadow-lg border border-gray-100 hover:border-gray-200">
+              <div className="rounded lg:rounded-lg overflow-hidden hover:shadow-lg border border-gray-100 hover:border-gray-200">
                 <div className="flex justify-between items-center gap-2 bg-black text-white py-2 lg:py-4 px-2 lg:px-4 text-lg lg:text-xl font-semibold">
                   <span className="">Backdrops</span>
                   <span className="text-gray-300">
@@ -167,7 +167,7 @@ function BackdropPage() {
               <div className="backWrap w-full myGrid">
                 {backdrops.map((backdrop) => (
                   <div key={backdrop?.file_path} className="">
-                    <div className="rounded-lg overflow-hidden hover:shadow-lg border border-gray-100 transition-shadow duration-300">
+                    <div className="rounded lg:rounded-lg overflow-hidden hover:shadow-lg border border-gray-100 transition-shadow duration-300">
                       {backdrop.file_path ? (
                         <picture>
                           {img ? (

@@ -80,18 +80,18 @@ function ReleaseDate() {
 
   return (
     <>
-      <section className="">
+      <section className="text-sm lg:text-base">
         {/* Rendering movie details */}
         <div className="bg-gray-600">
           <div className="contizer">
-            <div className="bb py-3 lg:py-4 flex items-center gap-5 lg:gap-8">
+            <div className="bb py-2 lg:py-4 flex items-center gap-2 md:gap-4 lg:gap-8">
               <div className="w-16 lg:w-20">
                 {detail.poster_path ? (
                   <div className="object-cover overflow-hidden">
                     <img
                       src={imgUrl + detail.poster_path}
                       alt={detail.title}
-                      className="rounded-lg"
+                      className="rounded lg:rounded-lg"
                     />
                   </div>
                 ) : (
@@ -123,12 +123,12 @@ function ReleaseDate() {
         </div>
         {/* Rendering release dates */}
         <div className="contizer">
-          <div className="Altbox flex flex-col sm:flex-row justify-between gap-4 lg:gap-6 py-8">
+          <div className="Altbox flex flex-col sm:flex-row justify-between gap-2 lg:gap-6 py-4 lg:py-8">
             {/* countries */}
-            <div className="myScrollbar basis-1/4 min-w-fit max-h-[30vh] md:max-h-max overflow-y-auto">
-              <div className="rounded-lg overflow-hidden shadow-md hover:shadow-lg pb-2 border border-gray-300">
-                <div className="flex justify-between bg-black text-white py-4 mb-2 px-3 text-xl font-semibold">
-                  <span className="">Release Dates</span>
+            <div className="myScrollbar basis-1/4 min-w-fit">
+              <div className="rounded lg:rounded-lg overflow-hidden hover:shadow-lg border border-gray-100 hover:border-gray-200 transition-shadow duration-300">
+                <div className="flex justify-between items-center gap-2 bg-black text-white py-2 lg:py-4 px-3 text-lg lg:text-xl font-semibold">
+                  <span className="">Countries</span>
                   {/* Displaying the total number of release countries */}
                   <span className="text-gray-300">
                     {releaseDates?.reduce(
@@ -139,27 +139,27 @@ function ReleaseDate() {
                 </div>
                 {releaseDates?.map((release, i) => (
                   <div key={i}>
-                    <div className="text-gray-600 py-2 px-3 hover:bg-gray-200 flex justify-between items-center gap-1">
+                    <div className="text-gray-600 py-0.5 lg:py-1 xl:py-1.5 px-3 hover:bg-gray-200 flex justify-between items-center gap-4">
                       {/* Getting country name based on ISO code */}
                       {getCountryInfo(release.iso_3166_1).name}
-                      <div className="w-4 h-6 rounded-full bg-gray-200 hover:bg-white text-black grid place-items-center">
+                      <small className="w-5 lg:w-6 aspect-square rounded-full bg-gray-50 hover:bg-white text-blue-800 grid place-items-center font-semibold">
                         {release?.release_dates.length}
-                      </div>
+                      </small>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
             {/* country flag */}
-            <div className="myScrollbar basis-3/4 max-h-[50vh] md:max-h-max overflow-y-auto">
-              <div className="flex flex-col gap-6">
+            <div className="myScrollbar basis-3/4 mt-4 sm:mt-0">
+              <div className="flex flex-col gap-4 lg:gap-6">
                 {releaseDates?.map((release, i) => (
                   <div
                     key={i}
-                    className="rounded-lg overflow-hidden shadow-md border hover:shadow-lg transition-all cursor-pointer"
+                    className="rounded lg:rounded overflow-hidden border hover:shadow-lg transition-all duration-300 cursor-pointer"
                   >
                     {/* Displaying country name */}
-                    <div className="text-gray-600 bg-gray-200 p-3 font-bold flex gap-2 items-center">
+                    <div className="text-gray-600 bg-gray-100 p-2 lg:p-3 font-bold flex gap-2 items-center">
                       {/* Displaying country flag */}
                       {isLoading && (
                         <img
@@ -171,12 +171,12 @@ function ReleaseDate() {
                       <img
                         src={getCountryInfo(release.iso_3166_1).flag}
                         alt=""
-                        className={`w-8 ${isLoading ? "hidden" : ""}`}
+                        className={`w-8 shrink-0 ${isLoading ? "hidden" : ""}`}
                         onLoad={handleLoad}
                       />
                       <span>{getCountryInfo(release.iso_3166_1).name}</span>
                     </div>
-                    <div className="flex justify-between items-center gap-2 text-black px-3 py-2 border-b font-medium">
+                    <div className="flex justify-between items-center gap-2 text-black px-2 lg:px-3 py-1 lg:py-2 border-b font-medium">
                       <li className="list-none capitalize text-sm basis-1/2">
                         Date
                       </li>
@@ -202,7 +202,7 @@ function ReleaseDate() {
                     {/* Displaying release date details */}
                     {release.release_dates.map((releaseDate, j) => (
                       <div
-                        className="flex justify-between items-center gap-2 px-3 py-2"
+                        className="flex justify-between items-center gap-2 px-2 lg:px-3 py-1 lg:py-2"
                         key={j}
                       >
                         <li className="text-gray-600 list-none capitalize text-sm basis-1/2">

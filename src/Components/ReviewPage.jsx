@@ -58,7 +58,7 @@ function ReviewPage() {
                     <img
                       src={imgUrl + detail.poster_path}
                       alt={detail.title}
-                      className="rounded-lg"
+                      className="rounded lg:rounded-lg"
                     />
                   </div>
                 ) : (

@@ -60,20 +60,20 @@ function PersonActing() {
                   )}
                   {cardIndex === credit.id && (
                     <div
-                      className={`ContBox absolute left-[-60px] sm:left-[-72px] md:-left-[74px] bottom-[calc(100%+10px)] flex gap-2 lg:gap-3 w-[310px] xs:w-[420px] sm:w-[330px] md:w-[420px] bg-blue-950 p-2 rounded-lg shadow-lg`}
+                      className={`ContBox absolute left-[-60px] sm:left-[-72px] md:-left-[74px] bottom-[calc(100%+10px)] flex gap-2 lg:gap-3 w-[310px] xs:w-[420px] sm:w-[330px] md:w-[420px] bg-blue-950 p-2 rounded lg:rounded-lg shadow-lg`}
                     >
                       <Link to={`/Detailpage/${credit.id}`}>
                         {credit.backdrop_path ? (
                           <img
                             src={imgUrl + credit.poster_path}
                             alt="Poster"
-                            className="rounded-lg w-[100px] shrink-0"
+                            className="rounded lg:rounded-lg w-[100px] shrink-0"
                           />
                         ) : (
                           <img
                             src="https://placehold.co/100x140"
                             alt="Placeholder"
-                            className="rounded-lg w-[100px] shrink-0"
+                            className="rounded lg:rounded-lg w-[100px] shrink-0"
                           />
                         )}
                       </Link>

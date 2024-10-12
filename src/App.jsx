@@ -28,6 +28,7 @@ import SignUp from "./Pages/SignUp";
 import Login from "./Pages/Login";
 import CreateList from "./Pages/CreateList";
 import PageLeaderBoard from "./Pages/PageLeaderBoard";
+import Prifile from "./Pages/Prifile";
 
 function App() {
   return (
@@ -73,6 +74,7 @@ function App() {
             path="/popularity_movies_30days"
             element={<PageLeaderBoard />}
           />
+          <Route path="/my_profile" element={<Prifile />} />
 
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />

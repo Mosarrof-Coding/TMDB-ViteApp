@@ -59,10 +59,10 @@ export default function SignUp() {
   };
 
   return (
-    <section className="min-h-[50vh] grid place-items-center">
+    <section className="min-h-[50vh] grid place-items-center text-sm lg:text-base">
       <div className="container w-full">
         <form
-          className="w-full sm:w-[420px] lg:w-[520px] mx-auto p-2 lg:p-6 my-4 rounded-lg shadow-lg text-gray-800 flex flex-col gap-4 border-t-8 border-blue-700"
+          className="w-full sm:w-[420px] lg:w-[520px] mx-auto p-2 lg:p-6 my-4 rounded lg:rounded-lg shadow-lg text-gray-800 flex flex-col gap-4 border-t-8 border-blue-700"
           onSubmit={handleSubmit}
         >
           <div className="name w-full flex flex-col gap-1">
@@ -73,7 +73,7 @@ export default function SignUp() {
               Name
             </label>
             <input
-              className="w-full py-1 md:py-2 px-2 md:px-4 border rounded-md md:rounded-lg"
+              className="w-full py-1 md:py-2 px-2 md:px-4 border rounded lg:rounded-lg"
               type="text"
               name="name"
               id="name"
@@ -88,7 +88,7 @@ export default function SignUp() {
               Phone
             </label>
             <input
-              className="w-full py-1 md:py-2 px-2 md:px-4 border rounded-md md:rounded-lg"
+              className="w-full py-1 md:py-2 px-2 md:px-4 border rounded lg:rounded-lg"
               type="tel"
               name="phone"
               id="phone"
@@ -103,7 +103,7 @@ export default function SignUp() {
               Email
             </label>
             <input
-              className="w-full py-1 md:py-2 px-2 md:px-4 border rounded-md md:rounded-lg"
+              className="w-full py-1 md:py-2 px-2 md:px-4 border rounded lg:rounded-lg"
               type="email"
               name="email"
               id="email"
@@ -119,7 +119,7 @@ export default function SignUp() {
             </label>
             <div className="relative">
               <input
-                className="w-full py-1 md:py-2 px-2 md:px-4 border rounded-md md:rounded-lg"
+                className="w-full py-1 md:py-2 px-2 md:px-4 border rounded lg:rounded-lg"
                 type={eye ? "password" : "text"}
                 name="password"
                 id="password"
@@ -142,7 +142,7 @@ export default function SignUp() {
             </label>
             <div className="relative">
               <input
-                className="w-full py-1 md:py-2 px-2 md:px-4 border rounded-md md:rounded-lg"
+                className="w-full py-1 md:py-2 px-2 md:px-4 border rounded lg:rounded-lg"
                 type={retypeEye ? "password" : "text"}
                 name="retypePassword"
                 id="retypePassword"
@@ -170,7 +170,7 @@ export default function SignUp() {
           <input
             type="submit"
             disabled={password !== retypePassword}
-            className="py-1 md:py-2 px-16 text-base md:text-xl font-semibold text-white bg-blue-400 hover:bg-blue-700 rounded-lg cursor-pointer"
+            className="py-1 md:py-2 px-16 text-base md:text-xl font-semibold text-white bg-blue-400 hover:bg-blue-700 rounded lg:rounded-lg cursor-pointer"
             value="Submit"
           />
           <p>

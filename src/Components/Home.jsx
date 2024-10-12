@@ -56,7 +56,7 @@ const Home = () => {
   };
 
   return (
-    <section>
+    <section className="text-sm lg:text-base">
       <div className="max-w-[1530px] mx-auto px-0 xl:px-[15px]">
         {/* banner/searchbar  */}
         <div className="heromain relative">

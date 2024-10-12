@@ -6,13 +6,17 @@ function AcademyWinnerCard({ imgUrl, awards, id, year, acyear }) {
     <>
       <Link className="max-w-[80px]" to={`/PopularPeopleDetails/${id}`}>
         {awards?.profile_path ? (
-          <img src={imgUrl + awards?.profile_path} alt="" className="rounded" />
+          <img
+            src={imgUrl + awards?.profile_path}
+            alt=""
+            className="rounded lg:rounded-lg"
+          />
         ) : (
           <div className="min-h-[106px]">
             <img
               src="https://placehold.co/80x120"
               alt=""
-              className="rounded-lg shadow-lg"
+              className=" rounded lg:rounded-lg shadow-lg"
             />
           </div>
         )}

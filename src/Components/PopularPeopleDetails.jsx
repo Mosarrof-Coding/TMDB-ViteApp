@@ -258,7 +258,7 @@ function PopularPeopleDetails() {
                       <img
                         src={imgUrl + peoples.profile_path}
                         alt="img"
-                        className="rounded-lg"
+                        className="rounded lg:rounded-lg"
                       />
                     ) : (
                       <img src={preLoader} alt="" onLoad={handleLoad} />
@@ -434,7 +434,7 @@ function PopularPeopleDetails() {
                   <h4 className="text-black font-medium pb-1">
                     Content Score{" "}
                   </h4>
-                  <div className="text-gray-600 rounded-lg overflow-hidden">
+                  <div className="text-gray-600 rounded lg:rounded-lg overflow-hidden">
                     <h4 className="py-2 pl-2 text-black font-medium bg-gray-200">
                       100
                     </h4>
@@ -532,7 +532,7 @@ function PopularPeopleDetails() {
                           <summary className="m-1 cursor-pointer text-black text-lg px-3 sm:px-6">
                             All
                           </summary>
-                          <ul className="py-3 px-0 flex flex-col gap-1 shadow z-[1] bg-base-100 rounded-lg w-fit sm:w-44 text-gray-600 menu dropdown-content right-1">
+                          <ul className="py-3 px-0 flex flex-col gap-1 shadow z-[1] bg-base-100 rounded lg:rounded-lg w-fit sm:w-44 text-gray-600 menu dropdown-content right-1">
                             <Link className="flex justify-between gap-1 items-center hover:bg-gray-300 px-3 py-1">
                               <span>Movies</span>
                               <small className="w-6 h-6 grid place-items-center rounded-full bg-gray-200">
@@ -553,7 +553,7 @@ function PopularPeopleDetails() {
                           <summary className="m-1 cursor-pointer text-black text-lg px-3 lg:px-6 ">
                             Depertment
                           </summary>
-                          <ul className="py-3 px-0 flex flex-col gap-1 shadow z-[1] bg-base-100 rounded-lg w-fit sm:w-44 text-gray-600 menu dropdown-content right-1">
+                          <ul className="py-3 px-0 flex flex-col gap-1 shadow z-[1] bg-base-100 rounded lg:rounded-lg w-fit sm:w-44 text-gray-600 menu dropdown-content right-1">
                             <Link className="flex justify-between items-center hover:bg-gray-300 px-3 py-1">
                               <span>Acting</span>
                               <small className="w-6 h-6 grid place-items-center rounded-full bg-gray-200">

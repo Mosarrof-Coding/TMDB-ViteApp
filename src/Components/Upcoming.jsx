@@ -53,7 +53,7 @@ function Upcoming() {
                 <div className="sort w-full mb-6">
                   {/* accrodion windUi  */}
                   <details
-                    className="border border-gray-300 rounded-lg shadow-lg group"
+                    className="border border-gray-300 rounded lg:rounded-lg shadow-lg group"
                     open
                   >
                     <summary className="relative cursor-pointer list-none p-4 font-medium text-slate-700 transition-colors duration-300 focus-visible:outline-none group-hover:text-slate-900 border-b">
@@ -116,7 +116,7 @@ function Upcoming() {
                 <div className="sort w-full">
                   {/* accrodion windUi  */}
                   <details
-                    className="border border-gray-300 rounded-lg shadow-lg group"
+                    className="border border-gray-300 rounded lg:rounded-lg shadow-lg group"
                     open
                   >
                     <summary className="relative cursor-pointer list-none p-4 font-medium text-slate-700 transition-colors duration-300 focus-visible:outline-none group-hover:text-slate-900 border-b">

@@ -327,7 +327,7 @@ function Pop0WinnersPage() {
               {winners.map((movie) => (
                 <ul
                   key={movie.id}
-                  className="border max-w-full rounded-lg overflow-hidden"
+                  className="border max-w-full rounded lg:rounded-lg overflow-hidden"
                 >
                   <Pop0Picture
                     key={movie.id}
@@ -350,7 +350,7 @@ function Pop0WinnersPage() {
                 (directors) =>
                   directors.popularity > 0 && (
                     <ul
-                      className="border max-w-full rounded-lg overflow-hidden"
+                      className="border max-w-full rounded lg:rounded-lg overflow-hidden"
                       key={directors.id}
                     >
                       <Pop1Director
@@ -375,7 +375,7 @@ function Pop0WinnersPage() {
                 (editor) =>
                   editor.popularity > 0 && (
                     <div
-                      className="border max-w-full rounded-lg overflow-hidden"
+                      className="border max-w-full rounded lg:rounded-lg overflow-hidden"
                       key={editor.id}
                     >
                       <Pop2Editor
@@ -400,7 +400,7 @@ function Pop0WinnersPage() {
                 (produce) =>
                   produce.popularity > 0 && (
                     <div
-                      className="border max-w-full rounded-lg overflow-hidden"
+                      className="border max-w-full rounded lg:rounded-lg overflow-hidden"
                       key={produce.id}
                     >
                       <Pop3Production
@@ -425,7 +425,7 @@ function Pop0WinnersPage() {
                 (write) =>
                   write.popularity > 0 && (
                     <div
-                      className="border max-w-full rounded-lg overflow-hidden"
+                      className="border max-w-full rounded lg:rounded-lg overflow-hidden"
                       key={write.id}
                     >
                       <Pop4Writer
@@ -450,7 +450,7 @@ function Pop0WinnersPage() {
                 (anomation) =>
                   anomation.popularity > 1 && (
                     <div
-                      className="border max-w-full rounded-lg overflow-hidden"
+                      className="border max-w-full rounded lg:rounded-lg overflow-hidden"
                       key={anomation.id}
                     >
                       <Pop6Animation
@@ -478,7 +478,7 @@ function Pop0WinnersPage() {
                 (actor) =>
                   actor.popularity > 10 && (
                     <div
-                      className="border max-w-full rounded-lg overflow-hidden"
+                      className="border max-w-full rounded lg:rounded-lg overflow-hidden"
                       key={actor.id}
                     >
                       <Pop5Actors
@@ -503,7 +503,7 @@ function Pop0WinnersPage() {
                 (actress) =>
                   actress.popularity > 5 && (
                     <div
-                      className="border max-w-full rounded-lg overflow-hidden"
+                      className="border max-w-full rounded lg:rounded-lg overflow-hidden"
                       key={actress.id}
                     >
                       <Pop5Actress

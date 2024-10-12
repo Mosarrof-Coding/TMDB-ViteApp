@@ -99,7 +99,7 @@ export default function CreateList() {
       />
       <div className="contizer">
         <div className="step-1 text-black flex flex-col md:flex-row gap-4 lg:gap-8">
-          <div className="steplist w-full h-fit md:basis-1/4 md:min-w-[240px] rounded-lg border overflow-hidden shadow-lg">
+          <div className="steplist w-full h-fit md:basis-1/4 md:min-w-[240px] rounded lg:rounded lg:rounded lg:rounded-lg border overflow-hidden shadow-lg">
             <h4 className="text-lg lg:text-xl text-white font-bold py-3 lg:py-6 px-2 lg:px-4 bg-[#01B4E4]">
               Edit
             </h4>
@@ -116,7 +116,7 @@ export default function CreateList() {
             </ul>
           </div>
 
-          <div className="formlist w-full md:basis-3/4 border rounded-lg overflow-hidden shadow-lg">
+          <div className="formlist w-full md:basis-3/4 border rounded lg:rounded lg:rounded lg:rounded-lg overflow-hidden shadow-lg">
             <h4 className="text-base lg:text-xl font-bold text-white p-2 bg-[#01B4E4]">
               Create New List: Step 1
             </h4>

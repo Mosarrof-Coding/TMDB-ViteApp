@@ -234,7 +234,7 @@ function AwardsCard() {
                     <img
                       src="https://placehold.co/70x105"
                       alt=""
-                      className="rounded-lg shadow-lg"
+                      className="rounded lg:rounded-lg shadow-lg"
                     />
                   </div>
                 )}

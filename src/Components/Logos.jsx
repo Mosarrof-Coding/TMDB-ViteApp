@@ -83,7 +83,7 @@ function Logos() {
                     <img
                       src={imgUrl + detail.poster_path}
                       alt={detail.title}
-                      className="rounded-lg"
+                      className="rounded lg:rounded-lg"
                     />
                   </Link>
                 ) : (
@@ -116,8 +116,8 @@ function Logos() {
         {/* logos main  */}
         <div className="contizer">
           <div className="bacdropMain flex flex-col sm:flex-row justify-between gap-2 lg:gap-6 py-4 lg:py-8">
-            <div className="basis-1/4 min-w-[200px]">
-              <div className="rounded-lg overflow-hidden hover:shadow-lg border border-gray-100 hover:border-gray-200 transition-shadow duration-300">
+            <div className="basis-1/4 min-w-fit">
+              <div className="rounded lg:rounded-lg overflow-hidden hover:shadow-lg border border-gray-100 hover:border-gray-200 transition-shadow duration-300">
                 <div className="flex justify-between items-center gap-2 bg-black text-white py-2 lg:py-4 px-3 text-lg lg:text-xl font-semibold">
                   <span className="">Logos</span>
                   <span className="text-gray-300">
@@ -131,7 +131,7 @@ function Logos() {
                 {logos.map((logo, index) => (
                   <div key={index} className="text-black w-full">
                     {logo.iso_639_1 ? (
-                      <div className="flex justify-between items-center gap-2 hover:bg-gray-200 transition-all duration-200 px-2 py-0.5 lg:py-1 xl:py-1.5">
+                      <div className="flex justify-between items-center gap-4 hover:bg-gray-200 transition-all duration-200 px-2 py-0.5 lg:py-1 xl:py-1.5">
                         {/* same name push an item  */}
                         <span>{getFullName(logo.iso_639_1)}</span>
                         {/* same name.length  */}
@@ -140,7 +140,7 @@ function Logos() {
                         </small>
                       </div>
                     ) : (
-                      <div className="flex justify-between items-center gap-2 hover:bg-gray-200 transition-all duration-200 px-2 py-0.5 lg:py-1 xl:py-1.5">
+                      <div className="flex justify-between items-center gap-4 hover:bg-gray-200 transition-all duration-200 px-2 py-0.5 lg:py-1 xl:py-1.5">
                         <span className="text-red-500">Not Found</span>
                         <small className="w-5 lg:w-6 aspect-square shrink-0 font-medium bg-gray-50 text-black rounded-full inline-grid place-items-center">
                           n
@@ -156,7 +156,7 @@ function Logos() {
                 {logos.map((logo, i) => (
                   <div
                     key={i}
-                    className="rounded-lg overflow-hidden hover:shadow-lg border border-gray-100 transition-shadow duration-300"
+                    className="rounded lg:rounded-lg overflow-hidden hover:shadow-lg border border-gray-100 transition-shadow duration-300"
                   >
                     <div className=" overflow-hidden grid items-center px-2 bg-black">
                       {logo.file_path ? (

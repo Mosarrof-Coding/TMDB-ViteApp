@@ -77,7 +77,7 @@ function AlternativeTitle() {
                     <img
                       src={imgUrl + detail.poster_path}
                       alt={detail.title}
-                      className="rounded-lg"
+                      className="rounded lg:rounded-lg"
                     />
                   </div>
                 ) : (
@@ -111,7 +111,7 @@ function AlternativeTitle() {
         <div className="contizer">
           <div className="Altbox flex flex-col sm:flex-row justify-between gap-6 py-8">
             <div className="basis-1/4 min-w-[220px]">
-              <div className="rounded-lg overflow-hidden shadow-md hover:shadow-lg pb-2 border border-gray-300">
+              <div className="rounded lg:rounded-lg overflow-hidden shadow-md hover:shadow-lg pb-2 border border-gray-300">
                 <div className="flex justify-between gap-2 bg-black text-white py-4 mb-2 px-3 text-lg md:text-xl xl:text-2xl font-semibold">
                   <span className="">Alternative Titles</span>
                   <span className="text-blue-300">{cNamse}</span>
@@ -134,7 +134,7 @@ function AlternativeTitle() {
                 {titles.map((title, i) => (
                   <div
                     key={i}
-                    className="rounded-lg overflow-hidden shadow-md border hover:shadow-lg transition-all cursor-pointer"
+                    className="rounded lg:rounded-lg overflow-hidden shadow-md border hover:shadow-lg transition-all cursor-pointer"
                   >
                     {/* Displaying country name */}
                     <div className="text-gray-600 bg-gray-200 p-3 font-bold flex gap-2 items-center">
