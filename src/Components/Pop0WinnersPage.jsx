@@ -285,8 +285,8 @@ function Pop0WinnersPage() {
       </div>
       {/* winnerBanner */}
       <div className="winnerBanner bg-gradient-to-br from-blue-600 to-green-200">
-        <div className="winBox flex gap-4 lg:gap-8 max-w-[1630px] mx-auto px-4 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-10">
-          <div className="relative w-20 lg:w-[140px]">
+        <div className="winBox flex gap-4 lg:gap-8 max-w-[1630px] mx-auto px-2 md:px-4 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-10">
+          <div className="relative w-16 md:w-20 lg:w-36">
             <div className="absolute left-0 top-[-10px] rounded overflow-hidden">
               <img src={cup} alt="" className="w-full" />
             </div>
