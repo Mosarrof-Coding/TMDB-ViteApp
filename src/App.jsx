@@ -32,7 +32,7 @@ import Prifile from "./Pages/Prifile";
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen text-sm md:text-base">
       <Header />
       <main className="flex-grow">
         <Routes>

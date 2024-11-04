@@ -285,19 +285,23 @@ function Pop0WinnersPage() {
       </div>
       {/* winnerBanner */}
       <div className="winnerBanner bg-gradient-to-br from-blue-600 to-green-200">
-        <div className="winBox flex gap-4 lg:gap-8 max-w-[1630px] mx-auto px-4 lg:px-8 py-5 lg:py-10">
+        <div className="winBox flex gap-4 lg:gap-8 max-w-[1630px] mx-auto px-4 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-10">
           <div className="relative w-20 lg:w-[140px]">
-            <div className="absolute left-0 top-[-10px] max-w-[140px] rounded-md overflow-hidden">
-              <img src={cup} alt="" />
+            <div className="absolute left-0 top-[-10px] rounded overflow-hidden">
+              <img src={cup} alt="" className="w-full" />
             </div>
           </div>
           <div>
-            <ul className="winTitle flex flex-wrap items-center gap-1 lg:gap-3 text-white">
-              <li>{makeAcademyYear()}th Academy Awards</li>
-              <li className="text-white font-semibold text-sm">|</li>
-              <li>Aired may 27, {years}</li>
+            <ul className="winTitle flex flex-wrap items-center gap-1 sm:gap-2 lg:gap-3 text-white">
+              <li className="text-xs sm:text-sm lg:text-base">
+                {makeAcademyYear()}th Academy Awards
+              </li>
+              <li className="text-white text-xs sm:text-sm lg:text-base">|</li>
+              <li className="text-xs sm:text-sm lg:text-base">
+                Aired may 27, {years}
+              </li>
             </ul>
-            <div className="oscar max-w-[200px] lg:max-w-[320px] mt-2 lg:mt-4">
+            <div className="oscar max-w-[160px] md:max-w-[200px] lg:max-w-[320px] mt-2 lg:mt-4">
               <img src={oscars} alt="" />
             </div>
           </div>
