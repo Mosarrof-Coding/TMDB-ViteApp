@@ -29,6 +29,15 @@ import Login from "./Pages/Login";
 import CreateList from "./Pages/CreateList";
 import PageLeaderBoard from "./Pages/PageLeaderBoard";
 import Prifile from "./Pages/Prifile";
+// footerpage
+import AboutTMDB from "./Pages/AboutTMDB";
+import ContactUs from "./footerPage/ContactUs";
+import SupportForums from "./footerPage/SupportForums";
+import SystemStatus from "./footerPage/SystemStatus";
+import TermsOfUse from "./footerPage/TermsOfUse";
+import PrivacyPolicy from "./footerPage/PrivacyPolicy";
+import DmcaPolicy from "./footerPage/DmcaPolicy";
+import ContributionBible from "./footerPage/ContributionBible";
 
 function App() {
   return (
@@ -69,6 +78,15 @@ function App() {
           <Route path="/Pop0WinnersPage" element={<Pop0WinnersPage />} />
           <Route path="/AwardsCard/:id" element={<AwardsCard />} />
           <Route path="/AwardsCardMovie/:id" element={<AwardsCardMovie />} />
+
+          <Route path="/about_us" element={<AboutTMDB />} />
+          <Route path="/contactUs" element={<ContactUs />} />
+          <Route path="/support-forums" element={<SupportForums />} />
+          <Route path="/system_status" element={<SystemStatus />} />
+          <Route path="/termsanduse" element={<TermsOfUse />} />
+          <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+          <Route path="/DmcaPolicy" element={<DmcaPolicy />} />
+          <Route path="/ContributionBible" element={<ContributionBible />} />
 
           <Route
             path="/popularity_movies_30days"

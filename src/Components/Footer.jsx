@@ -32,19 +32,31 @@ function Footer() {
                     The Basics
                   </h3>
                   <div className="flex flex-col min-w-fit lg:my-1 lg:gap-1">
-                    <Link className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base">
+                    <Link
+                      to={"/about_us"}
+                      className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base"
+                    >
                       About TMDB
                     </Link>
-                    <Link className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base">
+                    <Link
+                      to={"/contactUs"}
+                      className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base"
+                    >
                       Contact Us
                     </Link>
-                    <Link className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base">
+                    <Link
+                      to={"/support-forums"}
+                      className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base"
+                    >
                       Support Forums
                     </Link>
                     <Link className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base">
                       API
                     </Link>
-                    <Link className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base">
+                    <Link
+                      to={"system_status"}
+                      className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base"
+                    >
                       System Status
                     </Link>
                   </div>
@@ -54,16 +66,25 @@ function Footer() {
                     Legal
                   </h3>
                   <div className="flex flex-col min-w-fit lg:my-1 lg:gap-1">
-                    <Link className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base">
+                    <Link
+                      to={"/termsanduse"}
+                      className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base"
+                    >
                       Terms of Use
                     </Link>
                     <Link className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base">
                       API Terms of Use
                     </Link>
-                    <Link className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base">
+                    <Link
+                      to={"/PrivacyPolicy"}
+                      className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base"
+                    >
                       Privacy Policy
                     </Link>
-                    <Link className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base">
+                    <Link
+                      to={"/DmcaPolicy"}
+                      className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base"
+                    >
                       DMCA Policy
                     </Link>
                   </div>
@@ -73,7 +94,10 @@ function Footer() {
                     Get Involved
                   </h3>
                   <div className="flex flex-col min-w-fit lg:my-1 lg:gap-1">
-                    <Link className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base">
+                    <Link
+                      to={"/ContributionBible"}
+                      className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base"
+                    >
                       Contribution Bible
                     </Link>
                     <Link className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base">
@@ -95,7 +119,10 @@ function Footer() {
                     <Link className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base">
                       Discussions
                     </Link>
-                    <Link className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base">
+                    <Link
+                      to={"/popularity_movies_30days"}
+                      className="hover:text-gray-300 text-gray-400 transition-all text-sm sm:text-base"
+                    >
                       Leaderboard
                     </Link>
                   </div>

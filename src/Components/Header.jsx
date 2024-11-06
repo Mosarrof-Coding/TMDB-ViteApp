@@ -345,9 +345,13 @@ function Header() {
                 </svg>
               </li>
               <li>
-                <span className="inline-block text-[12px] font-medium border py-1 px-2 rounded">
-                  EN
-                </span>
+                <select className="inline-block text-[12px] font-medium border-none outline-none focus:outline-none p-1 rounded bg-slate-100 text-black">
+                  <option value="En">En</option>
+                  <option value="Bn">Bn</option>
+                  <option value="Jp">Jp</option>
+                  <option value="Ar">Ar</option>
+                  <option value="Ar">My</option>
+                </select>
               </li>
               <Link to="/login">Login</Link>
               <Link to="/signup">Join TMBD</Link>

@@ -2,9 +2,58 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/favicon2.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Movie Database (TMDB)</title>
+    <link rel="icon" type="image/svg+xml" href="/src/assets/favicon2.svg" />
+
+    <title>The Movie Database (TMDB) - Explore Movies and TV Shows</title>
+    <meta
+      name="description"
+      content="Discover movies, TV shows, and celebrity content on TMDB. Find details, trailers, ratings, and more on all your favorite titles."
+    />
+    <meta
+      name="keywords"
+      content="TMDB, movies, TV shows, film database, movie trailers, ratings, reviews, The Movie Database"
+    />
+    <meta name="author" content="Your Name or Your Company" />
+    <meta
+      property="og:title"
+      content="The Movie Database (TMDB) - Explore Movies and TV Shows"
+    />
+    <meta
+      property="og:description"
+      content="Discover movies, TV shows, and celebrity content on TMDB. Find details, trailers, ratings, and more on all your favorite titles."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourwebsite.com" />
+    <meta
+      property="og:image"
+      content="https://yourwebsite.com/path-to-image.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Movie Database (TMDB)" />
+    <meta
+      name="twitter:description"
+      content="Discover movies, TV shows, and celebrity content on TMDB."
+    />
+    <meta
+      name="twitter:image"
+      content="https://yourwebsite.com/path-to-image.jpg"
+    />
+
+    <!-- Structured Data using JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "The Movie Database (TMDB)",
+        "url": "https://yourwebsite.com",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://yourwebsite.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
   </head>
   <body class="bg-white">
     <div id="root"></div>
