@@ -814,7 +814,7 @@ function Detailpage() {
                           Close
                         </div>
                         <iframe
-                          className="w-full aspect-[16/9]"
+                          className="w-screen h-screen"
                           src={detail.homepage}
                           title="Embedded Content"
                           allowFullScreen
@@ -839,7 +839,7 @@ function Detailpage() {
                   )}
                 </p>
                 {/* crew */}
-                <ul className="author py-4 lg:py-8 ">
+                <ul className="author py-4 lg:py-8">
                   <li className="min-w-280px">
                     <div className="flex flex-wrap lg:grid grid-cols-12 gap-4 lg:gap-6">
                       {crews?.map((crew) => (
