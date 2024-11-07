@@ -394,19 +394,31 @@ function Detailpage() {
       thumb: "https://randomuser.me/api/portraits/men/3.jpg",
     },
   ];
+
+  // tooltip
+  const [added, setAdded] = useState(Array(5).fill(false)); // Array to track tooltip state for each icon
+
+  const tipped = (index) => {
+    // Toggle the specific index's state in `added`
+    setAdded((prevAdded) => {
+      const updatedAdded = [...prevAdded];
+      updatedAdded[index] = !updatedAdded[index];
+      return updatedAdded;
+    });
+  };
   return (
     <>
-      <section className="text-left">
+      <section>
         {/* navigate  */}
         <div className="navigate">
           <div className="contizer">
-            <div className="navMain text-sm lg:text-base lg:py-1 flex justify-center items-center flex-wrap gap-4 lg:gap-6">
+            <div className="navMain text-sm lg:text-base lg:py-1 flex justify-center items-center flex-wrap gap-2 sm:gap-4 lg:gap-6">
               {/* overview  */}
               <div className="dropdown dropdown-hover">
                 <div
                   tabIndex={0}
                   role="button"
-                  className={`bg-white text-black py-1 lg:py-2 hover:text-blue-400 drpp  ${
+                  className={`text-black py-1 lg:py-2 hover:text-blue-400 drpp  ${
                     isMouseOver ? "text-blue-400" : ""
                   }`}
                 >
@@ -417,7 +429,7 @@ function Detailpage() {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)]"
+                  className="dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow-lg bg-white border-t-4 border-blue-600 rounded-b w-[calc(100%+80px)]"
                   onMouseEnter={() => setIsMouseOver(true)}
                   onMouseLeave={() => setIsMouseOver(false)}
                 >
@@ -468,7 +480,7 @@ function Detailpage() {
                 <div
                   tabIndex={0}
                   role="button"
-                  className={`bg-white text-black py-1 lg:py-2 hover:text-blue-400 drpp  ${
+                  className={`text-black py-1 lg:py-2 hover:text-blue-400 drpp  ${
                     isMouseOver1 ? "text-blue-400" : ""
                   }`}
                 >
@@ -479,7 +491,7 @@ function Detailpage() {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)] min-w-fit"
+                  className="dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow-lg bg-white border-t-4 border-blue-600 rounded-b w-[calc(100%+80px)] min-w-fit"
                   onMouseEnter={() => setIsMouseOver1(true)}
                   onMouseLeave={() => setIsMouseOver1(false)}
                 >
@@ -525,7 +537,7 @@ function Detailpage() {
                 <div
                   tabIndex={0}
                   role="button"
-                  className={`bg-white text-black py-1 lg:py-2 hover:text-blue-400 drpp  ${
+                  className={`text-black py-1 lg:py-2 hover:text-blue-400 drpp  ${
                     isMouseOver2 ? "text-blue-400" : ""
                   }`}
                 >
@@ -536,7 +548,7 @@ function Detailpage() {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)]"
+                  className="dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow-lg bg-white border-t-4 border-blue-600 rounded-b w-[calc(100%+80px)]"
                   onMouseEnter={() => setIsMouseOver2(true)}
                   onMouseLeave={() => setIsMouseOver2(false)}
                 >
@@ -560,7 +572,7 @@ function Detailpage() {
                 <div
                   tabIndex={0}
                   role="button"
-                  className={`bg-white text-black py-1 lg:py-2 hover:text-blue-400 drpp  ${
+                  className={`text-black py-1 lg:py-2 hover:text-blue-400 drpp  ${
                     isMouseOver3 ? "text-blue-400" : ""
                   }`}
                 >
@@ -571,7 +583,7 @@ function Detailpage() {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="right-0 sm:right-auto dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow border bg-base-100 rounded w-[calc(100%+80px)]"
+                  className="right-0 sm:right-auto dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow-lg bg-white border-t-4 border-blue-600 rounded-b w-[calc(100%+80px)]"
                   onMouseEnter={() => setIsMouseOver3(true)}
                   onMouseLeave={() => setIsMouseOver3(false)}
                 >
@@ -611,11 +623,11 @@ function Detailpage() {
           </div>
           {/* cntent  */}
           <div className="max-w-[1530px] mx-auto">
-            <div className="dpWrapper grid-flow-col sm:grid grid-cols-12 py-3 md:py-5">
+            <div className="dpWrapper flex flex-col sm:flex-row sm:gap-4 sm:py-3 md:py-5 sm:px-4">
               {/* detailImg  */}
-              <div className="col-span-6 lg:col-span-3 px-2 xxl:px-0">
+              <div className="w-full sm:max-w-sm xs:absolute left-0 top-0 right-0 bottom-0 sm:static bg-[#000000c2] sm:bg-inherit overflow-y-auto xs:z-[-1] sm:z-auto">
                 <div
-                  className="dImage rounded-xl overflow-hidden relative transition-all duration-1000 cursor-pointer"
+                  className="dImage relative transition-all duration-1000 cursor-pointer"
                   onClick={handleFixed}
                 >
                   {detail.poster_path ? (
@@ -623,7 +635,6 @@ function Detailpage() {
                       <img
                         src={imgUrl + detail.poster_path}
                         alt={detail.title}
-                        className="rounded-lg"
                       />
                     </div>
                   ) : (
@@ -640,27 +651,26 @@ function Detailpage() {
                 </div>
               </div>
               {/* detailText */}
-              <div className="detailItem col-span-6 lg:col-span-9 pt-6 sm:pt-0 pl-2 lg:pl-8 xs:absolute left-0 top-0 right-0 bottom-0 sm:static bg-[#000000c2] sm:bg-inherit pr-2 xxl:pr-0">
+              <div className="detailItem pt-6 sm:pt-0 px-4 sm:px-0 xl:pl-4">
                 <h3 className="text-xl lg:text-3xl font-bold text-white">
                   {detail.title}
                 </h3>
-                <h4 className="productionCountry my-1 text-[#b8c437] text-lg">
+                <h4 className="productionCountry my-1 text-[#b8c437] text-sm lg:text-lg">
                   {detail.production_countries > "" ? (
-                    <div>
-                      Production Country:{" "}
-                      <span className="font-semibold text-[#b8cd00]">
-                        {detail.production_countries[0].name}
-                      </span>
-                    </div>
+                    <span className="font-semibold text-[#b8cd00]">
+                      {detail.production_countries[0].name}
+                    </span>
                   ) : (
                     <div>no Production Countries found</div>
                   )}
                 </h4>
-                <h4>id: {detail.id ? detail.id : "0"}</h4>
-                <ul className="flex flex-wrap gap-3 py-1 items-center">
-                  {/* so critical  */}
+                {/* <h4>id: {detail.id ? detail.id : "0"}</h4> */}
+                <ul className="flex flex-wrap gap-2 py-1 items-center text-xs sm:text-sm lg:text-base">
+                  {/* so critical */}
                   {lastCertification && (
-                    <li className="border px-1 rounded">{lastCertification}</li>
+                    <li className="rounded-sm border overflow-hidden font-light leading-none px-0.5 mb-0.5">
+                      <small>{lastCertification}</small>
+                    </li>
                   )}
                   <li className="flex items-center">
                     <span className="release_date">
@@ -699,7 +709,7 @@ function Detailpage() {
                   </li>
                 </ul>
                 {/* user activities  */}
-                <div className="py-2 lg:py-4 flex items-center flex-wrap gap-4">
+                <div className="py-1 lg:py-2 xl:py-4 flex items-center flex-wrap gap-2 lg:gap-4">
                   {/* daisy progress  */}
                   <div className="flex items-center gap-2 mix-blend-normal">
                     <div
@@ -735,67 +745,82 @@ function Detailpage() {
                         <sup className="text-[10px]">%</sup>
                       </div>
                     </div>
-                    <span className="text-sm lg:text-base">
+                    <span className="leading-[1.2]">
                       User <br />
                       Score
                     </span>
                   </div>
                   {/* sIcon */}
-                  <ul className="sIcin flex flex-wrap gap-0 md:gap-2 items-center">
-                    <div className="md:tooltip" data-tip="Add to list">
-                      <li className="btn bg-black border-none rounded-full">
-                        <FaListUl size={16} color="#43a" />
-                      </li>
-                    </div>
-                    <div className="md:tooltip" data-tip="Mark as favorite">
-                      <li className="btn bg-black border-none rounded-full">
-                        <FaHeart size={18} color="#43a" />
-                      </li>
-                    </div>
-                    <div
-                      className="md:tooltip"
-                      data-tip="Add to your watchlist"
-                    >
-                      <li className="btn bg-black border-none rounded-full">
-                        <FaBookmark size={16} color="#43a" />
-                      </li>
-                    </div>
-                    <div className="md:tooltip" data-tip="Rate It!">
-                      <li className="btn bg-black border-none rounded-full">
-                        <FaStar size={18} color="#43a" />
-                      </li>
-                    </div>
-                    {/* trailer */}
-                    <div
-                      className="md:tooltip "
-                      data-tip="Play Trailer"
-                      onClick={() => setShowVideo(true)}
-                    >
-                      <li className="btn bg-black border-none rounded-full">
-                        <FaYoutube size={18} color="#43a" />
-                      </li>
-                    </div>
-                    {/* trailer video  */}
-                    <div>
-                      {showVideo && (
-                        <div className="fixed w-full letf-0 top-0 right-0 bottom-0 z-[99] bg-white">
-                          <div
-                            className="closeVid w-full text-center py-2 bg-[black] hover:bg-red-600 text-white cursor-pointer"
-                            onClick={() => setShowVideo(false)}
+                  <ul className="sIcin flex flex-wrap gap-2 items-center">
+                    {/* Custom Tooltip Wrapper */}
+                    {[
+                      {
+                        icon: <FaListUl />,
+                        tip: "Add to list",
+                        tipd: "Listed.",
+                      },
+                      {
+                        icon: <FaHeart />,
+                        tip: "Mark as favorite",
+                        tipd: "Favorited.",
+                      },
+                      {
+                        icon: <FaBookmark />,
+                        tip: "Add to your watchlist",
+                        tipd: "Watchlisted.",
+                      },
+                      {
+                        icon: <FaStar />,
+                        tip: "Rate It!",
+                        tipd: "Rated.",
+                      },
+                      {
+                        icon: <FaYoutube />,
+                        tip: "Play Trailer.",
+                        tipd: "Played",
+                        action: () => setShowVideo(true),
+                      },
+                    ].map((item, index) => (
+                      <div key={index} className="relative group">
+                        <li
+                          className="p-2.5 bg-gradient-to-tr from-[#66cb69b4] to-[#e112e4ab] border-none rounded-full cursor-pointer"
+                          onClick={() => {
+                            if (item.action) item.action(); // Execute the action if it exists
+                            tipped(index); // Toggle the tooltip
+                          }}
+                        >
+                          <span
+                            className={`sm:text-lg lg:text-xl ${
+                              added[index] ? "text-red-900" : "text-white"
+                            }`}
                           >
-                            Close
-                          </div>
-                          {
-                            <iframe
-                              className="w-full aspect-[16/9]"
-                              src={detail.homepage}
-                              title="Embedded Content"
-                              allowFullScreen
-                            />
-                          }
+                            {item.icon}
+                          </span>
+                        </li>
+                        {/* Tooltip */}
+                        <span className="absolute bottom-full mb-1 hidden w-max px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 group-hover:block">
+                          {added[index] ? item.tipd : item.tip}
+                        </span>
+                      </div>
+                    ))}
+
+                    {/* Trailer Video */}
+                    {showVideo && (
+                      <div className="fixed inset-0 z-[99] bg-white">
+                        <div
+                          className="closeVid w-full text-center py-2 bg-[black] hover:bg-red-600 text-white cursor-pointer"
+                          onClick={() => setShowVideo(false)}
+                        >
+                          Close
                         </div>
-                      )}
-                    </div>
+                        <iframe
+                          className="w-full aspect-[16/9]"
+                          src={detail.homepage}
+                          title="Embedded Content"
+                          allowFullScreen
+                        />
+                      </div>
+                    )}
                   </ul>
                 </div>
                 <h5 className="text-lg text-sky-500 italic">
@@ -805,7 +830,7 @@ function Detailpage() {
                     <span>no tagline</span>
                   )}
                 </h5>
-                <h4 className="text-xl text-gray-300">Overview</h4>
+                <h4 className="text-xl text-gray-300 underline">Overview</h4>
                 <p className="text-gray-300">
                   {detail.overview != "" ? (
                     <span>{detail.overview}</span>
@@ -816,16 +841,16 @@ function Detailpage() {
                 {/* crew */}
                 <ul className="author py-4 lg:py-8 ">
                   <li className="min-w-280px">
-                    <div className="flex flex-wrap lg:grid grid-cols-12 gap-2 lg:gap-6">
+                    <div className="flex flex-wrap lg:grid grid-cols-12 gap-4 lg:gap-6">
                       {crews?.map((crew) => (
                         <div key={crew.id} className="col-span-4">
                           <Link
-                            className="inline-block text-sm sm:text-base font-semibold hover:text-gray-400 transition-all border-t"
+                            className="inline-block text-sm lg:text-base font-semibold text-emerald-400 transition-all underline"
                             to={`/PopularPeopleDetails/${crew.id}`}
                           >
                             {crew.name}
                           </Link>
-                          <small className="block py-1">{crew.job}</small>
+                          <small className="block">{crew.job}</small>
                         </div>
                       ))}
                     </div>
@@ -835,12 +860,12 @@ function Detailpage() {
             </div>
             {/* popupBox  */}
             {fixed && (
-              <div className="popupBox text-black fixed left-0 top-0 right-0 bottom-0 bg-[#000000a1] z-[2] grid place-items-center">
+              <div className="popupBox text-black fixed left-0 top-0 right-0 bottom-0 bg-[#000000a1] z-[2] grid place-items-center text-xs sm:text-sm">
                 <div className="relative">
                   {/* popupContent */}
                   <div className="popupContent max-w-[96vw] md:max-w-[700px] lg:max-w-[800px]">
                     <Swiper
-                      className="w-full overflow-hidden bg-white rounded-lg p-1 md:p-2 relative"
+                      className="w-full overflow-hidden bg-white rounded p-1 md:p-2 relative"
                       modules={[Navigation, Pagination, Scrollbar, A11y]}
                       spaceBetween={8}
                       slidesPerView={1}
@@ -849,7 +874,7 @@ function Detailpage() {
                       {posters.map((pos) => (
                         <SwiperSlide key={pos.file_path} className="w-full">
                           <div className="w-full flex gap-1 sm:gap-2 lg:gap-3 xl:gap-4">
-                            <div className="popupImg w-[60%] grid place-items-center">
+                            <div className="popupImg w-[55%] grid place-items-center">
                               {img ? (
                                 <img
                                   src={imgUrl + pos?.file_path}
@@ -865,7 +890,7 @@ function Detailpage() {
                                 />
                               )}
                             </div>
-                            <div className="popupInfo w-[40%] mt-auto pt-14 lg:pt-16">
+                            <div className="popupInfo w-[45%] mt-auto pt-14 lg:pt-16">
                               <div className="pb-1 sm:py-4 px-2 flex justify-between gap-2 items-center w-full">
                                 <span className="cursor-pointer">
                                   <BiSolidDislike />
@@ -887,7 +912,7 @@ function Detailpage() {
                                     <GiGamepadCross size={12} />
                                   </span>
                                 </h4>
-                                <h3 className="text-black pb-2 font-light hidden sm:block">
+                                <h3 className="text-black pb-2 font-light">
                                   Added By:
                                   <br /> <span className="font-bold">Moss</span>
                                 </h3>
@@ -907,15 +932,11 @@ function Detailpage() {
                                   </div>
                                 </div>
                                 <div className="mb-2 md:mb-4 lg:mb-6">
-                                  <h4 className="text-gray-800 text-sm font-light py-1 md:py-2">
+                                  <h4 className="text-gray-800 font-light py-1 md:py-2">
                                     Language
                                   </h4>
-                                  <div className="bg-gray-200 rounded p-1 md:p-2">
-                                    <select
-                                      name=""
-                                      id=""
-                                      className="text-black w-full bg-transparent rounded p-0 sm:p-1"
-                                    >
+                                  <div className="bg-white rounded border">
+                                    <select className="text-black bg-white w-full bg-transparent border-none outline-none py-1 md:py-2 ">
                                       <option value="Bengali">Bengali</option>
                                       <option value="Arabic">Arabic</option>
                                       <option value="English" selected>
@@ -948,22 +969,22 @@ function Detailpage() {
         </div>
         {/* Top Billed Cast/credit Api  */}
         <div className="contizer">
-          <div className="castBox py-4 lg:py-6 2xl:py-12 flex flex-col md:grid grid-cols-12 gap-8">
+          <div className="castBox py-4 lg:py-6 xxl:py-10 flex flex-col md:grid grid-cols-12 gap-8">
             {/* part-A  */}
-            <div className="avater col-span-8 xl:col-span-9">
-              <h3 className="topcast text-xl lg:text-2xl font-semibold text-gray-700 pb-2">
-                Top Billed Cast
-              </h3>
+            <div className="col-span-8 xl:col-span-9 flex flex-col gap-4 sm:gap-6 lg:gap-8">
               {/* Cast  */}
-              <div>
+              <div className="slider">
+                <h3 className="topcast text-xl lg:text-2xl font-semibold text-gray-700 mb-2 lg:mb-3">
+                  Top Billed Cast
+                </h3>
                 {/* cast thumbnile  */}
                 <div className="relative">
-                  <div className="catsWarpper py-1 flex gap-2 overflow-x-auto">
-                    <span className="w-24 bg-gradient-to-l from-white absolute right-0 top-0 bottom-[20px] pointer-events-none touch-none"></span>
+                  <div className="catsWarpper flex gap-2 overflow-x-auto">
+                    <span className="w-16 sm:w-24 bg-gradient-to-l from-white absolute right-0 top-0 bottom-[20px] pointer-events-none touch-none"></span>
                     {casts?.map((caster, index) => (
                       <div
                         key={caster.id}
-                        className="border hover:shadow-md rounded-md max-w-[140px] min-w-[140px] "
+                        className=""
                         style={{
                           display: index > 8 && !showAll ? "none" : "block",
                         }}
@@ -973,23 +994,23 @@ function Detailpage() {
                           caster={caster}
                           imgUrl={imgUrl}
                         />
-                        <div className="txt py-2 pl-2">
+                        <div className="txt py-1 lg:py-2 pl-2">
                           <h2 className="text-black text-sm font-medium">
                             {caster.name}
                           </h2>
-                          <small className="text-gray-500 italic">
+                          <small className="text-gray-500 italic leading-[1.2]">
                             {caster.character}
                           </small>
                         </div>
                       </div>
                     ))}
                     {casts.length > 9 && (
-                      <div className="min-w-fit px-6 text-black mt-auto mb-auto cursor-pointer">
+                      <div className="min-w-fit text-black mt-auto mb-auto cursor-pointer">
                         {casts.length > 9 && !showAll && (
                           <h2 className="min-w-fit text-black mt-auto mb-auto cursor-pointer">
                             <button
                               onClick={handleShowMore}
-                              className="font-semibold font-lg"
+                              className="font-semibold text-green-600 px-2 lg:px-4"
                             >
                               Show More...
                             </button>
@@ -1000,7 +1021,7 @@ function Detailpage() {
                   </div>
                 </div>
                 {/* fullCastAndcrew button  */}
-                <div className={`fullCastAndcrew py-5`}>
+                <div className={`fullCastAndcrew pt-2 lg:pt-4`}>
                   <Link
                     className="topcast text-lg font-medium text-gray-700 hover:text-gray-400 cursor-pointer pb-2"
                     to={`/movie/${params.id}/full-cast-and-crew`}
@@ -1011,8 +1032,8 @@ function Detailpage() {
               </div>
               <hr />
               {/* Social + reviews */}
-              <div className="mediaEtc py-3 lg:py-5">
-                <div className="socialPath flex items-end flex-wrap gap-2 md:gap-4 lg:gap-8 text-sm lg:text-base">
+              <div className="mediaEtc">
+                <div className="socialPath flex items-end flex-wrap gap-2 md:gap-4 lg:gap-8 text-sm lg:text-base mb-2 lg:mb-3">
                   <h3 className="topcast text-lg md:text-xl lg:text-2xl font-semibold text-gray-700 pr-4 lg:pr-8">
                     Social
                   </h3>
@@ -1060,7 +1081,7 @@ function Detailpage() {
                 </div>
                 {/* Review  */}
                 <div className="reviewMain block ">
-                  <div className="reviewBox py-2 mt-4">
+                  <div className="reviewBox">
                     {Object.keys(review)?.map((author, i) => (
                       <div key={author} className="">
                         {review[author].map(
@@ -1073,7 +1094,7 @@ function Detailpage() {
                     ))}
                   </div>
                   {/* Read All Reviews  */}
-                  <div className="fullCastAndcrew pt-3">
+                  <div className="fullCastAndcrew pt-2 lg:pt-4">
                     <Link
                       className="topcast text-lg font-medium text-gray-700 hover:text-gray-400 cursor-pointer pb-2"
                       to={`/movie/${params.id}/full-review`}
@@ -1084,7 +1105,7 @@ function Detailpage() {
                 </div>
                 {/* Discussion  */}
                 <div className="discussion hidden">
-                  <div className="dynDisc py-2 mt-4 border p-2">
+                  <div className="dynDisc border">
                     <p className="text-red-400">
                       Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                       Debitis repudiandae quam recusandae minus optio labore
@@ -1092,7 +1113,7 @@ function Detailpage() {
                     </p>
                   </div>
                   {/* Read All discussion  */}
-                  <div className="fullCastAndcrew pt-3">
+                  <div className="fullCastAndcrew">
                     <Link
                       className="topcast text-lg font-medium text-gray-700 hover:text-gray-400 cursor-pointer pb-2"
                       // to={`/movie/${params.id}/full-review`}
@@ -1104,8 +1125,8 @@ function Detailpage() {
               </div>
               <hr />
               {/* Media part */}
-              <div className="Media py-3 lg:py-5">
-                <div className="socialPath flex items-end flex-wrap gap-2 md:gap-4 lg:gap-8 text-sm lg:text-base">
+              <div className="Media">
+                <div className="socialPath flex items-end flex-wrap gap-2 md:gap-4 lg:gap-8 text-sm lg:text-base mb-2 lg:mb-3">
                   <h3 className="topcast text-lg md:text-xl lg:text-2xl font-semibold text-gray-700 pr-4 lg:pr-8">
                     Media
                   </h3>
@@ -1167,10 +1188,10 @@ function Detailpage() {
                     <span className="text-rose-400">{posters.length}</span>
                   </button>
                 </div>
-                <div className="py-2 lg:py-4 mb-2 lg:mb-4">
+                <div className="">
                   {/* Most Popular */}
                   {activeTab === "mostPopular" && (
-                    <div className="my-5 flex overflow-x-auto box-content max-h-fit">
+                    <div className="flex overflow-x-auto box-content max-h-fit">
                       <div className="min-w-full lg:min-w-[50%] aspect-video">
                         <ReactPlayer
                           url={`https://www.youtube-nocookie.com/embed/${trailer}`} // Replace with your video URL
@@ -1205,7 +1226,7 @@ function Detailpage() {
                   )}
                   {/* video  */}
                   {activeTab === "videos" && (
-                    <div className="my-5 flex overflow-x-auto w-full">
+                    <div className="flex overflow-x-auto w-full">
                       {videos.map((video) => (
                         <div
                           key={video.id}
@@ -1218,7 +1239,7 @@ function Detailpage() {
                   )}
                   {/* backdrops  */}
                   {activeTab === "backdrops" && (
-                    <div className="my-5 flex overflow-x-auto relative">
+                    <div className="flex overflow-x-auto relative">
                       {backdrops.map((backdrop) => (
                         <div
                           key={backdrop.file_path}
@@ -1260,7 +1281,7 @@ function Detailpage() {
               </div>
               {/* Recommendations */}
               <div className="Recommendations">
-                <h3 className="topcast text-xl lg:text-2xl font-semibold mb-2 text-black">
+                <h3 className="topcast text-xl lg:text-2xl font-semibold text-black mb-2 lg:mb-3">
                   Recommendations
                 </h3>
                 <Recommendation />
@@ -1268,8 +1289,8 @@ function Detailpage() {
             </div>
 
             {/* part-B */}
-            <div className="castSocialLink col-span-4 xl:col-span-3 pt-1">
-              <div className="links text-blue-500 flex gap-2 items-center flex-wrap ">
+            <div className="col-span-4 xl:col-span-3 flex flex-col gap-4 sm:gap-6 lg:gap-8">
+              <div className="links text-blue-500 flex gap-2 items-center flex-wrap">
                 {externalIds.facebook_id && (
                   <div className="sm:tooltip" data-tip="Visit Facebook">
                     <a
@@ -1320,7 +1341,7 @@ function Detailpage() {
                   </div>
                 )}
               </div>
-              <div className="extra flex flex-col gap-6 mt-8">
+              <div className="extra flex flex-col gap-2 sm:gap-3">
                 <li className="item list-none text-gray-900 font-bold">
                   Status
                   <br />
@@ -1362,7 +1383,7 @@ function Detailpage() {
                   </span>
                 </li>
               </div>
-              <div className="keyBox my-12">
+              <div className="keyBox">
                 <h3 className="text-black pb-3 font-bold">Keywords</h3>
                 <div className="keywords flex gap-2 flex-wrap">
                   {keyword.map((keys) => (
@@ -1379,7 +1400,7 @@ function Detailpage() {
               </div>
               <hr />
               {/* content score */}
-              <div className="keyBox mt-12">
+              <div className="keyBox">
                 <h3 className="text-black pb-3 font-bold">Content Score </h3>
                 <div
                   className={`contributor rounded-lg overflow-hidden w-full border text-white font-light`}
@@ -1411,7 +1432,7 @@ function Detailpage() {
                   )}
                 </div>
               </div>
-              <div className="contributormain py-8">
+              <div className="contributormain">
                 <h3 className="text-black pb-3 font-bold">Top Contributors</h3>
                 <div className="contBox flex flex-col gap-4">
                   {contributors.map((contributor) => (
@@ -1439,7 +1460,7 @@ function Detailpage() {
                 </div>
               </div>
               {/* Popularity Trend */}
-              <div className="contributormain w-full mb-4 lg:mb-8">
+              <div className="contributormain w-full">
                 <h3 className="text-black font-bold">Popularity Trend</h3>
                 <MarginalValueGraph days={days} popularity={popularity} />
               </div>

@@ -69,11 +69,8 @@ function Pop0Picture({ movie, win, imgUrl }) {
 
   return (
     <>
-      <li className={`relative`}>
-        <Link
-          to={`/AwardsCardMovie/${id}`}
-          className="rounded-t-lg overflow-hidden inline-block"
-        >
+      <div className={`relative`}>
+        <Link to={`/AwardsCardMovie/${id}`} className="inline-block">
           <img src={imgUrl + poster_path} alt={original_title} />
         </Link>
 
@@ -96,7 +93,7 @@ function Pop0Picture({ movie, win, imgUrl }) {
             </small>
           </p>
         </div>
-      </li>
+      </div>
       <div className="text p-2">
         <div>{makeWinner(percent, win)}</div>
         <Link

@@ -329,7 +329,7 @@ function Pop0WinnersPage() {
             </h3>
             <div className="winnwrGrid py-3">
               {winners.map((movie) => (
-                <ul
+                <div
                   key={movie.id}
                   className="border max-w-full rounded lg:rounded-lg overflow-hidden"
                 >
@@ -339,7 +339,7 @@ function Pop0WinnersPage() {
                     win={win}
                     imgUrl={imgUrl}
                   />
-                </ul>
+                </div>
               ))}
             </div>
           </div>
