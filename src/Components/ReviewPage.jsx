@@ -47,7 +47,7 @@ function ReviewPage() {
 
   return (
     <>
-      <section className="">
+      <section>
         <div className="bg-gray-600">
           <div className="contizer">
             {/* banner  */}
@@ -92,62 +92,60 @@ function ReviewPage() {
         </div>
         <div className="contizer">
           {/* Review  */}
-          <div className="fullrevBox flex flex-col sm:grid grid-cols-12 py-8">
+          <div className="fullrevBox flex flex-col sm:grid grid-cols-12 py-4 lg:py-8">
             <div className="writComment col-span-3 min-w-[240px]">
-              <button className="rBtn text-sm lg:text-base px-3 lg:px-4 py-[2px] lg:py-2 mb-8 bg-[#3a0e0e] rounded-full">
+              <button className="rBtn text-sm lg:text-base px-3 lg:px-4 py-1 lg:py-2 mb-4 lg:mb-8 bg-[#3a0e0e] rounded-full">
                 🖊 Write Review
               </button>
             </div>
             <div className="cards col-span-9">
-              <div className="reviewBox">
-                {Object.keys(review).map((author) => (
-                  <div key={author} className="mb-4 shadow-lg">
-                    {review[author].map((review) => (
-                      <div
-                        key={author}
-                        className="reviewer flex flex-wrap gap-4 text-black rounded-md border p-6"
-                      >
-                        <div className="w-14 h-14 rounded-full overflow-hidden bg-green-100 border grid place-items-center">
-                          {review.author_details.avatar_path ? (
-                            <span>
-                              <img
-                                src={imgUrl + review.author_details.avatar_path}
-                                alt=""
-                              />
-                            </span>
-                          ) : (
-                            <small>👼🏿</small>
-                          )}
-                        </div>
-                        <span className="name">
-                          <h4 className="font-bold text-gray-600">
-                            A review by{" "}
-                            <span className="font-bold text-blue-800">
-                              {review.author}
-                            </span>
-                          </h4>
-                          <small className="font-small text-gray-400">
-                            <span className="px-2 py-[2px] mr-2 mt-1 text-white bg-black border shadow-sm inline-flex gap-1 text-[16px] leading-none items-center rounded-md">
-                              {review.author_details.rating}.0{" "}
-                              <MdStar size={18} />
-                            </span>
-                            Written by{" "}
-                            <a href="" className="text-blue-700">
-                              {review.author}
-                            </a>{" "}
-                            on {review.updated_at.slice(0, 10)}
-                          </small>
-                        </span>
-                        <div className="w-full">
-                          <p className="text-gray-800 text-md text-md font-normal">
-                            {review.content}
-                          </p>
-                        </div>
+              {Object.keys(review).map((author) => (
+                <div key={author} className="mb-3 lg:mb-4 shadow-lg">
+                  {review[author].map((review) => (
+                    <div
+                      key={author}
+                      className="reviewer flex flex-wrap gap-4 text-black rounded-md border p-2 sm:p-3 lg:p-4 xl:p-5"
+                    >
+                      <div className="w-10 lg:w-14 h-10 lg:h-14 rounded-full overflow-hidden bg-green-100 border grid place-items-center">
+                        {review.author_details.avatar_path ? (
+                          <span>
+                            <img
+                              src={imgUrl + review.author_details.avatar_path}
+                              alt=""
+                            />
+                          </span>
+                        ) : (
+                          <small>👼🏿</small>
+                        )}
                       </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
+                      <span className="name">
+                        <h4 className="font-bold text-gray-600">
+                          A review by{" "}
+                          <span className="font-bold text-blue-800">
+                            {review.author}
+                          </span>
+                        </h4>
+                        <small className="font-small text-gray-400">
+                          <span className="px-2 py-[2px] mr-2 mt-1 text-white bg-black border shadow-sm inline-flex gap-1 text-[16px] leading-none items-center rounded-md">
+                            {review.author_details.rating}.0{" "}
+                            <MdStar size={18} />
+                          </span>
+                          Written by{" "}
+                          <a href="" className="text-blue-700">
+                            {review.author}
+                          </a>{" "}
+                          on {review.updated_at.slice(0, 10)}
+                        </small>
+                      </span>
+                      <div className="w-full">
+                        <p className="text-gray-800 text-md text-md font-normal">
+                          {review.content}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
         </div>

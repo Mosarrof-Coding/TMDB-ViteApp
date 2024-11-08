@@ -327,7 +327,7 @@ function Detailpage() {
       const highRatedBackdrop = Backdrops.find(
         (Backdrop) => Backdrop.vote_average === hiVoteBackdrop
       );
-      console.log("highRatedBackdrop", highRatedBackdrop);
+      // console.log("highRatedBackdrop", highRatedBackdrop);
       setHibackdrop(highRatedBackdrop);
     } catch (error) {
       console.error("Error fetching backdrops:", error);
@@ -1105,7 +1105,7 @@ function Detailpage() {
                 </div>
                 {/* Discussion  */}
                 <div className="discussion hidden">
-                  <div className="dynDisc border">
+                  <div className="dynDisc border p-2 lg:p-4 rounded-lg">
                     <p className="text-red-400">
                       Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                       Debitis repudiandae quam recusandae minus optio labore
@@ -1194,7 +1194,7 @@ function Detailpage() {
                     <div className="flex overflow-x-auto box-content max-h-fit">
                       <div className="min-w-full lg:min-w-[50%] aspect-video">
                         <ReactPlayer
-                          url={`https://www.youtube-nocookie.com/embed/${trailer}`} // Replace with your video URL
+                          url={`https://www.youtube-nocookie.com/embed/${trailer}`}
                           width="100%"
                           height="100%"
                           controls={true} // Show controls
@@ -1202,10 +1202,7 @@ function Detailpage() {
                           loop={false} // Set to true to loop the video
                           volume={0.8} // Volume level between 0 and 1
                           muted={false} // Set to true to mute the video
-                          onPlay={() => console.log("Video is playing")}
-                          onPause={() => console.log("Video is paused")}
-                          onEnded={() => console.log("Video has ended")}
-                          aspectRatio="" // Aspect ratio for responsive design
+                          aspectRatio=""
                         />
                       </div>
                       <div className="min-w-full lg:min-w-[50%]">

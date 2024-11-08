@@ -23,7 +23,7 @@ function Pop0Picture({ movie, win, imgUrl }) {
 
       // Set the director's name or fallback to 'Unknown Director'
       setDirector(directorData ? directorData.name : "Unknown Director");
-      console.log("Director:", directorData ? directorData.name : "None");
+      // console.log("Director:", directorData ? directorData.name : "None");
     } catch (error) {
       console.error("Error fetching director:", error);
     }
