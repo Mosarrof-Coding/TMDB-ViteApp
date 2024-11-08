@@ -313,7 +313,7 @@ export default function MovieCard({ movie, imgUrl }) {
   return (
     <div
       key={id}
-      className="movieCard h-full border rounded lg:rounded-lg hover:shadow-lg hover:bg-white transition-all duration-500 relative text-sm lg:text-base"
+      className="movieCard h-full border rounded hover:shadow-lg hover:bg-white transition-all duration-500 relative text-sm lg:text-base"
     >
       <Toaster
         position="top-right"
@@ -340,51 +340,51 @@ export default function MovieCard({ movie, imgUrl }) {
       {/* user Activity */}
       <div className="relative">
         {/* picture */}
-        <div className="">
-          {loaded ? (
-            <Link to={`/Detailpage/${id}`}>
-              {poster_path ? (
-                <>
-                  <div className="">
-                    <img
-                      src={imgUrl + poster_path}
-                      alt={title}
-                      className="rounded-t lg:rounded-t-lg"
-                    />
-                  </div>
-                </>
-              ) : (
-                <img
-                  src="https://placehold.co/160x235"
-                  alt=""
-                  className="rounded-t lg:rounded-t-lg"
-                />
-              )}
-            </Link>
-          ) : (
-            <img src={loaderGif} alt="" onLoad={handleLoad} />
-          )}
 
-          {/* daisy progress */}
-          <div
-            className={`myProgress radial-progress border-4 border-gray-200 text-[10px] font-medium absolute left-2 -bottom-4 ${
-              percent >= 70
-                ? "text-green-600"
-                : percent >= 50
-                ? "text-yellow-500"
-                : "text-red-600"
-            }`}
-            style={{ "--value": progressBaar }}
-            role="progressbar"
-          >
-            <p>
-              {percent}
-              <small>
-                <sup>%</sup>
-              </small>
-            </p>
-          </div>
+        {loaded ? (
+          <Link to={`/Detailpage/${id}`}>
+            {poster_path ? (
+              <>
+                <div className="">
+                  <img
+                    src={imgUrl + poster_path}
+                    alt={title}
+                    className="rounded-t lg:rounded-t"
+                  />
+                </div>
+              </>
+            ) : (
+              <img
+                src="https://placehold.co/160x235"
+                alt=""
+                className="rounded-t lg:rounded-t"
+              />
+            )}
+          </Link>
+        ) : (
+          <img src={loaderGif} alt="" onLoad={handleLoad} />
+        )}
+
+        {/* daisy progress */}
+        <div
+          className={`myProgress radial-progress border-4 border-gray-200 text-[10px] font-medium absolute left-2 -bottom-4 ${
+            percent >= 70
+              ? "text-green-600"
+              : percent >= 50
+              ? "text-yellow-500"
+              : "text-red-600"
+          }`}
+          style={{ "--value": progressBaar }}
+          role="progressbar"
+        >
+          <p>
+            {percent}
+            <small>
+              <sup>%</sup>
+            </small>
+          </p>
         </div>
+
         <div className="text-black absolute left-2 top-2" ref={visibilityRef}>
           <div className="relative" ref={addRef}>
             <button

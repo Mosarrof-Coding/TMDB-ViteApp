@@ -344,15 +344,13 @@ function Header() {
                   />
                 </svg>
               </li>
-              <li>
-                <select className="inline-block text-[12px] font-medium border-none outline-none focus:outline-none p-1 rounded bg-slate-100 text-black">
-                  <option value="En">En</option>
-                  <option value="Bn">Bn</option>
-                  <option value="Jp">Jp</option>
-                  <option value="Ar">Ar</option>
-                  <option value="Ar">My</option>
-                </select>
-              </li>
+              <select className="inline-block text-[12px] font-medium border border-white/40 outline-none focus:outline-none pr-2 bg-blue-950/90 text-white/80">
+                <option value="EN">EN</option>
+                <option value="BN">BN</option>
+                <option value="JP">JP</option>
+                <option value="AR">AR</option>
+                <option value="FR">FR</option>
+              </select>
               <Link to="/login">Login</Link>
               <Link to="/signup">Join TMBD</Link>
               <li>

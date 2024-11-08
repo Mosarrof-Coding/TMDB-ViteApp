@@ -36,39 +36,31 @@ function PersonsCredit() {
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <div className="wrp flex gap-4 overflow-x-auto pt-6">
+        <div className="min-w-max flex gap-2 lg:gap-4 pt-2 sm:pt-4 lg:pt-6">
           {credits.length > 0 ? (
             credits.map((credit) => (
               <div
                 key={credit.id}
-                className="max-w-[140px] min-w-[140px] mb-4 border rounded hover:shadow-md transition-all overflow-hidden"
+                className="w-28 lg:w-36 mb-4 border rounded hover:shadow-md transition-all overflow-hidden"
               >
-                <div>
-                  <Link to={`/Detailpage/${credit.id}`}>
-                    {credit.backdrop_path ? (
-                      <div className="h-[210px] overflow-hidden">
-                        <img
-                          src={imgUrl + credit.poster_path}
-                          alt={credit.title || "No title found"}
-                        />
-                      </div>
-                    ) : (
-                      <div className="h-[210px]">
-                        <img
-                          src="https://placehold.co/140x210"
-                          alt="Placeholder"
-                        />
-                      </div>
-                    )}
-                  </Link>
-                </div>
-                <div>
-                  <h4 className="text-black text-sm break-all text-center leading-none pb-2 mt-2">
-                    {credit.title
-                      ? credit.title.slice(0, 12)
-                      : "No title found"}
-                  </h4>
-                </div>
+                <Link to={`/Detailpage/${credit.id}`}>
+                  {credit.backdrop_path ? (
+                    <img
+                      src={imgUrl + credit.poster_path}
+                      alt={credit.title || "No title found"}
+                      className="w-full"
+                    />
+                  ) : (
+                    <img
+                      src="https://placehold.co/140x210"
+                      alt="Placeholder"
+                      className="w-full"
+                    />
+                  )}
+                </Link>
+                <h4 className="text-black text-sm break-all text-center leading-none pb-2 mt-2">
+                  {credit.title ? credit.title.slice(0, 12) : "No title found"}
+                </h4>
               </div>
             ))
           ) : (

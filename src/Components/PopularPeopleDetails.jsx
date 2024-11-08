@@ -112,7 +112,7 @@ function PopularPeopleDetails() {
                   onMouseEnter={() => setIsMouseOver(true)}
                   onMouseLeave={() => setIsMouseOver(false)}
                 >
-                  <div className="text-gray-600 flex flex-col w-auto">
+                  <div className="text-gray-600 leading-[1] flex flex-col w-auto">
                     <Link className="py-0.5 lg:py-1 hover:bg-gray-200 px-2 lg:px-4">
                       Main
                     </Link>
@@ -120,7 +120,7 @@ function PopularPeopleDetails() {
                       Translations
                     </Link>
                   </div>
-                  <div className="text-gray-600 flex flex-col pt-2 sm:pt-3 lg:pt-5">
+                  <div className="text-gray-600 leading-[1] flex flex-col pt-2 sm:pt-3 lg:pt-5">
                     <Link className="py-0.5 lg:py-1 hover:bg-gray-200 px-2 lg:px-4">
                       Changes
                     </Link>
@@ -153,7 +153,7 @@ function PopularPeopleDetails() {
                   onMouseEnter={() => setIsMouseOver1(true)}
                   onMouseLeave={() => setIsMouseOver1(false)}
                 >
-                  <div className="text-gray-600 flex flex-col">
+                  <div className="text-gray-600 leading-[1] flex flex-col">
                     <Link className="py-0.5 lg:py-1 hover:bg-gray-200 px-2 lg:px-4 flex items-center justify-between gap-6">
                       <span>Profile</span>
                       <span>14</span>
@@ -181,7 +181,7 @@ function PopularPeopleDetails() {
                   onMouseEnter={() => setIsMouseOver2(true)}
                   onMouseLeave={() => setIsMouseOver2(false)}
                 >
-                  <div className="text-gray-600 flex flex-col">
+                  <div className="text-gray-600 leading-[1] flex flex-col">
                     <ul
                       id="myDiscussion"
                       className="py-1 hover:bg-blue-400 hover:text-white px-2 lg:px-4 relative"
@@ -197,7 +197,7 @@ function PopularPeopleDetails() {
                           id="mydis"
                           className="absolute right-[50%] sm:left-[50%] top-[96%]  md:left-[100%] md:top-0 py-1 lg:py-2 px-0 shadow-lg bg-white border-t-4 border-blue-600 rounded-b w-[calc(100%+60px)] "
                         >
-                          <div className="text-gray-600 flex flex-col w-auto">
+                          <div className="text-gray-600 leading-[1] flex flex-col w-auto">
                             <Link className="py-1 hover:bg-gray-100 px-2 lg:px-4">
                               Overview
                             </Link>
@@ -235,7 +235,7 @@ function PopularPeopleDetails() {
                   onMouseEnter={() => setIsMouseOver3(true)}
                   onMouseLeave={() => setIsMouseOver3(false)}
                 >
-                  <div className="text-gray-600 flex flex-col">
+                  <div className="text-gray-600 leading-[1] flex flex-col">
                     <Link className="py-0.5 lg:py-1 hover:bg-gray-200 px-2 lg:px-4">
                       <span>Share link</span>
                     </Link>
@@ -253,25 +253,25 @@ function PopularPeopleDetails() {
         </div>
         {/* Person Details */}
         <div className="contizer">
-          <div className="peopleWrap flex flex-col sm:grid grid-cols-12 py-6 lg:py-10 gap-4 lg:gap-8">
+          <div className="w-full flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 py-6 sm:py-6 lg:py-10">
             {/* Personal Info */}
-            <div className="pb-6 w-full sm:col-span-5 md:col-span-4 xl:col-span-3">
+            <div className="w-full sm:w-[30%]">
               <h2 className="text-xl lg:text-2xl text-purple-600 font-bold mb-1 sm:hidden">
                 {peoples.name}
               </h2>
-              <div className="grid place-items-center">
+              <div className="grid place-items-center ">
                 {peoples.profile_path ? (
-                  <span>
+                  <div>
                     {loaded ? (
                       <img
                         src={imgUrl + peoples.profile_path}
                         alt="img"
-                        className="rounded lg:rounded-lg"
+                        className="rounded lg:rounded-lg w-full"
                       />
                     ) : (
                       <img src={preLoader} alt="" onLoad={handleLoad} />
                     )}
-                  </span>
+                  </div>
                 ) : (
                   <span>
                     <img
@@ -283,7 +283,7 @@ function PopularPeopleDetails() {
                 )}
               </div>
               {/* social link  */}
-              <div className="flex gap-2 lg:gap-4 items-center flex-wrap text-black py-3 list-none">
+              <div className="flex gap-2 lg:gap-4 items-center flex-wrap text-black py-3 list-none ">
                 {externalIds?.facebook_id && (
                   <a
                     href={`https://www.facebook.com/${externalIds?.facebook_id}`}
@@ -348,7 +348,7 @@ function PopularPeopleDetails() {
               {/* biography mobile device */}
               <div className="sm:hidden">
                 <h3 className="text-xl text-black font-semibold">Biography</h3>
-                <div className="py-2 text-gray-600">
+                <div className="py-2 text-gray-600 leading-[1]">
                   {peoples.biography && peoples.biography.length > 0 ? (
                     <span className="overflow-hidden block">
                       {appends ? (
@@ -383,18 +383,20 @@ function PopularPeopleDetails() {
                   )}
                 </div>
               </div>
-              <h3 className="text-xl text-black font-semibold mt-4">
+              <h3 className=" text-lg lg:text-xl text-black font-semibold mt-4 ">
                 Personal Info
               </h3>
               {/* Personal Info  */}
-              <div className="PersonalInfo mt-2 flex flex-col gap-4">
+              <div className="PersonalInfo flex flex-col gap-2 ">
                 <div>
                   <h4 className="text-black font-medium">Id</h4>
-                  <small className="text-gray-600">{peoples.id}</small>
+                  <small className="text-gray-600 leading-[1]">
+                    {peoples.id}
+                  </small>
                 </div>
                 <div>
                   <h4 className="text-black font-medium">Known For</h4>
-                  <small className="text-gray-600">
+                  <small className="text-gray-600 leading-[1]">
                     {peoples.known_for_department}
                   </small>
                 </div>
@@ -406,23 +408,25 @@ function PopularPeopleDetails() {
                 </div>
                 <div>
                   <h4 className="text-black font-medium">Gender</h4>
-                  <small className="text-gray-600">
+                  <small className="text-gray-600 leading-[1]">
                     {genderMap[peoples.gender] || "Unknown"}
                   </small>
                 </div>
                 <div>
                   <h4 className="text-black font-medium">Birthday</h4>
-                  <small className="text-gray-600">{peoples.birthday}</small>
+                  <small className="text-gray-600 leading-[1]">
+                    {peoples.birthday}
+                  </small>
                 </div>
                 <div>
                   <h4 className="text-black font-medium">Place of Birth</h4>
-                  <small className="text-gray-600">
+                  <small className="text-gray-600 leading-[1]">
                     {peoples.place_of_birth}
                   </small>
                 </div>
                 <div>
                   <h4 className="text-black font-medium pb-1">Also Known As</h4>
-                  <small className="text-gray-600 list-none flex flex-col gap-2">
+                  <small className="text-gray-600 leading-[1] list-none flex flex-col gap-2">
                     {peoples.also_known_as &&
                     peoples.also_known_as.length > 0 ? (
                       peoples.also_known_as.map((alias, index) => (
@@ -442,7 +446,7 @@ function PopularPeopleDetails() {
                   <h4 className="text-black font-medium pb-1">
                     Content Score{" "}
                   </h4>
-                  <div className="text-gray-600 rounded lg:rounded-lg overflow-hidden">
+                  <div className="text-gray-600 leading-[1] rounded lg:rounded-lg overflow-hidden">
                     <h4 className="py-2 pl-2 text-black font-medium bg-gray-200">
                       100
                     </h4>
@@ -457,7 +461,7 @@ function PopularPeopleDetails() {
                   </Button>
                 </div>
                 <div>
-                  <Link className="text-gray-600 font-light flex gap-2 items-center">
+                  <Link className="text-gray-600 leading-[1] font-light flex gap-2 items-center">
                     <span>
                       <FaKeyboard />
                     </span>
@@ -467,7 +471,7 @@ function PopularPeopleDetails() {
                   </Link>
                 </div>
                 <div>
-                  <Link className="text-gray-600 font-light flex gap-2 items-center">
+                  <Link className="text-gray-600 leading-[1] font-light flex gap-2 items-center">
                     <span>
                       <FaExclamationCircle />
                     </span>
@@ -477,13 +481,13 @@ function PopularPeopleDetails() {
               </div>
             </div>
             {/* biography */}
-            <div className="w-full sm:col-span-7 md:col-span-8 xl:col-span-9">
+            <div className="w-full sm:w-[70%]">
               <div className="hidden sm:block">
                 <h2 className="text-2xl text-purple-600 font-bold mb-4 lg:mb-8">
                   {peoples.name}
                 </h2>
                 <h3 className="text-xl text-black font-semibold">Biography</h3>
-                <div className="py-2 text-gray-600">
+                <div className="py-2 text-gray-600 leading-[1]">
                   {peoples.biography && peoples.biography.length > 0 ? (
                     <span className="overflow-hidden block">
                       {appends ? (
@@ -510,7 +514,7 @@ function PopularPeopleDetails() {
                           )}
                         </span>
                       ) : (
-                        <div> {insertLineBreaks(peoples.biography)}</div>
+                        <div>{insertLineBreaks(peoples.biography)}</div>
                       )}
                     </span>
                   ) : (
@@ -520,27 +524,27 @@ function PopularPeopleDetails() {
                   )}
                 </div>
               </div>
-              <div className="flex flex-col gap-6 mt-4">
+              <div className="flex flex-col gap-4 sm:gap-6 lg:gap-8">
                 {/* Known For  */}
-                <div className="py-2">
-                  <h3 className="text-rose-600 font-medium mb-2">Known For</h3>
-                  <PersonsCredit />
+                <div className="  ">
+                  <h3 className="text-rose-600 font-medium">Known For</h3>
+                  <div className="overflow-x-auto">
+                    <PersonsCredit />
+                  </div>
                 </div>
                 {/* acting */}
-                <div className="databox py-2 ">
-                  <div className="flex justify-between items-center gap-2 sm:gap-4">
-                    <div>
-                      <h3 className="text-purple-800 font-medium">Acting</h3>
-                    </div>
+                <div className="databox ">
+                  <div className="flex justify-between items-center gap-2 sm:gap-4 py-1 lg:py-2">
+                    <h3 className="text-purple-800 font-medium">Acting</h3>
                     <div className="flex items-center">
                       <span className="text-blue-300">Clear</span>
                       {/* dropdown/ All  */}
                       <div className="">
                         <details className="dropdown">
-                          <summary className="m-1 cursor-pointer text-black text-lg px-3 sm:px-6">
+                          <summary className="m-1 cursor-pointer text-black px-3 sm:px-6">
                             All
                           </summary>
-                          <ul className="py-3 px-0 flex flex-col shadow z-[1] bg-base-100 rounded lg:rounded-lg w-fit sm:w-44 text-gray-600 menu dropdown-content right-1">
+                          <ul className="py-3 px-0 flex flex-col shadow z-[1] bg-base-100 rounded lg:rounded-lg w-fit sm:w-44 text-gray-600 leading-[1] menu dropdown-content right-1">
                             <Link className="flex justify-between gap-1 items-center hover:bg-gray-300 px-3 py-1">
                               <span>Movies</span>
                               <small className="w-6 h-6 grid place-items-center rounded-full bg-gray-200">
@@ -558,10 +562,10 @@ function PopularPeopleDetails() {
                       </div>
                       <div className="">
                         <details className="dropdown">
-                          <summary className="m-1 cursor-pointer text-black text-lg px-3 lg:px-6 ">
+                          <summary className="m-1 cursor-pointer text-black px-3 lg:px-6 ">
                             Depertment
                           </summary>
-                          <ul className="py-3 px-0 flex flex-col shadow z-[1] bg-base-100 rounded lg:rounded-lg w-fit sm:w-44 text-gray-600 menu dropdown-content right-1">
+                          <ul className="py-3 px-0 flex flex-col shadow z-[1] bg-base-100 rounded lg:rounded-lg w-fit sm:w-44 text-gray-600 leading-[1] menu dropdown-content right-1">
                             <Link className="flex justify-between items-center hover:bg-gray-300 px-3 py-1">
                               <span>Acting</span>
                               <small className="w-6 h-6 grid place-items-center rounded-full bg-gray-200">
@@ -579,7 +583,7 @@ function PopularPeopleDetails() {
                       </div>
                     </div>
                   </div>
-                  <div className="details rounded mt-4">
+                  <div className="details rounded">
                     <PersonActing />
                   </div>
                 </div>
