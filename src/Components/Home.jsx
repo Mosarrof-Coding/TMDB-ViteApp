@@ -35,12 +35,6 @@ const Home = () => {
     fetchMovies();
   }, []);
 
-  // switch tab
-  const [activeTab, setActiveTab] = useState("popular");
-  const handleTabChange = (popular) => {
-    setActiveTab(popular);
-  };
-
   // switch btn
   const switchToggle = (e) => {
     const runner = document.querySelector(".runner");
@@ -53,6 +47,18 @@ const Home = () => {
       : (runner.classList.add("rightSwitch"),
         runner.classList.remove("leftSwitch"),
         handleTabChange("trending"));
+  };
+
+  // switch tab
+  const [activeTab, setActiveTab] = useState("popular");
+  const [opacity, setOpacity] = useState(true);
+
+  const handleTabChange = (newTab) => {
+    setOpacity(false); // Start fading out
+    setTimeout(() => {
+      setActiveTab(newTab); // Switch component
+      setOpacity(true); // Fade back in
+    }, 500); // Half a second for fade-out, adjust as needed
   };
 
   return (
@@ -168,7 +174,11 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div
+            className={`min-h-[256px] lg:min-h-[337px] transition-opacity duration-500 ${
+              opacity ? "opacity-100 visible" : "opacity-0 invisible"
+            }`}
+          >
             {activeTab === "popular" ? (
               <TrendingMovieDay />
             ) : (
