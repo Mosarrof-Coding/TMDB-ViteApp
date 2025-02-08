@@ -68,7 +68,7 @@ function PersonActing() {
                   {/* absolute card */}
                   {cardIndex === credit.id && (
                     <div
-                      className={`ContBox absolute left-0 bottom-[calc(100%+6px)] max-w-full md:max-w-xl flex gap-2 lg:gap-3 bg-blue-950 p-2 rounded shadow-lg`}
+                      className={`ContBox absolute left-0 bottom-[calc(100%+6px)] max-w-full md:max-w-xl flex gap-2 lg:gap-3 bg-blue-950 p-2 rounded shadow-lg border-4 border-blue-800`}
                     >
                       <Link to={`/Detailpage/${credit.id}`}>
                         {credit.backdrop_path ? (

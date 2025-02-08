@@ -452,7 +452,7 @@ export default function MovieCard({ movie, imgUrl }) {
                                 <div className="absolute w-[calc(100%+40px)] -left-4 md:left-0 top-full p-2 bg-white rounded shadow-lg">
                                   <div className="flex items-center my-1 border rounded overflow-hidden p-1 lg:p-1.5">
                                     <input
-                                      type="search"
+                                      type="text"
                                       name="moss"
                                       id="moss"
                                       placeholder="Add to one of your lists..."
@@ -462,7 +462,7 @@ export default function MovieCard({ movie, imgUrl }) {
 
                                     <CiSearch size={20} />
                                   </div>{" "}
-                                  <ol className="movie_playlist max-h-[130px] overflow-y-auto list-none">
+                                  <ol className="movie_playlist max-h-[130px] overflow-y-auto">
                                     <h5 className="p-2 bg-gray-100 font-light">
                                       Add to one of your items:
                                     </h5>

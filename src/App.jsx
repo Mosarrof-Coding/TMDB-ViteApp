@@ -41,7 +41,7 @@ import ContributionBible from "./footerPage/ContributionBible";
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen text-sm md:text-base">
+    <div className="flex flex-col min-h-screen text-xs sm:text-sm md:text-base">
       <Header />
       <main className="flex-grow">
         <Routes>
@@ -79,6 +79,7 @@ function App() {
           <Route path="/AwardsCard/:id" element={<AwardsCard />} />
           <Route path="/AwardsCardMovie/:id" element={<AwardsCardMovie />} />
 
+          {/* footer */}
           <Route path="/about_us" element={<AboutTMDB />} />
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path="/support-forums" element={<SupportForums />} />

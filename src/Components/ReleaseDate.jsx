@@ -75,7 +75,6 @@ function ReleaseDate() {
     4: "Digital",
     5: "Physical",
     6: "TV",
-    // Add more mappings as needed
   };
 
   return (
@@ -127,7 +126,7 @@ function ReleaseDate() {
             {/* countries */}
             <div className="myScrollbar basis-1/4 min-w-fit">
               <div className="rounded lg:rounded-lg overflow-hidden hover:shadow-lg border border-gray-100 hover:border-gray-200 transition-shadow duration-300">
-                <div className="flex justify-between items-center gap-2 bg-black text-white py-2 lg:py-4 px-3 text-lg lg:text-xl font-semibold">
+                <div className="flex justify-between items-center gap-2 bg-black text-white py-1 sm:py-2 lg:py-4 px-3 text-lg lg:text-xl font-semibold">
                   <span className="">Countries</span>
                   {/* Displaying the total number of release countries */}
                   <span className="text-gray-300">

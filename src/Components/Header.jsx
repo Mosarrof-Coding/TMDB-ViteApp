@@ -312,7 +312,7 @@ function Header() {
                         to="/signup"
                         onClick={closeMenu}
                       >
-                        Join TMBD
+                        Join TMDB
                       </Link>
                     </ul>
                     {/* Close button */}
@@ -352,7 +352,7 @@ function Header() {
                 <option value="FR">FR</option>
               </select>
               <Link to="/login">Login</Link>
-              <Link to="/signup">Join TMBD</Link>
+              <Link to="/signup">Join TMDB</Link>
               <li>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

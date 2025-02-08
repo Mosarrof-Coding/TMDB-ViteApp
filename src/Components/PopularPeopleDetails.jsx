@@ -77,14 +77,6 @@ function PopularPeopleDetails() {
     setAppends(false);
   };
 
-  function insertLineBreaks(text) {
-    const secondFullStopIndex = text.indexOf(".", text.indexOf(".") + 1);
-    const newText =
-      text.slice(0, secondFullStopIndex + 1) +
-      "<br><br>" +
-      text.slice(secondFullStopIndex + 1);
-    return <span dangerouslySetInnerHTML={{ __html: newText }} />;
-  }
   return (
     <>
       <section>
@@ -289,6 +281,7 @@ function PopularPeopleDetails() {
                     href={`https://www.facebook.com/${externalIds?.facebook_id}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="hover:text-rose-700 transition-all"
                   >
                     <FaFacebook size={24} />
                   </a>
@@ -298,6 +291,7 @@ function PopularPeopleDetails() {
                     href={`https://www.twitter.com/${externalIds?.twitter_id}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="hover:text-rose-700 transition-all"
                   >
                     <FaTwitter size={24} />
                   </a>
@@ -307,6 +301,7 @@ function PopularPeopleDetails() {
                     href={`https://www.instagram.com/${externalIds?.instagram_id}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="hover:text-rose-700 transition-all"
                   >
                     <FaInstagram size={24} />
                   </a>
@@ -316,6 +311,7 @@ function PopularPeopleDetails() {
                     href={`https://www.tiktok.com/${externalIds?.tiktok_id}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="hover:text-rose-700 transition-all"
                   >
                     <FaTiktok size={22} />
                   </a>
@@ -325,6 +321,7 @@ function PopularPeopleDetails() {
                     href={`https://www.youtube.com/${externalIds?.youtube_id}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="hover:text-rose-700 transition-all"
                   >
                     <FaYoutube size={26} />
                   </a>
@@ -336,7 +333,7 @@ function PopularPeopleDetails() {
                       href={peoples.homepage}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-8"
+                      className="w-8 hover:scale-95 transition-all"
                     >
                       <div>
                         <img src="../../public/link.svg" alt="" />
@@ -347,13 +344,15 @@ function PopularPeopleDetails() {
               </div>
               {/* biography mobile device */}
               <div className="sm:hidden">
-                <h3 className="text-xl text-black font-semibold">Biography</h3>
-                <div className="py-2 text-gray-600 leading-[1]">
+                <h3 className="text-lg xl:text-xl text-black font-semibold">
+                  Biography
+                </h3>
+                <div className="py-2 text-gray-600">
                   {peoples.biography && peoples.biography.length > 0 ? (
                     <span className="overflow-hidden block">
                       {appends ? (
                         <div>
-                          {insertLineBreaks(peoples.biography.slice(0, 520))}
+                          {peoples.biography.slice(0, 520)}
                           {peoples.biography.split("").length > 520 && (
                             <div className="inline-block" onClick={hnClick}>
                               <span className="inline-flex text-xl">....</span>
@@ -373,7 +372,7 @@ function PopularPeopleDetails() {
                           )}
                         </div>
                       ) : (
-                        <div> {insertLineBreaks(peoples.biography)}</div>
+                        <p className="leading-[1.5]">{peoples.biography}</p>
                       )}
                     </span>
                   ) : (
@@ -483,16 +482,15 @@ function PopularPeopleDetails() {
             {/* biography */}
             <div className="w-full sm:w-[70%]">
               <div className="hidden sm:block">
-                <h2 className="text-2xl text-purple-600 font-bold mb-4 lg:mb-8">
+                <h2 className="text-2xl text-purple-600 font-bold mb-2">
                   {peoples.name}
                 </h2>
-                <h3 className="text-xl text-black font-semibold">Biography</h3>
-                <div className="py-2 text-gray-600 leading-[1]">
+                <div className="pb-2 text-gray-600">
                   {peoples.biography && peoples.biography.length > 0 ? (
                     <span className="overflow-hidden block">
                       {appends ? (
                         <span>
-                          {insertLineBreaks(peoples.biography.slice(0, 540))}{" "}
+                          {peoples.biography.slice(0, 540)}{" "}
                           {peoples.biography.split("").length > 540 && (
                             <span className="" onClick={hnClick}>
                               <span className="inline-flex flex-wrap">
@@ -514,7 +512,7 @@ function PopularPeopleDetails() {
                           )}
                         </span>
                       ) : (
-                        <div>{insertLineBreaks(peoples.biography)}</div>
+                        <p className="leading-[1.5]">{peoples.biography}</p>
                       )}
                     </span>
                   ) : (
@@ -526,8 +524,8 @@ function PopularPeopleDetails() {
               </div>
               <div className="flex flex-col gap-4 sm:gap-6 lg:gap-8">
                 {/* Known For  */}
-                <div className="  ">
-                  <h3 className="text-rose-600 font-medium">Known For</h3>
+                <div className=" ">
+                  <h3 className="text-emerald-800 font-medium">Known For</h3>
                   <div className="overflow-x-auto">
                     <PersonsCredit />
                   </div>

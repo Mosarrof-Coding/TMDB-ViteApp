@@ -89,7 +89,7 @@ export default function Login() {
           className="w-full sm:w-[420px] lg:w-[520px] mx-auto p-4 lg:p-6 my-4 rounded lg:rounded-lg shadow-lg text-gray-800 flex flex-col gap-3 md:gap-6 border-t-8 border-blue-700"
         >
           <h3 className="text-xl md:text-2xl font-semibold text-blue-500">
-            Join TMBD
+            Join TMDB
           </h3>
           {error && <p className="text-red-500">{error}</p>}
           <div className="email w-full flex flex-col gap-1">
