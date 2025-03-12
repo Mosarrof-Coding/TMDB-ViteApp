@@ -21,7 +21,7 @@ function Footer() {
                 unforgettable action, stunning visuals, and gripping narratives
                 that will keep you on the edge of your seat!
               </p>
-              <Link to={`/my_profile`} className="">
+              <Link to={`/my-profile`} className="">
                 <MagneticButton />
               </Link>
             </div>

@@ -38,6 +38,7 @@ import TermsOfUse from "./footerPage/TermsOfUse";
 import PrivacyPolicy from "./footerPage/PrivacyPolicy";
 import DmcaPolicy from "./footerPage/DmcaPolicy";
 import ContributionBible from "./footerPage/ContributionBible";
+import Profile from "./Components/Profile";
 
 function App() {
   return (
@@ -99,6 +100,8 @@ function App() {
           <Route path="/login" element={<Login />} />
 
           <Route path="/create-new-list" element={<CreateList />} />
+
+          <Route path="/my-profile" element={<Profile />} />
 
           <Route path="*" element={<PageNotFound />} />
         </Routes>

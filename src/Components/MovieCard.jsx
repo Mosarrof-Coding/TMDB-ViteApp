@@ -103,15 +103,15 @@ export default function MovieCard({ movie, imgUrl }) {
 
     return toast(() => (
       <div>
-        <li className="flex items-center gap-2 text-xl font-bold text-green-500 my-1">
+        <li className="flex items-center gap-2 font-bold text-green-500 my-1">
           <span>
-            <FaCheckCircle />
+            <FaCheckCircle size={20} />
           </span>
-          <span>Success</span>
+          <span className="text-base lg:text-xl">Success</span>
         </li>
-        <li className="text-nowrap text-xl list-none">
+        <li className="text-nowrap text-sm lg:text-lg list-none">
           Your rating has been saved!
-          <span className="ml-2 font-bold">{starValue ? starValue : 0}</span>
+          <span className="ml-2">{starValue ? starValue : 0}</span>
         </li>
       </div>
     ));
@@ -327,6 +327,7 @@ export default function MovieCard({ movie, imgUrl }) {
             background: "#111800",
             color: "#fff",
             boxShadow: "none",
+            padding: "6px",
           },
           success: {
             duration: 3000,
@@ -337,10 +338,10 @@ export default function MovieCard({ movie, imgUrl }) {
           },
         }}
       />
+
       {/* user Activity */}
       <div className="relative">
         {/* picture */}
-
         {loaded ? (
           <Link to={`/Detailpage/${id}`}>
             {poster_path ? (
@@ -385,7 +386,7 @@ export default function MovieCard({ movie, imgUrl }) {
           </p>
         </div>
 
-        <div className="text-black absolute left-2 top-2" ref={visibilityRef}>
+        <div className="text-black absolute left-2 top-4" ref={visibilityRef}>
           <div className="relative" ref={addRef}>
             <button
               className="w-6 h-6 bg-gray-400 rounded-full grid place-items-center hover:bg-sky-400 transition-all duration-300"
@@ -395,12 +396,12 @@ export default function MovieCard({ movie, imgUrl }) {
             </button>
             {isVisible && (
               <ul
-                className="absolute left-0 top-0 min-w-32 bg-gray-100 z-10 rounded text-xs md:text-sm font-medium flex flex-col"
+                className="absolute left-0 top-0 min-w-36 bg-gray-100 z-10 rounded text-xs md:text-sm font-medium flex flex-col"
                 ref={listRef}
               >
                 <li
                   className="flex gap-2 items-center px-2 py-1 lg:py-2 hover:bg-gradient-to-r from-blue-400
-  to-transparent transition-all duration-300 cursor-pointer rounded-tl relative"
+  to-transparent transition-all duration-300 rounded-tl relative"
                   onClick={() => {
                     addList();
                     handleWatchlistClick();
@@ -418,17 +419,18 @@ export default function MovieCard({ movie, imgUrl }) {
                       <BsListUl size={14} />
                     )}
                   </span>
-                  <span>Add to list</span>
+                  <span className="cursor-pointer">Add to list</span>
+                  {/* Add to list */}
                   {add && (
-                    <div className="ratBox absolute -left-2 top-[calc(100%+8px)] p-2 z-10 bg-[#57dce3] rounded shadow-xl">
+                    <div className="ratBox absolute -left-4 xs:right-0 sm:-left-2 top-[calc(100%+1px)] w-[calc(100%+60px)] p-2 z-10 bg-[#ffc1c9] rounded shadow-xl">
                       <div
                         // to={`Detailpage/${id}`}
                         className="flex items-center gap-1"
                       >
-                        <div className="w-48 md:w-56">
+                        <div className="w-full xs:w-44 sm:w-48 md:w-56">
                           <Link
                             to={`create-new-list`}
-                            className="flex items-center gap-2 font-bold text-blue-950 mb-2"
+                            className="flex items-center gap-1.5 font-semibold text-blue-600 hover:text-blue-900 mb-2"
                           >
                             <span className="text-base leading-none mt-[2px]">
                               +
@@ -438,7 +440,7 @@ export default function MovieCard({ movie, imgUrl }) {
 
                           <div className="bg-[#0e1a3d] rounded">
                             <div
-                              className="flex items-center p-2 relative"
+                              className="flex items-center p-1 md:p-2 relative"
                               aria-label="setListing your experience"
                             >
                               <button
@@ -449,7 +451,7 @@ export default function MovieCard({ movie, imgUrl }) {
                               </button>
                               <VscTriangleDown color="white" />
                               {list && (
-                                <div className="absolute w-[calc(100%+40px)] -left-4 md:left-0 top-full p-2 bg-white rounded shadow-lg">
+                                <div className="absolute w-[calc(100%+40px)] -left-2 xs:right-0 sm:-left-2 top-full p-2 bg-white/95 border border-purple-400 rounded shadow-xl">
                                   <div className="flex items-center my-1 border rounded overflow-hidden p-1 lg:p-1.5">
                                     <input
                                       type="text"
@@ -462,8 +464,8 @@ export default function MovieCard({ movie, imgUrl }) {
 
                                     <CiSearch size={20} />
                                   </div>{" "}
-                                  <ol className="movie_playlist max-h-[130px] overflow-y-auto">
-                                    <h5 className="p-2 bg-gray-100 font-light">
+                                  <div className="movie_playlist max-h-[130px] overflow-y-auto">
+                                    <h5 className="p-2 bg-gray-100 text-pink-800">
                                       Add to one of your items:
                                     </h5>
                                     {isLoading ? (
@@ -471,25 +473,31 @@ export default function MovieCard({ movie, imgUrl }) {
                                         Loading playlists...
                                       </p>
                                     ) : fetchedLists.length > 0 ? (
-                                      fetchedLists
+                                      <li className="cursor-pointer my-0.5">
+                                        {fetchedLists}
+                                      </li>
                                     ) : (
                                       <p className="text-red-500 mt-4">
                                         No playlists available.
                                       </p>
                                     )}
-                                  </ol>
+                                  </div>
                                 </div>
                               )}
                             </div>
                           </div>
                         </div>
                       </div>
+                    </div>
+                  )}
+                  {add && (
+                    <span className="">
                       <IoTriangleSharp
                         size={16}
-                        color="#57dce3"
-                        className="absolute left-4 -top-3"
+                        color="#ffc1c9"
+                        className="absolute left-2 -bottom-2 lg:-bottom-1 z-20"
                       />
-                    </div>
+                    </span>
                   )}
                 </li>
                 <hr />
