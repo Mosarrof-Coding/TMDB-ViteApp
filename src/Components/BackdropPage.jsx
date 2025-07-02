@@ -56,17 +56,39 @@ function BackdropPage() {
     }
   };
 
+  // languages
   const [languages, setLanguages] = useState([]);
   const getLang = async () => {
     const res = await fetch(fullNameUrl + apiKey);
     const data = await res.json();
-    // console.log(data);
-    setLanguages(data);
+
+    // Deduplicate by iso_639_1
+    const uniqueMap = new Map();
+
+    data.forEach((lang) => {
+      if (lang.iso_639_1 && !uniqueMap.has(lang.iso_639_1)) {
+        uniqueMap.set(lang.iso_639_1, lang);
+      }
+    });
+
+    const uniqueLanguages = Array.from(uniqueMap.values());
+    setLanguages(uniqueLanguages);
   };
+
   const allLanguages = (iso_639_1) => {
     const eLanguage = languages.find((lan) => lan.iso_639_1 === iso_639_1);
     return eLanguage ? eLanguage.english_name : "";
   };
+  const langCountMap = backdrops.reduce((acc, item) => {
+    const code = item.iso_639_1;
+    if (code) {
+      acc[code] = (acc[code] || 0) + 1;
+    }
+    return acc;
+  }, {});
+
+  const uniqueLanguages = Object.entries(langCountMap); // e.g., [ [ 'en', 3 ], [ 'fr', 1 ] ]
+
   useEffect(() => {
     fetchBackdrops();
     fetchMovieDetail();
@@ -84,7 +106,7 @@ function BackdropPage() {
         {/* Rendering movie details */}
         <div className="bg-gray-600">
           <div className="contizer">
-            <div className="bb py-2 lg:py-4 flex items-center gap-2 md:gap-4 lg:gap-8">
+            <div className="flex items-center gap-2 md:gap-4 lg:gap-8 py-2 lg:py-4 bb">
               <div className="w-14 lg:w-20">
                 {detail.poster_path ? (
                   <a
@@ -104,9 +126,9 @@ function BackdropPage() {
                 )}
               </div>
               <div className="title">
-                <h3 className="text-lg md:text-xl lg:text-3xl leading-none pb-1 font-semibold text-white">
+                <h3 className="pb-1 font-semibold text-white text-lg md:text-xl lg:text-3xl leading-none">
                   {detail.title}{" "}
-                  <span className="release_date text-gray-400 font-medium">
+                  <span className="font-medium text-gray-400 release_date">
                     {detail.release_date ? (
                       <span>({detail.release_date.slice(0, 4)})</span>
                     ) : (
@@ -115,7 +137,7 @@ function BackdropPage() {
                   </span>
                 </h3>
                 <Link
-                  className="hover:text-gray-400 font-semibold"
+                  className="font-semibold hover:text-gray-400"
                   to={`/Detailpage/${params.id}`}
                 >
                   ⬅ Back to main
@@ -126,11 +148,11 @@ function BackdropPage() {
         </div>
         {/* backdrops  */}
         <div className="contizer">
-          <div className="bacdropMain min-h-[48.3vh] flex flex-col sm:flex-row justify-between gap-2 lg:gap-6 py-4 lg:py-8">
+          <div className="flex sm:flex-row flex-col justify-between gap-2 lg:gap-6 py-4 lg:py-8 min-h-[48.3vh] bacdropMain">
             {/* languages  */}
-            <div className="basis-1/4 min-w-[200px]">
-              <div className="rounded lg:rounded-lg overflow-hidden hover:shadow-lg border border-gray-100 hover:border-gray-200">
-                <div className="flex justify-between items-center gap-2 bg-black text-white py-2 lg:py-4 px-2 lg:px-4 text-lg lg:text-xl font-semibold">
+            <div className="min-w-[200px] basis-1/4">
+              <div className="shadow-lg border border-gray-100 hover:border-gray-200 rounded lg:rounded-lg overflow-hidden">
+                <div className="flex justify-between items-center gap-2 bg-black px-2 lg:px-4 py-2 lg:py-4 font-semibold text-white text-lg lg:text-xl">
                   <span className="">Backdrops</span>
                   <span className="text-gray-300">
                     <span className="flex gap-2">
@@ -140,34 +162,25 @@ function BackdropPage() {
                   </span>
                 </div>
                 <div>
-                  {backdrops.map((backdrop, index) => (
-                    <div key={index} className="text-black w-full">
-                      {backdrop?.iso_639_1 ? (
-                        <div className="flex justify-between items-center gap-2 px-2 lg:px-4 py-0.5 lg:py-1 xl:py-1.5 hover:bg-gray-200 transition-all duration-200">
-                          <span>{allLanguages(backdrop.iso_639_1)}</span>
-                          <span className="w-5 lg:w-6 aspect-square shrink-0 font-medium bg-gray-50 text-blue-800 rounded-full inline-grid place-items-center">
-                            1
-                          </span>
-                        </div>
-                      ) : (
-                        <span className="flex justify-between items-center gap-2 px-2 lg:px-4 py-0.5 lg:py-1 xl:py-1.5 hover:bg-gray-200 transition-all duration-200">
-                          <span className="text-red-500">Not found</span>
-                          <span className="w-5 lg:w-6 aspect-square shrink-0 font-medium bg-gray-50 text-red-800 rounded-full inline-grid place-items-center">
-                            0
-                          </span>
+                  {uniqueLanguages.map(([code, count], index) => (
+                    <div key={index} className="w-full text-black">
+                      <div className="flex justify-between items-center gap-2 hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1 xl:py-1.5 transition-all duration-200">
+                        <span>{allLanguages(code)}</span>
+                        <span className="inline-grid place-items-center bg-gray-50 rounded-full w-5 lg:w-6 aspect-square font-medium text-blue-800 shrink-0">
+                          {count}
                         </span>
-                      )}
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
             {/* backdrops */}
-            <div className="basis-3/4 mt-4 sm:mt-0">
-              <div className="backWrap w-full myGrid">
+            <div className="mt-4 sm:mt-0 basis-3/4">
+              <div className="w-full backWrap myGrid">
                 {backdrops.map((backdrop) => (
                   <div key={backdrop?.file_path} className="">
-                    <div className="rounded lg:rounded-lg overflow-hidden hover:shadow-lg border border-gray-100 transition-shadow duration-300">
+                    <div className="hover:shadow-lg border border-gray-100 rounded lg:rounded-lg overflow-hidden transition-shadow duration-300">
                       {backdrop.file_path ? (
                         <picture>
                           {img ? (
@@ -184,7 +197,7 @@ function BackdropPage() {
                           ) : (
                             <img
                               src={loadingGif}
-                              className="w-1/2 mx-auto my-2"
+                              className="mx-auto my-2 w-1/2"
                               onLoad={imgLoad}
                             />
                           )}
@@ -195,15 +208,15 @@ function BackdropPage() {
                         </div>
                       )}
                       <div>
-                        <div className="text-gray-600 p-2 flex justify-between gap-2 items-center">
+                        <div className="flex justify-between items-center gap-2 p-2 text-gray-600">
                           <span>Info</span>
                           <span>
                             <RxLockClosed />
                           </span>
                         </div>
                         <div className="p-2 border-t">
-                          <h3 className="text-black pb-2">Added By: moss</h3>
-                          <h6 className="text-gray-800 text-sm font-light">
+                          <h3 className="pb-2 text-black">Added By: moss</h3>
+                          <h6 className="font-light text-gray-800 text-sm">
                             Size
                           </h6>
                           <h4 className="text-black">
@@ -218,14 +231,14 @@ function BackdropPage() {
                               </span>
                             </div>
                           </h4>
-                          <h4 className="text-gray-800 text-sm font-light py-2">
+                          <h4 className="py-2 font-light text-gray-800 text-sm">
                             Language
                           </h4>
-                          <div className="p-1 bg-gray-200 rounded">
+                          <div className="bg-gray-200 p-1 rounded">
                             <select
                               name=""
                               id=""
-                              className="text-black w-full bg-transparent rounded p-0.5 lg:p-1"
+                              className="bg-transparent p-0.5 lg:p-1 rounded w-full text-black"
                               defaultValue={"English"}
                             >
                               <option value="Bengali">Bengali</option>

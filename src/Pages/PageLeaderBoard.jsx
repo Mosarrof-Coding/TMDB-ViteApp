@@ -5,14 +5,14 @@ export default function PageLeaderBoard() {
   return (
     <section className="pt-4 lg:pt-12">
       <div className="contizer">
-        <div className="flex justify-between items-center gap-4 flex-wrap">
-          <h2 className="text-yellow-600 font-bold text-lg md:text-xl xl:text-2xl min-w-fit">
+        <div className="flex flex-wrap justify-between items-center gap-4">
+          <h2 className="min-w-fit font-bold text-yellow-600 text-lg md:text-xl xl:text-2xl">
             Popularity past 30 Days
           </h2>
-          <h2 className="text-blue-600 text-sm md:text-base min-w-fit">
+          <h2 className="min-w-fit text-blue-600 text-sm md:text-base">
             All day Popularity
           </h2>
-        </div>{" "}
+        </div>
         <BarChart />
       </div>
 

@@ -22,20 +22,20 @@ export default function Leaderboard() {
   }, []);
 
   return (
-    <section className="py-8 lg:py-12 bg-gray-50 text-gray-600">
+    <section className="bg-gray-50 py-8 lg:py-12 text-gray-600">
       <div className="contizer">
         {/* heading */}
-        <div className="heading flex flex-wrap gap-4 lg:gap-12">
-          <h3 className="w-fit text-lg sm:text-xl lg:text-2xl font-semibold text-[#9d4848]">
+        <div className="flex flex-wrap gap-4 lg:gap-12 heading">
+          <h3 className="w-fit font-semibold text-[#9d4848] text-lg sm:text-xl lg:text-2xl">
             Leaderboard
           </h3>
           <div className="flex flex-col gap-1 lg:gap-1.5 text-gray-600">
             <article className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#BFFECF] to-[#21D5A9] shadow-lg mb-[2px]"></span>
+              <span className="bg-gradient-to-r from-[#BFFECF] to-[#21D5A9] shadow-lg mb-[2px] rounded-full w-2 h-2"></span>
               <span className="inline-block text-sm">All Time Popularity</span>
             </article>
             <article className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#FDC070] to-[#D93C63] shadow-lg mb-[2px]"></span>
+              <span className="bg-gradient-to-r from-[#FDC070] to-[#D93C63] shadow-lg mb-[2px] rounded-full w-2 h-2"></span>
               <span className="inline-block text-sm">
                 This Week's Popularity
               </span>
@@ -43,7 +43,7 @@ export default function Leaderboard() {
           </div>
         </div>
         {/* progressbar */}
-        <div className="leaderBoxs mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-6 w-full">
+        <div className="gap-3 lg:gap-6 grid grid-cols-1 md:grid-cols-2 mt-6 lg:mt-8 w-full leaderBoxs">
           {leaderboardData.map((item) => {
             const allTimeProgress = Math.min(
               (item.popularity / maxPopularity) * 100,
@@ -58,9 +58,9 @@ export default function Leaderboard() {
             return (
               <div
                 key={item.id}
-                className="item flex items-center gap-2 lg:gap-4"
+                className="flex items-center gap-2 lg:gap-4 item"
               >
-                <div className="img w-12 lg:w-16 aspect-square shrink-0 rounded-full overflow-hidden bg-purple-500">
+                <div className="bg-purple-500 rounded-full w-12 lg:w-16 aspect-square overflow-hidden img shrink-0">
                   <Link to={`Detailpage/${item.id}`}>
                     <img
                       src={`${imgUrl}${item.poster_path}`}
@@ -70,24 +70,24 @@ export default function Leaderboard() {
                   </Link>
                 </div>
                 <div className="flex flex-col lg:gap-0.5 w-full">
-                  <h3 className="userName w-fit text-black text-sm font-semibold">
+                  <h3 className="w-fit font-semibold text-black text-sm userName">
                     {item.title}
                   </h3>
-                  <div className="w-full flex items-center">
+                  <div className="flex items-center w-full">
                     <div
-                      className="allTimes h-2 lg:h-2.5 rounded-full bg-gradient-to-r from-[#BFFECF] to-[#21D5A9]"
+                      className="bg-gradient-to-r from-[#BFFECF] to-[#21D5A9] rounded-full h-2 lg:h-2.5 allTimes"
                       style={{ width: `${allTimeProgress}%` }}
                     ></div>
-                    <span className="inline-block ml-2 mt-[2px] text-xs leading-none">
+                    <span className="inline-block mt-[2px] ml-2 text-xs leading-none">
                       {item.popularity.toFixed(0)}
                     </span>
                   </div>
-                  <div className="w-full flex items-center">
+                  <div className="flex items-center w-full">
                     <div
-                      className="ThisWeek h-2 lg:h-2.5 rounded-full bg-gradient-to-r from-[#FDC070] to-[#D93C63]"
+                      className="bg-gradient-to-r from-[#FDC070] to-[#D93C63] rounded-full h-2 lg:h-2.5 ThisWeek"
                       style={{ width: `${weeklyProgress}%` }}
                     ></div>
-                    <span className="inline-block ml-2 mt-[2px] text-xs leading-none">
+                    <span className="inline-block mt-[2px] ml-2 text-xs leading-none">
                       {weeklyPopularity}
                     </span>
                   </div>

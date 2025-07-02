@@ -412,7 +412,7 @@ function Detailpage() {
         {/* navigate  */}
         <div className="navigate">
           <div className="contizer">
-            <div className="navMain text-sm lg:text-base lg:py-1 flex justify-center items-center flex-wrap gap-2 sm:gap-4 lg:gap-6">
+            <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 lg:gap-6 lg:py-1 text-sm lg:text-base navMain">
               {/* overview  */}
               <div className="dropdown dropdown-hover">
                 <div
@@ -423,53 +423,53 @@ function Detailpage() {
                   }`}
                 >
                   <span>Overview</span>
-                  <span className="hidden sm:inline-block rotate-180 ml-2 lg:mb-[2px]">
+                  <span className="hidden sm:inline-block lg:mb-[2px] ml-2 rotate-180">
                     <IoTriangleSharp size={8} />
                   </span>
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow-lg bg-white border-t-4 border-blue-600 rounded-b w-[calc(100%+80px)]"
+                  className="z-[1] bg-white shadow-lg px-0 py-1 lg:py-2 border-t-4 border-blue-600 rounded-b w-[calc(100%+80px)] dropdown-content menu"
                   onMouseEnter={() => setIsMouseOver(true)}
                   onMouseLeave={() => setIsMouseOver(false)}
                 >
-                  <div className="text-gray-600 flex flex-col w-auto">
-                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200">
+                  <div className="flex flex-col w-auto text-gray-600">
+                    <Link className="hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1">
                       Main
                     </Link>
                     <Link
                       to={`/movie/${params.id}/alternativeTitle`}
-                      className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200"
+                      className="hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1"
                     >
                       Alternative Titles
                     </Link>
                     <Link
                       to={`/movie/${params.id}/full-cast-and-crew`}
-                      className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200"
+                      className="hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1"
                     >
                       Cast & Crew
                     </Link>
                     <Link
                       to={`/movie/${params.id}/releaseDate`}
-                      className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200"
+                      className="hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1"
                     >
                       Release Date
                     </Link>
-                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200">
+                    <Link className="hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1">
                       Seasons
                     </Link>
-                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200">
+                    <Link className="hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1">
                       Translations
                     </Link>
                   </div>
-                  <div className="text-gray-600 flex flex-col pt-3 lg:pt-6">
-                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200">
+                  <div className="flex flex-col pt-3 lg:pt-6 text-gray-600">
+                    <Link className="hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1">
                       Changes
                     </Link>
-                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200">
+                    <Link className="hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1">
                       Report
                     </Link>
-                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200">
+                    <Link className="hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1">
                       Edit
                     </Link>
                   </div>
@@ -485,41 +485,41 @@ function Detailpage() {
                   }`}
                 >
                   <span>Media </span>
-                  <span className="hidden sm:inline-block rotate-180 ml-2 lg:mb-[2px]">
+                  <span className="hidden sm:inline-block lg:mb-[2px] ml-2 rotate-180">
                     <IoTriangleSharp size={8} />
                   </span>
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow-lg bg-white border-t-4 border-blue-600 rounded-b w-[calc(100%+80px)] min-w-fit"
+                  className="z-[1] bg-white shadow-lg px-0 py-1 lg:py-2 border-t-4 border-blue-600 rounded-b w-[calc(100%+80px)] min-w-fit dropdown-content menu"
                   onMouseEnter={() => setIsMouseOver1(true)}
                   onMouseLeave={() => setIsMouseOver1(false)}
                 >
-                  <div className="text-gray-600 flex flex-col">
+                  <div className="flex flex-col text-gray-600">
                     <Link
                       to={`/movie/${params.id}/movieBackdrops`}
-                      className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6"
+                      className="flex justify-between items-center gap-6 hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1"
                     >
                       <span>Backdrops</span>
                       <span>{backdrops.length}</span>
                     </Link>
                     <Link
                       to={`/movie/${params.id}/logos`}
-                      className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6"
+                      className="flex justify-between items-center gap-6 hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1"
                     >
                       <span>Logos</span>
                       <span>{logo}</span>
                     </Link>
                     <Link
                       to={`/movie/${params.id}/moviePosters`}
-                      className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6"
+                      className="flex justify-between items-center gap-6 hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1"
                     >
                       <span>Poster</span>
                       <span>{posters.length}</span>
                     </Link>
                     <Link
                       to={`/movie/${params.id}/videos`}
-                      className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6"
+                      className="flex justify-between items-center gap-6 hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1"
                     >
                       <span>Videos</span>
                       <span className="flex items-center gap-1">
@@ -542,18 +542,18 @@ function Detailpage() {
                   }`}
                 >
                   <span>Fandom </span>
-                  <span className="hidden sm:inline-block rotate-180 ml-2 lg:mb-[2px]">
+                  <span className="hidden sm:inline-block lg:mb-[2px] ml-2 rotate-180">
                     <IoTriangleSharp size={8} />
                   </span>
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow-lg bg-white border-t-4 border-blue-600 rounded-b w-[calc(100%+80px)]"
+                  className="z-[1] bg-white shadow-lg px-0 py-1 lg:py-2 border-t-4 border-blue-600 rounded-b w-[calc(100%+80px)] dropdown-content menu"
                   onMouseEnter={() => setIsMouseOver2(true)}
                   onMouseLeave={() => setIsMouseOver2(false)}
                 >
-                  <div className="text-gray-600 flex flex-col">
-                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6">
+                  <div className="flex flex-col text-gray-600">
+                    <Link className="flex justify-between items-center gap-6 hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1">
                       <span>Videos</span>
                       <span>
                         <span className="hidden sm:inline-block rotate-90">
@@ -561,7 +561,7 @@ function Detailpage() {
                         </span>
                       </span>
                     </Link>
-                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6">
+                    <Link className="flex justify-between items-center gap-6 hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1">
                       <span>Reviews</span>
                     </Link>
                   </div>
@@ -577,24 +577,24 @@ function Detailpage() {
                   }`}
                 >
                   <span>Share</span>
-                  <span className="hidden sm:inline-block rotate-180 ml-2 lg:mb-[2px]">
+                  <span className="hidden sm:inline-block lg:mb-[2px] ml-2 rotate-180">
                     <IoTriangleSharp size={8} />
                   </span>
                 </div>
                 <ul
                   tabIndex={0}
-                  className="right-0 sm:right-auto dropdown-content z-[1] menu py-1 lg:py-2 px-0 shadow-lg bg-white border-t-4 border-blue-600 rounded-b w-[calc(100%+80px)]"
+                  className="right-0 sm:right-auto z-[1] bg-white shadow-lg px-0 py-1 lg:py-2 border-t-4 border-blue-600 rounded-b w-[calc(100%+80px)] dropdown-content menu"
                   onMouseEnter={() => setIsMouseOver3(true)}
                   onMouseLeave={() => setIsMouseOver3(false)}
                 >
-                  <div className="text-gray-600 flex flex-col">
-                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6">
+                  <div className="flex flex-col text-gray-600">
+                    <Link className="flex justify-between items-center gap-6 hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1">
                       <span>Share link</span>
                     </Link>
-                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6">
+                    <Link className="flex justify-between items-center gap-6 hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1">
                       <span>Facebook</span>
                     </Link>
-                    <Link className="py-0.5 lg:py-1 px-2 lg:px-4 hover:bg-gray-200 flex items-center justify-between gap-6">
+                    <Link className="flex justify-between items-center gap-6 hover:bg-gray-200 px-2 lg:px-4 py-0.5 lg:py-1">
                       <span>Tweet</span>
                     </Link>
                   </div>
@@ -608,7 +608,7 @@ function Detailpage() {
           className={`relative detailBox bg-gradient-to-r from-[#1a1437f4] from-10% via-[#00000089] via-50% to-[#1a1437] to-100% bg-cover overflow-hidden`}
         >
           {/* background img  */}
-          <div className="absolute left-0 top-0 right-0 bottom-0 xl:bottom-auto z-[-1] w-full">
+          <div className="top-0 right-0 bottom-0 xl:bottom-auto left-0 z-[-1] absolute w-full">
             {detail.backdrop_path ? (
               <div className="w-full h-full">
                 <img
@@ -618,16 +618,16 @@ function Detailpage() {
                 />
               </div>
             ) : (
-              <div className="w-full h-full bg-red-600"></div>
+              <div className="bg-red-600 w-full h-full"></div>
             )}
           </div>
           {/* cntent  */}
-          <div className="max-w-[1530px] mx-auto">
-            <div className="dpWrapper flex flex-col sm:flex-row sm:gap-4 sm:py-3 md:py-5 sm:px-4">
+          <div className="mx-auto max-w-[1530px]">
+            <div className="flex sm:flex-row flex-col sm:gap-4 sm:px-4 sm:py-3 md:py-5 dpWrapper">
               {/* detailImg  */}
-              <div className="w-full sm:max-w-sm xs:absolute left-0 top-0 right-0 bottom-0 sm:static bg-[#000000c2] sm:bg-inherit overflow-y-auto xs:z-[-1] sm:z-auto">
+              <div className="top-0 right-0 bottom-0 left-0 xs:z-[-1] sm:z-auto sm:static xs:absolute bg-[#000000c2] sm:bg-inherit w-full sm:max-w-sm overflow-y-auto">
                 <div
-                  className="dImage relative transition-all duration-1000 cursor-pointer"
+                  className="relative transition-all duration-1000 cursor-pointer dImage"
                   onClick={handleFixed}
                 >
                   {detail.poster_path ? (
@@ -642,8 +642,8 @@ function Detailpage() {
                       <img src={"https://placehold.co/400x600"} alt="" />
                     </div>
                   )}
-                  <div className="xpnd opacity-0 invisible absolute bg-[#000000b3] backdrop-blur-[30px] left-0 top-0 right-0 bottom-0 grid place-items-center touch-none pointer-events-none">
-                    <span className="flex gap-2 items-center text-xl">
+                  <div className="invisible top-0 right-0 bottom-0 left-0 absolute place-items-center grid bg-[#000000b3] opacity-0 backdrop-blur-[30px] touch-none pointer-events-none xpnd">
+                    <span className="flex items-center gap-2 text-xl">
                       <HiOutlineArrowsExpand color="white" />
                       Expand
                     </span>
@@ -651,11 +651,11 @@ function Detailpage() {
                 </div>
               </div>
               {/* detailText */}
-              <div className="detailItem pt-6 sm:pt-0 px-4 sm:px-0 xl:pl-4">
-                <h3 className="text-xl lg:text-3xl font-bold text-white">
+              <div className="px-4 sm:px-0 pt-6 sm:pt-0 xl:pl-4 detailItem">
+                <h3 className="font-bold text-white text-xl lg:text-3xl">
                   {detail.title}
                 </h3>
-                <h4 className="productionCountry my-1 text-[#b8c437] text-sm lg:text-lg">
+                <h4 className="my-1 text-[#b8c437] text-sm lg:text-lg productionCountry">
                   {detail.production_countries > "" ? (
                     <span className="font-semibold text-[#b8cd00]">
                       {detail.production_countries[0].name}
@@ -665,10 +665,10 @@ function Detailpage() {
                   )}
                 </h4>
                 {/* <h4>id: {detail.id ? detail.id : "0"}</h4> */}
-                <ul className="flex flex-wrap gap-2 py-1 items-center text-xs sm:text-sm lg:text-base">
+                <ul className="flex flex-wrap items-center gap-2 py-1 text-xs sm:text-sm lg:text-base">
                   {/* so critical */}
                   {lastCertification && (
-                    <li className="rounded-sm border overflow-hidden font-light leading-none px-0.5 mb-0.5">
+                    <li className="mb-0.5 px-0.5 border rounded-sm overflow-hidden font-light leading-none">
                       <small>{lastCertification}</small>
                     </li>
                   )}
@@ -679,7 +679,7 @@ function Detailpage() {
                     {detail.production_companies &&
                     detail.production_companies.length > 0 &&
                     detail.production_companies[0].origin_country ? (
-                      <span className="text-blue-400 ml-1">
+                      <span className="ml-1 text-blue-400">
                         ({detail.production_companies[0].origin_country})
                       </span>
                     ) : null}
@@ -687,7 +687,7 @@ function Detailpage() {
                   {/* issued */}
                   <li className="">
                     {detail.genres && detail.genres.length > 0 ? (
-                      <div className="flex flex-wrap gap-2 items-center">
+                      <div className="flex flex-wrap items-center gap-2">
                         <span>▪</span>
                         {detail.genres.map((gnr, index) => (
                           <div key={gnr.id} className="w-fit">
@@ -709,7 +709,7 @@ function Detailpage() {
                   </li>
                 </ul>
                 {/* user activities  */}
-                <div className="py-1 lg:py-2 xl:py-4 flex items-center flex-wrap gap-2 lg:gap-4">
+                <div className="flex flex-wrap items-center gap-2 lg:gap-4 py-1 lg:py-2 xl:py-4">
                   {/* daisy progress  */}
                   <div className="flex items-center gap-2 mix-blend-normal">
                     <div
@@ -751,7 +751,7 @@ function Detailpage() {
                     </span>
                   </div>
                   {/* sIcon */}
-                  <ul className="sIcin flex flex-wrap gap-2 items-center">
+                  <ul className="flex flex-wrap items-center gap-2 sIcin">
                     {/* Custom Tooltip Wrapper */}
                     {[
                       {
@@ -781,9 +781,9 @@ function Detailpage() {
                         action: () => setShowVideo(true),
                       },
                     ].map((item, index) => (
-                      <div key={index} className="relative group">
+                      <div key={index} className="group relative">
                         <li
-                          className="p-2.5 bg-gradient-to-tr from-[#66cb69b4] to-[#e112e4ab] border-none rounded-full cursor-pointer"
+                          className="bg-gradient-to-tr from-[#66cb69b4] to-[#e112e4ab] p-2.5 border-none rounded-full cursor-pointer"
                           onClick={() => {
                             if (item.action) item.action(); // Execute the action if it exists
                             tipped(index); // Toggle the tooltip
@@ -798,7 +798,7 @@ function Detailpage() {
                           </span>
                         </li>
                         {/* Tooltip */}
-                        <span className="absolute bottom-full mb-1 hidden w-max px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 group-hover:block">
+                        <span className="hidden group-hover:block bottom-full absolute bg-black opacity-0 group-hover:opacity-100 mb-1 px-2 py-1 rounded w-max text-white text-xs">
                           {added[index] ? item.tipd : item.tip}
                         </span>
                       </div>
@@ -806,9 +806,9 @@ function Detailpage() {
 
                     {/* Trailer Video */}
                     {showVideo && (
-                      <div className="fixed inset-0 z-[99] bg-white">
+                      <div className="z-[99] fixed inset-0 bg-white">
                         <div
-                          className="closeVid w-full text-center py-2 bg-[black] hover:bg-red-600 text-white cursor-pointer"
+                          className="bg-[black] hover:bg-red-600 py-2 w-full text-white text-center cursor-pointer closeVid"
                           onClick={() => setShowVideo(false)}
                         >
                           Close
@@ -823,14 +823,14 @@ function Detailpage() {
                     )}
                   </ul>
                 </div>
-                <h5 className="text-lg text-sky-500 italic">
+                <h5 className="text-sky-500 text-lg italic">
                   {detail.tagline ? (
                     <span>{detail.tagline}</span>
                   ) : (
                     <span>no tagline</span>
                   )}
                 </h5>
-                <h4 className="text-xl text-gray-300 underline">Overview</h4>
+                <h4 className="text-gray-300 text-xl underline">Overview</h4>
                 <p className="text-gray-300">
                   {detail.overview != "" ? (
                     <span>{detail.overview}</span>
@@ -839,13 +839,13 @@ function Detailpage() {
                   )}
                 </p>
                 {/* crew */}
-                <ul className="author py-4 lg:py-8">
+                <ul className="py-4 lg:py-8 author">
                   <li className="min-w-280px">
-                    <div className="flex flex-wrap lg:grid grid-cols-12 gap-4 lg:gap-6">
+                    <div className="flex flex-wrap gap-4 lg:gap-6 lg:grid grid-cols-12">
                       {crews?.map((crew) => (
                         <div key={crew.id} className="col-span-4">
                           <Link
-                            className="inline-block text-sm lg:text-base font-semibold text-emerald-400 transition-all underline"
+                            className="inline-block font-semibold text-emerald-400 text-sm lg:text-base underline transition-all"
                             to={`/PopularPeopleDetails/${crew.id}`}
                           >
                             {crew.name}
@@ -860,12 +860,12 @@ function Detailpage() {
             </div>
             {/* popupBox  */}
             {fixed && (
-              <div className="popupBox text-black fixed left-0 top-0 right-0 bottom-0 bg-[#000000a1] z-[2] grid place-items-center text-xs sm:text-sm">
+              <div className="top-0 right-0 bottom-0 left-0 z-[2] fixed place-items-center grid bg-[#000000a1] text-black text-xs sm:text-sm popupBox">
                 <div className="relative">
                   {/* popupContent */}
-                  <div className="popupContent max-w-[96vw] md:max-w-[700px] lg:max-w-[800px]">
+                  <div className="max-w-[96vw] md:max-w-[700px] lg:max-w-[800px] popupContent">
                     <Swiper
-                      className="w-full overflow-hidden bg-white rounded p-1 md:p-2 relative"
+                      className="relative bg-white p-1 md:p-2 rounded w-full overflow-hidden"
                       modules={[Navigation, Pagination, Scrollbar, A11y]}
                       spaceBetween={8}
                       slidesPerView={1}
@@ -873,8 +873,8 @@ function Detailpage() {
                     >
                       {posters.map((pos) => (
                         <SwiperSlide key={pos.file_path} className="w-full">
-                          <div className="w-full flex gap-1 sm:gap-2 lg:gap-3 xl:gap-4">
-                            <div className="popupImg w-[55%] grid place-items-center">
+                          <div className="flex gap-1 sm:gap-2 lg:gap-3 xl:gap-4 w-full">
+                            <div className="place-items-center grid w-[55%] popupImg">
                               {img ? (
                                 <img
                                   src={imgUrl + pos?.file_path}
@@ -890,8 +890,8 @@ function Detailpage() {
                                 />
                               )}
                             </div>
-                            <div className="popupInfo w-[45%] mt-auto pt-14 lg:pt-16">
-                              <div className="pb-1 sm:py-4 px-2 flex justify-between gap-2 items-center w-full">
+                            <div className="mt-auto pt-14 lg:pt-16 w-[45%] popupInfo">
+                              <div className="flex justify-between items-center gap-2 px-2 sm:py-4 pb-1 w-full">
                                 <span className="cursor-pointer">
                                   <BiSolidDislike />
                                 </span>
@@ -899,25 +899,25 @@ function Detailpage() {
                                   <BiSolidLike />
                                 </span>
                               </div>
-                              <div className="text-gray-600 p-1 lg:p-2 flex justify-between gap-2 items-center w-full">
+                              <div className="flex justify-between items-center gap-2 p-1 lg:p-2 w-full text-gray-600">
                                 <span>Info</span>
                                 <span>
                                   <RxLockClosed />
                                 </span>
                               </div>
-                              <div className="p-1 lg:p-2 border-t border-b w-full flex flex-col gap-1 sm:gap-3 lg:gap-4">
-                                <h4 className="flex gap-2 items-center">
+                              <div className="flex flex-col gap-1 sm:gap-3 lg:gap-4 p-1 lg:p-2 border-t border-b w-full">
+                                <h4 className="flex items-center gap-2">
                                   <span className="inline-block">Primary</span>
                                   <span className="inline-block">
                                     <GiGamepadCross size={12} />
                                   </span>
                                 </h4>
-                                <h3 className="text-black pb-2 font-light">
+                                <h3 className="pb-2 font-light text-black">
                                   Added By:
                                   <br /> <span className="font-bold">Moss</span>
                                 </h3>
                                 <div className="text-black">
-                                  <h6 className="text-gray-800 text-sm font-light">
+                                  <h6 className="font-light text-gray-800 text-sm">
                                     Size
                                   </h6>
                                   <div className="flex items-center gap-1 mb-2">
@@ -932,11 +932,11 @@ function Detailpage() {
                                   </div>
                                 </div>
                                 <div className="mb-2 md:mb-4 lg:mb-6">
-                                  <h4 className="text-gray-800 font-light py-1 md:py-2">
+                                  <h4 className="py-1 md:py-2 font-light text-gray-800">
                                     Language
                                   </h4>
-                                  <div className="bg-white rounded border">
-                                    <select className="text-black bg-white w-full bg-transparent border-none outline-none py-1 md:py-2 ">
+                                  <div className="bg-white border rounded">
+                                    <select className="bg-transparent bg-white py-1 md:py-2 border-none outline-none w-full text-black">
                                       <option value="Bengali">Bengali</option>
                                       <option value="Arabic">Arabic</option>
                                       <option value="English" selected>
@@ -946,7 +946,7 @@ function Detailpage() {
                                   </div>
                                 </div>
                               </div>
-                              <div className="p-1 lg:p-2 mb-14 lg:mb-20 first-line:Tagged flex justify-between items-center gap-4">
+                              <div className="flex justify-between items-center gap-4 mb-14 lg:mb-20 p-1 lg:p-2 first-line:Tagged">
                                 <h5>Tagged People</h5>
                                 <FaPlusCircle />
                               </div>
@@ -957,7 +957,7 @@ function Detailpage() {
                     </Swiper>
                   </div>
                   <span
-                    className="absolute right-3 top-4 z-[7] cursor-pointer hover:text-red-600"
+                    className="top-4 right-3 z-[7] absolute hover:text-red-600 cursor-pointer"
                     onClick={handleFixed}
                   >
                     <RxCross2 size={20} />
@@ -969,18 +969,18 @@ function Detailpage() {
         </div>
         {/* Top Billed Cast/credit Api  */}
         <div className="contizer">
-          <div className="castBox py-4 lg:py-6 xxl:py-10 flex flex-col md:grid grid-cols-12 gap-8">
+          <div className="flex flex-col gap-8 md:grid grid-cols-12 py-4 lg:py-6 xxl:py-10 castBox">
             {/* part-A  */}
-            <div className="col-span-8 xl:col-span-9 flex flex-col gap-4 sm:gap-6 lg:gap-8">
+            <div className="flex flex-col gap-4 sm:gap-6 lg:gap-8 col-span-8 xl:col-span-9">
               {/* Cast  */}
               <div className="slider">
-                <h3 className="topcast text-xl lg:text-2xl font-semibold text-gray-700 mb-2 lg:mb-3">
+                <h3 className="topcast mb-2 lg:mb-3 font-semibold text-gray-700 text-xl lg:text-2xl">
                   Top Billed Cast
                 </h3>
                 {/* cast thumbnile  */}
                 <div className="relative">
-                  <div className="catsWarpper flex gap-2 overflow-x-auto">
-                    <span className="w-16 sm:w-24 bg-gradient-to-l from-white absolute right-0 top-0 bottom-[20px] pointer-events-none touch-none"></span>
+                  <div className="flex gap-2 overflow-x-auto catsWarpper">
+                    <span className="top-0 right-0 bottom-[20px] absolute bg-gradient-to-l from-white w-16 sm:w-24 touch-none pointer-events-none"></span>
                     {casts?.map((caster, index) => (
                       <div
                         key={caster.id}
@@ -994,8 +994,8 @@ function Detailpage() {
                           caster={caster}
                           imgUrl={imgUrl}
                         />
-                        <div className="txt py-1 lg:py-2 pl-2">
-                          <h2 className="text-black text-sm font-medium">
+                        <div className="py-1 lg:py-2 pl-2 txt">
+                          <h2 className="font-medium text-black text-sm">
                             {caster.name}
                           </h2>
                           <small className="text-gray-500 italic leading-[1.2]">
@@ -1005,12 +1005,12 @@ function Detailpage() {
                       </div>
                     ))}
                     {casts.length > 9 && (
-                      <div className="min-w-fit text-black mt-auto mb-auto cursor-pointer">
+                      <div className="mt-auto mb-auto min-w-fit text-black cursor-pointer">
                         {casts.length > 9 && !showAll && (
-                          <h2 className="min-w-fit text-black mt-auto mb-auto cursor-pointer">
+                          <h2 className="mt-auto mb-auto min-w-fit text-black cursor-pointer">
                             <button
                               onClick={handleShowMore}
-                              className="font-semibold text-green-600 px-2 lg:px-4"
+                              className="px-2 lg:px-4 font-semibold text-green-600"
                             >
                               Show More...
                             </button>
@@ -1023,7 +1023,7 @@ function Detailpage() {
                 {/* fullCastAndcrew button  */}
                 <div className={`fullCastAndcrew pt-2 lg:pt-4`}>
                   <Link
-                    className="topcast text-lg font-medium text-gray-700 hover:text-gray-400 cursor-pointer pb-2"
+                    className="topcast pb-2 font-medium text-gray-700 hover:text-gray-400 text-lg cursor-pointer"
                     to={`/movie/${params.id}/full-cast-and-crew`}
                   >
                     Full Cast & Crew
@@ -1033,8 +1033,8 @@ function Detailpage() {
               <hr />
               {/* Social + reviews */}
               <div className="mediaEtc">
-                <div className="socialPath flex items-end flex-wrap gap-2 md:gap-4 lg:gap-8 text-sm lg:text-base mb-2 lg:mb-3">
-                  <h3 className="topcast text-lg md:text-xl lg:text-2xl font-semibold text-gray-700 pr-4 lg:pr-8">
+                <div className="flex flex-wrap items-end gap-2 md:gap-4 lg:gap-8 mb-2 lg:mb-3 text-sm lg:text-base socialPath">
+                  <h3 className="topcast pr-4 lg:pr-8 font-semibold text-gray-700 text-lg md:text-xl lg:text-2xl">
                     Social
                   </h3>
                   <button
@@ -1080,7 +1080,7 @@ function Detailpage() {
                   </button>
                 </div>
                 {/* Review  */}
-                <div className="reviewMain block ">
+                <div className="block reviewMain">
                   <div className="reviewBox">
                     {Object.keys(review)?.map((author, i) => (
                       <div key={author} className="">
@@ -1094,9 +1094,9 @@ function Detailpage() {
                     ))}
                   </div>
                   {/* Read All Reviews  */}
-                  <div className="fullCastAndcrew pt-2 lg:pt-4">
+                  <div className="pt-2 lg:pt-4 fullCastAndcrew">
                     <Link
-                      className="topcast text-lg font-medium text-gray-700 hover:text-gray-400 cursor-pointer pb-2"
+                      className="topcast pb-2 font-medium text-gray-700 hover:text-gray-400 text-lg cursor-pointer"
                       to={`/movie/${params.id}/full-review`}
                     >
                       Read All Reviews
@@ -1104,8 +1104,8 @@ function Detailpage() {
                   </div>
                 </div>
                 {/* Discussion  */}
-                <div className="discussion hidden">
-                  <div className="dynDisc border p-2 lg:p-4 rounded-lg">
+                <div className="hidden discussion">
+                  <div className="p-2 lg:p-4 border rounded-lg dynDisc">
                     <p className="text-red-400">
                       Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                       Debitis repudiandae quam recusandae minus optio labore
@@ -1115,7 +1115,7 @@ function Detailpage() {
                   {/* Read All discussion  */}
                   <div className="fullCastAndcrew">
                     <Link
-                      className="topcast text-lg font-medium text-gray-700 hover:text-gray-400 cursor-pointer pb-2"
+                      className="topcast pb-2 font-medium text-gray-700 hover:text-gray-400 text-lg cursor-pointer"
                       // to={`/movie/${params.id}/full-review`}
                     >
                       Go to Discussions
@@ -1126,8 +1126,8 @@ function Detailpage() {
               <hr />
               {/* Media part */}
               <div className="Media">
-                <div className="socialPath flex items-end flex-wrap gap-2 md:gap-4 lg:gap-8 text-sm lg:text-base mb-2 lg:mb-3">
-                  <h3 className="topcast text-lg md:text-xl lg:text-2xl font-semibold text-gray-700 pr-4 lg:pr-8">
+                <div className="flex flex-wrap items-end gap-2 md:gap-4 lg:gap-8 mb-2 lg:mb-3 text-sm lg:text-base socialPath">
+                  <h3 className="topcast pr-4 lg:pr-8 font-semibold text-gray-700 text-lg md:text-xl lg:text-2xl">
                     Media
                   </h3>
                   <button
@@ -1191,7 +1191,7 @@ function Detailpage() {
                 <div className="">
                   {/* Most Popular */}
                   {activeTab === "mostPopular" && (
-                    <div className="flex overflow-x-auto box-content max-h-fit">
+                    <div className="box-content flex max-h-fit overflow-x-auto">
                       <div className="min-w-full lg:min-w-[50%] aspect-video">
                         <ReactPlayer
                           url={`https://www.youtube-nocookie.com/embed/${trailer}`}
@@ -1209,10 +1209,10 @@ function Detailpage() {
                         <img
                           src={imgUrl + hibackdrop?.file_path}
                           alt=""
-                          className="h-full w-full"
+                          className="w-full h-full"
                         />
                       </div>
-                      <div className="min-w-[46%] xs:min-w-[37.5%] lg:min-w-[19%] xl:min-w-[18.7%] bg-pink-700">
+                      <div className="bg-pink-700 min-w-[46%] xs:min-w-[37.5%] lg:min-w-[19%] xl:min-w-[18.7%]">
                         <img
                           src={`${imgUrl}${hiposter?.file_path}`}
                           alt=""
@@ -1223,7 +1223,7 @@ function Detailpage() {
                   )}
                   {/* video  */}
                   {activeTab === "videos" && (
-                    <div className="flex overflow-x-auto w-full">
+                    <div className="flex w-full overflow-x-auto">
                       {videos.map((video) => (
                         <div
                           key={video.id}
@@ -1236,7 +1236,7 @@ function Detailpage() {
                   )}
                   {/* backdrops  */}
                   {activeTab === "backdrops" && (
-                    <div className="flex overflow-x-auto relative">
+                    <div className="relative flex overflow-x-auto">
                       {backdrops.map((backdrop) => (
                         <div
                           key={backdrop.file_path}
@@ -1253,11 +1253,11 @@ function Detailpage() {
                   )}
                   {/* posters  */}
                   {activeTab === "posters" && (
-                    <div className="flex overflow-x-auto ">
+                    <div className="flex overflow-x-auto">
                       {posters.map((posterUrl) => (
                         <div
                           key={posterUrl.file_path}
-                          className="min-w-[160px] max-w-[200px] bg-black grid place-items-center relative"
+                          className="relative place-items-center grid bg-black min-w-[160px] max-w-[200px]"
                         >
                           {img ? (
                             <img
@@ -1268,7 +1268,7 @@ function Detailpage() {
                           ) : (
                             <img src={gifLoding} onLoad={imgLoad} />
                           )}
-                          <div className="absolute left-0 top-0 right-0 bottom-0 touch-none pointer-events-none bg-gradient-to-r from-[#0000007e] via-[#341c8b00] 20% to-[#ffffff3b]"></div>
+                          <div className="top-0 right-0 bottom-0 left-0 absolute bg-gradient-to-r from-[#0000007e] via-[#341c8b00] to-[#ffffff3b] touch-none pointer-events-none 20%"></div>
                         </div>
                       ))}
                     </div>
@@ -1278,7 +1278,7 @@ function Detailpage() {
               </div>
               {/* Recommendations */}
               <div className="Recommendations">
-                <h3 className="topcast text-xl lg:text-2xl font-semibold text-black mb-2 lg:mb-3">
+                <h3 className="topcast mb-2 lg:mb-3 font-semibold text-black text-xl lg:text-2xl">
                   Recommendations
                 </h3>
                 <Recommendation />
@@ -1286,8 +1286,8 @@ function Detailpage() {
             </div>
 
             {/* part-B */}
-            <div className="col-span-4 xl:col-span-3 flex flex-col gap-4 sm:gap-6 lg:gap-8">
-              <div className="links text-blue-500 flex gap-2 items-center flex-wrap">
+            <div className="flex flex-col gap-4 sm:gap-6 lg:gap-8 col-span-4 xl:col-span-3">
+              <div className="flex flex-wrap items-center gap-2 text-blue-500 links">
                 {externalIds.facebook_id && (
                   <div className="sm:tooltip" data-tip="Visit Facebook">
                     <a
@@ -1331,22 +1331,22 @@ function Detailpage() {
                         <img
                           src="../../public/link.svg"
                           alt=""
-                          className="max-w-9 inline-block -translate-x-[2px]"
+                          className="inline-block max-w-9 -translate-x-[2px]"
                         />
                       </span>
                     </Link>
                   </div>
                 )}
               </div>
-              <div className="extra flex flex-col gap-2 sm:gap-3">
-                <li className="item list-none text-gray-900 font-bold">
+              <div className="flex flex-col gap-2 sm:gap-3 extra">
+                <li className="font-bold text-gray-900 list-none item">
                   Status
                   <br />
                   <span className="inline-block font-normal text-gray-600">
                     {detail.status ? detail.status : ""}
                   </span>
                 </li>
-                <li className="item list-none text-gray-900 font-bold">
+                <li className="font-bold text-gray-900 list-none item">
                   Original Language
                   <br />
                   <span className="inline-block font-normal text-gray-600">
@@ -1357,7 +1357,7 @@ function Detailpage() {
                     )}
                   </span>
                 </li>
-                <li className="item list-none text-gray-900 font-bold">
+                <li className="font-bold text-gray-900 list-none item">
                   Budget
                   <br />
                   <span className="inline-block font-normal text-gray-600">
@@ -1368,7 +1368,7 @@ function Detailpage() {
                     )}
                   </span>
                 </li>
-                <li className="item list-none text-gray-900 font-bold">
+                <li className="font-bold text-gray-900 list-none item">
                   Revenue
                   <br />
                   <span className="inline-block font-normal text-gray-600">
@@ -1381,13 +1381,13 @@ function Detailpage() {
                 </li>
               </div>
               <div className="keyBox">
-                <h3 className="text-black pb-3 font-bold">Keywords</h3>
-                <div className="keywords flex gap-2 flex-wrap">
+                <h3 className="pb-3 font-bold text-black">Keywords</h3>
+                <div className="flex flex-wrap gap-2 keywords">
                   {keyword.map((keys) => (
                     <div key={keys.id}>
                       <a
                         href=""
-                        className="w-fit px-1 inline-block border list-none capitalize bg-gray-100 rounded-sm hover:shadow-md text-black hover:border-[#eeaaee] text-sm"
+                        className="inline-block bg-gray-100 hover:shadow-md px-1 border hover:border-[#eeaaee] rounded-sm w-fit text-black text-sm capitalize list-none"
                       >
                         {keys?.name}
                       </a>
@@ -1398,7 +1398,7 @@ function Detailpage() {
               <hr />
               {/* content score */}
               <div className="keyBox">
-                <h3 className="text-black pb-3 font-bold">Content Score </h3>
+                <h3 className="pb-3 font-bold text-black">Content Score </h3>
                 <div
                   className={`contributor rounded-lg overflow-hidden w-full border text-white font-light`}
                 >
@@ -1415,29 +1415,29 @@ function Detailpage() {
                     {percent}
                   </div>
                   {percent >= 70 ? (
-                    <div className="bg-blue-700 pl-3 py-[3px] text-sm">
+                    <div className="bg-blue-700 py-[3px] pl-3 text-sm">
                       Wow! Looking good!
                     </div>
                   ) : percent >= 50 && percent < 70 ? (
-                    <div className="bg-yellow-700 pl-3 py-[3px] text-sm">
+                    <div className="bg-yellow-700 py-[3px] pl-3 text-sm">
                       Yes! Growing your score!
                     </div>
                   ) : (
-                    <div className="bg-red-700 pl-3 py-[3px] text-sm">
+                    <div className="bg-red-700 py-[3px] pl-3 text-sm">
                       Oops! Grow your score to improve.
                     </div>
                   )}
                 </div>
               </div>
               <div className="contributormain">
-                <h3 className="text-black pb-3 font-bold">Top Contributors</h3>
-                <div className="contBox flex flex-col gap-4">
+                <h3 className="pb-3 font-bold text-black">Top Contributors</h3>
+                <div className="flex flex-col gap-4 contBox">
                   {contributors.map((contributor) => (
                     <div
-                      className="contItem flex gap-4 items-center"
+                      className="flex items-center gap-4 contItem"
                       key={contributor.id}
                     >
-                      <div className="thumb bg-red-600 w-14 h-14 rounded-full overflow-hidden">
+                      <div className="bg-red-600 rounded-full w-14 h-14 overflow-hidden thumb">
                         <img
                           src={contributor.thumb}
                           alt={contributor.name}
@@ -1445,10 +1445,10 @@ function Detailpage() {
                         />
                       </div>
                       <div className="count">
-                        <h5 className="text-black font-medium">
+                        <h5 className="font-medium text-black">
                           {contributor.contributionCount}
                         </h5>
-                        <small className="text-black font-normal">
+                        <small className="font-normal text-black">
                           {contributor.name}
                         </small>
                       </div>
@@ -1457,8 +1457,8 @@ function Detailpage() {
                 </div>
               </div>
               {/* Popularity Trend */}
-              <div className="contributormain w-full">
-                <h3 className="text-black font-bold">Popularity Trend</h3>
+              <div className="w-full contributormain">
+                <h3 className="font-bold text-black">Popularity Trend</h3>
                 <MarginalValueGraph days={days} popularity={popularity} />
               </div>
             </div>

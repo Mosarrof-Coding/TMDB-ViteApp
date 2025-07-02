@@ -42,11 +42,16 @@ function AlternativeTitle() {
   // Function to fetch country data
   const fetchCountries = async () => {
     try {
-      const response = await fetch("https://restcountries.com/v3.1/all");
+      const response = await fetch(
+        "https://restcountries.com/v3.1/all?fields=name,flags,cca2"
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
       const data = await response.json();
       setCountries(data);
     } catch (error) {
-      console.error(error);
+      console.error("Error fetching countries:", error);
     }
   };
 
@@ -63,14 +68,22 @@ function AlternativeTitle() {
       ? { name: country.name.common, flag: country.flags.png }
       : { name: "Unknown", flag: "" };
   };
+  // Group titles by country ISO code and count occurrences
+  const countryCountMap = titles.reduce((acc, title) => {
+    const code = title.iso_3166_1;
+    acc[code] = (acc[code] || 0) + 1;
+    return acc;
+  }, {});
 
+  // Convert to array of entries for mapping
+  const uniqueCountries = Object.entries(countryCountMap); // [ [ 'US', 2 ], [ 'FR', 1 ] ]
   return (
     <>
       <section className="">
         {/* Rendering movie details */}
         <div className="bg-gray-600">
           <div className="contizer">
-            <div className="bb py-4 flex items-center gap-8">
+            <div className="flex items-center gap-8 py-4 bb">
               <div className="w-16 lg:w-20">
                 {detail.poster_path ? (
                   <div className="object-cover overflow-hidden">
@@ -87,9 +100,9 @@ function AlternativeTitle() {
                 )}
               </div>
               <div className="title">
-                <h3 className="text-xl lg:text-3xl font-bold text-white">
+                <h3 className="font-bold text-white text-xl lg:text-3xl">
                   {detail.title}{" "}
-                  <span className="release_date text-gray-400 font-medium">
+                  <span className="font-medium text-gray-400 release_date">
                     {detail.release_date ? (
                       <span>({detail.release_date.slice(0, 4)})</span>
                     ) : (
@@ -98,7 +111,7 @@ function AlternativeTitle() {
                   </span>
                 </h3>
                 <Link
-                  className="hover:text-gray-400 font-semibold"
+                  className="font-semibold hover:text-gray-400"
                   to={`/Detailpage/${params.id}`}
                 >
                   ⬅ Back to main
@@ -109,20 +122,19 @@ function AlternativeTitle() {
         </div>
         {/* Rendering alternative titles */}
         <div className="contizer">
-          <div className="Altbox flex flex-col sm:flex-row justify-between gap-6 py-8">
-            <div className="basis-1/4 min-w-[220px]">
-              <div className="rounded lg:rounded-lg overflow-hidden shadow-md hover:shadow-lg pb-2 border border-gray-300">
-                <div className="flex justify-between gap-2 bg-black text-white py-4 mb-2 px-3 text-lg md:text-xl xl:text-2xl font-semibold">
+          <div className="flex sm:flex-row flex-col justify-between gap-6 py-8 Altbox">
+            <div className="min-w-[220px] basis-1/4">
+              <div className="shadow-md hover:shadow-lg pb-2 border border-gray-300 rounded lg:rounded-lg overflow-hidden">
+                <div className="flex justify-between gap-2 bg-black mb-2 px-3 py-4 font-semibold text-white text-lg md:text-xl xl:text-2xl">
                   <span className="">Alternative Titles</span>
                   <span className="text-blue-300">{cNamse}</span>
                 </div>
-                {titles.map((title, i) => (
+                {uniqueCountries.map(([code, count], i) => (
                   <div key={i}>
-                    {/* Displaying country name */}
-                    <div className="text-gray-600 py-2 px-3 hover:bg-gray-200 flex justify-between items-center">
-                      {getCountryInfo(title.iso_3166_1).name}
-                      <div className="w-4 h-6 rounded-full bg-gray-200 hover:bg-white text-black grid place-items-center">
-                        1
+                    <div className="flex justify-between items-center hover:bg-gray-200 px-3 py-2 text-gray-600">
+                      {getCountryInfo(code).name}
+                      <div className="place-items-center grid bg-gray-200 hover:bg-white rounded-full w-5 h-6 text-black text-xs">
+                        {count}
                       </div>
                     </div>
                   </div>
@@ -134,10 +146,10 @@ function AlternativeTitle() {
                 {titles.map((title, i) => (
                   <div
                     key={i}
-                    className="rounded lg:rounded-lg overflow-hidden shadow-md border hover:shadow-lg transition-all cursor-pointer"
+                    className="shadow-md hover:shadow-lg border rounded lg:rounded-lg overflow-hidden transition-all cursor-pointer"
                   >
                     {/* Displaying country name */}
-                    <div className="text-gray-600 bg-gray-200 p-3 font-bold flex gap-2 items-center">
+                    <div className="flex items-center gap-2 bg-gray-200 p-3 font-bold text-gray-600">
                       {/* Displaying country flag */}
                       <span className="">
                         <img
@@ -148,23 +160,23 @@ function AlternativeTitle() {
                       </span>
                       <span>{getCountryInfo(title.iso_3166_1).name}</span>
                     </div>
-                    <div className="flex justify-between items-center gap-2 text-black px-3 py-2 border-b font-medium">
-                      <li className="list-none capitalize text-sm basis-1/2">
+                    <div className="flex justify-between items-center gap-2 px-3 py-2 border-b font-medium text-black">
+                      <li className="text-sm capitalize list-none basis-1/2">
                         Title
                       </li>
-                      <li className="list-none capitalize text-sm basis-1/2">
+                      <li className="text-sm capitalize list-none basis-1/2">
                         Type
                       </li>
                     </div>
                     {/* Displaying alternative title */}
                     <div className="flex justify-between items-center gap-2 px-3 py-2">
-                      <li className="text-gray-600 list-none capitalize text-sm basis-1/2">
-                        <span className="text-sm font-light">
+                      <li className="text-gray-600 text-sm capitalize list-none basis-1/2">
+                        <span className="font-light text-sm">
                           {title.title}
                         </span>
                       </li>
-                      <li className="text-pink-300 list-none capitalize text-sm basis-1/2">
-                        <span className="text-sm font-light">{title.type}</span>
+                      <li className="text-pink-300 text-sm capitalize list-none basis-1/2">
+                        <span className="font-light text-sm">{title.type}</span>
                       </li>
                     </div>
                   </div>
